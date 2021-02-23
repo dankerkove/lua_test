@@ -1,4 +1,0 @@
-SquawkLevelEnum
-===============
-
-.. lua:autoclass:: SquawkLevelEnum

@@ -1,4 +1,0 @@
-SetpointAdjustModeEnum
-======================
-
-.. lua:autoclass:: SetpointAdjustModeEnum

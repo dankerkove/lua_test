@@ -1,4 +1,0 @@
-CreditPaymentStatusEnum
-=======================
-
-.. lua:autoclass:: CreditPaymentStatusEnum

@@ -1,4 +1,0 @@
-GenericFlowPressureAlarmGroupsEnum
-==================================
-
-.. lua:autoclass:: GenericFlowPressureAlarmGroupsEnum

@@ -1,4 +1,0 @@
-ResetOptionsBitmap
-==================
-
-.. lua:autoclass:: ResetOptionsBitmap

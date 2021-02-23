@@ -1,4 +1,0 @@
-ThermostatRunningStateBitmap
-============================
-
-.. lua:autoclass:: ThermostatRunningStateBitmap

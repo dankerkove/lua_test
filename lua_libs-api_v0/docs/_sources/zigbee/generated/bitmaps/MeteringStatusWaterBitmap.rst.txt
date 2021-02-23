@@ -1,4 +1,0 @@
-MeteringStatusWaterBitmap
-=========================
-
-.. lua:autoclass:: MeteringStatusWaterBitmap

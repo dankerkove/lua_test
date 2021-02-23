@@ -1,4 +1,0 @@
-PriceControlAcknowledgementEnum
-===============================
-
-.. lua:autoclass:: PriceControlAcknowledgementEnum

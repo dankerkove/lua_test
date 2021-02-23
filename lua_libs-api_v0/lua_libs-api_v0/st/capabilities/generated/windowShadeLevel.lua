@@ -1,1 +1,0 @@
-return [[{"name": "Window Shade Level", "status": "proposed", "attributes": {"shadeLevel": {"schema": {"$ref": "IntegerPercent"}, "type": "NUMBER", "setter": "setShadeLevel"}}, "commands": {"setShadeLevel": {"arguments": [{"name": "shadeLevel", "schema": {"$ref": "IntegerPercent"}, "type": "NUMBER", "required": true}]}}, "public": true, "id": "windowShadeLevel", "version": 1}]]

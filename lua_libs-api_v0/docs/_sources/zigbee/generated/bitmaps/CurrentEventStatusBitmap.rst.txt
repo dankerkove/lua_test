@@ -1,4 +1,0 @@
-CurrentEventStatusBitmap
-========================
-
-.. lua:autoclass:: CurrentEventStatusBitmap

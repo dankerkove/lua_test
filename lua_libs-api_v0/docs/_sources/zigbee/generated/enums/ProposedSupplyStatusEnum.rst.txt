@@ -1,4 +1,0 @@
-ProposedSupplyStatusEnum
-========================
-
-.. lua:autoclass:: ProposedSupplyStatusEnum

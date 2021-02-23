@@ -1,6 +1,0 @@
-Reset
-=====
-
-.. lua:autoclass:: st.zwave.CommandClass.Meter.Reset
-.. lua:autoclass:: st.zwave.CommandClass.Meter.ResetV2
-.. lua:autoclass:: st.zwave.CommandClass.Meter.ResetV2Args

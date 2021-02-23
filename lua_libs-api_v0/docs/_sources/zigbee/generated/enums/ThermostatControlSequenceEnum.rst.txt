@@ -1,4 +1,0 @@
-ThermostatControlSequenceEnum
-=============================
-
-.. lua:autoclass:: ThermostatControlSequenceEnum

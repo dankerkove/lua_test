@@ -1,4 +1,0 @@
-WarningEventEnum
-================
-
-.. lua:autoclass:: WarningEventEnum

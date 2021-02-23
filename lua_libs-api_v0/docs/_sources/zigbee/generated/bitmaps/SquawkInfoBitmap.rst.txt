@@ -1,4 +1,0 @@
-SquawkInfoBitmap
-================
-
-.. lua:autoclass:: SquawkInfoBitmap

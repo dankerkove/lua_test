@@ -1,4 +1,0 @@
-BlockPeriodDurationTypeTimebaseEnum
-===================================
-
-.. lua:autoclass:: BlockPeriodDurationTypeTimebaseEnum

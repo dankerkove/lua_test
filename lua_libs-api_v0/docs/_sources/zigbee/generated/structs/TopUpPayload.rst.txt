@@ -1,4 +1,0 @@
-TopUpPayload
-============
-
-.. lua:autoclass:: TopUpPayload

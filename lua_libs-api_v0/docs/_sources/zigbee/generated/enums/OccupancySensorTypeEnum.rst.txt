@@ -1,4 +1,0 @@
-OccupancySensorTypeEnum
-=======================
-
-.. lua:autoclass:: OccupancySensorTypeEnum

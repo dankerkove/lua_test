@@ -1,4 +1,0 @@
-PriceTierEnum
-=============
-
-.. lua:autoclass:: PriceTierEnum

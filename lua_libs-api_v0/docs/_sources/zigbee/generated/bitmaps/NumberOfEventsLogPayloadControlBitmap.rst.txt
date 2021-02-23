@@ -1,4 +1,0 @@
-NumberOfEventsLogPayloadControlBitmap
-=====================================
-
-.. lua:autoclass:: NumberOfEventsLogPayloadControlBitmap

@@ -1,4 +1,0 @@
-GenericAlarmGroupsHeatCoolingEnum
-=================================
-
-.. lua:autoclass:: GenericAlarmGroupsHeatCoolingEnum

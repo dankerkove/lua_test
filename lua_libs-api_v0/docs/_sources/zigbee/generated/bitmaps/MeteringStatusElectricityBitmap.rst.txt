@@ -1,4 +1,0 @@
-MeteringStatusElectricityBitmap
-===============================
-
-.. lua:autoclass:: MeteringStatusElectricityBitmap

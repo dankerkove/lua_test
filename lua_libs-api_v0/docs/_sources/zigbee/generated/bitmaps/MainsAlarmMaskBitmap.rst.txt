@@ -1,4 +1,0 @@
-MainsAlarmMaskBitmap
-====================
-
-.. lua:autoclass:: MainsAlarmMaskBitmap

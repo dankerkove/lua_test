@@ -1,4 +1,0 @@
-MessagingConfirmationControlBitmap
-==================================
-
-.. lua:autoclass:: MessagingConfirmationControlBitmap

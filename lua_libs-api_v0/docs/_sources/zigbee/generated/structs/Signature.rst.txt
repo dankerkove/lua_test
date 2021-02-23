@@ -1,4 +1,0 @@
-Signature
-=========
-
-.. lua:autoclass:: Signature

@@ -1,4 +1,0 @@
-TariffChargingSchemeEnum
-========================
-
-.. lua:autoclass:: TariffChargingSchemeEnum

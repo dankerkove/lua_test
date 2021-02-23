@@ -1,1 +1,0 @@
-return [[{"name": "Stateless Set Channel By Content Button", "status": "proposed", "attributes": {}, "commands": {"setChannelByContent": {"arguments": [{"name": "contentName", "required": true, "schema": {"type": "string"}, "type": "STRING"}]}}, "public": true, "id": "statelessSetChannelByContentButton", "version": 1}]]

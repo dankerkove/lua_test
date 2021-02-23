@@ -1,4 +1,0 @@
-ProposedChangeControlBitmap
-===========================
-
-.. lua:autoclass:: ProposedChangeControlBitmap

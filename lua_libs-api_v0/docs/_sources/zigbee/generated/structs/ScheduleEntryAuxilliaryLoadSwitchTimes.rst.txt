@@ -1,4 +1,0 @@
-ScheduleEntryAuxilliaryLoadSwitchTimes
-======================================
-
-.. lua:autoclass:: ScheduleEntryAuxilliaryLoadSwitchTimes

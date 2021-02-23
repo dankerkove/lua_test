@@ -1,4 +1,0 @@
-DoorStateEnum
-=============
-
-.. lua:autoclass:: DoorStateEnum

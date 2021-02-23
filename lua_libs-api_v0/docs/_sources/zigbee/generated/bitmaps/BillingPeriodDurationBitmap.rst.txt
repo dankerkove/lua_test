@@ -1,4 +1,0 @@
-BillingPeriodDurationBitmap
-===========================
-
-.. lua:autoclass:: BillingPeriodDurationBitmap

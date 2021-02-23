@@ -1,4 +1,0 @@
-RepaymentDebtTypeEnum
-=====================
-
-.. lua:autoclass:: RepaymentDebtTypeEnum

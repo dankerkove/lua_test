@@ -1,4 +1,0 @@
-MeteringSupplyStatusEnum
-========================
-
-.. lua:autoclass:: MeteringSupplyStatusEnum

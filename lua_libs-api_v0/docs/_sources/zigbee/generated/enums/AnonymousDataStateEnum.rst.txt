@@ -1,4 +1,0 @@
-AnonymousDataStateEnum
-======================
-
-.. lua:autoclass:: AnonymousDataStateEnum

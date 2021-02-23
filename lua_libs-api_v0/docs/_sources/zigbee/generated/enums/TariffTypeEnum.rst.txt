@@ -1,4 +1,0 @@
-TariffTypeEnum
-==============
-
-.. lua:autoclass:: TariffTypeEnum

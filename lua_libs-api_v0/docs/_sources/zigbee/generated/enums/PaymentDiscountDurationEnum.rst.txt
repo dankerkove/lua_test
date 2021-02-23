@@ -1,4 +1,0 @@
-PaymentDiscountDurationEnum
-===========================
-
-.. lua:autoclass:: PaymentDiscountDurationEnum

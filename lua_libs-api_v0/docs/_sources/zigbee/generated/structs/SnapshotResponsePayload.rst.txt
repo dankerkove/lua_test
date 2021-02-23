@@ -1,4 +1,0 @@
-SnapshotResponsePayload
-=======================
-
-.. lua:autoclass:: SnapshotResponsePayload

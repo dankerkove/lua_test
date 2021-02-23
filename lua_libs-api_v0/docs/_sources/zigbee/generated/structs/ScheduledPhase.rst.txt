@@ -1,4 +1,0 @@
-ScheduledPhase
-==============
-
-.. lua:autoclass:: ScheduledPhase

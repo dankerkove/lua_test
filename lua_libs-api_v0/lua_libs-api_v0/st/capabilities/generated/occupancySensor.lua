@@ -1,1 +1,0 @@
-return [[{"name": "Occupancy Sensor", "status": "proposed", "attributes": {"occupancy": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "OccupancyState"}}, "required": ["value"]}, "type": "ENUM", "values": ["occupied", "unoccupied"]}}, "commands": {}, "public": true, "id": "occupancySensor", "version": 1}]]

@@ -1,1 +1,0 @@
-return [[{"title": "COLOR_MAP", "type": "object", "additionalProperties": false, "properties": {"hue": {"type": "number"}, "saturation": {"type": "number"}, "hex": {"type": "string", "maxLength": 7}, "level": {"type": "integer"}, "switch": {"type": "string", "maxLength": 3}}}]]

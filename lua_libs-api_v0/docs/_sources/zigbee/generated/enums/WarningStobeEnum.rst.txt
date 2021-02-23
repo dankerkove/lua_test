@@ -1,4 +1,0 @@
-WarningStobeEnum
-================
-
-.. lua:autoclass:: WarningStobeEnum

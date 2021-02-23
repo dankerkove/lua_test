@@ -1,4 +1,0 @@
-EventLogPayloadControlEnum
-==========================
-
-.. lua:autoclass:: EventLogPayloadControlEnum

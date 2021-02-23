@@ -1,4 +1,0 @@
-StartOfWeekEnum
-===============
-
-.. lua:autoclass:: StartOfWeekEnum

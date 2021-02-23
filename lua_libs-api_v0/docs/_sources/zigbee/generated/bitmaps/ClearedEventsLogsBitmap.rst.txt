@@ -1,4 +1,0 @@
-ClearedEventsLogsBitmap
-=======================
-
-.. lua:autoclass:: ClearedEventsLogsBitmap

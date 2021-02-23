@@ -1,1 +1,0 @@
-return [[{"name": "Dew Point", "status": "proposed", "attributes": {"dewpoint": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "TemperatureValue"}, "unit": {"$ref": "TemperatureUnit"}}, "required": ["value", "unit"]}, "type": "NUMBER"}}, "commands": {}, "public": true, "id": "dewPoint", "version": 1}]]

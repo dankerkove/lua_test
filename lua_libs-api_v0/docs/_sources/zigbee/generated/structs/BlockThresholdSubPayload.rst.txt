@@ -1,4 +1,0 @@
-BlockThresholdSubPayload
-========================
-
-.. lua:autoclass:: BlockThresholdSubPayload

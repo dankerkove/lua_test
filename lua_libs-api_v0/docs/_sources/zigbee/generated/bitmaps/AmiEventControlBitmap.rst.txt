@@ -1,4 +1,0 @@
-AmiEventControlBitmap
-=====================
-
-.. lua:autoclass:: AmiEventControlBitmap

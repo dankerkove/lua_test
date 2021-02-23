@@ -1,4 +1,0 @@
-PriceMatrixSubPayloadControlBitmap
-==================================
-
-.. lua:autoclass:: PriceMatrixSubPayloadControlBitmap

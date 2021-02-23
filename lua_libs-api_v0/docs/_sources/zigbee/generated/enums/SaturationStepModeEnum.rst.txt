@@ -1,4 +1,0 @@
-SaturationStepModeEnum
-======================
-
-.. lua:autoclass:: SaturationStepModeEnum

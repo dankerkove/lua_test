@@ -1,4 +1,0 @@
-PublishCppEventCppAuthEnum
-==========================
-
-.. lua:autoclass:: PublishCppEventCppAuthEnum

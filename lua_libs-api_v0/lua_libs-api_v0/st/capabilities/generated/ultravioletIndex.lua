@@ -1,1 +1,0 @@
-return [[{"name": "Ultraviolet Index", "status": "live", "attributes": {"ultravioletIndex": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"type": "number", "minimum": 0, "maximum": 255}}, "required": ["value"]}, "type": "NUMBER"}}, "commands": {}, "public": true, "id": "ultravioletIndex", "version": 1}]]

@@ -1,4 +1,0 @@
-DoorLockOperatingModeEnum
-=========================
-
-.. lua:autoclass:: DoorLockOperatingModeEnum

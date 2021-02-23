@@ -1,4 +1,0 @@
-AmiCriticalityLevelEnum
-=======================
-
-.. lua:autoclass:: AmiCriticalityLevelEnum

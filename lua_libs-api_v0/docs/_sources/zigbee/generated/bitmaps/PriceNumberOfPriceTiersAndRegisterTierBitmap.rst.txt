@@ -1,4 +1,0 @@
-PriceNumberOfPriceTiersAndRegisterTierBitmap
-============================================
-
-.. lua:autoclass:: PriceNumberOfPriceTiersAndRegisterTierBitmap

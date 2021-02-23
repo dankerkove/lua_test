@@ -1,4 +1,0 @@
-PriceControlMaskBitmap
-======================
-
-.. lua:autoclass:: PriceControlMaskBitmap

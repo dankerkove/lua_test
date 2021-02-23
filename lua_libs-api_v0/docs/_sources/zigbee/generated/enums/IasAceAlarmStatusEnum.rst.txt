@@ -1,4 +1,0 @@
-IasAceAlarmStatusEnum
-=====================
-
-.. lua:autoclass:: IasAceAlarmStatusEnum

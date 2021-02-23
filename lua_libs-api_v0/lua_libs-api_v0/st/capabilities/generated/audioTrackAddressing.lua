@@ -1,1 +1,0 @@
-return [[{"name": "Audio Track Addressing", "status": "proposed", "attributes": {}, "commands": {"setAudioTrack": {"arguments": [{"name": "trackToSet", "required": true, "schema": {"$ref": "AudioTrackAddress"}, "type": "JSON_OBJECT"}]}}, "public": false, "id": "audioTrackAddressing", "version": 1}]]

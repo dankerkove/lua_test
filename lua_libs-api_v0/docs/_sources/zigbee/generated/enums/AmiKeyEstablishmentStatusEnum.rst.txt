@@ -1,4 +1,0 @@
-AmiKeyEstablishmentStatusEnum
-=============================
-
-.. lua:autoclass:: AmiKeyEstablishmentStatusEnum

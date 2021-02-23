@@ -1,1 +1,0 @@
-return [[{"title": "ObjectDetectionValue", "type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "String"}, "qty": {"$ref": "PositiveInteger"}, "data": {"$ref": "JsonObject"}}, "required": ["value"]}]]

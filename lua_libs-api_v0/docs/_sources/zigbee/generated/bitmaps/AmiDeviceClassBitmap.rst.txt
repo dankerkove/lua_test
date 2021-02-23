@@ -1,4 +1,0 @@
-AmiDeviceClassBitmap
-====================
-
-.. lua:autoclass:: AmiDeviceClassBitmap

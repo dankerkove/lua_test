@@ -1,4 +1,0 @@
-ThermostatSensingBitmap
-=======================
-
-.. lua:autoclass:: ThermostatSensingBitmap

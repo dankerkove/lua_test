@@ -1,4 +1,0 @@
-AlternateCostUnitEnum
-=====================
-
-.. lua:autoclass:: AlternateCostUnitEnum

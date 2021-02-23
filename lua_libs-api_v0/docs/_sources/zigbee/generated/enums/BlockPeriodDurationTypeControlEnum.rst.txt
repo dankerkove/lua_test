@@ -1,4 +1,0 @@
-BlockPeriodDurationTypeControlEnum
-==================================
-
-.. lua:autoclass:: BlockPeriodDurationTypeControlEnum

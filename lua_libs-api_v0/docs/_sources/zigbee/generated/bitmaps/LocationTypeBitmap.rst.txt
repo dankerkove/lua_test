@@ -1,4 +1,0 @@
-LocationTypeBitmap
-==================
-
-.. lua:autoclass:: LocationTypeBitmap

@@ -1,4 +1,0 @@
-CalendarTimeReferenceEnum
-=========================
-
-.. lua:autoclass:: CalendarTimeReferenceEnum

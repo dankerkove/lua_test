@@ -1,4 +1,0 @@
-PowerProfileRecord
-==================
-
-.. lua:autoclass:: PowerProfileRecord

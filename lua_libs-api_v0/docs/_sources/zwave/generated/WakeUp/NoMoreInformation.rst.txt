@@ -1,6 +1,0 @@
-No More Information
-===================
-
-.. lua:autoclass:: st.zwave.CommandClass.WakeUp.NoMoreInformation
-.. lua:autoclass:: st.zwave.CommandClass.WakeUp.NoMoreInformationV1
-.. lua:autoclass:: st.zwave.CommandClass.WakeUp.NoMoreInformationV1Args

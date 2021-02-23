@@ -1,4 +1,0 @@
-CreditStatusBitmap
-==================
-
-.. lua:autoclass:: CreditStatusBitmap

@@ -1,4 +1,0 @@
-MeteringStatusGasBitmap
-=======================
-
-.. lua:autoclass:: MeteringStatusGasBitmap

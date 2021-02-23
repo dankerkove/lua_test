@@ -1,4 +1,0 @@
-AlertStructurePresenceRecoveryEnum
-==================================
-
-.. lua:autoclass:: AlertStructurePresenceRecoveryEnum

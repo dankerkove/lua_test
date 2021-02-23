@@ -1,1 +1,0 @@
-return [[{"id": "colorMode", "status": "proposed", "public": true, "name": "Color Mode", "attributes": {"colorMode": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"type": "string", "enum": ["color", "colorTemperature", "other"]}}}, "type": "ENUM", "values": ["color", "colorTemperature", "other"]}}, "commands": {}, "version": 1}]]

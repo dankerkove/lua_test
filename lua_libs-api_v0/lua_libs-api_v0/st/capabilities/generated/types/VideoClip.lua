@@ -1,1 +1,0 @@
-return [[{"title": "VideoClip", "type": "object", "additionalProperties": false, "properties": {"status": {"$ref": "VideoClipStatus"}, "clipId": {"$ref": "String"}, "thumbnailUrl": {"$ref": "URL"}, "clipUrl": {"$ref": "URL"}, "startTime": {"$ref": "Iso8601Date"}, "captureTime": {"$ref": "Iso8601Date"}, "duration": {"$ref": "PositiveInteger"}}}]]

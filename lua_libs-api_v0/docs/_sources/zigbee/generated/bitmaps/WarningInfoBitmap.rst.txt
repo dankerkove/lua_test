@@ -1,4 +1,0 @@
-WarningInfoBitmap
-=================
-
-.. lua:autoclass:: WarningInfoBitmap

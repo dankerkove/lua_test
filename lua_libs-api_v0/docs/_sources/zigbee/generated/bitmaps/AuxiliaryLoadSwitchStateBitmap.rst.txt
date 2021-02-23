@@ -1,4 +1,0 @@
-AuxiliaryLoadSwitchStateBitmap
-==============================
-
-.. lua:autoclass:: AuxiliaryLoadSwitchStateBitmap

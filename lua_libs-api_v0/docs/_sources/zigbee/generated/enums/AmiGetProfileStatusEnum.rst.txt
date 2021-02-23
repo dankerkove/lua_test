@@ -1,4 +1,0 @@
-AmiGetProfileStatusEnum
-=======================
-
-.. lua:autoclass:: AmiGetProfileStatusEnum

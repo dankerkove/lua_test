@@ -1,4 +1,0 @@
-DoorLockSetPinOrIdStatusEnum
-============================
-
-.. lua:autoclass:: DoorLockSetPinOrIdStatusEnum

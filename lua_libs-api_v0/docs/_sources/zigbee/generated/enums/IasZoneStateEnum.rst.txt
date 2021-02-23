@@ -1,4 +1,0 @@
-IasZoneStateEnum
-================
-
-.. lua:autoclass:: IasZoneStateEnum

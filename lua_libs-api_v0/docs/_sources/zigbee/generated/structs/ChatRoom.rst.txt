@@ -1,4 +1,0 @@
-ChatRoom
-========
-
-.. lua:autoclass:: ChatRoom

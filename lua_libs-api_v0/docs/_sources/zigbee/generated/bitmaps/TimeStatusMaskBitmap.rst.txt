@@ -1,4 +1,0 @@
-TimeStatusMaskBitmap
-====================
-
-.. lua:autoclass:: TimeStatusMaskBitmap

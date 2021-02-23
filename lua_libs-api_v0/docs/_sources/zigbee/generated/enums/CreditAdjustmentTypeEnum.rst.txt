@@ -1,4 +1,0 @@
-CreditAdjustmentTypeEnum
-========================
-
-.. lua:autoclass:: CreditAdjustmentTypeEnum

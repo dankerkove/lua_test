@@ -1,1 +1,0 @@
-return [[{"name": "Power Consumption Report", "status": "proposed", "attributes": {"powerConsumption": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "PowerConsumption"}}, "required": ["value"]}, "type": "JSON_OBJECT"}}, "commands": {}, "public": true, "id": "powerConsumptionReport", "version": 1}]]

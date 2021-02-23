@@ -1,1 +1,0 @@
-return [[{"name": "Speech Synthesis", "status": "proposed", "attributes": {}, "commands": {"speak": {"arguments": [{"name": "phrase", "required": true, "schema": {"type": "string", "maxLength": 1000}, "type": "STRING"}]}}, "public": true, "id": "speechSynthesis", "version": 1}]]

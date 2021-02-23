@@ -1,4 +1,0 @@
-EventLogPayload
-===============
-
-.. lua:autoclass:: EventLogPayload

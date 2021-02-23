@@ -1,4 +1,0 @@
-AmiCommandOptionsBitmap
-=======================
-
-.. lua:autoclass:: AmiCommandOptionsBitmap

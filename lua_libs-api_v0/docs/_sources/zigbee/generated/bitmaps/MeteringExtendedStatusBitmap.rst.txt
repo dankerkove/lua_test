@@ -1,4 +1,0 @@
-MeteringExtendedStatusBitmap
-============================
-
-.. lua:autoclass:: MeteringExtendedStatusBitmap

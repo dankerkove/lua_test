@@ -1,4 +1,0 @@
-GasSpecificAlarmGroupsEnum
-==========================
-
-.. lua:autoclass:: GasSpecificAlarmGroupsEnum

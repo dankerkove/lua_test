@@ -1,4 +1,0 @@
-SupplyControlBitsBitmap
-=======================
-
-.. lua:autoclass:: SupplyControlBitsBitmap

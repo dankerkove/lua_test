@@ -1,4 +1,0 @@
-Protocol
-========
-
-.. lua:autoclass:: Protocol

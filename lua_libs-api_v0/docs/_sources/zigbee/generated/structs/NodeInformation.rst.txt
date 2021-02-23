@@ -1,4 +1,0 @@
-NodeInformation
-===============
-
-.. lua:autoclass:: NodeInformation

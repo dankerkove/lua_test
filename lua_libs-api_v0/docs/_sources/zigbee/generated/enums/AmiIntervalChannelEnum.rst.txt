@@ -1,4 +1,0 @@
-AmiIntervalChannelEnum
-======================
-
-.. lua:autoclass:: AmiIntervalChannelEnum

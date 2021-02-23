@@ -1,4 +1,0 @@
-PrepaySnapshotPayloadTypeEnum
-=============================
-
-.. lua:autoclass:: PrepaySnapshotPayloadTypeEnum

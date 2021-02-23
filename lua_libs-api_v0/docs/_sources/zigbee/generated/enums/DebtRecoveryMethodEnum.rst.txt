@@ -1,4 +1,0 @@
-DebtRecoveryMethodEnum
-======================
-
-.. lua:autoclass:: DebtRecoveryMethodEnum

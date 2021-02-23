@@ -1,4 +1,0 @@
-ScheduleEntry
-=============
-
-.. lua:autoclass:: ScheduleEntry

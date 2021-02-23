@@ -1,1 +1,0 @@
-return [[{"name": "Bypassable", "status": "live", "attributes": {"bypassStatus": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "BypassState"}}, "required": ["value"]}, "type": "ENUM", "values": ["ready", "notReady", "bypassed"]}}, "commands": {}, "public": false, "id": "bypassable", "version": 1}]]

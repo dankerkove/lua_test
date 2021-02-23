@@ -1,4 +1,0 @@
-ConversionFactorTrailingDigitBitmap
-===================================
-
-.. lua:autoclass:: ConversionFactorTrailingDigitBitmap

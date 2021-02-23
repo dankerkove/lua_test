@@ -1,4 +1,0 @@
-SupplyStatusEnum
-================
-
-.. lua:autoclass:: SupplyStatusEnum

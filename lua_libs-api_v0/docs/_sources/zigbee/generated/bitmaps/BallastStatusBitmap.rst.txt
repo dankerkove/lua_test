@@ -1,4 +1,0 @@
-BallastStatusBitmap
-===================
-
-.. lua:autoclass:: BallastStatusBitmap

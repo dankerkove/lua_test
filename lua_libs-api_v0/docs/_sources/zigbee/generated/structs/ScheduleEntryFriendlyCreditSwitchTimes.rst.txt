@@ -1,4 +1,0 @@
-ScheduleEntryFriendlyCreditSwitchTimes
-======================================
-
-.. lua:autoclass:: ScheduleEntryFriendlyCreditSwitchTimes

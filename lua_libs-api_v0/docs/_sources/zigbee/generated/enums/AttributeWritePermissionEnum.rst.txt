@@ -1,4 +1,0 @@
-AttributeWritePermissionEnum
-============================
-
-.. lua:autoclass:: AttributeWritePermissionEnum

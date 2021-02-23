@@ -1,4 +1,0 @@
-HueDirectionEnum
-================
-
-.. lua:autoclass:: HueDirectionEnum

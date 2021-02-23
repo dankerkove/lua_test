@@ -1,4 +1,0 @@
-PumpOperationModeEnum
-=====================
-
-.. lua:autoclass:: PumpOperationModeEnum

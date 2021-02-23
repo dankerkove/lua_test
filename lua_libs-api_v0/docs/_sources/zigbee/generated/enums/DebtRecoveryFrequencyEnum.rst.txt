@@ -1,4 +1,0 @@
-DebtRecoveryFrequencyEnum
-=========================
-
-.. lua:autoclass:: DebtRecoveryFrequencyEnum

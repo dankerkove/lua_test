@@ -1,4 +1,0 @@
-DoorLockEventSourceEnum
-=======================
-
-.. lua:autoclass:: DoorLockEventSourceEnum

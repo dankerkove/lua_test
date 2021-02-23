@@ -1,4 +1,0 @@
-PushHistoricalPaymentDataEnum
-=============================
-
-.. lua:autoclass:: PushHistoricalPaymentDataEnum

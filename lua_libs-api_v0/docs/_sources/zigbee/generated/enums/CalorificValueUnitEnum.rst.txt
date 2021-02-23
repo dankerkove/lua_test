@@ -1,4 +1,0 @@
-CalorificValueUnitEnum
-======================
-
-.. lua:autoclass:: CalorificValueUnitEnum

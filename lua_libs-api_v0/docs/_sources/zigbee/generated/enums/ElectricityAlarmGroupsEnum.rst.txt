@@ -1,4 +1,0 @@
-ElectricityAlarmGroupsEnum
-==========================
-
-.. lua:autoclass:: ElectricityAlarmGroupsEnum

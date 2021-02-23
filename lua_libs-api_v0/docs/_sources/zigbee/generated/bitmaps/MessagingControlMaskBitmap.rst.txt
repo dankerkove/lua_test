@@ -1,4 +1,0 @@
-MessagingControlMaskBitmap
-==========================
-
-.. lua:autoclass:: MessagingControlMaskBitmap

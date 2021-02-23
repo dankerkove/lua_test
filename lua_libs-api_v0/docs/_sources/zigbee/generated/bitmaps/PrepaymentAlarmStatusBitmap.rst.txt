@@ -1,4 +1,0 @@
-PrepaymentAlarmStatusBitmap
-===========================
-
-.. lua:autoclass:: PrepaymentAlarmStatusBitmap

@@ -1,6 +1,0 @@
-Z-Wave Device Class
-===================
-
-The :lua:class:`st.zwave.Device <st.zwave.Device>` class inherits from :lua:class:`Device <Device>`, extending behavior with Z-Wave-specific functionality.  Device objects are instantiated by the framework and passed to drivers as parameters for device-related methods.
-
-.. lua:autoclass:: st.zwave.Device

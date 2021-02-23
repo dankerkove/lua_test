@@ -1,4 +1,0 @@
-RegisterTierEnum
-================
-
-.. lua:autoclass:: RegisterTierEnum

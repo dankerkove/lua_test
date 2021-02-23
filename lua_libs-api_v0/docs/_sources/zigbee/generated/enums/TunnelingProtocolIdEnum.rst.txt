@@ -1,4 +1,0 @@
-TunnelingProtocolIdEnum
-=======================
-
-.. lua:autoclass:: TunnelingProtocolIdEnum

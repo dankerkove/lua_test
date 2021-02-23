@@ -1,4 +1,0 @@
-ThermostatAlarmMaskBitmap
-=========================
-
-.. lua:autoclass:: ThermostatAlarmMaskBitmap

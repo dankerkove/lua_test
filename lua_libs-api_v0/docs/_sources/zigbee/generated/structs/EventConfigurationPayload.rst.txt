@@ -1,4 +1,0 @@
-EventConfigurationPayload
-=========================
-
-.. lua:autoclass:: EventConfigurationPayload

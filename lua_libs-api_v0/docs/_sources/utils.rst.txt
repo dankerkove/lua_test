@@ -1,6 +1,0 @@
-Utils Library
-=============
-
-The st.utils library contains miscellaneous Lua helper functions.
-
-.. lua:autoclass:: st.utils

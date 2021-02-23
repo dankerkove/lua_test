@@ -1,4 +1,0 @@
-WanStatusEnum
-=============
-
-.. lua:autoclass:: WanStatusEnum

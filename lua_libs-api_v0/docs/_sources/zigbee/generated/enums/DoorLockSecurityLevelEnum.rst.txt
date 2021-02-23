@@ -1,4 +1,0 @@
-DoorLockSecurityLevelEnum
-=========================
-
-.. lua:autoclass:: DoorLockSecurityLevelEnum

@@ -1,4 +1,0 @@
-AmiMeterStatusBitmap
-====================
-
-.. lua:autoclass:: AmiMeterStatusBitmap

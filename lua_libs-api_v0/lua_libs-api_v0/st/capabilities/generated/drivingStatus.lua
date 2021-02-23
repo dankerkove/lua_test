@@ -1,1 +1,0 @@
-return [[{"name": "Driving Status", "status": "proposed", "attributes": {"drivingStatus": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"type": "string", "enum": ["driving", "notDriving"]}}, "required": ["value"]}, "type": "ENUM", "values": ["driving", "notDriving"]}}, "commands": {}, "public": true, "id": "drivingStatus", "version": 1}]]

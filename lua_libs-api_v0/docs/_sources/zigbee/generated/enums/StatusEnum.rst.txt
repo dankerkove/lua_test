@@ -1,4 +1,0 @@
-StatusEnum
-==========
-
-.. lua:autoclass:: StatusEnum

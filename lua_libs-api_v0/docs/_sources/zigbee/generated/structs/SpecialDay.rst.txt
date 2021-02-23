@@ -1,4 +1,0 @@
-SpecialDay
-==========
-
-.. lua:autoclass:: SpecialDay

@@ -1,4 +1,0 @@
-AlertCountTypeEnum
-==================
-
-.. lua:autoclass:: AlertCountTypeEnum

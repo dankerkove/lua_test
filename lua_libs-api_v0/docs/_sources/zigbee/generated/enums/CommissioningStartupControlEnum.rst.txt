@@ -1,4 +1,0 @@
-CommissioningStartupControlEnum
-===============================
-
-.. lua:autoclass:: CommissioningStartupControlEnum

@@ -1,4 +1,0 @@
-OperatingModeEnum
-=================
-
-.. lua:autoclass:: OperatingModeEnum

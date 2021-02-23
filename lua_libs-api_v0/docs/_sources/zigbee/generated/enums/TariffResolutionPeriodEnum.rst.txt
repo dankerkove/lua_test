@@ -1,4 +1,0 @@
-TariffResolutionPeriodEnum
-==========================
-
-.. lua:autoclass:: TariffResolutionPeriodEnum

@@ -1,4 +1,0 @@
-EventConfigurationLogActionEnum
-===============================
-
-.. lua:autoclass:: EventConfigurationLogActionEnum

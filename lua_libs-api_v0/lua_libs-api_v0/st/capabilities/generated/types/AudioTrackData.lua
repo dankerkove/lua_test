@@ -1,1 +1,0 @@
-return [[{"title": "AudioTrackData", "type": "object", "additionalProperties": false, "properties": {"title": {"$ref": "String"}, "artist": {"$ref": "String"}, "album": {"$ref": "String"}, "albumArtUrl": {"$ref": "String"}, "mediaSource": {"$ref": "String"}}, "required": ["title"]}]]

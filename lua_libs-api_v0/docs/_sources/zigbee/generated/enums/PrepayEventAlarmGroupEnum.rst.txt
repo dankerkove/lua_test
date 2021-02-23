@@ -1,4 +1,0 @@
-PrepayEventAlarmGroupEnum
-=========================
-
-.. lua:autoclass:: PrepayEventAlarmGroupEnum

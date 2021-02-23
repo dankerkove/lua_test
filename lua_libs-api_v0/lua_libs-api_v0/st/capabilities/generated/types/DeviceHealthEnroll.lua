@@ -1,1 +1,0 @@
-return [[{"title": "DeviceHealthEnroll", "type": "object", "additionalProperties": false, "properties": {"scheme": {"type": "string", "enum": ["MIXED", "TRACKED", "UNTRACKED"]}, "protocol": {"$ref": "DeviceHealthProtocol"}, "hubHardwareId": {"$ref": "String"}}}]]

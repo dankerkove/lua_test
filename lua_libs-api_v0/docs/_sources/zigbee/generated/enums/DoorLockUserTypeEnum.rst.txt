@@ -1,4 +1,0 @@
-DoorLockUserTypeEnum
-====================
-
-.. lua:autoclass:: DoorLockUserTypeEnum

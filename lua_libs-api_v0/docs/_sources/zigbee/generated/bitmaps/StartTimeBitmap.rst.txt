@@ -1,4 +1,0 @@
-StartTimeBitmap
-===============
-
-.. lua:autoclass:: StartTimeBitmap

@@ -1,4 +1,0 @@
-MeterDeviceTypeEnum
-===================
-
-.. lua:autoclass:: MeterDeviceTypeEnum

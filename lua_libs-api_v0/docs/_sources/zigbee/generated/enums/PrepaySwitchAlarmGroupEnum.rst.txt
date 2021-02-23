@@ -1,4 +1,0 @@
-PrepaySwitchAlarmGroupEnum
-==========================
-
-.. lua:autoclass:: PrepaySwitchAlarmGroupEnum

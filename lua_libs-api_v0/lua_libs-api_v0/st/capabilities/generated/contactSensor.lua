@@ -1,1 +1,0 @@
-return [[{"name": "Contact Sensor", "status": "live", "attributes": {"contact": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "ContactState"}}, "required": ["value"]}, "type": "ENUM", "values": ["closed", "open"]}}, "commands": {}, "public": true, "id": "contactSensor", "ocfResourceType": "oic.r.sensor.contact", "version": 1}]]

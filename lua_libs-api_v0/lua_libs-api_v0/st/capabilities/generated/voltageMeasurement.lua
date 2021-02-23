@@ -1,1 +1,0 @@
-return [[{"name": "Voltage Measurement", "status": "live", "attributes": {"voltage": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "Number"}, "unit": {"type": "string", "enum": ["V"], "default": "V"}}, "required": ["value"]}, "type": "NUMBER"}}, "commands": {}, "public": true, "id": "voltageMeasurement", "version": 1}]]

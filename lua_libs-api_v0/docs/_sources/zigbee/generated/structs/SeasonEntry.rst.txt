@@ -1,4 +1,0 @@
-SeasonEntry
-===========
-
-.. lua:autoclass:: SeasonEntry

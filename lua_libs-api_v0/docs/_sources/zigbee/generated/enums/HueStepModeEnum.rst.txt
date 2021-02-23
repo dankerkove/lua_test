@@ -1,4 +1,0 @@
-HueStepModeEnum
-===============
-
-.. lua:autoclass:: HueStepModeEnum

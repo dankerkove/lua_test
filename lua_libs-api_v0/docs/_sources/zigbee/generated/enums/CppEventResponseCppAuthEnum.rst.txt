@@ -1,4 +1,0 @@
-CppEventResponseCppAuthEnum
-===========================
-
-.. lua:autoclass:: CppEventResponseCppAuthEnum

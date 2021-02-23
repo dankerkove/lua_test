@@ -1,4 +1,0 @@
-NeighborInfo
-============
-
-.. lua:autoclass:: NeighborInfo

@@ -1,4 +1,0 @@
-EventIdentificationEnum
-=======================
-
-.. lua:autoclass:: EventIdentificationEnum

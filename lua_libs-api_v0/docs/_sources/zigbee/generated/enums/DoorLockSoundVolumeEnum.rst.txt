@@ -1,4 +1,0 @@
-DoorLockSoundVolumeEnum
-=======================
-
-.. lua:autoclass:: DoorLockSoundVolumeEnum

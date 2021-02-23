@@ -1,4 +1,0 @@
-SwitchActionsEnum
-=================
-
-.. lua:autoclass:: SwitchActionsEnum

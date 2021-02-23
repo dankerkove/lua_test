@@ -1,4 +1,0 @@
-IasZoneStatusBitmap
-===================
-
-.. lua:autoclass:: IasZoneStatusBitmap

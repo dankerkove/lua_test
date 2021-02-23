@@ -1,4 +1,0 @@
-BatterySizeEnum
-===============
-
-.. lua:autoclass:: BatterySizeEnum

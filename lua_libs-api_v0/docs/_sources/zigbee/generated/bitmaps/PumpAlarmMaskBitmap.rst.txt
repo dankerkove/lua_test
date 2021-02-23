@@ -1,4 +1,0 @@
-PumpAlarmMaskBitmap
-===================
-
-.. lua:autoclass:: PumpAlarmMaskBitmap

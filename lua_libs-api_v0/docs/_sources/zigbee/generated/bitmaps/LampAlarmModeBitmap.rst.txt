@@ -1,4 +1,0 @@
-LampAlarmModeBitmap
-===================
-
-.. lua:autoclass:: LampAlarmModeBitmap

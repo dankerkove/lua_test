@@ -1,4 +1,0 @@
-SwitchTypeEnum
-==============
-
-.. lua:autoclass:: SwitchTypeEnum

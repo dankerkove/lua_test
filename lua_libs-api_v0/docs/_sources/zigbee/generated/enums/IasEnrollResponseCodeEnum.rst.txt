@@ -1,4 +1,0 @@
-IasEnrollResponseCodeEnum
-=========================
-
-.. lua:autoclass:: IasEnrollResponseCodeEnum

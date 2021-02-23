@@ -1,4 +1,0 @@
-IasAceZoneStatusResult
-======================
-
-.. lua:autoclass:: IasAceZoneStatusResult

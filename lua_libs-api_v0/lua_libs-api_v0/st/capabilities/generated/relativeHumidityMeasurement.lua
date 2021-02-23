@@ -1,1 +1,0 @@
-return [[{"name": "Relative Humidity Measurement", "status": "live", "attributes": {"humidity": {"schema": {"$ref": "Percent"}, "type": "NUMBER"}}, "commands": {}, "public": true, "id": "relativeHumidityMeasurement", "ocfResourceType": "oic.r.humidity", "version": 1}]]

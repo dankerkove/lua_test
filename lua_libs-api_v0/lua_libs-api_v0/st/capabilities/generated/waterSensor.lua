@@ -1,1 +1,0 @@
-return [[{"name": "Water Sensor", "status": "live", "attributes": {"water": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "MoistureState"}}, "required": ["value"]}, "type": "ENUM", "values": ["dry", "wet"]}}, "commands": {}, "public": true, "id": "waterSensor", "ocfResourceType": "oic.r.sensor.water", "version": 1}]]

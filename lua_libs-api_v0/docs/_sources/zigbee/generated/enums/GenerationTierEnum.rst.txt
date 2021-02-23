@@ -1,4 +1,0 @@
-GenerationTierEnum
-==================
-
-.. lua:autoclass:: GenerationTierEnum

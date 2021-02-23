@@ -1,4 +1,0 @@
-RemoteEnableFlagsEnum
-=====================
-
-.. lua:autoclass:: RemoteEnableFlagsEnum

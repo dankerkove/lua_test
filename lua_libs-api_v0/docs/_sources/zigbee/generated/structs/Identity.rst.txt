@@ -1,4 +1,0 @@
-Identity
-========
-
-.. lua:autoclass:: Identity

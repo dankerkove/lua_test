@@ -1,4 +1,0 @@
-ThermostatRunningModeEnum
-=========================
-
-.. lua:autoclass:: ThermostatRunningModeEnum

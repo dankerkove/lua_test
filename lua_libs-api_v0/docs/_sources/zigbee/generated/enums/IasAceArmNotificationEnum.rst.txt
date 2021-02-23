@@ -1,4 +1,0 @@
-IasAceArmNotificationEnum
-=========================
-
-.. lua:autoclass:: IasAceArmNotificationEnum

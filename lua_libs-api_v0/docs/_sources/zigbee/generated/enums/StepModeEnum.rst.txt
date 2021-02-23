@@ -1,4 +1,0 @@
-StepModeEnum
-============
-
-.. lua:autoclass:: StepModeEnum

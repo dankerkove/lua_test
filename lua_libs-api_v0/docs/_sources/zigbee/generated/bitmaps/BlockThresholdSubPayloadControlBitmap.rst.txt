@@ -1,4 +1,0 @@
-BlockThresholdSubPayloadControlBitmap
-=====================================
-
-.. lua:autoclass:: BlockThresholdSubPayloadControlBitmap

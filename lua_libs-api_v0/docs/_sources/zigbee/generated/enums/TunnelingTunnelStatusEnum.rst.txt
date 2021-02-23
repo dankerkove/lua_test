@@ -1,4 +1,0 @@
-TunnelingTunnelStatusEnum
-=========================
-
-.. lua:autoclass:: TunnelingTunnelStatusEnum

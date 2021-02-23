@@ -1,4 +1,0 @@
-DebtPayload
-===========
-
-.. lua:autoclass:: DebtPayload

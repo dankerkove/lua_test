@@ -1,4 +1,0 @@
-DoorLockOperationEventCodeEnum
-==============================
-
-.. lua:autoclass:: DoorLockOperationEventCodeEnum

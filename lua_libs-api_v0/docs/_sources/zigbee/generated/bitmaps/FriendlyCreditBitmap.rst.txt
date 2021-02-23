@@ -1,4 +1,0 @@
-FriendlyCreditBitmap
-====================
-
-.. lua:autoclass:: FriendlyCreditBitmap

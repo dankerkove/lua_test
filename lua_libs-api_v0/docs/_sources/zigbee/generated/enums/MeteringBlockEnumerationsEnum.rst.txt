@@ -1,4 +1,0 @@
-MeteringBlockEnumerationsEnum
-=============================
-
-.. lua:autoclass:: MeteringBlockEnumerationsEnum

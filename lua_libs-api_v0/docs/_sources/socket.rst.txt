@@ -1,7 +1,0 @@
-Socket Library
---------------
-
-The socket library implements (most of) the `LuaSocket
-<http://w3.impa.br/~diego/software/luasocket/reference.html>`_ API.
-
-.. lua:autoclass:: socket

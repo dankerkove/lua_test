@@ -1,4 +1,0 @@
-BillingPeriodDurationUnitsEnum
-==============================
-
-.. lua:autoclass:: BillingPeriodDurationUnitsEnum
