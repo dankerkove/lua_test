@@ -1,0 +1,4 @@
+PriceMatrixSubPayload
+=====================
+
+.. lua:autoclass:: PriceMatrixSubPayload

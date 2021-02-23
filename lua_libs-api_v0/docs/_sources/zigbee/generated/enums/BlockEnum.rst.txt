@@ -1,0 +1,4 @@
+BlockEnum
+=========
+
+.. lua:autoclass:: BlockEnum

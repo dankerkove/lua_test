@@ -1,0 +1,8 @@
+Battery
+=======
+
+.. lua:autoclass:: st.zigbee.defaults.battery.BatteryVoltageConfiguration
+
+.. lua:autoclass:: st.zigbee.defaults.battery.BatteryPercentageConfiguration
+
+.. lua:autoclass:: st.zigbee.defaults.battery

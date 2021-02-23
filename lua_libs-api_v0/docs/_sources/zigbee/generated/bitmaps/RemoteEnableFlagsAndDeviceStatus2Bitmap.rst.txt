@@ -1,0 +1,4 @@
+RemoteEnableFlagsAndDeviceStatus2Bitmap
+=======================================
+
+.. lua:autoclass:: RemoteEnableFlagsAndDeviceStatus2Bitmap

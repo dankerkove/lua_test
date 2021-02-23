@@ -1,0 +1,4 @@
+LevelStatusEnum
+===============
+
+.. lua:autoclass:: LevelStatusEnum

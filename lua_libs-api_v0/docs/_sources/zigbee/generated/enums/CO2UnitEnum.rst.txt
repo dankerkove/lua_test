@@ -1,0 +1,4 @@
+CO2UnitEnum
+===========
+
+.. lua:autoclass:: CO2UnitEnum

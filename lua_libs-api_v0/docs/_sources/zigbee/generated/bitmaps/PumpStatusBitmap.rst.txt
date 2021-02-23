@@ -1,0 +1,4 @@
+PumpStatusBitmap
+================
+
+.. lua:autoclass:: PumpStatusBitmap

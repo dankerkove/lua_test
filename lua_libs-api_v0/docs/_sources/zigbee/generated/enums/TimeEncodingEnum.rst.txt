@@ -1,0 +1,4 @@
+TimeEncodingEnum
+================
+
+.. lua:autoclass:: TimeEncodingEnum

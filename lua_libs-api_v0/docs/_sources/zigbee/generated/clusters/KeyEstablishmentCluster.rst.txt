@@ -1,0 +1,27 @@
+KeyEstablishmentCluster
+=======================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.KeyEstablishmentCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.KeyEstablishmentCluster.KeyEstablishmentSuiteServer
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.KeyEstablishmentCluster.KeyEstablishmentSuiteClient
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.KeyEstablishmentCluster.InitiateKeyEstablishmentRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.KeyEstablishmentCluster.EphemeralDataRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.KeyEstablishmentCluster.ConfirmKeyDataRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.KeyEstablishmentCluster.InitiateKeyEstablishmentResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.KeyEstablishmentCluster.EphemeralDataResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.KeyEstablishmentCluster.ConfirmKeyDataResponse
+

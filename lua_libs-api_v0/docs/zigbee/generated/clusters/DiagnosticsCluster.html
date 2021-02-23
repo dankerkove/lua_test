@@ -1,0 +1,1135 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DiagnosticsCluster &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Clusters" href="../clusters.html"/>
+        <link rel="next" title="Generated Enums" href="../enums.html"/>
+        <link rel="prev" title="ElectricalMeasurementCluster" href="ElectricalMeasurementCluster.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults/defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../clusters.html">Generated Clusters</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BasicCluster.html">BasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerConfigCluster.html">PowerConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTempCluster.html">DeviceTempCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IdentifyCluster.html">IdentifyCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GroupsCluster.html">GroupsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScenesCluster.html">ScenesCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffCluster.html">OnOffCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffSwitchConfigCluster.html">OnOffSwitchConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LevelControlCluster.html">LevelControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlarmCluster.html">AlarmCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeCluster.html">TimeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RssiLocationCluster.html">RssiLocationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BinaryInputBasicCluster.html">BinaryInputBasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CommissioningCluster.html">CommissioningCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PartitionCluster.html">PartitionCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OtaBootloadCluster.html">OtaBootloadCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerProfileCluster.html">PowerProfileCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceControlCluster.html">ApplianceControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PollControlCluster.html">PollControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ShadeConfigCluster.html">ShadeConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockCluster.html">DoorLockCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindowCoveringCluster.html">WindowCoveringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpConfigControlCluster.html">PumpConfigControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatCluster.html">ThermostatCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanControlCluster.html">FanControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidControlCluster.html">DehumidControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatUiConfigCluster.html">ThermostatUiConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorControlCluster.html">ColorControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastConfigurationCluster.html">BallastConfigurationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumMeasurementCluster.html">IllumMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumLevelSensingCluster.html">IllumLevelSensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TempMeasurementCluster.html">TempMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PressureMeasurementCluster.html">PressureMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FlowMeasurementCluster.html">FlowMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidityMeasurementCluster.html">RelativeHumidityMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensingCluster.html">OccupancySensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasZoneCluster.html">IasZoneCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceCluster.html">IasAceCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasWdCluster.html">IasWdCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericTunnelCluster.html">GenericTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BacnetProtocolTunnelCluster.html">BacnetProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Iso7816ProtocolTunnelCluster.html">Iso7816ProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DemandResponseLoadControlCluster.html">DemandResponseLoadControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SimpleMeteringCluster.html">SimpleMeteringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingCluster.html">MessagingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TunnelingCluster.html">TunnelingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaymentCluster.html">PrepaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnergyManagementCluster.html">EnergyManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CalendarCluster.html">CalendarCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceManagementCluster.html">DeviceManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventsCluster.html">EventsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MduPairingCluster.html">MduPairingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KeyEstablishmentCluster.html">KeyEstablishmentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InformationCluster.html">InformationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataSharingCluster.html">DataSharingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GamingCluster.html">GamingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataRateControlCluster.html">DataRateControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VoiceOverZigbeeCluster.html">VoiceOverZigbeeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChattingCluster.html">ChattingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PaymentCluster.html">PaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillingCluster.html">BillingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceIdentificationCluster.html">ApplianceIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeterIdentificationCluster.html">MeterIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceEventsAndAlertCluster.html">ApplianceEventsAndAlertCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceStatisticsCluster.html">ApplianceStatisticsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalMeasurementCluster.html">ElectricalMeasurementCluster</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">DiagnosticsCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../enums.html">Generated Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitmaps.html">Generated Bitmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structs.html">Generated Structs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee related libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../clusters.html">Generated Clusters</a> &raquo;</li>
+        
+      <li>DiagnosticsCluster</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/clusters/DiagnosticsCluster.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="diagnosticscluster">
+<h1>DiagnosticsCluster<a class="headerlink" href="#diagnosticscluster" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeCluster" title="ZigbeeCluster">ZigbeeCluster</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attributes related to the gathering of diagnostic information from a stack.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0B05 the ID of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Diagnostics” the name of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.attributes">
+<code class="sig-name descname">attributes</code><em class="property">: </em>st.zigbee.zcl.clusters.DiagnosticsClusterAttributes<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.commands">
+<code class="sig-name descname">commands</code><em class="property">: </em>st.zigbee.zcl.clusters.DiagnosticsClusterCommands<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.get_attribute_by_id">
+<em class="property"> </em><code class="sig-name descname">get_attribute_by_id</code><span class="sig-paren">(</span><em class="sig-param">attr_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.get_attribute_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attr_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.get_server_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_server_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.get_server_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.get_client_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_client_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.get_client_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NumberOfResets">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.NumberOfResets</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NumberOfResets" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NumberOfResets.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NumberOfResets.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0000 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NumberOfResets.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NumberOfResets.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“NumberOfResets” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NumberOfResets.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NumberOfResets.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PersistentMemoryWrites">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.PersistentMemoryWrites</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PersistentMemoryWrites" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PersistentMemoryWrites.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PersistentMemoryWrites.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0001 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PersistentMemoryWrites.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PersistentMemoryWrites.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PersistentMemoryWrites” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PersistentMemoryWrites.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PersistentMemoryWrites.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxBcast">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxBcast</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxBcast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxBcast.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxBcast.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0100 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxBcast.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxBcast.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MacRxBcast” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxBcast.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxBcast.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxBcast">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxBcast</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxBcast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxBcast.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxBcast.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0101 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxBcast.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxBcast.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MacTxBcast” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxBcast.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxBcast.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxUcast">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxUcast</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxUcast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxUcast.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxUcast.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0102 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxUcast.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxUcast.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MacRxUcast” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxUcast.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacRxUcast.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcast">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcast</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcast.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcast.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0103 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcast.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcast.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MacTxUcast” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcast.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcast.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastRetry">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastRetry</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastRetry" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastRetry.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastRetry.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0104 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastRetry.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastRetry.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MacTxUcastRetry” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastRetry.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastRetry.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastFail">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastFail</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastFail" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastFail.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastFail.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0105 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastFail.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastFail.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MacTxUcastFail” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastFail.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.MacTxUcastFail.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxBcast">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxBcast</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxBcast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxBcast.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxBcast.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0106 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxBcast.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxBcast.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ApsRxBcast” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxBcast.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxBcast.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxBcast">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxBcast</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxBcast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxBcast.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxBcast.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0107 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxBcast.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxBcast.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ApsTxBcast” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxBcast.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxBcast.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxUcast">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxUcast</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxUcast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxUcast.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxUcast.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0108 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxUcast.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxUcast.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ApsRxUcast” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxUcast.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsRxUcast.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUcastSuccess">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUcastSuccess</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUcastSuccess" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUcastSuccess.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUcastSuccess.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0109 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUcastSuccess.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUcastSuccess.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ApsUcastSuccess” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUcastSuccess.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUcastSuccess.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastRetry">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastRetry</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastRetry" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastRetry.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastRetry.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x010A the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastRetry.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastRetry.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ApsTxUcastRetry” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastRetry.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastRetry.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastFail">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastFail</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastFail" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastFail.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastFail.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x010B the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastFail.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastFail.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ApsTxUcastFail” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastFail.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsTxUcastFail.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.RouteDiscInitiated">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.RouteDiscInitiated</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.RouteDiscInitiated" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.RouteDiscInitiated.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.RouteDiscInitiated.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x010C the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.RouteDiscInitiated.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.RouteDiscInitiated.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“RouteDiscInitiated” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.RouteDiscInitiated.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.RouteDiscInitiated.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborAdded">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborAdded</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborAdded" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborAdded.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborAdded.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x010D the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborAdded.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborAdded.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“NeighborAdded” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborAdded.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborAdded.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborRemoved">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborRemoved</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborRemoved" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborRemoved.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborRemoved.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x010E the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborRemoved.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborRemoved.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“NeighborRemoved” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborRemoved.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborRemoved.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborStale">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborStale</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborStale" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborStale.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborStale.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x010F the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborStale.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborStale.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“NeighborStale” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborStale.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NeighborStale.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.JoinIndication">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.JoinIndication</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.JoinIndication" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.JoinIndication.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.JoinIndication.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0110 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.JoinIndication.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.JoinIndication.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“JoinIndication” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.JoinIndication.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.JoinIndication.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ChildMoved">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.ChildMoved</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ChildMoved" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ChildMoved.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ChildMoved.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0111 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ChildMoved.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ChildMoved.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ChildMoved” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ChildMoved.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ChildMoved.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NwkFcFailure">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.NwkFcFailure</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NwkFcFailure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NwkFcFailure.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NwkFcFailure.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0112 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NwkFcFailure.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NwkFcFailure.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“NwkFcFailure” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NwkFcFailure.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NwkFcFailure.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsFcFailure">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.ApsFcFailure</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsFcFailure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsFcFailure.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsFcFailure.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0113 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsFcFailure.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsFcFailure.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ApsFcFailure” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsFcFailure.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsFcFailure.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUnauthorizedKey">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUnauthorizedKey</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUnauthorizedKey" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUnauthorizedKey.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUnauthorizedKey.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0114 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUnauthorizedKey.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUnauthorizedKey.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ApsUnauthorizedKey” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUnauthorizedKey.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsUnauthorizedKey.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NwkDecryptFailure">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.NwkDecryptFailure</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NwkDecryptFailure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NwkDecryptFailure.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NwkDecryptFailure.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0115 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NwkDecryptFailure.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NwkDecryptFailure.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“NwkDecryptFailure” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.NwkDecryptFailure.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.NwkDecryptFailure.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsDecryptFailure">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.ApsDecryptFailure</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsDecryptFailure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsDecryptFailure.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsDecryptFailure.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0116 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsDecryptFailure.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsDecryptFailure.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ApsDecryptFailure” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.ApsDecryptFailure.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.ApsDecryptFailure.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PacketBufferAllocFailures">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.PacketBufferAllocFailures</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PacketBufferAllocFailures" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PacketBufferAllocFailures.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PacketBufferAllocFailures.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0117 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PacketBufferAllocFailures.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PacketBufferAllocFailures.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PacketBufferAllocFailures” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PacketBufferAllocFailures.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PacketBufferAllocFailures.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.RelayedUnicast">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.RelayedUnicast</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.RelayedUnicast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.RelayedUnicast.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.RelayedUnicast.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0118 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.RelayedUnicast.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.RelayedUnicast.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“RelayedUnicast” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.RelayedUnicast.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.RelayedUnicast.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PhyToMacQueueLimitReached">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.PhyToMacQueueLimitReached</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PhyToMacQueueLimitReached" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PhyToMacQueueLimitReached.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PhyToMacQueueLimitReached.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0119 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PhyToMacQueueLimitReached.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PhyToMacQueueLimitReached.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PhyToMacQueueLimitReached” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PhyToMacQueueLimitReached.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PhyToMacQueueLimitReached.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PacketValidateDropCount">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.PacketValidateDropCount</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PacketValidateDropCount" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PacketValidateDropCount.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PacketValidateDropCount.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x011A the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PacketValidateDropCount.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PacketValidateDropCount.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PacketValidateDropCount” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.PacketValidateDropCount.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.PacketValidateDropCount.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.AverageMacRetryPerApsMsgSent">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.AverageMacRetryPerApsMsgSent</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.AverageMacRetryPerApsMsgSent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.AverageMacRetryPerApsMsgSent.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.AverageMacRetryPerApsMsgSent.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x011B the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.AverageMacRetryPerApsMsgSent.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.AverageMacRetryPerApsMsgSent.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AverageMacRetryPerApsMsgSent” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.AverageMacRetryPerApsMsgSent.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.AverageMacRetryPerApsMsgSent.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageLqi">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageLqi</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageLqi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageLqi.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageLqi.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x011C the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageLqi.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageLqi.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“LastMessageLqi” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageLqi.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageLqi.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageRssi">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageRssi</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageRssi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageRssi.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageRssi.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x011D the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageRssi.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageRssi.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“LastMessageRssi” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageRssi.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int8<a class="headerlink" href="#st.zigbee.zcl.clusters.DiagnosticsCluster.LastMessageRssi.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../enums.html" class="btn btn-neutral float-right" title="Generated Enums" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ElectricalMeasurementCluster.html" class="btn btn-neutral" title="ElectricalMeasurementCluster" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

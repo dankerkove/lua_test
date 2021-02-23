@@ -1,0 +1,4 @@
+CommodityTypeEnum
+=================
+
+.. lua:autoclass:: CommodityTypeEnum

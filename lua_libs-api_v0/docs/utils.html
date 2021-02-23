@@ -1,0 +1,648 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Utils Library &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="index.html"/>
+        <link rel="up" title="&lt;no title&gt;" href="reference/index.html"/>
+        <link rel="next" title="Buffer Library" href="buf.html"/>
+        <link rel="prev" title="Logging Interface" href="log.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Logging Interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buf.html">Buffer Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zigbee/zigbee.html">Zigbee Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+      <li>Utils Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="utils-library">
+<h1>Utils Library<a class="headerlink" href="#utils-library" title="Permalink to this headline">¶</a></h1>
+<p>The st.utils library contains miscellaneous Lua helper functions.</p>
+<dl class="lua class">
+<dt id="st.utils">
+<em class="property">class </em><code class="sig-name descname">st.utils</code><a class="headerlink" href="#st.utils" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua staticmethod">
+<dt id="st.utils.get_print_safe_string">
+<em class="property">static </em><code class="sig-name descname">get_print_safe_string</code><span class="sig-paren">(</span><em class="sig-param">str</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.get_print_safe_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print binary string as ascii hex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>str</strong> (<em>binary</em>) – string</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>ascii hex string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.stringify_table">
+<em class="property">static </em><code class="sig-name descname">stringify_table</code><span class="sig-paren">(</span><em class="sig-param">val</em>, <em class="sig-param">name</em>, <em class="sig-param">multi_line</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.stringify_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert value to string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>val</strong> (<em>Value</em>) – to stringify</p></li>
+<li><p><strong>name</strong> (<em>Print</em>) – a name along with value [Optional]</p></li>
+<li><p><strong>multi_line</strong> (<em>Pretty</em>) – print tables [Optional]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.merge">
+<em class="property">static </em><code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param">target_table</em>, <em class="sig-param">template</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively merge all fields of template not already present in target_table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_table</strong> (<em>table</em>) – table into which to merge template</p></li>
+<li><p><strong>template</strong> (<em>table</em>) – table to merge into target_table</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>target_table</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>table</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.update">
+<em class="property">static </em><code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">target_table</em>, <em class="sig-param">template</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively update all fields of target_table that are common and present in template.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_table</strong> (<em>table</em>) – table in which to update common fields from template</p></li>
+<li><p><strong>template</strong> (<em>table</em>) – table from which to update common fields in target_table</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>target_table</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>table</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.clamp_value">
+<em class="property">static </em><code class="sig-name descname">clamp_value</code><span class="sig-paren">(</span><em class="sig-param">val</em>, <em class="sig-param">min</em>, <em class="sig-param">max</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.clamp_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force a value to fall between a min and max</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>val</strong> (<em>number</em>) – the value to be clamped</p></li>
+<li><p><strong>min</strong> (<em>number</em>) – the minimum value to be returned</p></li>
+<li><p><strong>max</strong> (<em>number</em>) – the maximum value to be returned</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.round">
+<em class="property">static </em><code class="sig-name descname">round</code><span class="sig-paren">(</span><em class="sig-param">val</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.round" title="Permalink to this definition">¶</a></dt>
+<dd><p>Round a number to the nearest integer (.5 rounds up)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>val</strong> (<em>number</em>) – the value to be rounded</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the rounded value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.serialize_int">
+<em class="property">static </em><code class="sig-name descname">serialize_int</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">width</em>, <em class="sig-param">signed</em>, <em class="sig-param">little_endian</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.serialize_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize an integer into a bytestring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>number</em>) – value to write</p></li>
+<li><p><strong>width</strong> (<em>number</em>) – integer width in bytes</p></li>
+<li><p><strong>signed</strong> (<em>boolean</em>) – true if signed, false if unsigned</p></li>
+<li><p><strong>little_endian</strong> (<em>boolean</em>) – true if little endian, false if big endian</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>serialized integer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytestring</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.deserialize_int">
+<em class="property">static </em><code class="sig-name descname">deserialize_int</code><span class="sig-paren">(</span><em class="sig-param">buf</em>, <em class="sig-param">width</em>, <em class="sig-param">signed</em>, <em class="sig-param">little_endian</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.deserialize_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize an integer from the passed string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buf</strong> (<em>bytestring</em>) – string from which to deserialize an integer</p></li>
+<li><p><strong>width</strong> (<em>number</em>) – integer width in bytes</p></li>
+<li><p><strong>signed</strong> (<em>boolean</em>) – true if signed, false if unsigned</p></li>
+<li><p><strong>little_endian</strong> (<em>boolean</em>) – true if little endian, false if big endian</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>deserialized integer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.hsl_to_rgb">
+<em class="property">static </em><code class="sig-name descname">hsl_to_rgb</code><span class="sig-paren">(</span><em class="sig-param">hue</em>, <em class="sig-param">saturation</em>, <em class="sig-param">lightness</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.hsl_to_rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert from Hue/Saturation/Lightness to Red/Green/Blue</p>
+<p>If lightness is missing, default to 50%.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hue</strong> (<em>number</em>) – hue in the range [0,100]%</p></li>
+<li><p><strong>saturation</strong> (<em>number</em>) – saturation in the range [0,100]%</p></li>
+<li><p><strong>lightness</strong> (<em>number</em>) – lightness in the range [0,100]%, or nil</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.rgb_to_hsl">
+<em class="property">static </em><code class="sig-name descname">rgb_to_hsl</code><span class="sig-paren">(</span><em class="sig-param">red</em>, <em class="sig-param">green</em>, <em class="sig-param">blue</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.rgb_to_hsl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert from red, green, blue to hue, saturation, lightness.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>red</strong> (<em>number</em>) – red component in the range [0,255]</p></li>
+<li><p><strong>green</strong> (<em>number</em>) – green component in the range [0,255]</p></li>
+<li><p><strong>blue</strong> (<em>number</em>) – blue component in the range [0,255]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>equivalent hue, saturation, lightness vector with each component in the range [0,100]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>number or number or number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.c_to_f">
+<em class="property">static </em><code class="sig-name descname">c_to_f</code><span class="sig-paren">(</span><em class="sig-param">celsius</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.c_to_f" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert celsius to fahrenheit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>celsius</strong> (<em>temperature</em>) – in celsius</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>fahrenheit value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.rsort">
+<em class="property">static </em><code class="sig-name descname">rsort</code><span class="sig-paren">(</span><em class="sig-param">tbl</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.rsort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse-sort the passed table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tbl</strong> (<em>table</em>) – (in/out) table to be reverse sorted</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>reverse-sorted table</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>table</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.pairs_by_key">
+<em class="property">static </em><code class="sig-name descname">pairs_by_key</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">f</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.pairs_by_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table iterator for traversal by ordered keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<em>table</em>) – over which to iterate</p></li>
+<li><p><strong>f</strong> (<em>optional</em>) – key comparison function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>table iterator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.rkeys">
+<em class="property">static </em><code class="sig-name descname">rkeys</code><span class="sig-paren">(</span><em class="sig-param">t</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.rkeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table iterator for traversal by reverse-sorted keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>table</em>) – over which to iterate</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>table iterator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.fkeys">
+<em class="property">static </em><code class="sig-name descname">fkeys</code><span class="sig-paren">(</span><em class="sig-param">t</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.fkeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table iterator for traversal by forward-sorted keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>table</em>) – over which to iterate</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>table iterator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.pairs_by_value">
+<em class="property">static </em><code class="sig-name descname">pairs_by_value</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">f</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.pairs_by_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table iterator for traversal by ordered values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<em>table</em>) – over which to iterate</p></li>
+<li><p><strong>f</strong> (<em>value</em>) – required value comparison function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>table iterator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.rvalues">
+<em class="property">static </em><code class="sig-name descname">rvalues</code><span class="sig-paren">(</span><em class="sig-param">t</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.rvalues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table iterator for traversal by reverse-sorted values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>table</em>) – over which to iterate</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>table iterator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.fvalues">
+<em class="property">static </em><code class="sig-name descname">fvalues</code><span class="sig-paren">(</span><em class="sig-param">t</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.fvalues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table iterator for traversal by forward-sorted values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>table</em>) – over which to iterate</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>table iterator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.camel_case">
+<em class="property">static </em><code class="sig-name descname">camel_case</code><span class="sig-paren">(</span><em class="sig-param">str</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.camel_case" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the passed string to camelCase.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>str</strong> (<em>str</em>) – string to convert</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>camelCase version of the string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.pascal_case">
+<em class="property">static </em><code class="sig-name descname">pascal_case</code><span class="sig-paren">(</span><em class="sig-param">str</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.pascal_case" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the passed string to PascalCase.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>str</strong> (<em>str</em>) – string to convert</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>PascalCase version of the string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.snake_case">
+<em class="property">static </em><code class="sig-name descname">snake_case</code><span class="sig-paren">(</span><em class="sig-param">str</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.snake_case" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the passed string to snake_case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>str</strong> (<em>str</em>) – string to convert</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>snake_case version of the string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.utils.screaming_snake_case">
+<em class="property">static </em><code class="sig-name descname">screaming_snake_case</code><span class="sig-paren">(</span><em class="sig-param">str</em><span class="sig-paren">)</span><a class="headerlink" href="#st.utils.screaming_snake_case" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the passed string to SCREAMING_SNAKE_CASE.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>str</strong> (<em>str</em>) – string to convert</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>SCREAMING_SNAKE_CASE version of the string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="buf.html" class="btn btn-neutral float-right" title="Buffer Library" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="log.html" class="btn btn-neutral" title="Logging Interface" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

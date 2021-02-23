@@ -1,0 +1,730 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AmiDeviceClassBitmap &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Bitmaps" href="../bitmaps.html"/>
+        <link rel="next" title="AmiEventControlBitmap" href="AmiEventControlBitmap.html"/>
+        <link rel="prev" title="AmiCommandOptionsBitmap" href="AmiCommandOptionsBitmap.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults/defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../clusters.html">Generated Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../enums.html">Generated Enums</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../bitmaps.html">Generated Bitmaps</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ShadeClosureStatusBitmap.html">ShadeClosureStatusBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlarmMaskBitmap.html">AlarmMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RestartOptionsBitmap.html">RestartOptionsBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ResetOptionsBitmap.html">ResetOptionsBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MainsAlarmMaskBitmap.html">MainsAlarmMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BatteryAlarmMaskBitmap.html">BatteryAlarmMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTempAlarmMaskBitmap.html">DeviceTempAlarmMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeStatusMaskBitmap.html">TimeStatusMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LocationTypeBitmap.html">LocationTypeBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GetLocationDataFlagsBitmap.html">GetLocationDataFlagsBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpStatusBitmap.html">PumpStatusBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpAlarmMaskBitmap.html">PumpAlarmMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatOccupancyBitmap.html">ThermostatOccupancyBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatSensingBitmap.html">ThermostatSensingBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatAlarmMaskBitmap.html">ThermostatAlarmMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastStatusBitmap.html">BallastStatusBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LampAlarmModeBitmap.html">LampAlarmModeBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancyBitmap.html">OccupancyBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasZoneStatusBitmap.html">IasZoneStatusBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WarningInfoBitmap.html">WarningInfoBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SquawkInfoBitmap.html">SquawkInfoBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnergyFormattingBitmap.html">EnergyFormattingBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RemoteEnableFlagsAndDeviceStatus2Bitmap.html">RemoteEnableFlagsAndDeviceStatus2Bitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="StartTimeBitmap.html">StartTimeBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockDayOfWeekBitmap.html">DoorLockDayOfWeekBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatRunningStateBitmap.html">ThermostatRunningStateBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DayOfWeekBitmap.html">DayOfWeekBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ModeForSequenceBitmap.html">ModeForSequenceBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlertStructureBitmap.html">AlertStructureBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlertCountBitmap.html">AlertCountBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlockPeriodDurationTypeBitmap.html">BlockPeriodDurationTypeBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConversionFactorTrailingDigitBitmap.html">ConversionFactorTrailingDigitBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CalorificValueTrailingDigitBitmap.html">CalorificValueTrailingDigitBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PriceTrailingDigitBitmap.html">PriceTrailingDigitBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CO2TrailingDigitBitmap.html">CO2TrailingDigitBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PriceTrailingDigitAndPriceTierBitmap.html">PriceTrailingDigitAndPriceTierBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PriceNumberOfPriceTiersAndRegisterTierBitmap.html">PriceNumberOfPriceTiersAndRegisterTierBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlternateCostTrailingDigitBitmap.html">AlternateCostTrailingDigitBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PriceControlMaskBitmap.html">PriceControlMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlockPeriodControlBitmap.html">BlockPeriodControlBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TariffTypeChargingSchemeBitmap.html">TariffTypeChargingSchemeBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PriceMatrixSubPayloadControlBitmap.html">PriceMatrixSubPayloadControlBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlockThresholdSubPayloadControlBitmap.html">BlockThresholdSubPayloadControlBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillingPeriodDurationBitmap.html">BillingPeriodDurationBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillingPeriodDurationTypeBitmap.html">BillingPeriodDurationTypeBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillTrailingDigitBitmap.html">BillTrailingDigitBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CurrencyChangeControlBitmap.html">CurrencyChangeControlBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlockThresholdMaskBitmap.html">BlockThresholdMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiCommandOptionsBitmap.html">AmiCommandOptionsBitmap</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">AmiDeviceClassBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiEventControlBitmap.html">AmiEventControlBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiCancelControlBitmap.html">AmiCancelControlBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiMeterStatusBitmap.html">AmiMeterStatusBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringStatusElectricityBitmap.html">MeteringStatusElectricityBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringStatusGasBitmap.html">MeteringStatusGasBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringStatusWaterBitmap.html">MeteringStatusWaterBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringStatusHeatAndCoolingBitmap.html">MeteringStatusHeatAndCoolingBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringExtendedStatusBitmap.html">MeteringExtendedStatusBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FunctionalNotificationFlagsBitmap.html">FunctionalNotificationFlagsBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SnapshotCauseBitmap.html">SnapshotCauseBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SupplyControlBitsBitmap.html">SupplyControlBitsBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingControlMaskBitmap.html">MessagingControlMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingExtendedControlMaskBitmap.html">MessagingExtendedControlMaskBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingConfirmationControlBitmap.html">MessagingConfirmationControlBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PaymentControlConfigurationBitmap.html">PaymentControlConfigurationBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CreditStatusBitmap.html">CreditStatusBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaymentAlarmStatusBitmap.html">PrepaymentAlarmStatusBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OriginatorIdSupplyControlBitsBitmap.html">OriginatorIdSupplyControlBitsBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaySnapshotPayloadCauseBitmap.html">PrepaySnapshotPayloadCauseBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FriendlyCreditBitmap.html">FriendlyCreditBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LoadControlStateBitmap.html">LoadControlStateBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CurrentEventStatusBitmap.html">CurrentEventStatusBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AuxiliaryLoadSwitchStateBitmap.html">AuxiliaryLoadSwitchStateBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProposedChangeControlBitmap.html">ProposedChangeControlBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventConfigurationBitmap.html">EventConfigurationBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventControlLogIdBitmap.html">EventControlLogIdBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventActionControlBitmap.html">EventActionControlBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NumberOfEventsLogPayloadControlBitmap.html">NumberOfEventsLogPayloadControlBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ClearedEventsLogsBitmap.html">ClearedEventsLogsBitmap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../structs.html">Generated Structs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee related libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../bitmaps.html">Generated Bitmaps</a> &raquo;</li>
+        
+      <li>AmiDeviceClassBitmap</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/bitmaps/AmiDeviceClassBitmap.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="amideviceclassbitmap">
+<h1>AmiDeviceClassBitmap<a class="headerlink" href="#amideviceclassbitmap" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="AmiDeviceClassBitmap">
+<em class="property">class </em><code class="sig-name descname">AmiDeviceClassBitmap</code><em class="property">: </em><a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16">Bitmap16</a><a class="headerlink" href="#AmiDeviceClassBitmap" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.byte_length">
+<code class="sig-name descname">byte_length</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.byte_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>2</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.HVAC_COMPRESSOR_OR_FURNACE">
+<code class="sig-name descname">HVAC_COMPRESSOR_OR_FURNACE</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.HVAC_COMPRESSOR_OR_FURNACE" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.STRIP_HEAT_BASEBOARD_HEAT">
+<code class="sig-name descname">STRIP_HEAT_BASEBOARD_HEAT</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.STRIP_HEAT_BASEBOARD_HEAT" title="Permalink to this definition">¶</a></dt>
+<dd><p>2</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.WATER_HEATER">
+<code class="sig-name descname">WATER_HEATER</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.WATER_HEATER" title="Permalink to this definition">¶</a></dt>
+<dd><p>4</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.POOL_PUMP_SPA_JACUZZI">
+<code class="sig-name descname">POOL_PUMP_SPA_JACUZZI</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.POOL_PUMP_SPA_JACUZZI" title="Permalink to this definition">¶</a></dt>
+<dd><p>8</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.SMART_APPLIANCES">
+<code class="sig-name descname">SMART_APPLIANCES</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.SMART_APPLIANCES" title="Permalink to this definition">¶</a></dt>
+<dd><p>16</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.IRRIGATION_PUMP">
+<code class="sig-name descname">IRRIGATION_PUMP</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.IRRIGATION_PUMP" title="Permalink to this definition">¶</a></dt>
+<dd><p>32</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.MANAGED_C_AND_I_LOADS">
+<code class="sig-name descname">MANAGED_C_AND_I_LOADS</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.MANAGED_C_AND_I_LOADS" title="Permalink to this definition">¶</a></dt>
+<dd><p>64</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.SIMPLE_MISC_LOADS">
+<code class="sig-name descname">SIMPLE_MISC_LOADS</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.SIMPLE_MISC_LOADS" title="Permalink to this definition">¶</a></dt>
+<dd><p>128</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.EXTERIOR_LIGHTING">
+<code class="sig-name descname">EXTERIOR_LIGHTING</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.EXTERIOR_LIGHTING" title="Permalink to this definition">¶</a></dt>
+<dd><p>256</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.INTERIOR_LIGHTING">
+<code class="sig-name descname">INTERIOR_LIGHTING</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.INTERIOR_LIGHTING" title="Permalink to this definition">¶</a></dt>
+<dd><p>512</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.ELECTRIC_VEHICLE">
+<code class="sig-name descname">ELECTRIC_VEHICLE</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.ELECTRIC_VEHICLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>1024</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AmiDeviceClassBitmap.GENERATION_SYSTEMS">
+<code class="sig-name descname">GENERATION_SYSTEMS</code><em class="property">: </em>number<a class="headerlink" href="#AmiDeviceClassBitmap.GENERATION_SYSTEMS" title="Permalink to this definition">¶</a></dt>
+<dd><p>2048</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_hvac_compressor_or_furnace_set">
+<em class="property"> </em><code class="sig-name descname">is_hvac_compressor_or_furnace_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_hvac_compressor_or_furnace_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of HVAC_COMPRESSOR_OR_FURNACE is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_hvac_compressor_or_furnace">
+<em class="property"> </em><code class="sig-name descname">set_hvac_compressor_or_furnace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_hvac_compressor_or_furnace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the HVAC_COMPRESSOR_OR_FURNACE field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_hvac_compressor_or_furnace">
+<em class="property"> </em><code class="sig-name descname">unset_hvac_compressor_or_furnace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_hvac_compressor_or_furnace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the HVAC_COMPRESSOR_OR_FURNACE field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_strip_heat_baseboard_heat_set">
+<em class="property"> </em><code class="sig-name descname">is_strip_heat_baseboard_heat_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_strip_heat_baseboard_heat_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of STRIP_HEAT_BASEBOARD_HEAT is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_strip_heat_baseboard_heat">
+<em class="property"> </em><code class="sig-name descname">set_strip_heat_baseboard_heat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_strip_heat_baseboard_heat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the STRIP_HEAT_BASEBOARD_HEAT field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_strip_heat_baseboard_heat">
+<em class="property"> </em><code class="sig-name descname">unset_strip_heat_baseboard_heat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_strip_heat_baseboard_heat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the STRIP_HEAT_BASEBOARD_HEAT field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_water_heater_set">
+<em class="property"> </em><code class="sig-name descname">is_water_heater_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_water_heater_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of WATER_HEATER is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_water_heater">
+<em class="property"> </em><code class="sig-name descname">set_water_heater</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_water_heater" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the WATER_HEATER field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_water_heater">
+<em class="property"> </em><code class="sig-name descname">unset_water_heater</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_water_heater" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the WATER_HEATER field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_pool_pump_spa_jacuzzi_set">
+<em class="property"> </em><code class="sig-name descname">is_pool_pump_spa_jacuzzi_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_pool_pump_spa_jacuzzi_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of POOL_PUMP_SPA_JACUZZI is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_pool_pump_spa_jacuzzi">
+<em class="property"> </em><code class="sig-name descname">set_pool_pump_spa_jacuzzi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_pool_pump_spa_jacuzzi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the POOL_PUMP_SPA_JACUZZI field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_pool_pump_spa_jacuzzi">
+<em class="property"> </em><code class="sig-name descname">unset_pool_pump_spa_jacuzzi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_pool_pump_spa_jacuzzi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the POOL_PUMP_SPA_JACUZZI field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_smart_appliances_set">
+<em class="property"> </em><code class="sig-name descname">is_smart_appliances_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_smart_appliances_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of SMART_APPLIANCES is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_smart_appliances">
+<em class="property"> </em><code class="sig-name descname">set_smart_appliances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_smart_appliances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the SMART_APPLIANCES field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_smart_appliances">
+<em class="property"> </em><code class="sig-name descname">unset_smart_appliances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_smart_appliances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the SMART_APPLIANCES field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_irrigation_pump_set">
+<em class="property"> </em><code class="sig-name descname">is_irrigation_pump_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_irrigation_pump_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of IRRIGATION_PUMP is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_irrigation_pump">
+<em class="property"> </em><code class="sig-name descname">set_irrigation_pump</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_irrigation_pump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the IRRIGATION_PUMP field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_irrigation_pump">
+<em class="property"> </em><code class="sig-name descname">unset_irrigation_pump</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_irrigation_pump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the IRRIGATION_PUMP field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_managed_c_and_i_loads_set">
+<em class="property"> </em><code class="sig-name descname">is_managed_c_and_i_loads_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_managed_c_and_i_loads_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of MANAGED_C_AND_I_LOADS is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_managed_c_and_i_loads">
+<em class="property"> </em><code class="sig-name descname">set_managed_c_and_i_loads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_managed_c_and_i_loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the MANAGED_C_AND_I_LOADS field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_managed_c_and_i_loads">
+<em class="property"> </em><code class="sig-name descname">unset_managed_c_and_i_loads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_managed_c_and_i_loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the MANAGED_C_AND_I_LOADS field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_simple_misc_loads_set">
+<em class="property"> </em><code class="sig-name descname">is_simple_misc_loads_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_simple_misc_loads_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of SIMPLE_MISC_LOADS is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_simple_misc_loads">
+<em class="property"> </em><code class="sig-name descname">set_simple_misc_loads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_simple_misc_loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the SIMPLE_MISC_LOADS field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_simple_misc_loads">
+<em class="property"> </em><code class="sig-name descname">unset_simple_misc_loads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_simple_misc_loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the SIMPLE_MISC_LOADS field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_exterior_lighting_set">
+<em class="property"> </em><code class="sig-name descname">is_exterior_lighting_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_exterior_lighting_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of EXTERIOR_LIGHTING is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_exterior_lighting">
+<em class="property"> </em><code class="sig-name descname">set_exterior_lighting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_exterior_lighting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the EXTERIOR_LIGHTING field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_exterior_lighting">
+<em class="property"> </em><code class="sig-name descname">unset_exterior_lighting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_exterior_lighting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the EXTERIOR_LIGHTING field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_interior_lighting_set">
+<em class="property"> </em><code class="sig-name descname">is_interior_lighting_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_interior_lighting_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of INTERIOR_LIGHTING is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_interior_lighting">
+<em class="property"> </em><code class="sig-name descname">set_interior_lighting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_interior_lighting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the INTERIOR_LIGHTING field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_interior_lighting">
+<em class="property"> </em><code class="sig-name descname">unset_interior_lighting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_interior_lighting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the INTERIOR_LIGHTING field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_electric_vehicle_set">
+<em class="property"> </em><code class="sig-name descname">is_electric_vehicle_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_electric_vehicle_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of ELECTRIC_VEHICLE is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_electric_vehicle">
+<em class="property"> </em><code class="sig-name descname">set_electric_vehicle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_electric_vehicle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the ELECTRIC_VEHICLE field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_electric_vehicle">
+<em class="property"> </em><code class="sig-name descname">unset_electric_vehicle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_electric_vehicle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the ELECTRIC_VEHICLE field to 0</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.is_generation_systems_set">
+<em class="property"> </em><code class="sig-name descname">is_generation_systems_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.is_generation_systems_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of GENERATION_SYSTEMS is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.set_generation_systems">
+<em class="property"> </em><code class="sig-name descname">set_generation_systems</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.set_generation_systems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the GENERATION_SYSTEMS field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AmiDeviceClassBitmap.unset_generation_systems">
+<em class="property"> </em><code class="sig-name descname">unset_generation_systems</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AmiDeviceClassBitmap.unset_generation_systems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the GENERATION_SYSTEMS field to 0</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="AmiEventControlBitmap.html" class="btn btn-neutral float-right" title="AmiEventControlBitmap" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="AmiCommandOptionsBitmap.html" class="btn btn-neutral" title="AmiCommandOptionsBitmap" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

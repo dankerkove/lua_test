@@ -1,0 +1,4 @@
+DataQualityIdEnum
+=================
+
+.. lua:autoclass:: DataQualityIdEnum

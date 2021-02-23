@@ -1,0 +1,4 @@
+SquawkModeEnum
+==============
+
+.. lua:autoclass:: SquawkModeEnum

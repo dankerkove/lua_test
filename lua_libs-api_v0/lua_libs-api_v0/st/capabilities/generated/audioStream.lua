@@ -1,0 +1,1 @@
+return [[{"name": "Audio Stream", "status": "live", "attributes": {"uri": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "URI"}}}, "type": "STRING"}}, "commands": {"startAudio": {"arguments": []}, "stopAudio": {"arguments": []}}, "public": true, "id": "audioStream", "version": 1}]]

@@ -1,0 +1,226 @@
+========================================
+LAN Edge Device Driver Development Guide
+========================================
+
+Edge device drivers have introduced the ability to write far more specialized
+integrations for Hub Connected devices. If your device has a local network API,
+an Edge Driver will allow you to integrate your device into the SmartThings
+Platform.
+
+Before reading this guide, be sure to review :doc:`getting started
+<getting-started>` and :doc:`writing your first driver <first-driver>` to
+better understand the content presented here.
+
+LAN drivers can be much more complicated than Zigbee or Z-Wave drivers due to
+there being little standardization in how LAN device communication works. This
+means that SmartThings is able to offer fewer libraries that handle translation
+to and from capability definitions and network messages.  Most devices will have
+some level of custom protocol implementation required.
+
+*********************
+Basic Network Sockets
+*********************
+
+At the lowest level, your driver will be interacting with the physical devices
+on your network via sockets. We provide a `LuaSocket
+<http://w3.impa.br/~diego/software/luasocket/>`_-like api which provides a POSIX
+socket interface.  If you've ever done any socket programming using functions
+like ``bind``, ``send``, ``receieve``, and ``select`` on TCP and UDP sockets,
+you'll be right at home.
+
+.. note::
+  This is a reimplementation of the lowest level APIs made to support network
+  access across our sandbox boundary. At the time of writing (October 22 2020),
+  we have *nearly* full API support, but some of the more esoteric interfaces,
+  such as ``getstats``, ``setstats``, and ``setoptions`` are not fully
+  supported. See the :doc:`socket API reference <../socket>` for more details
+  on which APIs aren't supported. If you have a strong need for anything that's
+  not currently supported or encounter anything in the API that doesn't seem
+  to match the behavior you see from LuaSocket, please `let us know
+  <https://community.smartthings.com/>`_.
+
+Providing this API gives a few key benefits. Besides being a known complete and
+useful API, it means that you may be able to use existing Lua libraries or, if
+none exist, it allows you to do all initial development in whatever tools you'd
+like fully locally on your own system.
+
+We suggest you start development of all LAN Edge Device Drivers by creating a
+basic library for your device that supports:
+
+#. Discovering one or more devices on the network from one or more already known
+   unique device IDs. Usually done using SSDP, mDNS, or some other
+   multicast/broadcast network request.
+#. Providing some sort of handle to an individual device that provides:
+  #. Functions to send standard requests such as "on" and "off" for a basic
+     bulb.
+  #. Supporting features such as automatic re-connection and re-discovery if,
+     for example, the device's IP address has changed.
+
+This allows you to develop a library for reliable communication with your device
+that is useful both inside and outside of the SmartThings ecosystem.
+
+*****************
+Programming Model
+*****************
+
+.. note::
+  It may make sense to move this section to a more generic section since it
+  applies to more than just LAN, but it needs to exist for what I'm about to
+  write so I'm writing it here.
+
+Responses to network requests, even on you local network, don't come back
+instantaneously. This is especially true in cases like network errors or sending
+requests to offline devices. In these circumstances, devices may fall back to
+timeouts which can be many seconds long.
+
+Additionally, due to the low amount of resources available to Edge Drivers, a
+driver must handle all of its responsibilities from a single OS thread.
+
+This means that code written to rely on standard blocking socket APIs will
+almost certainly lead to strange latency issues like popcorning when turning on
+more than one light/switch at a time. To remedy this, we can use non-blocking
+sockets. These are sockets that instead of blocking your program when no
+progress can be made, return an error that tells you to try again later.
+Non-blocking sockets solve the popcorning problem, but writing code that
+directly uses non-blocking sockets is difficult to get right and makes for more
+complicated drivers.
+
+Thanks to Lua's support of `coroutines <https://www.lua.org/pil/9.html>`_, it is
+possible to create an interface that looks like the standard blocking socket
+interface, but by using non-blocking sockets is able to block only a single
+coroutine. Edge Drivers take advantage of this support to provide such an
+interface.
+
+When your code is running in an Edge Driver, all socket operations should use
+the socket interface provided by the ``cosock`` library, ``cosock.socket``. This
+API passes through all documented LuaSocket APIs exactly as-is. The one
+exception is when a call returns a ``timeout`` error, in which case it yields
+the current coroutine until a call to ``socket.select`` indicates that the
+socket is ready, at which point the coroutine is resumed and continues executing
+exactly as if it had been blocked by a standard blocking socket operation.
+
+The ``Driver`` framework will run each of your event callbacks in a coroutine
+dedicated to a particular device. This means you do not need to worry about an
+error connecting to one device preventing control of another. You also do not
+have to worry about what happens when an event comes in while you're waiting for
+a device to respond to you. Events are inherently processed in order only after
+the last event has been processed.
+
+This means that things like handling retries can be implemented as a
+straightforward loop in a single function. This makes most IoT device
+communication patterns very simple. Below, we take a look at some of the most
+common communication patterns.
+
+************
+RESTful HTTP
+************
+
+Devices utilizing a RESTful HTTP API are the most common LAN devices on the
+SmartThings platform today. LAN Devices are a great place to start thanks to
+their wide-spread use, and for their use of short lived network operations and
+distinct client or server roles.
+
+For all of the code contained in this section, assume we are inside the
+capability command handler for the ``on`` command of a ``switch``. This code
+will also work in a Lua REPL on your local machine if you have LuaSocket
+installed and started with ``lua -l socket``::
+
+  local http = require "socket.http"
+
+  local ip = device.ip -- found previously via discovery
+  local port = device.port -- found previously via discovery
+
+  local url = string.format("http://%s:%s/switch", ip, port)
+
+  for i=1,3 do
+    -- performs a POST because body parameter is passed
+    local body, code, headers, status = http.request({
+      url = url,
+      body = "on",
+      -- this is unfortunately required to set a timeout locally
+      create = function()
+        local sock = socket.tcp()
+        sock.settimeout(5)
+        return sock
+      end
+    })
+
+    if not body and code ~= "timeout" then
+      local err = code -- in error case second param is error message
+
+      error(string.format("error while setting switch status for %s: %s",
+                          device.name,
+                          err))
+     elseif status ~= 200 then
+       error(string.format("unexpected HTTP error response from %s: %s",
+                           device.name,
+                           status))
+    elseif status == 200
+      break
+    end
+
+    -- loop if timeout
+  end
+
+TODO: talk about servers for async notifications
+
+TODO: talk about 39500 conversions
+
+***********************
+Direct Socket Protocols
+***********************
+
+Edge Drivers also support devices that use lower level and custom protocols, as
+long as the protocol is based on TCP or UDP. The following sections will show
+how to do this with a few of the most common patterns.
+
+*************************
+Persistent TCP Connection
+*************************
+
+One of the most common low-level patterns encountered in household IoT devices
+is what SmartThings refers to as a TCP line protocol. This is where a TCP
+connection is established with a device and commands are sent as text, often as
+JSON, followed by a newline character. Replies from the device are sent in the
+same manner. Sometimes asynchronous event notifications are also sent by the
+device to any currently connected sockets when a state is changed, such as when
+a bulb is turned on via a directly connected mobile app or a message from its
+manufacturer's cloud.
+
+This example will show how to handle these devices.
+
+TODO: Show combination of ``Device.register_socket`` and handling blocking
+request-response with a single socket.
+
+***
+UDP
+***
+
+It is possible to connect to devices using UDP sockets.
+
+***
+TLS
+***
+
+TLS (Transport Layer Security) is a network protocol that can be used to secure
+basic network sockets. TLS is supported with a re-implementation of the `LuaSec
+<https://github.com/brunoos/luasec/wiki>`_ API. There are a few subtle
+differences to notice; see the reference for more information.
+
+*******************
+Server Applications
+*******************
+
+All of the examples so far have assumed that the SmartThings Hub is acting as a
+network client to a device's server. While this is the most common way
+devices operate historically, it is not the only option.
+
+.. warning::
+  There is currently a limitation in calls to ``bind`` that only allow
+  you to bind to port 0, which is to say, you cannot specify which port you bind
+  to, you can only request that one is assigned randomly. And the value of this
+  port will be random each time your script is restarted. This limitation is in
+  place to prevent two scripts interfering with each other by both trying to bind
+  to the same port. We have ideas about how to get around this, but nothing
+  implemented yet. That means that at least for now your device will need to have
+  some sort of discovery mechanism to discover the server's port (and ip).

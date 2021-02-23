@@ -1,0 +1,4 @@
+HeatAndCoolingSpecificAlarmGroupsEnum
+=====================================
+
+.. lua:autoclass:: HeatAndCoolingSpecificAlarmGroupsEnum

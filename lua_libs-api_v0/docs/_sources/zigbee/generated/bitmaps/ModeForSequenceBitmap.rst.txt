@@ -1,0 +1,4 @@
+ModeForSequenceBitmap
+=====================
+
+.. lua:autoclass:: ModeForSequenceBitmap

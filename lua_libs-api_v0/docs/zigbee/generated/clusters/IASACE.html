@@ -1,0 +1,2790 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IASACE &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Clusters" href="../clusters.html"/>
+        <link rel="next" title="IASWD" href="IASWD.html"/>
+        <link rel="prev" title="IASZone" href="IASZone.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../buf.html">Buffer Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../clusters.html">Generated Clusters</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Basic.html">Basic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerConfiguration.html">PowerConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTemperatureConfiguration.html">DeviceTemperatureConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Identify.html">Identify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Groups.html">Groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Scenes.html">Scenes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOff.html">OnOff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Level.html">Level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Alarms.html">Alarms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Commissioning.html">Commissioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OTAUpgrade.html">OTAUpgrade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PollControl.html">PollControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ShadeConfiguration.html">ShadeConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLock.html">DoorLock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindowCovering.html">WindowCovering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BarrierControl.html">BarrierControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpConfigurationAndControl.html">PumpConfigurationAndControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Thermostat.html">Thermostat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanControl.html">FanControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidificationControl.html">DehumidificationControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatUserInterfaceConfiguration.html">ThermostatUserInterfaceConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorControl.html">ColorControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastConfiguration.html">BallastConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IlluminanceMeasurement.html">IlluminanceMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IlluminanceLevelSensing.html">IlluminanceLevelSensing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TemperatureMeasurement.html">TemperatureMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PressureMeasurement.html">PressureMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FlowMeasurement.html">FlowMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidity.html">RelativeHumidity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensing.html">OccupancySensing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PhMeasurement.html">PhMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalConductivityMeasurement.html">ElectricalConductivityMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindSpeedMeasurement.html">WindSpeedMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CarbonMonoxide.html">CarbonMonoxide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IASZone.html">IASZone</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">IASACE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IASWD.html">IASWD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SimpleMetering.html">SimpleMetering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalMeasurement.html">ElectricalMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Diagnostics.html">Diagnostics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TouchlinkCommissioning.html">TouchlinkCommissioning</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../types.html">Generated Shared Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee Libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../clusters.html">Generated Clusters</a> &raquo;</li>
+        
+      <li>IASACE</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/clusters/IASACE.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="iasace">
+<h1>IASACE<a class="headerlink" href="#iasace" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0501 the ID of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“IASACE” the name of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.attributes">
+<code class="sig-name descname">attributes</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACEServerAttributes or st.zigbee.zcl.clusters.IASACEClientAttributes<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.commands">
+<code class="sig-name descname">commands</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACEServerCommands or st.zigbee.zcl.clusters.IASACEClientCommands<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types">
+<code class="sig-name descname">types</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACETypes<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.get_attribute_by_id">
+<em class="property"> </em><code class="sig-name descname">get_attribute_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.get_attribute_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find an attribute by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>number</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.get_server_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_server_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.get_server_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a server command by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>number</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.get_client_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_client_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.get_client_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a client command by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>number</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="iasace-attributes">
+<h2>IASACE Attributes<a class="headerlink" href="#iasace-attributes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="iasace-commands">
+<h2>IASACE Commands<a class="headerlink" href="#iasace-commands" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.ArmResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.ArmResponse</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ArmResponse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.ArmResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ArmResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.ArmResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ArmResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ArmResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.ArmResponse.arm_notification">
+<code class="sig-name descname">arm_notification</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.ArmNotification<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ArmResponse.arm_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.ArmResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ArmResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.ArmResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ArmResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ArmResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.ArmResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ArmResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.ArmResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">arm_notification</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ArmResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>arm_notification</strong> (<em>st.zigbee.zcl.clusters.IASACE.ArmNotification</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.ArmResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">arm_notification</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ArmResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the ArmResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ArmResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>arm_notification</strong> (<em>st.zigbee.zcl.clusters.IASACE.ArmNotification</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.ArmResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ArmResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetZoneIDMapResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section00">
+<code class="sig-name descname">zone_id_map_section00</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section00" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section01">
+<code class="sig-name descname">zone_id_map_section01</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section01" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section02">
+<code class="sig-name descname">zone_id_map_section02</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section02" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section03">
+<code class="sig-name descname">zone_id_map_section03</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section03" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section04">
+<code class="sig-name descname">zone_id_map_section04</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section04" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section05">
+<code class="sig-name descname">zone_id_map_section05</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section05" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section06">
+<code class="sig-name descname">zone_id_map_section06</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section06" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section07">
+<code class="sig-name descname">zone_id_map_section07</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section07" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section08">
+<code class="sig-name descname">zone_id_map_section08</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section08" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section09">
+<code class="sig-name descname">zone_id_map_section09</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section09" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section10">
+<code class="sig-name descname">zone_id_map_section10</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section10" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section11">
+<code class="sig-name descname">zone_id_map_section11</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section11" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section12">
+<code class="sig-name descname">zone_id_map_section12</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section12" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section13">
+<code class="sig-name descname">zone_id_map_section13</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section13" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section14">
+<code class="sig-name descname">zone_id_map_section14</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section14" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section15">
+<code class="sig-name descname">zone_id_map_section15</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.zone_id_map_section15" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetZoneIDMapResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">zone_id_map_section00</em>, <em class="sig-param">zone_id_map_section01</em>, <em class="sig-param">zone_id_map_section02</em>, <em class="sig-param">zone_id_map_section03</em>, <em class="sig-param">zone_id_map_section04</em>, <em class="sig-param">zone_id_map_section05</em>, <em class="sig-param">zone_id_map_section06</em>, <em class="sig-param">zone_id_map_section07</em>, <em class="sig-param">zone_id_map_section08</em>, <em class="sig-param">zone_id_map_section09</em>, <em class="sig-param">zone_id_map_section10</em>, <em class="sig-param">zone_id_map_section11</em>, <em class="sig-param">zone_id_map_section12</em>, <em class="sig-param">zone_id_map_section13</em>, <em class="sig-param">zone_id_map_section14</em>, <em class="sig-param">zone_id_map_section15</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>zone_id_map_section00</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section01</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section02</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section03</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section04</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section05</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section06</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section07</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section08</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section09</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section10</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section11</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section12</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section13</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section14</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section15</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">zone_id_map_section00</em>, <em class="sig-param">zone_id_map_section01</em>, <em class="sig-param">zone_id_map_section02</em>, <em class="sig-param">zone_id_map_section03</em>, <em class="sig-param">zone_id_map_section04</em>, <em class="sig-param">zone_id_map_section05</em>, <em class="sig-param">zone_id_map_section06</em>, <em class="sig-param">zone_id_map_section07</em>, <em class="sig-param">zone_id_map_section08</em>, <em class="sig-param">zone_id_map_section09</em>, <em class="sig-param">zone_id_map_section10</em>, <em class="sig-param">zone_id_map_section11</em>, <em class="sig-param">zone_id_map_section12</em>, <em class="sig-param">zone_id_map_section13</em>, <em class="sig-param">zone_id_map_section14</em>, <em class="sig-param">zone_id_map_section15</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetZoneIDMapResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetZoneIDMapResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>zone_id_map_section00</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section01</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section02</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section03</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section04</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section05</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section06</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section07</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section08</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section09</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section10</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section11</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section12</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section13</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section14</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>zone_id_map_section15</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMapResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetZoneInformationResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.zone_id">
+<code class="sig-name descname">zone_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.zone_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.zone_type">
+<code class="sig-name descname">zone_type</code><em class="property">: </em>IasZoneType<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.zone_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.ieee_address">
+<code class="sig-name descname">ieee_address</code><em class="property">: </em>IeeeAddress<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.ieee_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.zone_label">
+<code class="sig-name descname">zone_label</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.zone_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetZoneInformationResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">zone_id</em>, <em class="sig-param">zone_type</em>, <em class="sig-param">ieee_address</em>, <em class="sig-param">zone_label</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>zone_type</strong> (<em>IasZoneType</em>) – </p></li>
+<li><p><strong>ieee_address</strong> (<a class="reference internal" href="../../data_types.html#IeeeAddress" title="IeeeAddress"><em>IeeeAddress</em></a>) – </p></li>
+<li><p><strong>zone_label</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">zone_id</em>, <em class="sig-param">zone_type</em>, <em class="sig-param">ieee_address</em>, <em class="sig-param">zone_label</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetZoneInformationResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetZoneInformationResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>zone_type</strong> (<em>IasZoneType</em>) – </p></li>
+<li><p><strong>ieee_address</strong> (<a class="reference internal" href="../../data_types.html#IeeeAddress" title="IeeeAddress"><em>IeeeAddress</em></a>) – </p></li>
+<li><p><strong>zone_label</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformationResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x03 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ZoneStatusChanged” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.zone_id">
+<code class="sig-name descname">zone_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.zone_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.zone_status">
+<code class="sig-name descname">zone_status</code><em class="property">: </em>IasZoneStatus<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.zone_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.audible_notification">
+<code class="sig-name descname">audible_notification</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.audible_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.zone_label">
+<code class="sig-name descname">zone_label</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.zone_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ZoneStatusChanged</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">zone_id</em>, <em class="sig-param">zone_status</em>, <em class="sig-param">audible_notification</em>, <em class="sig-param">zone_label</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>zone_status</strong> (<em>IasZoneStatus</em>) – </p></li>
+<li><p><strong>audible_notification</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification" title="st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification</em></a>) – </p></li>
+<li><p><strong>zone_label</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">zone_id</em>, <em class="sig-param">zone_status</em>, <em class="sig-param">audible_notification</em>, <em class="sig-param">zone_label</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the ZoneStatusChanged command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ZoneStatusChanged</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>zone_status</strong> (<em>IasZoneStatus</em>) – </p></li>
+<li><p><strong>audible_notification</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification" title="st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification</em></a>) – </p></li>
+<li><p><strong>zone_label</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.ZoneStatusChanged.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.PanelStatusChanged</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x04 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PanelStatusChanged” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.panel_status">
+<code class="sig-name descname">panel_status</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.panel_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.seconds_remaining">
+<code class="sig-name descname">seconds_remaining</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.seconds_remaining" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.audible_notification">
+<code class="sig-name descname">audible_notification</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.audible_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.alarm_status">
+<code class="sig-name descname">alarm_status</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.alarm_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>PanelStatusChanged</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">panel_status</em>, <em class="sig-param">seconds_remaining</em>, <em class="sig-param">audible_notification</em>, <em class="sig-param">alarm_status</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>panel_status</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus" title="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus"><em>st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus</em></a>) – </p></li>
+<li><p><strong>seconds_remaining</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>audible_notification</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification" title="st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification</em></a>) – </p></li>
+<li><p><strong>alarm_status</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus" title="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">panel_status</em>, <em class="sig-param">seconds_remaining</em>, <em class="sig-param">audible_notification</em>, <em class="sig-param">alarm_status</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the PanelStatusChanged command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>PanelStatusChanged</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>panel_status</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus" title="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus"><em>st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus</em></a>) – </p></li>
+<li><p><strong>seconds_remaining</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>audible_notification</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification" title="st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification</em></a>) – </p></li>
+<li><p><strong>alarm_status</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus" title="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.PanelStatusChanged.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x05 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetPanelStatusResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.panel_status">
+<code class="sig-name descname">panel_status</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.panel_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.seconds_remaining">
+<code class="sig-name descname">seconds_remaining</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.seconds_remaining" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.audible_notification">
+<code class="sig-name descname">audible_notification</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.audible_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.alarm_status">
+<code class="sig-name descname">alarm_status</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.alarm_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetPanelStatusResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">panel_status</em>, <em class="sig-param">seconds_remaining</em>, <em class="sig-param">audible_notification</em>, <em class="sig-param">alarm_status</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>panel_status</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus" title="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus"><em>st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus</em></a>) – </p></li>
+<li><p><strong>seconds_remaining</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>audible_notification</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification" title="st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification</em></a>) – </p></li>
+<li><p><strong>alarm_status</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus" title="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">panel_status</em>, <em class="sig-param">seconds_remaining</em>, <em class="sig-param">audible_notification</em>, <em class="sig-param">alarm_status</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetPanelStatusResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetPanelStatusResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>panel_status</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus" title="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus"><em>st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus</em></a>) – </p></li>
+<li><p><strong>seconds_remaining</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>audible_notification</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification" title="st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification</em></a>) – </p></li>
+<li><p><strong>alarm_status</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus" title="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatusResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x06 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SetBypassedZoneList” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.zone_id">
+<code class="sig-name descname">zone_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.zone_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SetBypassedZoneList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">zone_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">zone_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SetBypassedZoneList command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SetBypassedZoneList</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.SetBypassedZoneList.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.BypassResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.BypassResponse</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.BypassResponse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.BypassResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.BypassResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x07 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.BypassResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.BypassResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BypassResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.BypassResponse.zone_id_bypass_result">
+<code class="sig-name descname">zone_id_bypass_result</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.ZoneIdBypassResult<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.BypassResponse.zone_id_bypass_result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.BypassResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.BypassResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.BypassResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.BypassResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>BypassResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.BypassResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.BypassResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.BypassResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">zone_id_bypass_result</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.BypassResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>zone_id_bypass_result</strong> (<em>st.zigbee.zcl.clusters.IASACE.ZoneIdBypassResult</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.BypassResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">zone_id_bypass_result</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.BypassResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the BypassResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>BypassResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>zone_id_bypass_result</strong> (<em>st.zigbee.zcl.clusters.IASACE.ZoneIdBypassResult</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.BypassResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.BypassResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x08 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetZoneStatusResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.zone_status_complete">
+<code class="sig-name descname">zone_status_complete</code><em class="property">: </em>Boolean<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.zone_status_complete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.zone_status_record">
+<code class="sig-name descname">zone_status_record</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.zone_status_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetZoneStatusResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">zone_status_complete</em>, <em class="sig-param">zone_status_record</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>zone_status_complete</strong> (<a class="reference internal" href="../../data_types.html#Boolean" title="Boolean"><em>Boolean</em></a>) – </p></li>
+<li><p><strong>zone_status_record</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord" title="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">zone_status_complete</em>, <em class="sig-param">zone_status_record</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetZoneStatusResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetZoneStatusResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>zone_status_complete</strong> (<a class="reference internal" href="../../data_types.html#Boolean" title="Boolean"><em>Boolean</em></a>) – </p></li>
+<li><p><strong>zone_status_record</strong> (<a class="reference internal" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord" title="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord"><em>st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatusResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.Arm</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Arm” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.arm_mode">
+<code class="sig-name descname">arm_mode</code><em class="property">: </em>st.zigbee.zcl.clusters.IASACE.ArmMode<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.arm_mode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.arm_disarm_code">
+<code class="sig-name descname">arm_disarm_code</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.arm_disarm_code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.zone_id">
+<code class="sig-name descname">zone_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.zone_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Arm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">arm_mode</em>, <em class="sig-param">arm_disarm_code</em>, <em class="sig-param">zone_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>arm_mode</strong> (<em>st.zigbee.zcl.clusters.IASACE.ArmMode</em>) – </p></li>
+<li><p><strong>arm_disarm_code</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">arm_mode</em>, <em class="sig-param">arm_disarm_code</em>, <em class="sig-param">zone_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the Arm command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>Arm</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>arm_mode</strong> (<em>st.zigbee.zcl.clusters.IASACE.ArmMode</em>) – </p></li>
+<li><p><strong>arm_disarm_code</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Arm.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Arm.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.Bypass</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Bypass” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass.zone_id">
+<code class="sig-name descname">zone_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass.zone_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass.arm_disarm_code">
+<code class="sig-name descname">arm_disarm_code</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass.arm_disarm_code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Bypass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">zone_id</em>, <em class="sig-param">arm_disarm_code</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>arm_disarm_code</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">zone_id</em>, <em class="sig-param">arm_disarm_code</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the Bypass command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>Bypass</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>arm_disarm_code</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Bypass.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Bypass.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.Emergency">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.Emergency</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Emergency" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Emergency.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Emergency.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Emergency.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Emergency.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Emergency” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Emergency.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Emergency.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.Emergency.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Emergency.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Emergency</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Emergency.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Emergency.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.Emergency.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Emergency.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Emergency.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Emergency.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the Emergency command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>Emergency</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Emergency.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Emergency.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.Fire">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.Fire</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Fire" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Fire.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Fire.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x03 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Fire.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Fire.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Fire” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Fire.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Fire.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.Fire.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Fire.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Fire</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Fire.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Fire.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.Fire.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Fire.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Fire.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Fire.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the Fire command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>Fire</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Fire.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Fire.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.Panic">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.Panic</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Panic" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Panic.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Panic.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x04 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.Panic.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Panic.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Panic” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Panic.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Panic.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.Panic.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Panic.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Panic</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Panic.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Panic.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.Panic.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Panic.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Panic.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Panic.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the Panic command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>Panic</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.Panic.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.Panic.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMap">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.GetZoneIDMap</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMap" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x05 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetZoneIDMap” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetZoneIDMap</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetZoneIDMap command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetZoneIDMap</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneIDMap.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformation">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.GetZoneInformation</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformation.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformation.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x06 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformation.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformation.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetZoneInformation” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformation.zone_id">
+<code class="sig-name descname">zone_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformation.zone_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformation.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformation.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformation.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformation.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetZoneInformation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformation.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformation.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformation.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">zone_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformation.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformation.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">zone_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformation.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetZoneInformation command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetZoneInformation</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneInformation.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneInformation.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatus">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.GetPanelStatus</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatus" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatus.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatus.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x07 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatus.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatus.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetPanelStatus” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatus.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatus.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatus.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatus.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetPanelStatus</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatus.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatus.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatus.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatus.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatus.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatus.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetPanelStatus command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetPanelStatus</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetPanelStatus.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetPanelStatus.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x08 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetBypassedZoneList” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetBypassedZoneList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetBypassedZoneList command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetBypassedZoneList</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetBypassedZoneList.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.GetZoneStatus</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x09 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetZoneStatus” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.starting_zone_id">
+<code class="sig-name descname">starting_zone_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.starting_zone_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.max_number_of_zone_i_ds">
+<code class="sig-name descname">max_number_of_zone_i_ds</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.max_number_of_zone_i_ds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.zone_status_mask_flag">
+<code class="sig-name descname">zone_status_mask_flag</code><em class="property">: </em>Boolean<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.zone_status_mask_flag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.zone_status_mask">
+<code class="sig-name descname">zone_status_mask</code><em class="property">: </em>IasZoneStatus<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.zone_status_mask" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetZoneStatus</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">starting_zone_id</em>, <em class="sig-param">max_number_of_zone_i_ds</em>, <em class="sig-param">zone_status_mask_flag</em>, <em class="sig-param">zone_status_mask</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>starting_zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>max_number_of_zone_i_ds</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>zone_status_mask_flag</strong> (<a class="reference internal" href="../../data_types.html#Boolean" title="Boolean"><em>Boolean</em></a>) – </p></li>
+<li><p><strong>zone_status_mask</strong> (<em>IasZoneStatus</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">starting_zone_id</em>, <em class="sig-param">max_number_of_zone_i_ds</em>, <em class="sig-param">zone_status_mask_flag</em>, <em class="sig-param">zone_status_mask</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetZoneStatus command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetZoneStatus</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>starting_zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>max_number_of_zone_i_ds</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>zone_status_mask_flag</strong> (<a class="reference internal" href="../../data_types.html#Boolean" title="Boolean"><em>Boolean</em></a>) – </p></li>
+<li><p><strong>zone_status_mask</strong> (<em>IasZoneStatus</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.GetZoneStatus.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.GetZoneStatus.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="iasace-types">
+<h2>IASACE Types<a class="headerlink" href="#iasace-types" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification</code><em class="property">: </em><a class="reference internal" href="../../data_types.html#EnumABC" title="EnumABC">EnumABC</a><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification.byte_length">
+<code class="sig-name descname">byte_length</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification.byte_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification.MUTE">
+<code class="sig-name descname">MUTE</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification.MUTE" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification.DEFAULT_SOUND">
+<code class="sig-name descname">DEFAULT_SOUND</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAudibleNotification.DEFAULT_SOUND" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus</code><em class="property">: </em><a class="reference internal" href="../../data_types.html#EnumABC" title="EnumABC">EnumABC</a><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.byte_length">
+<code class="sig-name descname">byte_length</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.byte_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.NO_ALARM">
+<code class="sig-name descname">NO_ALARM</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.NO_ALARM" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.BURGLER">
+<code class="sig-name descname">BURGLER</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.BURGLER" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.FIRE">
+<code class="sig-name descname">FIRE</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.FIRE" title="Permalink to this definition">¶</a></dt>
+<dd><p>2</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.EMERGENCY">
+<code class="sig-name descname">EMERGENCY</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.EMERGENCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>3</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.POLICE_PANIC">
+<code class="sig-name descname">POLICE_PANIC</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.POLICE_PANIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>4</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.FIRE_PANIC">
+<code class="sig-name descname">FIRE_PANIC</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.FIRE_PANIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>5</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.EMERGENCY_PANIC">
+<code class="sig-name descname">EMERGENCY_PANIC</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceAlarmStatus.EMERGENCY_PANIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>6</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus</code><em class="property">: </em><a class="reference internal" href="../../data_types.html#EnumABC" title="EnumABC">EnumABC</a><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.byte_length">
+<code class="sig-name descname">byte_length</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.byte_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.PANEL_DISARMED_READY_TO_ARM">
+<code class="sig-name descname">PANEL_DISARMED_READY_TO_ARM</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.PANEL_DISARMED_READY_TO_ARM" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMED_STAY">
+<code class="sig-name descname">ARMED_STAY</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMED_STAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMED_NIGHT">
+<code class="sig-name descname">ARMED_NIGHT</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMED_NIGHT" title="Permalink to this definition">¶</a></dt>
+<dd><p>2</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMED_AWAY">
+<code class="sig-name descname">ARMED_AWAY</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMED_AWAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>3</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.EXIT_DELAY">
+<code class="sig-name descname">EXIT_DELAY</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.EXIT_DELAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>4</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ENTRY_DELAY">
+<code class="sig-name descname">ENTRY_DELAY</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ENTRY_DELAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>5</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.NOT_READY_TO_ARM">
+<code class="sig-name descname">NOT_READY_TO_ARM</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.NOT_READY_TO_ARM" title="Permalink to this definition">¶</a></dt>
+<dd><p>6</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.IN_ALARM">
+<code class="sig-name descname">IN_ALARM</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.IN_ALARM" title="Permalink to this definition">¶</a></dt>
+<dd><p>7</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMING_STAY">
+<code class="sig-name descname">ARMING_STAY</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMING_STAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>8</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMING_NIGHT">
+<code class="sig-name descname">ARMING_NIGHT</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMING_NIGHT" title="Permalink to this definition">¶</a></dt>
+<dd><p>9</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMING_AWAY">
+<code class="sig-name descname">ARMING_AWAY</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasacePanelStatus.ARMING_AWAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>10</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord</code><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>IasaceZoneStatusRecord<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.zone_id">
+<code class="sig-name descname">zone_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.zone_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.zone_status">
+<code class="sig-name descname">zone_status</code><em class="property">: </em>IasZoneStatus<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.zone_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.get_length">
+<em class="property"> </em><code class="sig-name descname">get_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.get_length" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the length in bytes of this frame</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.serialize">
+<em class="property"> </em><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>this class serialized to bytes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.pretty_print">
+<em class="property"> </em><code class="sig-name descname">pretty_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.pretty_print" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>this class in a human readable format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>Reader</em>) – the buf to parse this class from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the length in bytes of this frame</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.from_values">
+<em class="property">static </em><code class="sig-name descname">from_values</code><span class="sig-paren">(</span><em class="sig-param">zone_id</em>, <em class="sig-param">zone_status</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.IasaceZoneStatusRecord.from_values" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zone_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>zone_status</strong> (<em>IasZoneStatus</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmNotification">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.types.ArmNotification</code><em class="property">: </em><a class="reference internal" href="../../data_types.html#EnumABC" title="EnumABC">EnumABC</a><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmNotification" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmNotification.byte_length">
+<code class="sig-name descname">byte_length</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmNotification.byte_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmNotification.ALL_ZONES_DISARMED">
+<code class="sig-name descname">ALL_ZONES_DISARMED</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmNotification.ALL_ZONES_DISARMED" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmNotification.ONLY_DAY_HOME_ZONES_ARMED">
+<code class="sig-name descname">ONLY_DAY_HOME_ZONES_ARMED</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmNotification.ONLY_DAY_HOME_ZONES_ARMED" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmNotification.ONLY_NIGHT_SLEEP_ZONES_ARMED">
+<code class="sig-name descname">ONLY_NIGHT_SLEEP_ZONES_ARMED</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmNotification.ONLY_NIGHT_SLEEP_ZONES_ARMED" title="Permalink to this definition">¶</a></dt>
+<dd><p>2</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmNotification.ALL_ZONES_ARMED">
+<code class="sig-name descname">ALL_ZONES_ARMED</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmNotification.ALL_ZONES_ARMED" title="Permalink to this definition">¶</a></dt>
+<dd><p>3</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmNotification.INVALID_ARM_DISARM_CODE">
+<code class="sig-name descname">INVALID_ARM_DISARM_CODE</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmNotification.INVALID_ARM_DISARM_CODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>4</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmNotification.NOT_READY_TO_ARM">
+<code class="sig-name descname">NOT_READY_TO_ARM</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmNotification.NOT_READY_TO_ARM" title="Permalink to this definition">¶</a></dt>
+<dd><p>5</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmNotification.ALREADY_DISARMED">
+<code class="sig-name descname">ALREADY_DISARMED</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmNotification.ALREADY_DISARMED" title="Permalink to this definition">¶</a></dt>
+<dd><p>6</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult</code><em class="property">: </em><a class="reference internal" href="../../data_types.html#UintABC" title="UintABC">UintABC</a><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.byte_length">
+<code class="sig-name descname">byte_length</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.byte_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.ZONE_BYPASSED">
+<code class="sig-name descname">ZONE_BYPASSED</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.ZONE_BYPASSED" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.ZONE_NOT_BYPASSED">
+<code class="sig-name descname">ZONE_NOT_BYPASSED</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.ZONE_NOT_BYPASSED" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.NOT_ALLOWED">
+<code class="sig-name descname">NOT_ALLOWED</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.NOT_ALLOWED" title="Permalink to this definition">¶</a></dt>
+<dd><p>2</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.INVALID_ZONE_ID">
+<code class="sig-name descname">INVALID_ZONE_ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.INVALID_ZONE_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>3</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.UNKNOWN_ZONE_ID">
+<code class="sig-name descname">UNKNOWN_ZONE_ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.UNKNOWN_ZONE_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>4</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.INVALID_ARM_DISARM_CODE">
+<code class="sig-name descname">INVALID_ARM_DISARM_CODE</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ZoneIdBypassResult.INVALID_ARM_DISARM_CODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>5</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmMode">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.IASACE.types.ArmMode</code><em class="property">: </em><a class="reference internal" href="../../data_types.html#EnumABC" title="EnumABC">EnumABC</a><a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmMode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmMode.byte_length">
+<code class="sig-name descname">byte_length</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmMode.byte_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmMode.DISARM">
+<code class="sig-name descname">DISARM</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmMode.DISARM" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmMode.ARM_DAY_HOME_ZONES_ONLY">
+<code class="sig-name descname">ARM_DAY_HOME_ZONES_ONLY</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmMode.ARM_DAY_HOME_ZONES_ONLY" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmMode.ARM_NIGHT_SLEEP_ZONES_ONLY">
+<code class="sig-name descname">ARM_NIGHT_SLEEP_ZONES_ONLY</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmMode.ARM_NIGHT_SLEEP_ZONES_ONLY" title="Permalink to this definition">¶</a></dt>
+<dd><p>2</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.IASACE.types.ArmMode.ARM_ALL_ZONES">
+<code class="sig-name descname">ARM_ALL_ZONES</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.IASACE.types.ArmMode.ARM_ALL_ZONES" title="Permalink to this definition">¶</a></dt>
+<dd><p>3</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="IASWD.html" class="btn btn-neutral float-right" title="IASWD" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="IASZone.html" class="btn btn-neutral" title="IASZone" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

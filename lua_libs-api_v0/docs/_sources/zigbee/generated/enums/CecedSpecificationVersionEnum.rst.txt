@@ -1,0 +1,4 @@
+CecedSpecificationVersionEnum
+=============================
+
+.. lua:autoclass:: CecedSpecificationVersionEnum

@@ -1,0 +1,4 @@
+SceneExtensionAttributeInfo
+===========================
+
+.. lua:autoclass:: SceneExtensionAttributeInfo

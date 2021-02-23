@@ -1,0 +1,307 @@
+PrepaymentCluster
+=================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PaymentControlConfiguration
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CreditRemaining
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.EmergencyCreditRemaining
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CreditStatus
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CreditRemainingTimestamp
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.AccumulatedDebt
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.OverallDebtCap
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.EmergencyCreditLimitAllowance
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.EmergencyCreditThreshold
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TotalCreditAdded
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.MaxCreditLimit
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.MaxCreditPerTopUp
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.FriendlyCreditWarning
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.LowCreditWarning
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.IhdLowCreditWarning
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.InterruptSuspendTime
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.RemainingFriendlyCreditTime
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.NextFriendlyCreditPeriod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CutOffValue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TokenCarrierId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpDateTime1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpAmount1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpOriginatingDevice1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpCode1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpDateTime2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpAmount2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpOriginatingDevice2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpCode2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpDateTime3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpAmount3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpOriginatingDevice3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpCode3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpDateTime4
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpAmount4
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpOriginatingDevice4
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpCode4
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpDateTime5
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpAmount5
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpOriginatingDevice5
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.TopUpCode5
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtLabel1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtAmount1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryMethod1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryStartTime1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryCollectionTime1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryFrequency1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryAmount1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryTopUpPercentage1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtLabel2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtAmount2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryMethod2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryStartTime2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryCollectionTime2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryFrequency2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryAmount2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryTopUpPercentage2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtLabel3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtAmount3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryMethod3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryStartTime3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryCollectionTime3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryFrequency3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryAmount3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.DebtRecoveryTopUpPercentage3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PrepaymentAlarmStatus
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PrepayGenericAlarmMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PrepaySwitchAlarmMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PrepayEventAlarmMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.HistoricalCostConsumptionFormatting
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.ConsumptionUnitOfMeasurement
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CurrencyScalingFactor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PrepaymantCurrency
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CurrentDayCostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CurrentDayCostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDayCostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDayCostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay2CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay2CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay3CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay3CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay4CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay4CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay5CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay5CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay6CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay6CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay7CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay7CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay8CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousDay8CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CurrentWeekCostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CurrentWeekCostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousWeekCostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousWeekCostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousWeek2CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousWeek2CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousWeek3CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousWeek3CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousWeek4CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousWeek4CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousWeek5CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousWeek5CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CurrentMonthCostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CurrentMonthCostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonthCostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonthCostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth2CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth2CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth3CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth3CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth4CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth4CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth5CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth5CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth6CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth6CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth7CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth7CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth8CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth8CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth9CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth9CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth10CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth10CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth11CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth11CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth12CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth12CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth13CostConsumptionDelivered
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PreviousMonth13CostConsumptionReceived
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PrepaymentHistoricalFreezeTime
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.SelectAvailableEmergencyCredit
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.ChangeDebt
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.EmergencyCreditSetup
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.ConsumerTopUp
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.CreditAdjustment
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.ChangePaymentMode
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.GetPrepaySnapshot
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.GetTopUpLog
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.SetLowCreditWarningLevel
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.GetDebtRepaymentLog
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.SetMaximumCreditLimit
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.SetOverallDebtCap
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PublishPrepaySnapshot
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.ChangePaymentModeResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.ConsumerTopUpResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PublishTopUpLog
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PrepaymentCluster.PublishDebtLog
+

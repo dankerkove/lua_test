@@ -1,0 +1,4 @@
+MeteringAlarmCodeEnum
+=====================
+
+.. lua:autoclass:: MeteringAlarmCodeEnum

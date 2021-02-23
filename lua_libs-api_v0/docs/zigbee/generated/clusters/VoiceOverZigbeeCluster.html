@@ -1,0 +1,1378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VoiceOverZigbeeCluster &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Clusters" href="../clusters.html"/>
+        <link rel="next" title="ChattingCluster" href="ChattingCluster.html"/>
+        <link rel="prev" title="DataRateControlCluster" href="DataRateControlCluster.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults/defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../clusters.html">Generated Clusters</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BasicCluster.html">BasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerConfigCluster.html">PowerConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTempCluster.html">DeviceTempCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IdentifyCluster.html">IdentifyCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GroupsCluster.html">GroupsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScenesCluster.html">ScenesCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffCluster.html">OnOffCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffSwitchConfigCluster.html">OnOffSwitchConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LevelControlCluster.html">LevelControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlarmCluster.html">AlarmCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeCluster.html">TimeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RssiLocationCluster.html">RssiLocationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BinaryInputBasicCluster.html">BinaryInputBasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CommissioningCluster.html">CommissioningCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PartitionCluster.html">PartitionCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OtaBootloadCluster.html">OtaBootloadCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerProfileCluster.html">PowerProfileCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceControlCluster.html">ApplianceControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PollControlCluster.html">PollControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ShadeConfigCluster.html">ShadeConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockCluster.html">DoorLockCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindowCoveringCluster.html">WindowCoveringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpConfigControlCluster.html">PumpConfigControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatCluster.html">ThermostatCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanControlCluster.html">FanControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidControlCluster.html">DehumidControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatUiConfigCluster.html">ThermostatUiConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorControlCluster.html">ColorControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastConfigurationCluster.html">BallastConfigurationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumMeasurementCluster.html">IllumMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumLevelSensingCluster.html">IllumLevelSensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TempMeasurementCluster.html">TempMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PressureMeasurementCluster.html">PressureMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FlowMeasurementCluster.html">FlowMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidityMeasurementCluster.html">RelativeHumidityMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensingCluster.html">OccupancySensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasZoneCluster.html">IasZoneCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceCluster.html">IasAceCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasWdCluster.html">IasWdCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericTunnelCluster.html">GenericTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BacnetProtocolTunnelCluster.html">BacnetProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Iso7816ProtocolTunnelCluster.html">Iso7816ProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DemandResponseLoadControlCluster.html">DemandResponseLoadControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SimpleMeteringCluster.html">SimpleMeteringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingCluster.html">MessagingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TunnelingCluster.html">TunnelingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaymentCluster.html">PrepaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnergyManagementCluster.html">EnergyManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CalendarCluster.html">CalendarCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceManagementCluster.html">DeviceManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventsCluster.html">EventsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MduPairingCluster.html">MduPairingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KeyEstablishmentCluster.html">KeyEstablishmentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InformationCluster.html">InformationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataSharingCluster.html">DataSharingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GamingCluster.html">GamingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataRateControlCluster.html">DataRateControlCluster</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">VoiceOverZigbeeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChattingCluster.html">ChattingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PaymentCluster.html">PaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillingCluster.html">BillingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceIdentificationCluster.html">ApplianceIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeterIdentificationCluster.html">MeterIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceEventsAndAlertCluster.html">ApplianceEventsAndAlertCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceStatisticsCluster.html">ApplianceStatisticsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalMeasurementCluster.html">ElectricalMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DiagnosticsCluster.html">DiagnosticsCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../enums.html">Generated Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitmaps.html">Generated Bitmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structs.html">Generated Structs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee related libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../clusters.html">Generated Clusters</a> &raquo;</li>
+        
+      <li>VoiceOverZigbeeCluster</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/clusters/VoiceOverZigbeeCluster.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="voiceoverzigbeecluster">
+<h1>VoiceOverZigbeeCluster<a class="headerlink" href="#voiceoverzigbeecluster" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeCluster" title="ZigbeeCluster">ZigbeeCluster</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>This cluster seeks to provide an interface to a voice over ZigBee protocol.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0904 the ID of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Voice over ZigBee” the name of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.attributes">
+<code class="sig-name descname">attributes</code><em class="property">: </em>st.zigbee.zcl.clusters.VoiceOverZigbeeClusterAttributes<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.commands">
+<code class="sig-name descname">commands</code><em class="property">: </em>st.zigbee.zcl.clusters.VoiceOverZigbeeClusterCommands<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.get_attribute_by_id">
+<em class="property"> </em><code class="sig-name descname">get_attribute_by_id</code><span class="sig-paren">(</span><em class="sig-param">attr_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.get_attribute_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attr_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.get_server_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_server_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.get_server_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.get_client_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_client_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.get_client_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecType">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecType</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecType.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecType.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0000 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecType.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecType.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“CodecType” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecType.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecType.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.SamplingFrequency">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.SamplingFrequency</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.SamplingFrequency" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.SamplingFrequency.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.SamplingFrequency.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0001 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.SamplingFrequency.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.SamplingFrequency.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SamplingFrequency” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.SamplingFrequency.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.SamplingFrequency.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecRate">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecRate</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecRate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecRate.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecRate.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0002 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecRate.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecRate.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“CodecRate” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecRate.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecRate.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentTimeout">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentTimeout</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentTimeout" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentTimeout.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentTimeout.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0003 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentTimeout.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentTimeout.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“EstablishmentTimeout” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentTimeout.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentTimeout.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub1">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub1</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub1.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub1.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0004 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub1.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub1.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“CodecTypeSub1” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub1.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub1.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub2">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub2</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub2.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub2.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0005 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub2.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub2.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“CodecTypeSub2” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub2.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub2.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub3">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub3</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub3" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub3.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub3.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0006 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub3.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub3.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“CodecTypeSub3” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub3.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CodecTypeSub3.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionType">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionType</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionType.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionType.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0007 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionType.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionType.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“CompressionType” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionType.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionType.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionRate">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionRate</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionRate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionRate.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionRate.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0008 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionRate.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionRate.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“CompressionRate” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionRate.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.CompressionRate.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.OptionFlags">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.OptionFlags</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.OptionFlags" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.OptionFlags.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.OptionFlags.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0009 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.OptionFlags.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.OptionFlags.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OptionFlags” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.OptionFlags.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Bitmap8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.OptionFlags.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Threshold">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Threshold</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Threshold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Threshold.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Threshold.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x000A the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Threshold.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Threshold.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Threshold” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Threshold.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Threshold.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for EstablishmentRequest</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“EstablishmentRequest” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.flag">
+<code class="sig-name descname">flag</code><em class="property">: </em>Bitmap8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.flag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.codec_type">
+<code class="sig-name descname">codec_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.codec_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.samp_freq">
+<code class="sig-name descname">samp_freq</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.samp_freq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.codec_rate">
+<code class="sig-name descname">codec_rate</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.codec_rate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.service_type">
+<code class="sig-name descname">service_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.service_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.buffer">
+<code class="sig-name descname">buffer</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.buffer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>EstablishmentRequest</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">flag</em>, <em class="sig-param">codec_type</em>, <em class="sig-param">samp_freq</em>, <em class="sig-param">codec_rate</em>, <em class="sig-param">service_type</em>, <em class="sig-param">buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>flag</strong> (<a class="reference internal" href="../../data_types.html#Bitmap8" title="Bitmap8"><em>Bitmap8</em></a>) – </p></li>
+<li><p><strong>codec_type</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>samp_freq</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>codec_rate</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>service_type</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>buffer</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">flag</em>, <em class="sig-param">codec_type</em>, <em class="sig-param">samp_freq</em>, <em class="sig-param">codec_rate</em>, <em class="sig-param">service_type</em>, <em class="sig-param">buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the EstablishmentRequest command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>EstablishmentRequest</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>flag</strong> (<a class="reference internal" href="../../data_types.html#Bitmap8" title="Bitmap8"><em>Bitmap8</em></a>) – </p></li>
+<li><p><strong>codec_type</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>samp_freq</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>codec_rate</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>service_type</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>buffer</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentRequest.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for VoiceTransmission</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“VoiceTransmission” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.voice_data">
+<code class="sig-name descname">voice_data</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.voice_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>VoiceTransmission</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">voice_data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>voice_data</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">voice_data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the VoiceTransmission command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>VoiceTransmission</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>voice_data</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmission.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for VoiceTransmissionCompletion</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“VoiceTransmissionCompletion” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>VoiceTransmissionCompletion</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the VoiceTransmissionCompletion command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>VoiceTransmissionCompletion</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionCompletion.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for ControlResponse</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x03 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ControlResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.ack_nack">
+<code class="sig-name descname">ack_nack</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.ack_nack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ControlResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">ack_nack</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>ack_nack</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">ack_nack</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the ControlResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ControlResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>ack_nack</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.ControlResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for EstablishmentResponse</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“EstablishmentResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.ack_nack">
+<code class="sig-name descname">ack_nack</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.ack_nack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.codec_type">
+<code class="sig-name descname">codec_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.codec_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>EstablishmentResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">ack_nack</em>, <em class="sig-param">codec_type</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>ack_nack</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>codec_type</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">ack_nack</em>, <em class="sig-param">codec_type</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the EstablishmentResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>EstablishmentResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>ack_nack</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>codec_type</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.EstablishmentResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for VoiceTransmissionResponse</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“VoiceTransmissionResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.sequence_number">
+<code class="sig-name descname">sequence_number</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.sequence_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.error_flag">
+<code class="sig-name descname">error_flag</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.error_flag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>VoiceTransmissionResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">sequence_number</em>, <em class="sig-param">error_flag</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>sequence_number</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>error_flag</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">sequence_number</em>, <em class="sig-param">error_flag</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the VoiceTransmissionResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>VoiceTransmissionResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>sequence_number</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>error_flag</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.VoiceTransmissionResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for Control</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Control” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.control_type">
+<code class="sig-name descname">control_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.control_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Control</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">control_type</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>control_type</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">control_type</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the Control command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>Control</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>control_type</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.VoiceOverZigbeeCluster.Control.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ChattingCluster.html" class="btn btn-neutral float-right" title="ChattingCluster" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DataRateControlCluster.html" class="btn btn-neutral" title="DataRateControlCluster" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

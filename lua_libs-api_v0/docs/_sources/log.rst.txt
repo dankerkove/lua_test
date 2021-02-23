@@ -1,0 +1,4 @@
+Logging Interface
+-----------------
+
+.. lua:autoclass:: log

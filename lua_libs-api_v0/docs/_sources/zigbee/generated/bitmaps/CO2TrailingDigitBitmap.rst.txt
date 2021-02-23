@@ -1,0 +1,4 @@
+CO2TrailingDigitBitmap
+======================
+
+.. lua:autoclass:: CO2TrailingDigitBitmap

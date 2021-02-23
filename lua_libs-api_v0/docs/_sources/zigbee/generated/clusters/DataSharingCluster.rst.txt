@@ -1,0 +1,31 @@
+DataSharingCluster
+==================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster.DeviceName
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster.DeviceDescription
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster.ReadFileRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster.ReadRecordRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster.WriteFileResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster.WriteFileRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster.ModifyFileRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster.ModifyRecordRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster.FileTransmission
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DataSharingCluster.RecordTransmission
+

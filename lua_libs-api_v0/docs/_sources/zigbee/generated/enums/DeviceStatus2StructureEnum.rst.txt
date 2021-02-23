@@ -1,0 +1,4 @@
+DeviceStatus2StructureEnum
+==========================
+
+.. lua:autoclass:: DeviceStatus2StructureEnum

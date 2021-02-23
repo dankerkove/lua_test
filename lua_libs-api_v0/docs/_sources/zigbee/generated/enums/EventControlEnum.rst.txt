@@ -1,0 +1,4 @@
+EventControlEnum
+================
+
+.. lua:autoclass:: EventControlEnum

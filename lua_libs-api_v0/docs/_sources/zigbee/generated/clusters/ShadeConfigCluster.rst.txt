@@ -1,0 +1,21 @@
+ShadeConfigCluster
+==================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ShadeConfigCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ShadeConfigCluster.ShadeConfigPhysicalClosedLimit
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ShadeConfigCluster.ShadeConfigMotorStepSize
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ShadeConfigCluster.ShadeConfigStatus
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ShadeConfigCluster.ShadeConfigClosedLimit
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ShadeConfigCluster.ShadeConfigMode
+
+Commands
+++++++++++++
+

@@ -1,0 +1,4 @@
+LocationMethodEnum
+==================
+
+.. lua:autoclass:: LocationMethodEnum

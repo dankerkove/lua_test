@@ -1,0 +1,1617 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PressureMeasurement &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Clusters" href="../clusters.html"/>
+        <link rel="next" title="FlowMeasurement" href="FlowMeasurement.html"/>
+        <link rel="prev" title="TemperatureMeasurement" href="TemperatureMeasurement.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../buf.html">Buffer Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../clusters.html">Generated Clusters</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Basic.html">Basic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerConfiguration.html">PowerConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTemperatureConfiguration.html">DeviceTemperatureConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Identify.html">Identify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Groups.html">Groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Scenes.html">Scenes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOff.html">OnOff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Level.html">Level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Alarms.html">Alarms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Commissioning.html">Commissioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OTAUpgrade.html">OTAUpgrade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PollControl.html">PollControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ShadeConfiguration.html">ShadeConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLock.html">DoorLock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindowCovering.html">WindowCovering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BarrierControl.html">BarrierControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpConfigurationAndControl.html">PumpConfigurationAndControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Thermostat.html">Thermostat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanControl.html">FanControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidificationControl.html">DehumidificationControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatUserInterfaceConfiguration.html">ThermostatUserInterfaceConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorControl.html">ColorControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastConfiguration.html">BallastConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IlluminanceMeasurement.html">IlluminanceMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IlluminanceLevelSensing.html">IlluminanceLevelSensing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TemperatureMeasurement.html">TemperatureMeasurement</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PressureMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FlowMeasurement.html">FlowMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidity.html">RelativeHumidity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensing.html">OccupancySensing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PhMeasurement.html">PhMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalConductivityMeasurement.html">ElectricalConductivityMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindSpeedMeasurement.html">WindSpeedMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CarbonMonoxide.html">CarbonMonoxide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IASZone.html">IASZone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IASACE.html">IASACE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IASWD.html">IASWD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SimpleMetering.html">SimpleMetering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalMeasurement.html">ElectricalMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Diagnostics.html">Diagnostics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TouchlinkCommissioning.html">TouchlinkCommissioning</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../types.html">Generated Shared Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee Libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../clusters.html">Generated Clusters</a> &raquo;</li>
+        
+      <li>PressureMeasurement</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/clusters/PressureMeasurement.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pressuremeasurement">
+<h1>PressureMeasurement<a class="headerlink" href="#pressuremeasurement" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PressureMeasurement</code><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0403 the ID of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PressureMeasurement” the name of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.attributes">
+<code class="sig-name descname">attributes</code><em class="property">: </em>st.zigbee.zcl.clusters.PressureMeasurementServerAttributes or st.zigbee.zcl.clusters.PressureMeasurementClientAttributes<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.commands">
+<code class="sig-name descname">commands</code><em class="property">: </em>st.zigbee.zcl.clusters.PressureMeasurementServerCommands or st.zigbee.zcl.clusters.PressureMeasurementClientCommands<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.types">
+<code class="sig-name descname">types</code><em class="property">: </em>st.zigbee.zcl.clusters.PressureMeasurementTypes<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.get_attribute_by_id">
+<em class="property"> </em><code class="sig-name descname">get_attribute_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.get_attribute_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find an attribute by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>number</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.get_server_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_server_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.get_server_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a server command by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>number</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.get_client_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_client_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.get_client_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a client command by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>number</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="pressuremeasurement-attributes">
+<h2>PressureMeasurement Attributes<a class="headerlink" href="#pressuremeasurement-attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue</code><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0000 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MeasuredValue” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Int16 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the MeasuredValue(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Int16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Int16" title="Int16">Int16</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MeasuredValue.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue</code><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0001 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MinMeasuredValue” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Int16 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the MinMeasuredValue(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Int16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Int16" title="Int16">Int16</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinMeasuredValue.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue</code><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0002 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MaxMeasuredValue” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Int16 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the MaxMeasuredValue(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Int16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Int16" title="Int16">Int16</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxMeasuredValue.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PressureMeasurement.Tolerance</code><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0003 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Tolerance” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Uint16 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the Tolerance(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Uint16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Uint16" title="Uint16">Uint16</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Tolerance.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue</code><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0010 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ScaledValue” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Int16 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the ScaledValue(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Int16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Int16" title="Int16">Int16</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledValue.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue</code><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0011 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MinScaledValue” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Int16 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the MinScaledValue(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Int16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Int16" title="Int16">Int16</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MinScaledValue.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue</code><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0012 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MaxScaledValue” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Int16 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the MaxScaledValue(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Int16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Int16" title="Int16">Int16</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.MaxScaledValue.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance</code><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0013 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ScaledTolerance” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Uint16 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the ScaledTolerance(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Uint16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Uint16" title="Uint16">Uint16</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.ScaledTolerance.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PressureMeasurement.Scale</code><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0014 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Scale” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int8<a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int8" title="Int8"><em>Int8</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Int8" title="Int8"><em>Int8</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Int8 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the Scale(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Int8</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Int8" title="Int8">Int8</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Int8" title="Int8"><em>Int8</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PressureMeasurement.Scale.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PressureMeasurement.Scale.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="pressuremeasurement-commands">
+<h2>PressureMeasurement Commands<a class="headerlink" href="#pressuremeasurement-commands" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FlowMeasurement.html" class="btn btn-neutral float-right" title="FlowMeasurement" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="TemperatureMeasurement.html" class="btn btn-neutral" title="TemperatureMeasurement" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

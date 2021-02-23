@@ -1,0 +1,37 @@
+Zigbee Driver Capability Command Handlers
+=========================================
+
+This module contains a set of default capability command handlers.  See
+:lua:meth:`<command_handlers.zigbee_capability_command_handler> zigbee_capability_command_handler` for the template of
+what these handlers look like.  These will each be matched with a specific capability command pair, and will then be
+called when that command is sent from an automation, mobile app, or other actuation.
+
+Default handlers available
+++++++++++++++++++++++++++
+
+Following are a number of default implementations of handlers.  Many of these will be automatically associated with a
+capability unless overridden.
+
+TODO: .. lua:automodule:: zigbee.defaults
+
+Default capability registrations
+++++++++++++++++++++++++++++++++
+TODO: find a good way to dynamically include these
+
+.. code-block:: lua
+
+    local default_command_handlers = {
+      Switch = {
+        on = command_handlers.on,
+        off = command_handlers.off
+      },
+      SwitchLevel = {
+        setLevel = command_handlers.set_level
+      },
+      ColorTemperature = {
+        setColorTemperature = command_handlers.set_color_temperature
+      },
+      ColorControl = {
+        setColor = command_handlers.set_color
+      },
+    }

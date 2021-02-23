@@ -1,0 +1,670 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ZigbeeDevice Class &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../index.html"/>
+        <link rel="up" title="Zigbee Libraries" href="zigbee.html"/>
+        <link rel="next" title="Zigbee Driver RX message handlers" href="zigbee_message_handlers.html"/>
+        <link rel="prev" title="Zigbee driver structures" href="driver.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../buf.html">Buffer Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="zigbee.html">Zigbee Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ZigbeeDevice Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multi-component-devices">Multi-Component devices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated.html">Generated Zigbee Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="zigbee.html">Zigbee Libraries</a> &raquo;</li>
+        
+      <li>ZigbeeDevice Class</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/zigbee/device.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zigbeedevice-class">
+<h1>ZigbeeDevice Class<a class="headerlink" href="#zigbeedevice-class" title="Permalink to this headline">¶</a></h1>
+<p>This is a class that inherits from the <a class="reference internal" href="../device.html#Device" title="Device"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">Device</span></code></a> class, but extends behavior
+with Zigbee-specific functionality.  These functions are documented in the class documentation below.</p>
+<div class="section" id="multi-component-devices">
+<h2>Multi-Component devices<a class="headerlink" href="#multi-component-devices" title="Permalink to this headline">¶</a></h2>
+<p>There are a number of situations where the SmartThings model of the device makes sense to be broken down into several
+“components”.  A classic example of this would be a smart power strip, where it is a single device on the network, but
+each outlet can be controlled separately.  This would best be modeled as a single device, with a component for each
+switch.  See the TODO: SmartThings Profile documentation for more discussion on SmartThings components.
+Within Zigbee these separate pieces of functionality are often modeled as “endpoints”, and messages to the devices can
+be addressed to the specific endpoint you want to control and interact with.  In order to promote code reuse the
+ZigbeeDevice object provides a way for your driver to define how you want to map between components and endpoints that
+can then be used by the rest of the Zigbee Lua standard library to automatically generate events for the correct
+components or send messages to the correct endpoint.  As an important note, as with most things in the standard library
+this is built to support the most common model, but it is likely that there will be individual devices that don’t
+adhere to this model and will need to override this behavior.</p>
+<p>In order to opt in to this behavior you can use the following functions:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nc">ZigbeeDevice</span><span class="p">:</span><span class="nf">set_component_to_endpoint_fn</span><span class="p">(</span><span class="n">comp_ep_fn</span><span class="p">)</span>
+<span class="kr">function</span> <span class="nc">ZigbeeDevice</span><span class="p">:</span><span class="nf">set_endpoint_to_component_fn</span><span class="p">(</span><span class="n">ep_comp_fn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here you can provide a function for each direction to map a Zigbee endpoint id (1 byte number) to a SmartThings
+component id (string), and vice versa.  Once these are set the following functions on the device are used for event
+generation and message addressing:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nc">ZigbeeDevice</span><span class="p">:</span><span class="nf">get_endpoint_for_component_id</span><span class="p">(</span><span class="n">comp_id</span><span class="p">)</span>
+<span class="kr">function</span> <span class="nc">ZigbeeDevice</span><span class="p">:</span><span class="nf">get_component_id_for_endpoint</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If these functions are used without settign the mapping functions above, they will return the defaults (“main” for a
+component, and <code class="docutils literal notranslate"><span class="pre">device.fingerprinted_endpoint_id</span></code> for the endpoint).  Further as a convenience method the following
+function is provided as well</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nc">ZigbeeDevice</span><span class="p">:</span><span class="nf">emit_event_for_endpoint</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>That will automatically generate the event for the correct endpoint.</p>
+<div class="section" id="example">
+<h3>example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Here is a simple example of a driver that supports multi switch Zigbee outlet where the profiles are defined as follows:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">two-outlet</span>
+<span class="nt">components</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+  <span class="nt">capabilities</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">switch</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">categories</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Switch</span>
+<span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">switch1</span>
+  <span class="nt">capabilities</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">switch</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">categories</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Switch</span>
+
+<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">three-outlet</span>
+<span class="nt">components</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+  <span class="nt">capabilities</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">switch</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">categories</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Switch</span>
+<span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">switch1</span>
+  <span class="nt">capabilities</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">switch</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">categories</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Switch</span>
+<span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">switch2</span>
+  <span class="nt">capabilities</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">switch</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">categories</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Switch</span>
+</pre></div>
+</div>
+<p>And uses Zigbee endpoints <code class="docutils literal notranslate"><span class="pre">0x00</span></code> for the first outlet and increments by one for each additional outlet.  Then the
+following driver will be able to use the builtin behavior to correctly generate events and address commands.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">capabilities</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.capabilities&quot;</span>
+<span class="kd">local</span> <span class="n">ZigbeeDriver</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.zigbee&quot;</span>
+<span class="kd">local</span> <span class="n">defaults</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.zigbee.defaults&quot;</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">component_to_endpoint</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">component_id</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">component_id</span> <span class="o">==</span> <span class="s2">&quot;main&quot;</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">device</span><span class="p">.</span><span class="n">fingerprinted_endpoint_id</span>
+  <span class="kr">else</span>
+    <span class="kd">local</span> <span class="n">ep_num</span> <span class="o">=</span> <span class="n">component_id</span><span class="p">:</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;switch(%d)&quot;</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="n">ep_num</span> <span class="ow">and</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">ep_num</span><span class="p">)</span> <span class="ow">or</span> <span class="n">device</span><span class="p">.</span><span class="n">fingerprinted_endpoint_id</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">endpoint_to_component</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">ep</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">ep</span> <span class="o">==</span> <span class="n">device</span><span class="p">.</span><span class="n">fingerprinted_endpoint_id</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="s2">&quot;main&quot;</span>
+  <span class="kr">else</span>
+    <span class="kr">return</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;switch%d&quot;</span><span class="p">,</span> <span class="n">ep</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">device_init</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+  <span class="n">device</span><span class="p">:</span><span class="n">set_component_to_endpoint_fn</span><span class="p">(</span><span class="n">component_to_endpoint</span><span class="p">)</span>
+  <span class="n">device</span><span class="p">:</span><span class="n">set_endpoint_to_component_fn</span><span class="p">(</span><span class="n">endpoint_to_component</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">zigbee_outlet_driver_template</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">supported_capabilities</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="n">lifecycle_handlers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">init</span> <span class="o">=</span> <span class="n">device_init</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">defaults</span><span class="p">.</span><span class="n">register_for_default_handlers</span><span class="p">(</span><span class="n">zigbee_outlet_driver_template</span><span class="p">,</span> <span class="n">zigbee_outlet_driver_template</span><span class="p">.</span><span class="n">supported_capabilities</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">zigbee_outlet</span> <span class="o">=</span> <span class="n">ZigbeeDriver</span><span class="p">(</span><span class="s2">&quot;zigbee_bulb&quot;</span><span class="p">,</span> <span class="n">zigbee_outlet_driver_template</span><span class="p">)</span>
+<span class="n">zigbee_outlet</span><span class="p">:</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h3>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h3>
+<dl class="lua class">
+<dt id="ZigbeeDevice">
+<em class="property">class </em><code class="sig-name descname">ZigbeeDevice</code><em class="property">: </em><a class="reference internal" href="../device.html#Device" title="Device">Device</a><a class="headerlink" href="#ZigbeeDevice" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua method">
+<dt id="ZigbeeDevice.get_endpoint">
+<em class="property"> </em><code class="sig-name descname">get_endpoint</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.get_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the endpoint of the device that supports the given cluster</p>
+<p>fingerprinted_endpoint_id if none include the cluster</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>number</em>) – The cluster ID to find the endpoint for on the device</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the first endpoint with the cluster listed in its server clusters, or the</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.get_manufacturer">
+<em class="property"> </em><code class="sig-name descname">get_manufacturer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.get_manufacturer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the manufacturer of this device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The manufacturer of this device, nil if none present</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.get_model">
+<em class="property"> </em><code class="sig-name descname">get_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.get_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the model of this device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The model of this device, nil if none present</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.get_short_address">
+<em class="property"> </em><code class="sig-name descname">get_short_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.get_short_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the numeric zigbee short address for this device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The 2 byte Zigbee short address of this device</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.add_attributes_from_driver_template">
+<em class="property"> </em><code class="sig-name descname">add_attributes_from_driver_template</code><span class="sig-paren">(</span><em class="sig-param">attr_config_list</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.add_attributes_from_driver_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a series of attribute configurations to this device</p>
+<p>These devices will be added as configured and/or monitored attributes based
+on the config flags configurable and monitored.  These flags are assumed to
+be true.  That is, any value (or non value if they aren’t set) is treated as
+being set true, and only if it is explicitly set to false will a attribute in
+the list not be added.</p>
+<p>A configured attribute will generate a configure reporting and bind request
+messages when <cite>configure</cite> is called on the device.  A monitored attribute will
+monitor responses from the device for the corresponding attributes and send
+periodic reads if the value isn’t updated in too long.</p>
+<p>configurations to add</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attr_config_list</strong> (<em>list[AttributeConfiguration]</em>) – the list of attribute</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.set_ias_zone_config_method">
+<em class="property"> </em><code class="sig-name descname">set_ias_zone_config_method</code><span class="sig-paren">(</span><em class="sig-param">ias_zone_config_type</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.set_ias_zone_config_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the configuration type for IAS Zone on this device</p>
+<p>If unset it is assumed that this device does not need IAS Zone configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ias_zone_config_type</strong> (<em>IAS_ZONE_CONFIGURE_TYPE</em>) – The type of configuration this device needs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.add_configured_attribute">
+<em class="property"> </em><code class="sig-name descname">add_configured_attribute</code><span class="sig-paren">(</span><em class="sig-param">config</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.add_configured_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a configured attribute for this device</p>
+<p>A configured attribute will generate a configure reporting and bind request
+messages when <cite>configure</cite> is called on the device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="driver.html#AttributeConfiguration" title="AttributeConfiguration"><em>AttributeConfiguration</em></a>) – the attribute configuration to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.add_monitored_attribute">
+<em class="property"> </em><code class="sig-name descname">add_monitored_attribute</code><span class="sig-paren">(</span><em class="sig-param">config</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.add_monitored_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a monitored attribute for this device</p>
+<p>A monitored attribute will monitor responses from the device for the corresponding attributes and send periodic reads if the value isn’t updated in too long.  That length is determined by config.maximum_interval * 1.5</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="driver.html#AttributeConfiguration" title="AttributeConfiguration"><em>AttributeConfiguration</em></a>) – the attribute configuration to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.check_monitored_attributes">
+<em class="property"> </em><code class="sig-name descname">check_monitored_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.check_monitored_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check all monitored attributes for this device and send a read where necessary</p>
+<blockquote>
+<div><p>This will look through all monitored attributes that have been added to this device and if we have not heard from or sent a read in above the expected interval, we will send a read attribute to update our status.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.attribute_monitor">
+<em class="property"> </em><code class="sig-name descname">attribute_monitor</code><span class="sig-paren">(</span><em class="sig-param">zb_rx</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.attribute_monitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check a ZigbeeRx message against our monitored attributes and update the status</p>
+<p>This message is expected to be called with all messages that are received from
+this device.  If this is a read or report for a monitored attribute the timestamps
+are updated.  If there is a status involving an unsupported attribute, or a read
+attribute failure, the offending attribute is removed from the monitored attributes
+for this device to avoid spurious monitor reads</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>zb_rx</strong> (<a class="reference internal" href="messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx"><em>ZigbeeMessageRx</em></a>) – A received Zigbee message from this device</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.remove_monitored_attribute">
+<em class="property"> </em><code class="sig-name descname">remove_monitored_attribute</code><span class="sig-paren">(</span><em class="sig-param">cluster</em>, <em class="sig-param">attribute</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.remove_monitored_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a monitored attribute on this device</p>
+<p>This will prevent future monitoring of this attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong> (<em>number</em>) – The id of the cluster of the attribute to remove</p></li>
+<li><p><strong>attribute</strong> (<em>number</em>) – The id of the attribute to remove</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.configure">
+<em class="property"> </em><code class="sig-name descname">configure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.configure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send the necessary bind requests and reporting configurations to this device</p>
+<blockquote>
+<div><p>For each configured attribute on this device send the necessary configure reporting and bind requests to have the device send attribute updates</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.set_component_to_endpoint_fn">
+<em class="property"> </em><code class="sig-name descname">set_component_to_endpoint_fn</code><span class="sig-paren">(</span><em class="sig-param">comp_ep_fn</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.set_component_to_endpoint_fn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a function to map this devices SmartThings components to Zigbee endpoints</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>comp_ep_fn</strong> (<em>CompToEp</em>) – function to do the mapping for this device</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.set_endpoint_to_component_fn">
+<em class="property"> </em><code class="sig-name descname">set_endpoint_to_component_fn</code><span class="sig-paren">(</span><em class="sig-param">ep_comp_fn</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.set_endpoint_to_component_fn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a function to map this devices Zigbee endpoints to SmartThings components</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ep_comp_fn</strong> (<em>EpToComp</em>) – function to do the mapping for this device</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.get_endpoint_for_component_id">
+<em class="property"> </em><code class="sig-name descname">get_endpoint_for_component_id</code><span class="sig-paren">(</span><em class="sig-param">comp_id</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.get_endpoint_for_component_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the component ID find the corresponding endpoint for this device</p>
+<p>This will use the function set by ZigbeeDevice:set_component_to_endpoint_fn to
+return the appropriate endpoint given the component.  If the function is unset
+it defaults to the devices “fingerprinted_endpoint_id”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>comp_id</strong> (<em>str</em>) – the component ID to find the endpoint for</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the endpoint this component matches to</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.get_component_id_for_endpoint">
+<em class="property"> </em><code class="sig-name descname">get_component_id_for_endpoint</code><span class="sig-paren">(</span><em class="sig-param">ep</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.get_component_id_for_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the endpoint ID find the corresponding component for this device</p>
+<p>This will use the function set by ZigbeeDevice:set_endpoint_to_component_fn to
+return the appropriate component given the endpoint.  If the function is unset
+it defaults to “main”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ep</strong> (<em>number</em>) – the endpoint ID to find the component for</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the component ID the endpoint matches to</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.emit_event_for_endpoint">
+<em class="property"> </em><code class="sig-name descname">emit_event_for_endpoint</code><span class="sig-paren">(</span><em class="sig-param">endpoint</em>, <em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.emit_event_for_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit a capability event for this device coming from the given endpoint</p>
+<p>This uses ZigbeeDevice:get_component_id_for_endpoint to find the appropriate component
+and emit the event for that component</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>endpoint</strong> (<em>number</em>) – the endpoint ID a message was received from</p></li>
+<li><p><strong>event</strong> (<em>table</em>) – the capability event to generate</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.refresh">
+<em class="property"> </em><code class="sig-name descname">refresh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a read attribute command for all configured attributes on this device</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.send">
+<em class="property"> </em><code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">zb_tx</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a ZigbeeMessageTx to this device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>zb_tx</strong> (<a class="reference internal" href="messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx"><em>ZigbeeMessageTx</em></a>) – the message to send to this device</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeDevice.send_to_component">
+<em class="property"> </em><code class="sig-name descname">send_to_component</code><span class="sig-paren">(</span><em class="sig-param">component_id</em>, <em class="sig-param">zb_tx</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeDevice.send_to_component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a ZigbeeMessageTx to this device and component</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>component_id</strong> (<em>str</em>) – the component id to send this message to</p></li>
+<li><p><strong>zb_tx</strong> (<a class="reference internal" href="messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx"><em>ZigbeeMessageTx</em></a>) – the message to send to this device</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="zigbee_message_handlers.html" class="btn btn-neutral float-right" title="Zigbee Driver RX message handlers" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="driver.html" class="btn btn-neutral" title="Zigbee driver structures" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

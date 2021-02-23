@@ -1,0 +1,4 @@
+PowerProfileStateEnum
+=====================
+
+.. lua:autoclass:: PowerProfileStateEnum

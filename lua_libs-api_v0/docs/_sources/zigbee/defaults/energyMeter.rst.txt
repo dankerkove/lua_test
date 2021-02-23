@@ -1,0 +1,6 @@
+Energy Meter
+============
+
+.. lua:autoclass:: st.zigbee.defaults.energyMeter.InstantaneousDemandConfiguration
+
+.. lua:autoclass:: st.zigbee.defaults.energyMeter

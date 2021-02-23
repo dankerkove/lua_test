@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Temperature Measurement &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../buf.html">Buffer Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zigbee.html">Zigbee Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Temperature Measurement</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/zigbee/defaults/temperatureMeasurement.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="temperature-measurement">
+<h1>Temperature Measurement<a class="headerlink" href="#temperature-measurement" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration</code><a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.cluster">
+<code class="sig-name descname">cluster</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>TemperatureMeasurement cluster ID 0x0402</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.attribute">
+<code class="sig-name descname">attribute</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>MeasuredValue attribute ID 0x0000</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.minimum_interval">
+<code class="sig-name descname">minimum_interval</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.minimum_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>30 seconds</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.maximum_interval">
+<code class="sig-name descname">maximum_interval</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.maximum_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>300 seconds (5 mins)</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the Int16 class</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.reportable_change">
+<code class="sig-name descname">reportable_change</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration.reportable_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>16 (.1 C)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.defaults.temperatureMeasurement">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.defaults.temperatureMeasurement</code><a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.defaults.temperatureMeasurement.zigbee_handlers">
+<code class="sig-name descname">zigbee_handlers</code><em class="property">: </em>table<a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.zigbee_handlers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.defaults.temperatureMeasurement.attribute_configurations">
+<code class="sig-name descname">attribute_configurations</code><em class="property">: </em>table<a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.attribute_configurations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.defaults.temperatureMeasurement.capability_handlers">
+<code class="sig-name descname">capability_handlers</code><em class="property">: </em>table<a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.capability_handlers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.defaults.temperatureMeasurement.default_temperature_configuration">
+<code class="sig-name descname">default_temperature_configuration</code><em class="property">: </em>st.zigbee.defaults.temperatureMeasurement.TemperatureConfiguration<a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.default_temperature_configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.defaults.temperatureMeasurement.temp_attr_handler">
+<em class="property">static </em><code class="sig-name descname">temp_attr_handler</code><span class="sig-paren">(</span><em class="sig-param">driver</em>, <em class="sig-param">device</em>, <em class="sig-param">value</em>, <em class="sig-param">zb_rx</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.defaults.temperatureMeasurement.temp_attr_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default handler for Temperature measured value on the Temperature measurement cluster</p>
+<p>This converts the Int16 value of the temp measured attribute to TemperatureMeasurement.temperature this will convert
+to fahrenheit or celsius based on the device data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>driver</strong> (<a class="reference internal" href="../../drivers.html#Driver" title="Driver"><em>Driver</em></a>) – The current driver running containing necessary context for execution</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – The device this message was received from containing identifying information</p></li>
+<li><p><strong>value</strong> (<a class="reference internal" href="../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – the value of the measured temperature</p></li>
+<li><p><strong>zb_rx</strong> (<a class="reference internal" href="../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx"><em>ZigbeeMessageRx</em></a>) – the full message this report came in</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+SnapshotSchedulePayload
+=======================
+
+.. lua:autoclass:: SnapshotSchedulePayload

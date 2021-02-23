@@ -1,0 +1,41 @@
+PartitionCluster
+================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.PartitionMaximumIncomingTransferSize
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.PartitionMaximumOutgoingTransferSize
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.PartionedFrameSize
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.LargeFrameSize
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.NumberOfAckFrame
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.NackTimeout
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.InterframeDelay
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.NumberOfSendRetries
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.SenderTimeout
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.ReceiverTimeout
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.TransferPartitionedFrame
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.ReadHandshakeParam
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.WriteHandshakeParam
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.MultipleAck
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PartitionCluster.ReadHandshakeParamResponse
+

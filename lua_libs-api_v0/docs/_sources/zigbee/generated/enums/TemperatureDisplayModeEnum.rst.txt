@@ -1,0 +1,4 @@
+TemperatureDisplayModeEnum
+==========================
+
+.. lua:autoclass:: TemperatureDisplayModeEnum

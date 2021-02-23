@@ -1,0 +1,275 @@
+ElectricalMeasurementCluster
+============================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.MeasurementType
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcVoltage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcVoltageMin
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcVoltageMax
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcCurrentMin
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcCurrentMax
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcPower
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcPowerMin
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcPowerMax
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcVoltageMultiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcVoltageDivisor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcCurrentMultiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcCurrentDivisor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcPowerMultiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcPowerDivisor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcFrequency
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcFrequencyMin
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcFrequencyMax
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.NeutralCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.TotalActivePower
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.TotalReactivePower
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.TotalApparentPower
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.Measured1StHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.Measured3RdHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.Measured5ThHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.Measured7ThHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.Measured9ThHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.Measured11ThHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.MeasuredPhase1StHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.MeasuredPhase3RdHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.MeasuredPhase5ThHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.MeasuredPhase7ThHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.MeasuredPhase9ThHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.MeasuredPhase11ThHarmonicCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcFrequencyMultiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcFrequencyDivisor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.PowerMultiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.PowerDivisor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.HarmonicCurrentMultiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.PhaseHarmonicCurrentMultiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.InstantaneousVoltage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.InstantaneousLineCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.InstantaneousActiveCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.InstantaneousReactiveCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.InstantaneousPower
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageMin
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageMax
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsCurrent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsCurrentMin
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsCurrentMax
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActivePower
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActivePowerMin
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActivePowerMax
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ReactivePower
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ApparentPower
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcPowerFactor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AverageRmsVoltageMeasurementPeriod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AverageRmsUnderVoltageCounter
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsExtremeOverVoltagePeriod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsExtremeUnderVoltagePeriod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageSagPeriod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageSwellPeriod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcVoltageMultiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcVoltageDivisor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcCurrentMultiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcCurrentDivisor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcPowerMultiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcPowerDivisor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcOverloadAlarmsMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcVoltageOverload
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.DcCurrentOverload
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcOverloadAlarmsMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcVoltageOverload
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcCurrentOverload
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcPowerOverload
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AcReactivePowerOverload
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AverageRmsOverVoltage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AverageRmsUnderVoltage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsExtremeOverVoltage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsExtremeUnderVoltage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageSag
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageSwell
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.LineCurrentPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActiveCurrentPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ReactiveCurrentPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltagePhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageMinPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageMaxPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsCurrentPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsCurrentMinPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsCurrentMaxPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActivePowerPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActivePowerMinPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActivePowerMaxPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ReactivePowerPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ApparentPowerPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.PowerFactorPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AverageRmsVoltageMeasurementPeriodPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AverageRmsOverVoltageCounterPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AverageRmsUnderVoltageCounterPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsExtremeOverVoltagePeriodPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsExtremeUnderVoltagePeriodPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageSagPeriodPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageSwellPeriodPhaseB
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.LineCurrentPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActiveCurrentPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ReactiveCurrentPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltagePhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageMinPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageMaxPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsCurrentPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsCurrentMinPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsCurrentMaxPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActivePowerPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActivePowerMinPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ActivePowerMaxPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ReactivePowerPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.ApparentPowerPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.PowerFactorPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AverageRmsVoltageMeasurementPeriodPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AverageRmsOverVoltageCounterPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.AverageRmsUnderVoltageCounterPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsExtremeOverVoltagePeriodPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsExtremeUnderVoltagePeriodPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageSagPeriodPhaseC
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.RmsVoltageSwellPeriodPhaseC
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.GetProfileInfoCommand
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.GetMeasurementProfileCommand
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.GetProfileInfoResponseCommand
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ElectricalMeasurementCluster.GetMeasurementProfileResponseCommand
+

@@ -1,0 +1,4 @@
+MessagingControlTransmissionEnum
+================================
+
+.. lua:autoclass:: MessagingControlTransmissionEnum

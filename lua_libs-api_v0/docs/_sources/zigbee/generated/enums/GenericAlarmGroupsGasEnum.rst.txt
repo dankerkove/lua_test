@@ -1,0 +1,4 @@
+GenericAlarmGroupsGasEnum
+=========================
+
+.. lua:autoclass:: GenericAlarmGroupsGasEnum

@@ -1,0 +1,19 @@
+ApplianceEventsAndAlertCluster
+==============================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceEventsAndAlertCluster
+
+Attributes
+++++++++++++
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceEventsAndAlertCluster.GetAlerts
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceEventsAndAlertCluster.GetAlertsResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceEventsAndAlertCluster.AlertsNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceEventsAndAlertCluster.EventsNotification
+

@@ -1,0 +1,4 @@
+BatteryAlarmMaskBitmap
+======================
+
+.. lua:autoclass:: BatteryAlarmMaskBitmap

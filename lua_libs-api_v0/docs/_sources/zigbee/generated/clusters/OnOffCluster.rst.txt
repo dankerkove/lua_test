@@ -1,0 +1,19 @@
+OnOffCluster
+============
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OnOffCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OnOffCluster.OnOff
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OnOffCluster.Off
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OnOffCluster.On
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OnOffCluster.Toggle
+

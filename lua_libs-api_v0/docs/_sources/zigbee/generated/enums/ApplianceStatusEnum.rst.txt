@@ -1,0 +1,4 @@
+ApplianceStatusEnum
+===================
+
+.. lua:autoclass:: ApplianceStatusEnum

@@ -1,0 +1,4 @@
+BlockPeriodControlBitmap
+========================
+
+.. lua:autoclass:: BlockPeriodControlBitmap

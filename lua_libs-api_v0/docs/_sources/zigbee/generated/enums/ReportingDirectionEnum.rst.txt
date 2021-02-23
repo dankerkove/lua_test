@@ -1,0 +1,4 @@
+ReportingDirectionEnum
+======================
+
+.. lua:autoclass:: ReportingDirectionEnum

@@ -1,0 +1,4 @@
+ScheduleEntryRateSwitchTimes
+============================
+
+.. lua:autoclass:: ScheduleEntryRateSwitchTimes

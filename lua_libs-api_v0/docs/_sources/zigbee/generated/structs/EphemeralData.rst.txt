@@ -1,0 +1,4 @@
+EphemeralData
+=============
+
+.. lua:autoclass:: EphemeralData

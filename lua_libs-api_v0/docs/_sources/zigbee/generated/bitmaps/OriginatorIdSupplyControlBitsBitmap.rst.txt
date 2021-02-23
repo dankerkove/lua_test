@@ -1,0 +1,4 @@
+OriginatorIdSupplyControlBitsBitmap
+===================================
+
+.. lua:autoclass:: OriginatorIdSupplyControlBitsBitmap

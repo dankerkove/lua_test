@@ -1,0 +1,4 @@
+EnergyFormattingBitmap
+======================
+
+.. lua:autoclass:: EnergyFormattingBitmap

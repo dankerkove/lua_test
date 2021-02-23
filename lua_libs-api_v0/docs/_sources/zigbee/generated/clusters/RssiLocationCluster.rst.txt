@@ -1,0 +1,67 @@
+RssiLocationCluster
+===================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.LocationType
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.LocationMethod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.LocationAge
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.QualityMeasure
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.NumberOfDevices
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.Coordinate1
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.Coordinate2
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.Coordinate3
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.Power
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.PathLossExponent
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.ReportingPeriod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.CalculationPeriod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.NumberRssiMeasurements
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.SetAbsoluteLocation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.SetDeviceConfiguration
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.GetDeviceConfiguration
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.GetLocationData
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.RssiResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.SendPings
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.AnchorNodeAnnounce
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.DeviceConfigurationResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.LocationDataResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.LocationDataNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.CompactLocationDataNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.RssiPing
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.RssiRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.ReportRssiMeasurements
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.RssiLocationCluster.RequestOwnLocation
+

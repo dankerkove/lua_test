@@ -1,0 +1,17 @@
+Iso7816ProtocolTunnelCluster
+============================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.Iso7816ProtocolTunnelCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.Iso7816ProtocolTunnelCluster.Iso7816ProtocolTunnelStatus
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.Iso7816ProtocolTunnelCluster.InsertSmartCard
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.Iso7816ProtocolTunnelCluster.ExtractSmartCard
+

@@ -1,0 +1,4 @@
+AmiIntervalPeriodEnum
+=====================
+
+.. lua:autoclass:: AmiIntervalPeriodEnum

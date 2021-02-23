@@ -1,0 +1,1 @@
+return [[{"title": "GasMeterPrecision", "type": "object", "additionalProperties": false, "properties": {"volume": {"title": "VolumePrecision", "type": "number"}, "calorific": {"title": "CalorificPrecision", "type": "number"}, "conversion": {"title": "ConversionPrecision", "type": "number"}}}]]

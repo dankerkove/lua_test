@@ -1,0 +1,4 @@
+AlertStructureBitmap
+====================
+
+.. lua:autoclass:: AlertStructureBitmap

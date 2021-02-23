@@ -1,0 +1,4 @@
+MeteringTemperatureUnitOfMeasureEnum
+====================================
+
+.. lua:autoclass:: MeteringTemperatureUnitOfMeasureEnum

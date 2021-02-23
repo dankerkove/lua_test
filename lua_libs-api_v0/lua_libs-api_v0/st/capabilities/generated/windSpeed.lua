@@ -1,0 +1,1 @@
+return [[{"name": "Wind Speed", "status": "proposed", "attributes": {"windspeed": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "PositiveNumber"}, "unit": {"type": "string", "enum": ["m/s"], "default": "m/s"}}, "required": ["value"]}, "type": "NUMBER"}}, "commands": {}, "public": true, "id": "windSpeed", "version": 1}]]

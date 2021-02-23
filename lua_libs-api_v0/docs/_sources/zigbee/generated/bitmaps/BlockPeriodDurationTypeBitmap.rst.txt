@@ -1,0 +1,4 @@
+BlockPeriodDurationTypeBitmap
+=============================
+
+.. lua:autoclass:: BlockPeriodDurationTypeBitmap

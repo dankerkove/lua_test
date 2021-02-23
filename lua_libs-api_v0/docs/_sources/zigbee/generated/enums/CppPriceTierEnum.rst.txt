@@ -1,0 +1,4 @@
+CppPriceTierEnum
+================
+
+.. lua:autoclass:: CppPriceTierEnum

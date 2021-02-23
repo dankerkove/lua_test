@@ -1,0 +1,1 @@
+return [[{"title": "Temperature", "type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "TemperatureValue"}, "unit": {"$ref": "TemperatureUnit"}, "constraints": {"$ref": "NumberConstraint"}}, "required": ["value", "unit"]}]]

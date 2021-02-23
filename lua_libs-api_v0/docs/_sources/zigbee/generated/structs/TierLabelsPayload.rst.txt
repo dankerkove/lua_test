@@ -1,0 +1,4 @@
+TierLabelsPayload
+=================
+
+.. lua:autoclass:: TierLabelsPayload

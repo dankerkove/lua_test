@@ -1,0 +1,1 @@
+return [[{"name": "Remote Control Status", "status": "live", "attributes": {"remoteControlEnabled": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"type": "string", "enum": ["false", "true"]}}, "required": ["value"]}, "type": "ENUM", "values": ["false", "true"]}}, "commands": {}, "public": false, "id": "remoteControlStatus", "version": 1}]]

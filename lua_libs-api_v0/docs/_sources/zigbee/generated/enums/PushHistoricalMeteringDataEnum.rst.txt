@@ -1,0 +1,4 @@
+PushHistoricalMeteringDataEnum
+==============================
+
+.. lua:autoclass:: PushHistoricalMeteringDataEnum

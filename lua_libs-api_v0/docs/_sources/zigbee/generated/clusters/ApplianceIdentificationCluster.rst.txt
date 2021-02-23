@@ -1,0 +1,35 @@
+ApplianceIdentificationCluster
+==============================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.BasicIdentification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.ApplianceCompanyName
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.CompanyId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.BrandName
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.BrandId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.ApplianceModel
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.AppliancePartNumber
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.ApplianceProductRevision
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.ApplianceSoftwareRevision
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.ProductTypeName
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.ProductTypeId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceIdentificationCluster.CecedSpecificationVersion
+
+Commands
+++++++++++++
+

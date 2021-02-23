@@ -1,0 +1,4 @@
+EventConfigurationBitmap
+========================
+
+.. lua:autoclass:: EventConfigurationBitmap

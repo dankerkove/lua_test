@@ -1,0 +1,17 @@
+SimpleMetering
+==============
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.SimpleMetering
+
+SimpleMetering Attributes
++++++++++++++++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.SimpleMetering.InstantaneousDemand
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.SimpleMetering.Multiplier
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.SimpleMetering.Divisor
+
+SimpleMetering Commands
++++++++++++++++++++++++
+

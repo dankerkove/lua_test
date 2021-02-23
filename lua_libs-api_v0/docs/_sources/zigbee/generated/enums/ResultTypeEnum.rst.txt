@@ -1,0 +1,4 @@
+ResultTypeEnum
+==============
+
+.. lua:autoclass:: ResultTypeEnum

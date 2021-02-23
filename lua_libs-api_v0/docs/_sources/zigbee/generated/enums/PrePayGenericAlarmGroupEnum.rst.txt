@@ -1,0 +1,4 @@
+PrePayGenericAlarmGroupEnum
+===========================
+
+.. lua:autoclass:: PrePayGenericAlarmGroupEnum

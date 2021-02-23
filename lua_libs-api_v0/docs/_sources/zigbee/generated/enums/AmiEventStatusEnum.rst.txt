@@ -1,0 +1,4 @@
+AmiEventStatusEnum
+==================
+
+.. lua:autoclass:: AmiEventStatusEnum

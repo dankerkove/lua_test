@@ -1,0 +1,4 @@
+PaymentControlConfigurationBitmap
+=================================
+
+.. lua:autoclass:: PaymentControlConfigurationBitmap

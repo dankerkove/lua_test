@@ -1,0 +1,57 @@
+InformationCluster
+==================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.NodeDescription
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.DeliveryEnable
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.PushInformationTimer
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.EnableSecureConfiguration
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.NumberOfContents
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.ContentRootId
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.RequestInformation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.PushInformationResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.SendPreference
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.RequestPreferenceResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.Update
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.Delete
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.ConfigureNodeDescription
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.ConfigureDeliveryEnable
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.ConfigurePushInformationTimer
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.ConfigureSetRootId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.RequestInformationResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.PushInformation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.SendPreferenceResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.ServerRequestPreference
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.RequestPreferenceConfirmation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.UpdateResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.InformationCluster.DeleteResponse
+

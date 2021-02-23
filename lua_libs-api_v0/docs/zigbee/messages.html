@@ -1,0 +1,809 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Zigbee Messages &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../index.html"/>
+        <link rel="up" title="Zigbee Libraries" href="zigbee.html"/>
+        <link rel="next" title="Zigbee Data Types" href="data_types.html"/>
+        <link rel="prev" title="WindowShadePreset" href="defaults/windowShadePreset.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../buf.html">Buffer Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="zigbee.html">Zigbee Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Zigbee Messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-documentation">Module documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated.html">Generated Zigbee Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="zigbee.html">Zigbee Libraries</a> &raquo;</li>
+        
+      <li>Zigbee Messages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/zigbee/messages.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zigbee-messages">
+<h1>Zigbee Messages<a class="headerlink" href="#zigbee-messages" title="Permalink to this headline">¶</a></h1>
+<p>This module provides a helpful interface to interact with Zigbee messages, both incoming and outgoing,
+in a useful way using tables instead of a string of bytes.  At the top level, a message will be either
+a <code class="xref lua lua-class docutils literal notranslate"><span class="pre">ZigbeeMessageRx</span></code> or <code class="xref lua lua-class docutils literal notranslate"><span class="pre">ZigbeeMessageTx</span></code>
+but each of those has the more specific implementations of <code class="xref lua lua-class docutils literal notranslate"><span class="pre">ZclMessageTx</span></code> and
+<code class="xref lua lua-class docutils literal notranslate"><span class="pre">ZdoMessageTx</span></code> or <code class="xref lua lua-class docutils literal notranslate"><span class="pre">ZclMessageRx</span></code> and
+<code class="xref lua lua-class docutils literal notranslate"><span class="pre">ZdoMessageRx</span></code>.  All of the message types share a common interface that is
+also shared among all of their component parts.  Each of these should include implementations of the following methods:</p>
+<dl class="field-list simple">
+<dt class="field-odd">deserialize</dt>
+<dd class="field-odd"><p>for creating the table from a string of bytes</p>
+</dd>
+<dt class="field-even">get_length</dt>
+<dd class="field-even"><p>for giving the length in bytes of this object if it were serialized</p>
+</dd>
+<dt class="field-odd">pretty_print</dt>
+<dd class="field-odd"><p>for creating a human readable string representing this object</p>
+</dd>
+<dt class="field-even">serialize</dt>
+<dd class="field-even"><p>for serializing the message frame back into a string of bytes</p>
+</dd>
+<dt class="field-odd">from_values</dt>
+<dd class="field-odd"><p>for creating the table object from the component parts instead of parsing from a string. This should also
+be mapped to the metatable __call function for the table so the syntax Object(…) can be used for creation</p>
+</dd>
+</dl>
+<p>Below is an example of parsing a byte stream into an Rx message:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">zb_messages</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.zigbee.messages&quot;</span>
+<span class="kd">local</span> <span class="n">on_off_attr_report</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\x00\xAD\xDE\x01\xEF\xBE\x01\x04\x01\x06\x00\xFF\xFE\x06\x00\x00\xFF\x0A\x00\x00\x10\x01</span><span class="s2">&quot;</span>
+<span class="kd">local</span> <span class="n">parsed_message</span> <span class="o">=</span> <span class="n">zb_messages</span><span class="p">.</span><span class="n">ZigbeeMessageRx</span><span class="p">.</span><span class="n">deserialize</span><span class="p">({},</span> <span class="n">on_off_attr_report</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_message</span><span class="p">.</span><span class="n">zcl_header</span><span class="p">.</span><span class="n">cmd</span><span class="p">.</span><span class="n">value</span><span class="p">)</span> <span class="c1">-- 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_message</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">attr_records</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">attr_id</span><span class="p">.</span><span class="n">value</span><span class="p">)</span> <span class="c1">-- 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_message</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">attr_records</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">data</span><span class="p">.</span><span class="n">value</span><span class="p">)</span> <span class="c1">-- true</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_message</span><span class="p">:</span><span class="n">pretty_print</span><span class="p">())</span>
+<span class="c1">-- ZCLMessageRx:</span>
+<span class="c1">--    type: 0x00</span>
+<span class="c1">--    AddressHeader:</span>
+<span class="c1">--        src_addr: 0xDEAD</span>
+<span class="c1">--        src_endpoint: 0x01</span>
+<span class="c1">--        dest_addr: 0xBEEF</span>
+<span class="c1">--        dest_endpoint: 0x01</span>
+<span class="c1">--        profile: 0x0104</span>
+<span class="c1">--        cluster: 0x0006</span>
+<span class="c1">--    lqi: 0xFF</span>
+<span class="c1">--    rssi: -2</span>
+<span class="c1">--    body_length: 0x0006</span>
+<span class="c1">--    ZCLHeader:</span>
+<span class="c1">--        frame_ctrl: 0x00</span>
+<span class="c1">--        seqno: 0xFF</span>
+<span class="c1">--        ZCLCommandId: 0x0A</span>
+<span class="c1">--    ReportAttribute:</span>
+<span class="c1">--        AttributeRecord:</span>
+<span class="c1">--            AttributeId: 0x0000</span>
+<span class="c1">--            DataType: 0x10</span>
+<span class="c1">--            Boolean: true</span>
+</pre></div>
+</div>
+<p>And here is an example building a read attribute command Tx message:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">zb_messages</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.zigbee.messages&quot;</span>
+<span class="kd">local</span> <span class="n">read_attribute</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.zigbee.zcl.global_commands.read_attribute&quot;</span>
+<span class="kd">local</span> <span class="n">zb_const</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.zigbee.constants&quot;</span>
+<span class="kd">local</span> <span class="n">data_types</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.zigbee.data_types&quot;</span>
+
+<span class="kd">local</span> <span class="n">read_body</span> <span class="o">=</span> <span class="n">read_attribute</span><span class="p">.</span><span class="n">ReadAttribute</span><span class="p">({</span><span class="mh">0x0000</span><span class="p">})</span>
+<span class="kd">local</span> <span class="n">zclh</span> <span class="o">=</span> <span class="n">zb_messages</span><span class="p">.</span><span class="n">ZclHeader</span><span class="p">({</span>
+  <span class="n">cmd</span> <span class="o">=</span> <span class="n">data_types</span><span class="p">.</span><span class="n">ZCLCommandId</span><span class="p">(</span><span class="n">read_attribute</span><span class="p">.</span><span class="n">ReadAttribute</span><span class="p">.</span><span class="n">ID</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="kd">local</span> <span class="n">addrh</span> <span class="o">=</span> <span class="n">zb_messages</span><span class="p">.</span><span class="n">AddressHeader</span><span class="p">(</span>
+    <span class="n">zb_const</span><span class="p">.</span><span class="n">HUB</span><span class="p">.</span><span class="n">ADDR</span><span class="p">,</span>
+    <span class="n">zb_const</span><span class="p">.</span><span class="n">HUB</span><span class="p">.</span><span class="n">ENDPOINT</span><span class="p">,</span>
+    <span class="mh">0xDEAD</span><span class="p">,</span>
+    <span class="mh">0x01</span><span class="p">,</span>
+    <span class="n">zb_const</span><span class="p">.</span><span class="n">HA_PROFILE_ID</span><span class="p">,</span>
+    <span class="mh">0x0006</span>
+<span class="p">)</span>
+<span class="kd">local</span> <span class="n">built_message</span> <span class="o">=</span> <span class="n">zb_messages</span><span class="p">.</span><span class="n">ZclMessageTx</span><span class="p">({</span>
+  <span class="n">address_header</span> <span class="o">=</span> <span class="n">addrh</span><span class="p">,</span>
+  <span class="n">zcl_header</span> <span class="o">=</span> <span class="n">zclh</span><span class="p">,</span>
+  <span class="n">body</span> <span class="o">=</span> <span class="n">read_body</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">built_message</span><span class="p">:</span><span class="n">pretty_print</span><span class="p">())</span>
+<span class="c1">--  ZCLMessageTx:</span>
+<span class="c1">--      Uint16: 0x0000</span>
+<span class="c1">--      AddressHeader:</span>
+<span class="c1">--          src_addr: 0x0000</span>
+<span class="c1">--          src_endpoint: 0x01</span>
+<span class="c1">--          dest_addr: 0xDEAD</span>
+<span class="c1">--          dest_endpoint: 0x01</span>
+<span class="c1">--          profile: 0x0104</span>
+<span class="c1">--          cluster: 0x0006</span>
+<span class="c1">--      ZCLHeader:</span>
+<span class="c1">--          frame_ctrl: 0x00</span>
+<span class="c1">--          seqno: 0x00</span>
+<span class="c1">--          ZCLCommandId: 0x00</span>
+<span class="c1">--      ReadAttribute:</span>
+<span class="c1">--          AttributeId: 0x0000</span>
+<span class="c1">--</span>
+</pre></div>
+</div>
+<div class="section" id="module-documentation">
+<h2>Module documentation<a class="headerlink" href="#module-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="AddressHeader">
+<em class="property">class </em><code class="sig-name descname">AddressHeader</code><a class="headerlink" href="#AddressHeader" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="AddressHeader.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#AddressHeader.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AddressHeader” used for printing</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AddressHeader.src_addr">
+<code class="sig-name descname">src_addr</code><em class="property">: </em>Uint16<a class="headerlink" href="#AddressHeader.src_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>The source address of the device sending the message</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AddressHeader.src_endpoint">
+<code class="sig-name descname">src_endpoint</code><em class="property">: </em>Uint8<a class="headerlink" href="#AddressHeader.src_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>The source endpoint of the device sending the message</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AddressHeader.dest_addr">
+<code class="sig-name descname">dest_addr</code><em class="property">: </em>Uint16<a class="headerlink" href="#AddressHeader.dest_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>The destination address of the recipient of the message</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AddressHeader.dest_endpoint">
+<code class="sig-name descname">dest_endpoint</code><em class="property">: </em>Uint8<a class="headerlink" href="#AddressHeader.dest_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>The destination endpoint of the recipient of the message</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AddressHeader.profile">
+<code class="sig-name descname">profile</code><em class="property">: </em>Uint16<a class="headerlink" href="#AddressHeader.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>The profile Id of the message being sent</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="AddressHeader.cluster">
+<code class="sig-name descname">cluster</code><em class="property">: </em>ClusterId<a class="headerlink" href="#AddressHeader.cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>The cluster Id of the message</p>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="AddressHeader.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#AddressHeader.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to take a stream of bytes and parse a zigbee message address header</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>str</em>) – The byte string starting with the beginning of the bytes representing the AddressHeader</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a new instance of the address header parsed from the bytes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#AddressHeader" title="AddressHeader">AddressHeader</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AddressHeader.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AddressHeader.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function used by common code to get all the component pieces of this message frame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An array formatted table with each component field in the order their bytes should be serialized</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>table</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AddressHeader.get_length">
+<em class="property"> </em><code class="sig-name descname">get_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AddressHeader.get_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to return the total length in bytes this frame uses when serialized</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the length in bytes of this frame</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AddressHeader.serialize">
+<em class="property"> </em><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AddressHeader.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for serializing this AddressHeader</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This message frame serialized</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="AddressHeader.pretty_print">
+<em class="property"> </em><code class="sig-name descname">pretty_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AddressHeader.pretty_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for printing in a human readable format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A human readable representation of this message frame</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="AddressHeader.from_values">
+<em class="property">static </em><code class="sig-name descname">from_values</code><span class="sig-paren">(</span><em class="sig-param">orig</em>, <em class="sig-param">src_addr</em>, <em class="sig-param">src_endpoint</em>, <em class="sig-param">dest_addr</em>, <em class="sig-param">dest_endpoint</em>, <em class="sig-param">profile</em>, <em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#AddressHeader.from_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a function to build an address header from its individual components</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>orig</strong> (<em>table</em>) – UNUSED This is the AddressHeader object when called with the syntax AddressHeader(…)</p></li>
+<li><p><strong>src_addr</strong> (<a class="reference internal" href="data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – The source address of the device sending the message</p></li>
+<li><p><strong>src_endpoint</strong> (<a class="reference internal" href="data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – The source endpoint of the device sending the message</p></li>
+<li><p><strong>dest_addr</strong> (<a class="reference internal" href="data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – The destination address of the recipient of the message</p></li>
+<li><p><strong>dest_endpoint</strong> (<a class="reference internal" href="data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – The destination endpoint of the recipient of the message</p></li>
+<li><p><strong>profile</strong> (<a class="reference internal" href="data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – The profile Id of the message being sent</p></li>
+<li><p><strong>cluster</strong> (<a class="reference internal" href="data_types.html#ClusterId" title="ClusterId"><em>ClusterId</em></a>) – The cluster Id of the message</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The constructed AddressHeader</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#AddressHeader" title="AddressHeader">AddressHeader</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="ZigbeeMessageRx">
+<em class="property">class </em><code class="sig-name descname">ZigbeeMessageRx</code><a class="headerlink" href="#ZigbeeMessageRx" title="Permalink to this definition">¶</a></dt>
+<dd><p>A generic class representing an incoming zigbee message (device -&gt; hub).  For most cases
+this class shouldn’t be instantiated on it’s own, but instead one of <code class="xref lua lua-class docutils literal notranslate"><span class="pre">ZdoMessageRx</span></code> or
+<code class="xref lua lua-class docutils literal notranslate"><span class="pre">ZclMessageRx</span></code> should be used.  This would only be used if using a profile other than
+those and needing a truly custom body</p>
+<dl class="lua attribute">
+<dt id="ZigbeeMessageRx.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#ZigbeeMessageRx.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ZigbeeMessageRx” used for printing</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="ZigbeeMessageRx.type">
+<code class="sig-name descname">type</code><em class="property">: </em>Uint8<a class="headerlink" href="#ZigbeeMessageRx.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>message type (internal use only)</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="ZigbeeMessageRx.address_header">
+<code class="sig-name descname">address_header</code><em class="property">: </em>AddressHeader<a class="headerlink" href="#ZigbeeMessageRx.address_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>The addressing information for this message</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="ZigbeeMessageRx.lqi">
+<code class="sig-name descname">lqi</code><em class="property">: </em>Uint8<a class="headerlink" href="#ZigbeeMessageRx.lqi" title="Permalink to this definition">¶</a></dt>
+<dd><p>The lqi of this message</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="ZigbeeMessageRx.rssi">
+<code class="sig-name descname">rssi</code><em class="property">: </em>Int8<a class="headerlink" href="#ZigbeeMessageRx.rssi" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rssi of this message</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="ZigbeeMessageRx.body">
+<code class="sig-name descname">body</code><em class="property">: </em>GenericBody<a class="headerlink" href="#ZigbeeMessageRx.body" title="Permalink to this definition">¶</a></dt>
+<dd><p>only used for a custom body</p>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="ZigbeeMessageRx.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageRx.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to take a stream of bytes and parse a received Zigbee Rx message (device -&gt; hub)</p>
+<p>This will typically result in either a <code class="xref lua lua-class docutils literal notranslate"><span class="pre">ZdoMessageRx</span></code> or
+<code class="xref lua lua-class docutils literal notranslate"><span class="pre">ZclMessageRx</span></code>  but if the profile ID is unrecognized will
+just result in this class with a</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>Reader</em>) – The buf positioned at the beginning of the bytes representing the ZigbeeMessageRx</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>one form of a Zigbee rx message</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageRx.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageRx.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageRx.from_endpoint">
+<em class="property"> </em><code class="sig-name descname">from_endpoint</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">endpoint</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageRx.from_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the endpoint of the message source</p>
+<p>This is primarily useful for building test commands</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#ZigbeeMessageRx" title="ZigbeeMessageRx"><em>ZigbeeMessageRx</em></a>) – the message to update the addressing for</p></li>
+<li><p><strong>endpoint</strong> (<em>number</em>) – the endpoint to address the message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>self with the updated endpoint</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageRx.from_component">
+<em class="property"> </em><code class="sig-name descname">from_component</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">component_id</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageRx.from_component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the addressing of the message to match a devices component</p>
+<p>This is primarily useful for building test commands</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#ZigbeeMessageRx" title="ZigbeeMessageRx"><em>ZigbeeMessageRx</em></a>) – the message to update the addressing for</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device this is going to</p></li>
+<li><p><strong>component_id</strong> (<em>str</em>) – the device component this should be addressed to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>self with the updated endpoint</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageRx.get_length">
+<em class="property"> </em><code class="sig-name descname">get_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageRx.get_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to return the total length in bytes this frame uses when serialized</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the length in bytes of this frame</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageRx.serialize">
+<em class="property"> </em><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageRx.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for serializing this Zigbee Message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the bytes representing this message</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageRx.pretty_print">
+<em class="property"> </em><code class="sig-name descname">pretty_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageRx.pretty_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for printing in a human readable format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A human readable representation of this message frame</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="ZigbeeMessageTx">
+<em class="property">class </em><code class="sig-name descname">ZigbeeMessageTx</code><a class="headerlink" href="#ZigbeeMessageTx" title="Permalink to this definition">¶</a></dt>
+<dd><p>this class shouldn’t be instantiated on it’s own, but instead one of ZdoMessageTx or
+ZclMessageTx should be used.  This would only be used if using a profile other than
+those and needing a truly custom body</p>
+<dl class="lua attribute">
+<dt id="ZigbeeMessageTx.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#ZigbeeMessageTx.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ZigbeeMessageTx” used for printing</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="ZigbeeMessageTx.tx_options">
+<code class="sig-name descname">tx_options</code><em class="property">: </em>Uint16<a class="headerlink" href="#ZigbeeMessageTx.tx_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transmit options for this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="ZigbeeMessageTx.address_header">
+<code class="sig-name descname">address_header</code><em class="property">: </em>AddressHeader<a class="headerlink" href="#ZigbeeMessageTx.address_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>The addressing information for this message</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="ZigbeeMessageTx.body">
+<code class="sig-name descname">body</code><em class="property">: </em>GenericBody<a class="headerlink" href="#ZigbeeMessageTx.body" title="Permalink to this definition">¶</a></dt>
+<dd><p>only used for a custom body</p>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="ZigbeeMessageTx.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageTx.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to take a stream of bytes and parse a Zigbee Tx message.</p>
+<p>In general this will result in either a ZclMessageTx or ZdoMessageTx, and
+would only result in a generic ZigbeeMessageTx if the profile was unknown</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>Reader</em>) – The buf positioned at the beginning of the bytes representing the message</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>one form of a Zigbee tx message</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageTx.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageTx.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageTx.to_endpoint">
+<em class="property"> </em><code class="sig-name descname">to_endpoint</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">endpoint</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageTx.to_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the endpoint of the message to that supplied</p>
+<p>This is primarily useful in simpler message construction through chaining</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#ZigbeeMessageTx" title="ZigbeeMessageTx"><em>ZigbeeMessageTx</em></a>) – the message to update the addressing for</p></li>
+<li><p><strong>endpoint</strong> (<em>number</em>) – the endpoint to address the message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>self with the updated endpoint</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageTx.to_component">
+<em class="property"> </em><code class="sig-name descname">to_component</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">component_id</em><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageTx.to_component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the addressing of the message to match a devices component</p>
+<p>This is primarily useful in simpler message construction through chaining</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#ZigbeeMessageTx" title="ZigbeeMessageTx"><em>ZigbeeMessageTx</em></a>) – the message to update the addressing for</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device this is going to</p></li>
+<li><p><strong>component_id</strong> (<em>str</em>) – the device component this should be addressed to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>self with the updated endpoint</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageTx.get_length">
+<em class="property"> </em><code class="sig-name descname">get_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageTx.get_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to return the total length in bytes this frame uses when serialized</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the length in bytes of this frame</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageTx.serialize">
+<em class="property"> </em><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageTx.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to serialize this message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the bytes representing this message</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="ZigbeeMessageTx.pretty_print">
+<em class="property"> </em><code class="sig-name descname">pretty_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ZigbeeMessageTx.pretty_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for printing in a human readable format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A human readable representation of this message frame</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data_types.html" class="btn btn-neutral float-right" title="Zigbee Data Types" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="defaults/windowShadePreset.html" class="btn btn-neutral" title="WindowShadePreset" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

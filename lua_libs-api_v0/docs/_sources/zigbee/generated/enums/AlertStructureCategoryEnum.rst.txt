@@ -1,0 +1,4 @@
+AlertStructureCategoryEnum
+==========================
+
+.. lua:autoclass:: AlertStructureCategoryEnum

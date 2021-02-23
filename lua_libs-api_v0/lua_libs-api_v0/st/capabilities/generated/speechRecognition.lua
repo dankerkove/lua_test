@@ -1,0 +1,1 @@
+return [[{"name": "Speech Recognition", "status": "proposed", "attributes": {"phraseSpoken": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"type": "string", "maxLength": 1000}}, "required": ["value"]}, "type": "STRING"}}, "commands": {}, "public": true, "id": "speechRecognition", "version": 1}]]

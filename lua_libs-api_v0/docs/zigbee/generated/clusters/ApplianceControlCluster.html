@@ -1,0 +1,1274 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ApplianceControlCluster &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Clusters" href="../clusters.html"/>
+        <link rel="next" title="PollControlCluster" href="PollControlCluster.html"/>
+        <link rel="prev" title="PowerProfileCluster" href="PowerProfileCluster.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults/defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../clusters.html">Generated Clusters</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BasicCluster.html">BasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerConfigCluster.html">PowerConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTempCluster.html">DeviceTempCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IdentifyCluster.html">IdentifyCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GroupsCluster.html">GroupsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScenesCluster.html">ScenesCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffCluster.html">OnOffCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffSwitchConfigCluster.html">OnOffSwitchConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LevelControlCluster.html">LevelControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlarmCluster.html">AlarmCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeCluster.html">TimeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RssiLocationCluster.html">RssiLocationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BinaryInputBasicCluster.html">BinaryInputBasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CommissioningCluster.html">CommissioningCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PartitionCluster.html">PartitionCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OtaBootloadCluster.html">OtaBootloadCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerProfileCluster.html">PowerProfileCluster</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ApplianceControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PollControlCluster.html">PollControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ShadeConfigCluster.html">ShadeConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockCluster.html">DoorLockCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindowCoveringCluster.html">WindowCoveringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpConfigControlCluster.html">PumpConfigControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatCluster.html">ThermostatCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanControlCluster.html">FanControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidControlCluster.html">DehumidControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatUiConfigCluster.html">ThermostatUiConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorControlCluster.html">ColorControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastConfigurationCluster.html">BallastConfigurationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumMeasurementCluster.html">IllumMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumLevelSensingCluster.html">IllumLevelSensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TempMeasurementCluster.html">TempMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PressureMeasurementCluster.html">PressureMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FlowMeasurementCluster.html">FlowMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidityMeasurementCluster.html">RelativeHumidityMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensingCluster.html">OccupancySensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasZoneCluster.html">IasZoneCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceCluster.html">IasAceCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasWdCluster.html">IasWdCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericTunnelCluster.html">GenericTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BacnetProtocolTunnelCluster.html">BacnetProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Iso7816ProtocolTunnelCluster.html">Iso7816ProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DemandResponseLoadControlCluster.html">DemandResponseLoadControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SimpleMeteringCluster.html">SimpleMeteringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingCluster.html">MessagingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TunnelingCluster.html">TunnelingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaymentCluster.html">PrepaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnergyManagementCluster.html">EnergyManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CalendarCluster.html">CalendarCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceManagementCluster.html">DeviceManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventsCluster.html">EventsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MduPairingCluster.html">MduPairingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KeyEstablishmentCluster.html">KeyEstablishmentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InformationCluster.html">InformationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataSharingCluster.html">DataSharingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GamingCluster.html">GamingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataRateControlCluster.html">DataRateControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VoiceOverZigbeeCluster.html">VoiceOverZigbeeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChattingCluster.html">ChattingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PaymentCluster.html">PaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillingCluster.html">BillingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceIdentificationCluster.html">ApplianceIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeterIdentificationCluster.html">MeterIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceEventsAndAlertCluster.html">ApplianceEventsAndAlertCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceStatisticsCluster.html">ApplianceStatisticsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalMeasurementCluster.html">ElectricalMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DiagnosticsCluster.html">DiagnosticsCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../enums.html">Generated Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitmaps.html">Generated Bitmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structs.html">Generated Structs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee related libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../clusters.html">Generated Clusters</a> &raquo;</li>
+        
+      <li>ApplianceControlCluster</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/clusters/ApplianceControlCluster.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="appliancecontrolcluster">
+<h1>ApplianceControlCluster<a class="headerlink" href="#appliancecontrolcluster" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeCluster" title="ZigbeeCluster">ZigbeeCluster</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>This cluster provides an interface to remotely control and to program household appliances.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x001B the ID of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Appliance Control” the name of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.attributes">
+<code class="sig-name descname">attributes</code><em class="property">: </em>st.zigbee.zcl.clusters.ApplianceControlClusterAttributes<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.commands">
+<code class="sig-name descname">commands</code><em class="property">: </em>st.zigbee.zcl.clusters.ApplianceControlClusterCommands<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.get_attribute_by_id">
+<em class="property"> </em><code class="sig-name descname">get_attribute_by_id</code><span class="sig-paren">(</span><em class="sig-param">attr_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.get_attribute_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attr_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.get_server_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_server_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.get_server_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.get_client_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_client_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.get_client_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.StartTime">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.StartTime</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.StartTime" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.StartTime.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.StartTime.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0000 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.StartTime.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.StartTime.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“StartTime” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.StartTime.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>StartTimeBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.StartTime.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.FinishTime">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.FinishTime</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.FinishTime" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.FinishTime.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.FinishTime.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0001 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.FinishTime.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.FinishTime.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“FinishTime” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.FinishTime.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.FinishTime.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.RemainingTime">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.RemainingTime</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.RemainingTime" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.RemainingTime.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.RemainingTime.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0002 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.RemainingTime.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.RemainingTime.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“RemainingTime” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.RemainingTime.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.RemainingTime.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>This basic message is used to remotely control and to program household appliances.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ExecutionOfACommand” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.command_id">
+<code class="sig-name descname">command_id</code><em class="property">: </em>CommandIdentificationEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.command_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ExecutionOfACommand</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>command_id</strong> (<em>CommandIdentification</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the ExecutionOfACommand command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ExecutionOfACommand</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>command_id</strong> (<em>CommandIdentification</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.ExecutionOfACommand.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState" title="Permalink to this definition">¶</a></dt>
+<dd><p>This basic message is used to retrieve Household Appliances status.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SignalState” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SignalState</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SignalState command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SignalState</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalState.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions" title="Permalink to this definition">¶</a></dt>
+<dd><p>This basic message is used to set appliance functions, i.e. information regarding the execution of an
+appliance cycle. Condition parameters such as start time or finish time information could be provided
+through this command.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“WriteFunctions” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.function_id">
+<code class="sig-name descname">function_id</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.function_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.function_data_type">
+<code class="sig-name descname">function_data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.function_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.function_data">
+<code class="sig-name descname">function_data</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.function_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>WriteFunctions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">function_id</em>, <em class="sig-param">function_data_type</em>, <em class="sig-param">function_data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>function_id</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>function_data_type</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>function_data</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">function_id</em>, <em class="sig-param">function_data_type</em>, <em class="sig-param">function_data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the WriteFunctions command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>WriteFunctions</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>function_id</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>function_data_type</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>function_data</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.WriteFunctions.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command shall be used to resume the normal behavior of a household appliance being in pause mode
+after receiving a Overload Pause command.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x03 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OverloadPauseResume” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>OverloadPauseResume</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the OverloadPauseResume command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>OverloadPauseResume</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPauseResume.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command shall be used to pause the household appliance as a consequence of an imminent overload
+event.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x04 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OverloadPause” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>OverloadPause</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the OverloadPause command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>OverloadPause</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadPause.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning" title="Permalink to this definition">¶</a></dt>
+<dd><p>This basic message is used to send warnings the household appliance as a consequence of a possible
+overload event, or the notification of the end of the warning state.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x05 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OverloadWarning” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.warning_event">
+<code class="sig-name descname">warning_event</code><em class="property">: </em>WarningEventEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.warning_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>OverloadWarning</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">warning_event</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>warning_event</strong> (<em>WarningEvent</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">warning_event</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the OverloadWarning command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>OverloadWarning</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>warning_event</strong> (<em>WarningEvent</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.OverloadWarning.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command shall be used to return household appliance status, according to Appliance Status Values
+and Remote Enable Flags Values.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SignalStateResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.appliance_status">
+<code class="sig-name descname">appliance_status</code><em class="property">: </em>ApplianceStatusEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.appliance_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.remote_enable_flags_and_device_status2">
+<code class="sig-name descname">remote_enable_flags_and_device_status2</code><em class="property">: </em>RemoteEnableFlagsAndDeviceStatus2Bitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.remote_enable_flags_and_device_status2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.appliance_status2">
+<code class="sig-name descname">appliance_status2</code><em class="property">: </em>Uint24<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.appliance_status2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SignalStateResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">appliance_status</em>, <em class="sig-param">remote_enable_flags_and_device_status2</em>, <em class="sig-param">appliance_status2</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>appliance_status</strong> (<em>ApplianceStatus</em>) – </p></li>
+<li><p><strong>remote_enable_flags_and_device_status2</strong> (<em>RemoteEnableFlagsAndDeviceStatus2</em>) – </p></li>
+<li><p><strong>appliance_status2</strong> (<a class="reference internal" href="../../data_types.html#Uint24" title="Uint24"><em>Uint24</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">appliance_status</em>, <em class="sig-param">remote_enable_flags_and_device_status2</em>, <em class="sig-param">appliance_status2</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SignalStateResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SignalStateResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>appliance_status</strong> (<em>ApplianceStatus</em>) – </p></li>
+<li><p><strong>remote_enable_flags_and_device_status2</strong> (<em>RemoteEnableFlagsAndDeviceStatus2</em>) – </p></li>
+<li><p><strong>appliance_status2</strong> (<a class="reference internal" href="../../data_types.html#Uint24" title="Uint24"><em>Uint24</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command shall be used to return household appliance status, automatically when appliance status
+changes.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SignalStateNotification” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.appliance_status">
+<code class="sig-name descname">appliance_status</code><em class="property">: </em>ApplianceStatusEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.appliance_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.remote_enable_flags_and_device_status2">
+<code class="sig-name descname">remote_enable_flags_and_device_status2</code><em class="property">: </em>RemoteEnableFlagsAndDeviceStatus2Bitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.remote_enable_flags_and_device_status2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.appliance_status2">
+<code class="sig-name descname">appliance_status2</code><em class="property">: </em>Uint24<a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.appliance_status2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SignalStateNotification</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">appliance_status</em>, <em class="sig-param">remote_enable_flags_and_device_status2</em>, <em class="sig-param">appliance_status2</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>appliance_status</strong> (<em>ApplianceStatus</em>) – </p></li>
+<li><p><strong>remote_enable_flags_and_device_status2</strong> (<em>RemoteEnableFlagsAndDeviceStatus2</em>) – </p></li>
+<li><p><strong>appliance_status2</strong> (<a class="reference internal" href="../../data_types.html#Uint24" title="Uint24"><em>Uint24</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">appliance_status</em>, <em class="sig-param">remote_enable_flags_and_device_status2</em>, <em class="sig-param">appliance_status2</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SignalStateNotification command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SignalStateNotification</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>appliance_status</strong> (<em>ApplianceStatus</em>) – </p></li>
+<li><p><strong>remote_enable_flags_and_device_status2</strong> (<em>RemoteEnableFlagsAndDeviceStatus2</em>) – </p></li>
+<li><p><strong>appliance_status2</strong> (<a class="reference internal" href="../../data_types.html#Uint24" title="Uint24"><em>Uint24</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ApplianceControlCluster.SignalStateNotification.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PollControlCluster.html" class="btn btn-neutral float-right" title="PollControlCluster" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PowerProfileCluster.html" class="btn btn-neutral" title="PowerProfileCluster" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

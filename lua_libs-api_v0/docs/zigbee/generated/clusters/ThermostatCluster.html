@@ -1,0 +1,2148 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ThermostatCluster &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Clusters" href="../clusters.html"/>
+        <link rel="next" title="FanControlCluster" href="FanControlCluster.html"/>
+        <link rel="prev" title="PumpConfigControlCluster" href="PumpConfigControlCluster.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults/defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../clusters.html">Generated Clusters</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BasicCluster.html">BasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerConfigCluster.html">PowerConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTempCluster.html">DeviceTempCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IdentifyCluster.html">IdentifyCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GroupsCluster.html">GroupsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScenesCluster.html">ScenesCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffCluster.html">OnOffCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffSwitchConfigCluster.html">OnOffSwitchConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LevelControlCluster.html">LevelControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlarmCluster.html">AlarmCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeCluster.html">TimeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RssiLocationCluster.html">RssiLocationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BinaryInputBasicCluster.html">BinaryInputBasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CommissioningCluster.html">CommissioningCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PartitionCluster.html">PartitionCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OtaBootloadCluster.html">OtaBootloadCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerProfileCluster.html">PowerProfileCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceControlCluster.html">ApplianceControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PollControlCluster.html">PollControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ShadeConfigCluster.html">ShadeConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockCluster.html">DoorLockCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindowCoveringCluster.html">WindowCoveringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpConfigControlCluster.html">PumpConfigControlCluster</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ThermostatCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanControlCluster.html">FanControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidControlCluster.html">DehumidControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatUiConfigCluster.html">ThermostatUiConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorControlCluster.html">ColorControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastConfigurationCluster.html">BallastConfigurationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumMeasurementCluster.html">IllumMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumLevelSensingCluster.html">IllumLevelSensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TempMeasurementCluster.html">TempMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PressureMeasurementCluster.html">PressureMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FlowMeasurementCluster.html">FlowMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidityMeasurementCluster.html">RelativeHumidityMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensingCluster.html">OccupancySensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasZoneCluster.html">IasZoneCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceCluster.html">IasAceCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasWdCluster.html">IasWdCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericTunnelCluster.html">GenericTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BacnetProtocolTunnelCluster.html">BacnetProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Iso7816ProtocolTunnelCluster.html">Iso7816ProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DemandResponseLoadControlCluster.html">DemandResponseLoadControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SimpleMeteringCluster.html">SimpleMeteringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingCluster.html">MessagingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TunnelingCluster.html">TunnelingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaymentCluster.html">PrepaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnergyManagementCluster.html">EnergyManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CalendarCluster.html">CalendarCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceManagementCluster.html">DeviceManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventsCluster.html">EventsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MduPairingCluster.html">MduPairingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KeyEstablishmentCluster.html">KeyEstablishmentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InformationCluster.html">InformationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataSharingCluster.html">DataSharingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GamingCluster.html">GamingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataRateControlCluster.html">DataRateControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VoiceOverZigbeeCluster.html">VoiceOverZigbeeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChattingCluster.html">ChattingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PaymentCluster.html">PaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillingCluster.html">BillingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceIdentificationCluster.html">ApplianceIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeterIdentificationCluster.html">MeterIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceEventsAndAlertCluster.html">ApplianceEventsAndAlertCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceStatisticsCluster.html">ApplianceStatisticsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalMeasurementCluster.html">ElectricalMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DiagnosticsCluster.html">DiagnosticsCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../enums.html">Generated Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitmaps.html">Generated Bitmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structs.html">Generated Structs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee related libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../clusters.html">Generated Clusters</a> &raquo;</li>
+        
+      <li>ThermostatCluster</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/clusters/ThermostatCluster.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="thermostatcluster">
+<h1>ThermostatCluster<a class="headerlink" href="#thermostatcluster" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeCluster" title="ZigbeeCluster">ZigbeeCluster</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>An interface for configuring and controlling the functionality of a thermostat.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0201 the ID of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Thermostat” the name of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.attributes">
+<code class="sig-name descname">attributes</code><em class="property">: </em>st.zigbee.zcl.clusters.ThermostatClusterAttributes<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.commands">
+<code class="sig-name descname">commands</code><em class="property">: </em>st.zigbee.zcl.clusters.ThermostatClusterCommands<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.get_attribute_by_id">
+<em class="property"> </em><code class="sig-name descname">get_attribute_by_id</code><span class="sig-paren">(</span><em class="sig-param">attr_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.get_attribute_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attr_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.get_server_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_server_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.get_server_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.get_client_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_client_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.get_client_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperature">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperature</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperature" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperature.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperature.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0000 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperature.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperature.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“LocalTemperature” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperature.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperature.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OutdoorTemperature">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.OutdoorTemperature</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OutdoorTemperature" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OutdoorTemperature.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OutdoorTemperature.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0001 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OutdoorTemperature.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OutdoorTemperature.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OutdoorTemperature” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OutdoorTemperature.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OutdoorTemperature.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatOccupancy">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.ThermostatOccupancy</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatOccupancy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatOccupancy.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatOccupancy.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0002 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatOccupancy.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatOccupancy.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ThermostatOccupancy” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatOccupancy.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>ThermostatOccupancyBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatOccupancy.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMinHeatSetpointLimit">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AbsMinHeatSetpointLimit</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMinHeatSetpointLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMinHeatSetpointLimit.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMinHeatSetpointLimit.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0003 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMinHeatSetpointLimit.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMinHeatSetpointLimit.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AbsMinHeatSetpointLimit” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMinHeatSetpointLimit.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMinHeatSetpointLimit.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxHeatSetpointLimit">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxHeatSetpointLimit</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxHeatSetpointLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxHeatSetpointLimit.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxHeatSetpointLimit.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0004 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxHeatSetpointLimit.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxHeatSetpointLimit.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AbsMaxHeatSetpointLimit” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxHeatSetpointLimit.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxHeatSetpointLimit.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMinCoolSetpointLimit">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AbsMinCoolSetpointLimit</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMinCoolSetpointLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMinCoolSetpointLimit.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMinCoolSetpointLimit.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0005 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMinCoolSetpointLimit.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMinCoolSetpointLimit.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AbsMinCoolSetpointLimit” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMinCoolSetpointLimit.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMinCoolSetpointLimit.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxCoolSetpointLimit">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxCoolSetpointLimit</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxCoolSetpointLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxCoolSetpointLimit.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxCoolSetpointLimit.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0006 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxCoolSetpointLimit.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxCoolSetpointLimit.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AbsMaxCoolSetpointLimit” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxCoolSetpointLimit.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AbsMaxCoolSetpointLimit.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.PiCoolingDemand">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.PiCoolingDemand</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.PiCoolingDemand" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.PiCoolingDemand.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.PiCoolingDemand.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0007 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.PiCoolingDemand.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.PiCoolingDemand.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PiCoolingDemand” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.PiCoolingDemand.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.PiCoolingDemand.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.PiHeatingDemand">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.PiHeatingDemand</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.PiHeatingDemand" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.PiHeatingDemand.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.PiHeatingDemand.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0008 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.PiHeatingDemand.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.PiHeatingDemand.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PiHeatingDemand” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.PiHeatingDemand.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.PiHeatingDemand.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.HvacSystemTypeConfiguration">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.HvacSystemTypeConfiguration</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.HvacSystemTypeConfiguration" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.HvacSystemTypeConfiguration.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.HvacSystemTypeConfiguration.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0009 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.HvacSystemTypeConfiguration.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.HvacSystemTypeConfiguration.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“HvacSystemTypeConfiguration” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.HvacSystemTypeConfiguration.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Bitmap8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.HvacSystemTypeConfiguration.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperatureCalibration">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperatureCalibration</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperatureCalibration" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperatureCalibration.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperatureCalibration.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0010 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperatureCalibration.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperatureCalibration.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“LocalTemperatureCalibration” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperatureCalibration.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.LocalTemperatureCalibration.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OccupiedCoolingSetpoint">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.OccupiedCoolingSetpoint</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OccupiedCoolingSetpoint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OccupiedCoolingSetpoint.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OccupiedCoolingSetpoint.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0011 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OccupiedCoolingSetpoint.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OccupiedCoolingSetpoint.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OccupiedCoolingSetpoint” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OccupiedCoolingSetpoint.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OccupiedCoolingSetpoint.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OccupiedHeatingSetpoint">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.OccupiedHeatingSetpoint</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OccupiedHeatingSetpoint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OccupiedHeatingSetpoint.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OccupiedHeatingSetpoint.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0012 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OccupiedHeatingSetpoint.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OccupiedHeatingSetpoint.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OccupiedHeatingSetpoint” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.OccupiedHeatingSetpoint.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.OccupiedHeatingSetpoint.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedCoolingSetpoint">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedCoolingSetpoint</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedCoolingSetpoint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedCoolingSetpoint.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedCoolingSetpoint.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0013 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedCoolingSetpoint.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedCoolingSetpoint.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“UnoccupiedCoolingSetpoint” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedCoolingSetpoint.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedCoolingSetpoint.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedHeatingSetpoint">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedHeatingSetpoint</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedHeatingSetpoint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedHeatingSetpoint.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedHeatingSetpoint.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0014 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedHeatingSetpoint.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedHeatingSetpoint.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“UnoccupiedHeatingSetpoint” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedHeatingSetpoint.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.UnoccupiedHeatingSetpoint.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinHeatSetpointLimit">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.MinHeatSetpointLimit</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinHeatSetpointLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinHeatSetpointLimit.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinHeatSetpointLimit.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0015 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinHeatSetpointLimit.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinHeatSetpointLimit.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MinHeatSetpointLimit” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinHeatSetpointLimit.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinHeatSetpointLimit.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MaxHeatSetpointLimit">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.MaxHeatSetpointLimit</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MaxHeatSetpointLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MaxHeatSetpointLimit.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MaxHeatSetpointLimit.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0016 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MaxHeatSetpointLimit.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MaxHeatSetpointLimit.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MaxHeatSetpointLimit” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MaxHeatSetpointLimit.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MaxHeatSetpointLimit.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinCoolSetpointLimit">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.MinCoolSetpointLimit</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinCoolSetpointLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinCoolSetpointLimit.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinCoolSetpointLimit.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0017 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinCoolSetpointLimit.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinCoolSetpointLimit.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MinCoolSetpointLimit” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinCoolSetpointLimit.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinCoolSetpointLimit.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MaxCoolSetpointLimit">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.MaxCoolSetpointLimit</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MaxCoolSetpointLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MaxCoolSetpointLimit.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MaxCoolSetpointLimit.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0018 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MaxCoolSetpointLimit.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MaxCoolSetpointLimit.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MaxCoolSetpointLimit” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MaxCoolSetpointLimit.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MaxCoolSetpointLimit.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinSetpointDeadBand">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.MinSetpointDeadBand</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinSetpointDeadBand" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinSetpointDeadBand.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinSetpointDeadBand.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0019 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinSetpointDeadBand.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinSetpointDeadBand.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MinSetpointDeadBand” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.MinSetpointDeadBand.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.MinSetpointDeadBand.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RemoteSensing">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.RemoteSensing</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RemoteSensing" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RemoteSensing.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RemoteSensing.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x001A the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RemoteSensing.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RemoteSensing.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“RemoteSensing” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RemoteSensing.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Bitmap8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RemoteSensing.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ControlSequenceOfOperation">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.ControlSequenceOfOperation</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ControlSequenceOfOperation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ControlSequenceOfOperation.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ControlSequenceOfOperation.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x001B the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ControlSequenceOfOperation.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ControlSequenceOfOperation.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ControlSequenceOfOperation” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ControlSequenceOfOperation.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ControlSequenceOfOperation.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SystemMode">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.SystemMode</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SystemMode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SystemMode.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SystemMode.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x001C the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SystemMode.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SystemMode.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SystemMode” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SystemMode.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SystemMode.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatAlarmMask">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.ThermostatAlarmMask</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatAlarmMask" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatAlarmMask.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatAlarmMask.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x001D the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatAlarmMask.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatAlarmMask.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ThermostatAlarmMask” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatAlarmMask.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>ThermostatAlarmMaskBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatAlarmMask.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningMode">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningMode</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningMode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningMode.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningMode.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x001E the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningMode.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningMode.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ThermostatRunningMode” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningMode.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>ThermostatRunningModeEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningMode.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.StartOfWeek">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.StartOfWeek</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.StartOfWeek" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.StartOfWeek.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.StartOfWeek.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0020 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.StartOfWeek.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.StartOfWeek.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“StartOfWeek” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.StartOfWeek.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>StartOfWeekEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.StartOfWeek.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.NumberOfWeeklyTransitions">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.NumberOfWeeklyTransitions</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.NumberOfWeeklyTransitions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.NumberOfWeeklyTransitions.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.NumberOfWeeklyTransitions.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0021 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.NumberOfWeeklyTransitions.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.NumberOfWeeklyTransitions.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“NumberOfWeeklyTransitions” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.NumberOfWeeklyTransitions.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.NumberOfWeeklyTransitions.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.NumberOfDailyTransitions">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.NumberOfDailyTransitions</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.NumberOfDailyTransitions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.NumberOfDailyTransitions.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.NumberOfDailyTransitions.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0022 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.NumberOfDailyTransitions.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.NumberOfDailyTransitions.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“NumberOfDailyTransitions” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.NumberOfDailyTransitions.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.NumberOfDailyTransitions.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHold">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHold</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHold.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHold.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0023 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHold.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHold.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“TemperatureSetpointHold” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHold.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>TemperatureSetpointHoldEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHold.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHoldDuration">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHoldDuration</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHoldDuration" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHoldDuration.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHoldDuration.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0024 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHoldDuration.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHoldDuration.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“TemperatureSetpointHoldDuration” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHoldDuration.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.TemperatureSetpointHoldDuration.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatProgrammingOperationMode">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.ThermostatProgrammingOperationMode</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatProgrammingOperationMode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatProgrammingOperationMode.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatProgrammingOperationMode.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0025 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatProgrammingOperationMode.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatProgrammingOperationMode.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ThermostatProgrammingOperationMode” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatProgrammingOperationMode.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Bitmap8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatProgrammingOperationMode.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningState">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningState</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningState.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningState.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0029 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningState.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningState.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ThermostatRunningState” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningState.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>ThermostatRunningStateBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ThermostatRunningState.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSource">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSource</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSource" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSource.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSource.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0030 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSource.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSource.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SetpointChangeSource” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSource.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSource.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeAmount">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeAmount</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeAmount" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeAmount.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeAmount.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0031 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeAmount.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeAmount.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SetpointChangeAmount” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeAmount.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeAmount.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSourceTimestamp">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSourceTimestamp</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSourceTimestamp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSourceTimestamp.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSourceTimestamp.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0032 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSourceTimestamp.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSourceTimestamp.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SetpointChangeSourceTimestamp” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSourceTimestamp.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>TimeOfDay<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointChangeSourceTimestamp.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcType">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AcType</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcType.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcType.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0040 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcType.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcType.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AcType” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcType.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcType.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCapacity">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AcCapacity</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCapacity" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCapacity.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCapacity.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0041 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCapacity.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCapacity.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AcCapacity” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCapacity.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCapacity.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcRefrigerantType">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AcRefrigerantType</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcRefrigerantType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcRefrigerantType.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcRefrigerantType.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0042 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcRefrigerantType.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcRefrigerantType.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AcRefrigerantType” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcRefrigerantType.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcRefrigerantType.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCompressor">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AcCompressor</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCompressor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCompressor.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCompressor.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0043 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCompressor.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCompressor.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AcCompressor” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCompressor.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCompressor.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcErrorCode">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AcErrorCode</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcErrorCode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcErrorCode.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcErrorCode.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0044 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcErrorCode.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcErrorCode.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AcErrorCode” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcErrorCode.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Bitmap32<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcErrorCode.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcLouverPosition">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AcLouverPosition</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcLouverPosition" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcLouverPosition.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcLouverPosition.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0045 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcLouverPosition.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcLouverPosition.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AcLouverPosition” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcLouverPosition.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcLouverPosition.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCoilTemperature">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AcCoilTemperature</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCoilTemperature" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCoilTemperature.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCoilTemperature.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0046 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCoilTemperature.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCoilTemperature.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AcCoilTemperature” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCoilTemperature.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCoilTemperature.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCapacityFormat">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.AcCapacityFormat</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCapacityFormat" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCapacityFormat.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCapacityFormat.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0047 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCapacityFormat.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCapacityFormat.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AcCapacityFormat” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.AcCapacityFormat.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.AcCapacityFormat.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for SetpointRaiseLower</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SetpointRaiseLower” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.mode">
+<code class="sig-name descname">mode</code><em class="property">: </em>SetpointAdjustModeEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.mode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.amount">
+<code class="sig-name descname">amount</code><em class="property">: </em>Int8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.amount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SetpointRaiseLower</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">mode</em>, <em class="sig-param">amount</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>mode</strong> (<em>SetpointAdjustMode</em>) – </p></li>
+<li><p><strong>amount</strong> (<a class="reference internal" href="../../data_types.html#Int8" title="Int8"><em>Int8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">mode</em>, <em class="sig-param">amount</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SetpointRaiseLower command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SetpointRaiseLower</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>mode</strong> (<em>SetpointAdjustMode</em>) – </p></li>
+<li><p><strong>amount</strong> (<a class="reference internal" href="../../data_types.html#Int8" title="Int8"><em>Int8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetpointRaiseLower.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for SetWeeklySchedule</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SetWeeklySchedule” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.number_of_transitions_for_sequence">
+<code class="sig-name descname">number_of_transitions_for_sequence</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.number_of_transitions_for_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.day_of_week_for_sequence">
+<code class="sig-name descname">day_of_week_for_sequence</code><em class="property">: </em>DayOfWeekBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.day_of_week_for_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.mode_for_sequence">
+<code class="sig-name descname">mode_for_sequence</code><em class="property">: </em>ModeForSequenceBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.mode_for_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.payload">
+<code class="sig-name descname">payload</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.payload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SetWeeklySchedule</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">number_of_transitions_for_sequence</em>, <em class="sig-param">day_of_week_for_sequence</em>, <em class="sig-param">mode_for_sequence</em>, <em class="sig-param">payload</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>number_of_transitions_for_sequence</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>day_of_week_for_sequence</strong> (<em>DayOfWeek</em>) – </p></li>
+<li><p><strong>mode_for_sequence</strong> (<em>ModeForSequence</em>) – </p></li>
+<li><p><strong>payload</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">number_of_transitions_for_sequence</em>, <em class="sig-param">day_of_week_for_sequence</em>, <em class="sig-param">mode_for_sequence</em>, <em class="sig-param">payload</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SetWeeklySchedule command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SetWeeklySchedule</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>number_of_transitions_for_sequence</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>day_of_week_for_sequence</strong> (<em>DayOfWeek</em>) – </p></li>
+<li><p><strong>mode_for_sequence</strong> (<em>ModeForSequence</em>) – </p></li>
+<li><p><strong>payload</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.SetWeeklySchedule.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for GetWeeklySchedule</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetWeeklySchedule” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.days_to_return">
+<code class="sig-name descname">days_to_return</code><em class="property">: </em>DayOfWeekBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.days_to_return" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.mode_to_return">
+<code class="sig-name descname">mode_to_return</code><em class="property">: </em>ModeForSequenceBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.mode_to_return" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetWeeklySchedule</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">days_to_return</em>, <em class="sig-param">mode_to_return</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>days_to_return</strong> (<em>DayOfWeek</em>) – </p></li>
+<li><p><strong>mode_to_return</strong> (<em>ModeForSequence</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">days_to_return</em>, <em class="sig-param">mode_to_return</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetWeeklySchedule command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetWeeklySchedule</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>days_to_return</strong> (<em>DayOfWeek</em>) – </p></li>
+<li><p><strong>mode_to_return</strong> (<em>ModeForSequence</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetWeeklySchedule.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Clear Weekly Schedule command is used to clear the weekly schedule.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x03 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ClearWeeklySchedule” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ClearWeeklySchedule</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the ClearWeeklySchedule command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ClearWeeklySchedule</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.ClearWeeklySchedule.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Get Relay Status Log command is used to query the thermostat internal relay status log.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x04 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetRelayStatusLog” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetRelayStatusLog</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetRelayStatusLog command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetRelayStatusLog</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.GetRelayStatusLog.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Current Weekly Schedule Command is sent from the server in response to the Get Weekly Schedule
+Command.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“CurrentWeeklySchedule” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.number_of_transitions_for_sequence">
+<code class="sig-name descname">number_of_transitions_for_sequence</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.number_of_transitions_for_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.day_of_week_for_sequence">
+<code class="sig-name descname">day_of_week_for_sequence</code><em class="property">: </em>DayOfWeekBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.day_of_week_for_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.mode_for_sequence">
+<code class="sig-name descname">mode_for_sequence</code><em class="property">: </em>ModeForSequenceBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.mode_for_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.payload">
+<code class="sig-name descname">payload</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.payload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>CurrentWeeklySchedule</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">number_of_transitions_for_sequence</em>, <em class="sig-param">day_of_week_for_sequence</em>, <em class="sig-param">mode_for_sequence</em>, <em class="sig-param">payload</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>number_of_transitions_for_sequence</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>day_of_week_for_sequence</strong> (<em>DayOfWeek</em>) – </p></li>
+<li><p><strong>mode_for_sequence</strong> (<em>ModeForSequence</em>) – </p></li>
+<li><p><strong>payload</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">number_of_transitions_for_sequence</em>, <em class="sig-param">day_of_week_for_sequence</em>, <em class="sig-param">mode_for_sequence</em>, <em class="sig-param">payload</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the CurrentWeeklySchedule command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>CurrentWeeklySchedule</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>number_of_transitions_for_sequence</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>day_of_week_for_sequence</strong> (<em>DayOfWeek</em>) – </p></li>
+<li><p><strong>mode_for_sequence</strong> (<em>ModeForSequence</em>) – </p></li>
+<li><p><strong>payload</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.CurrentWeeklySchedule.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command is sent from the thermostat cluster server in response to the Get Relay Status Log.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“RelayStatusLog” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.time_of_day">
+<code class="sig-name descname">time_of_day</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.time_of_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.relay_status">
+<code class="sig-name descname">relay_status</code><em class="property">: </em>Bitmap16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.relay_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.local_temperature">
+<code class="sig-name descname">local_temperature</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.local_temperature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.humidity_in_percentage">
+<code class="sig-name descname">humidity_in_percentage</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.humidity_in_percentage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.setpoint">
+<code class="sig-name descname">setpoint</code><em class="property">: </em>Int16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.setpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.unread_entries">
+<code class="sig-name descname">unread_entries</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.unread_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>RelayStatusLog</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">time_of_day</em>, <em class="sig-param">relay_status</em>, <em class="sig-param">local_temperature</em>, <em class="sig-param">humidity_in_percentage</em>, <em class="sig-param">setpoint</em>, <em class="sig-param">unread_entries</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>time_of_day</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>relay_status</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>local_temperature</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – </p></li>
+<li><p><strong>humidity_in_percentage</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>setpoint</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – </p></li>
+<li><p><strong>unread_entries</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">time_of_day</em>, <em class="sig-param">relay_status</em>, <em class="sig-param">local_temperature</em>, <em class="sig-param">humidity_in_percentage</em>, <em class="sig-param">setpoint</em>, <em class="sig-param">unread_entries</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the RelayStatusLog command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>RelayStatusLog</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>time_of_day</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>relay_status</strong> (<a class="reference internal" href="../../data_types.html#Bitmap16" title="Bitmap16"><em>Bitmap16</em></a>) – </p></li>
+<li><p><strong>local_temperature</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – </p></li>
+<li><p><strong>humidity_in_percentage</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>setpoint</strong> (<a class="reference internal" href="../../data_types.html#Int16" title="Int16"><em>Int16</em></a>) – </p></li>
+<li><p><strong>unread_entries</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ThermostatCluster.RelayStatusLog.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FanControlCluster.html" class="btn btn-neutral float-right" title="FanControlCluster" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PumpConfigControlCluster.html" class="btn btn-neutral" title="PumpConfigControlCluster" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

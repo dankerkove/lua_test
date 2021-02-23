@@ -1,0 +1,4 @@
+MeteringStatusHeatAndCoolingBitmap
+==================================
+
+.. lua:autoclass:: MeteringStatusHeatAndCoolingBitmap

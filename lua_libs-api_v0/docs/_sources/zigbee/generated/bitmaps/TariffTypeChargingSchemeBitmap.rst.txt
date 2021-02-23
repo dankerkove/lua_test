@@ -1,0 +1,4 @@
+TariffTypeChargingSchemeBitmap
+==============================
+
+.. lua:autoclass:: TariffTypeChargingSchemeBitmap

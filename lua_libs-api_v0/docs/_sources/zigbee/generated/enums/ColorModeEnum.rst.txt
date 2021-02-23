@@ -1,0 +1,4 @@
+ColorModeEnum
+=============
+
+.. lua:autoclass:: ColorModeEnum

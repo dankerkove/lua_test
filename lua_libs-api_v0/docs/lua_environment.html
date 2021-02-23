@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lua Environment &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="index.html"/>
+        <link rel="up" title="&lt;no title&gt;" href="reference/index.html"/>
+        <link rel="next" title="Logging Interface" href="log.html"/>
+        <link rel="prev" title="&lt;no title&gt;" href="reference/index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buf.html">Buffer Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zigbee/zigbee.html">Zigbee Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+      <li>Lua Environment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/lua_environment.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lua-environment">
+<h1>Lua Environment<a class="headerlink" href="#lua-environment" title="Permalink to this headline">¶</a></h1>
+<p>SmartThings Lua scripts execute in an environment similar to the stock Lua environment.</p>
+<span class="target" id="module-environment"></span><p>The execution environment available to scripts</p>
+<dl class="lua function">
+<dt id="environment.report_error">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">report_error</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#environment.report_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Report a script error</p>
+<p>This currently reports to Sumo, but is expected to be surfaced to users via dev-workspace</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>any</em>) – arbitrary values to report</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.require">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">require</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">version</em><span class="sig-paren">)</span><a class="headerlink" href="#environment.require" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a lua file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – file to load</p></li>
+<li><p><strong>version</strong> (<em>unused</em>) – Unused</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.sleep">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">sleep</code><span class="sig-paren">(</span><em class="sig-param">seconds</em><span class="sig-paren">)</span><a class="headerlink" href="#environment.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sleep for an arbitrary amount of time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>seconds</strong> (<em>number</em>) – Sleep duration</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua class">
+<dt id="environment.coroutine">
+<em class="property">class </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">coroutine</code><a class="headerlink" href="#environment.coroutine" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#6.2">https://www.lua.org/manual/5.3/manual.html#6.2</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.assert">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">assert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.assert" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-assert">https://www.lua.org/manual/5.3/manual.html#pdf-assert</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.collectgarbage">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">collectgarbage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.collectgarbage" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-collectgarbage">https://www.lua.org/manual/5.3/manual.html#pdf-collectgarbage</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.error">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-error">https://www.lua.org/manual/5.3/manual.html#pdf-error</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.getmetatable">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">getmetatable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.getmetatable" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-getmetatable">https://www.lua.org/manual/5.3/manual.html#pdf-getmetatable</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.ipairs">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">ipairs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.ipairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-ipairs">https://www.lua.org/manual/5.3/manual.html#pdf-ipairs</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.next">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-next">https://www.lua.org/manual/5.3/manual.html#pdf-next</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.pairs">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">pairs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-pairs">https://www.lua.org/manual/5.3/manual.html#pdf-pairs</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.pcall">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">pcall</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.pcall" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-pcall">https://www.lua.org/manual/5.3/manual.html#pdf-pcall</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.rawequal">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">rawequal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.rawequal" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-rawequal">https://www.lua.org/manual/5.3/manual.html#pdf-rawequal</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.rawget">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">rawget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.rawget" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-rawget">https://www.lua.org/manual/5.3/manual.html#pdf-rawget</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.rawlen">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">rawlen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.rawlen" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-rawlen">https://www.lua.org/manual/5.3/manual.html#pdf-rawlen</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.rawset">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">rawset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.rawset" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-rawset">https://www.lua.org/manual/5.3/manual.html#pdf-rawset</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.setmetatable">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">setmetatable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.setmetatable" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-setmetatable">https://www.lua.org/manual/5.3/manual.html#pdf-setmetatable</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.select">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">select</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-select">https://www.lua.org/manual/5.3/manual.html#pdf-select</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.tonumber">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">tonumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.tonumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-tonumber">https://www.lua.org/manual/5.3/manual.html#pdf-tonumber</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.tostring">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">tostring</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.tostring" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-tostring">https://www.lua.org/manual/5.3/manual.html#pdf-tostring</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.type">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-type">https://www.lua.org/manual/5.3/manual.html#pdf-type</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.xpcall">
+<em class="property"> </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">xpcall</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.xpcall" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-xpcall">https://www.lua.org/manual/5.3/manual.html#pdf-xpcall</a></p>
+</dd></dl>
+
+<dl class="lua class">
+<dt id="environment.math">
+<em class="property">class </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">math</code><a class="headerlink" href="#environment.math" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#6.7">https://www.lua.org/manual/5.3/manual.html#6.7</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.environment.os.clock">
+<em class="property"> </em><code class="sig-prename descclassname">environment.os.</code><code class="sig-name descname">clock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.environment.os.clock" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-os.clock">https://www.lua.org/manual/5.3/manual.html#pdf-os.clock</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.environment.os.date">
+<em class="property"> </em><code class="sig-prename descclassname">environment.os.</code><code class="sig-name descname">date</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.environment.os.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-os.date">https://www.lua.org/manual/5.3/manual.html#pdf-os.date</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.environment.os.difftime">
+<em class="property"> </em><code class="sig-prename descclassname">environment.os.</code><code class="sig-name descname">difftime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.environment.os.difftime" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-os.difftime">https://www.lua.org/manual/5.3/manual.html#pdf-os.difftime</a></p>
+</dd></dl>
+
+<dl class="lua function">
+<dt id="environment.environment.os.time">
+<em class="property"> </em><code class="sig-prename descclassname">environment.os.</code><code class="sig-name descname">time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#environment.environment.os.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#pdf-os.time">https://www.lua.org/manual/5.3/manual.html#pdf-os.time</a></p>
+</dd></dl>
+
+<dl class="lua class">
+<dt id="environment.string">
+<em class="property">class </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">string</code><a class="headerlink" href="#environment.string" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#6.4">https://www.lua.org/manual/5.3/manual.html#6.4</a></p>
+</dd></dl>
+
+<dl class="lua class">
+<dt id="environment.table">
+<em class="property">class </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">table</code><a class="headerlink" href="#environment.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#6.6">https://www.lua.org/manual/5.3/manual.html#6.6</a></p>
+</dd></dl>
+
+<dl class="lua class">
+<dt id="environment.utf8">
+<em class="property">class </em><code class="sig-prename descclassname">environment.</code><code class="sig-name descname">utf8</code><a class="headerlink" href="#environment.utf8" title="Permalink to this definition">¶</a></dt>
+<dd><p>See Lua Reference Manual: <a class="reference external" href="https://www.lua.org/manual/5.3/manual.html#6.5">https://www.lua.org/manual/5.3/manual.html#6.5</a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="log.html" class="btn btn-neutral float-right" title="Logging Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="reference/index.html" class="btn btn-neutral" title="&lt;no title&gt;" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

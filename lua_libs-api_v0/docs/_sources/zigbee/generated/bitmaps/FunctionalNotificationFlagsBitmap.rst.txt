@@ -1,0 +1,4 @@
+FunctionalNotificationFlagsBitmap
+=================================
+
+.. lua:autoclass:: FunctionalNotificationFlagsBitmap

@@ -1,0 +1,4 @@
+PowerSourceEnum
+===============
+
+.. lua:autoclass:: PowerSourceEnum

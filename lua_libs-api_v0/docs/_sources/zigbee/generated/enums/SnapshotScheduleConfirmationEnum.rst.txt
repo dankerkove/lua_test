@@ -1,0 +1,4 @@
+SnapshotScheduleConfirmationEnum
+================================
+
+.. lua:autoclass:: SnapshotScheduleConfirmationEnum

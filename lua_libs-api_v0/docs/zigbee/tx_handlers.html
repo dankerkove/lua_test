@@ -1,0 +1,161 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Zigbee Driver Capability Command Handlers &#8212; SmartThings Lua Libraries  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Zigbee Messages" href="messages.html" />
+    <link rel="prev" title="Zigbee Driver RX message handlers" href="rx_handlers.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="zigbee-driver-capability-command-handlers">
+<h1>Zigbee Driver Capability Command Handlers<a class="headerlink" href="#zigbee-driver-capability-command-handlers" title="Permalink to this headline">¶</a></h1>
+<p>This module contains a set of default capability command handlers.  See
+<code class="xref lua lua-meth docutils literal notranslate"><span class="pre">&lt;command_handlers.zigbee_capability_command_handler&gt;</span> <span class="pre">zigbee_capability_command_handler()</span></code> for the template of
+what these handlers look like.  These will each be matched with a specific capability command pair, and will then be
+called when that command is sent from an automation, mobile app, or other actuation.</p>
+<div class="section" id="default-handlers-available">
+<h2>Default handlers available<a class="headerlink" href="#default-handlers-available" title="Permalink to this headline">¶</a></h2>
+<p>Following are a number of default implementations of handlers.  Many of these will be automatically associated with a
+capability unless overridden.</p>
+<p>TODO: .. lua:automodule:: zigbee.defaults</p>
+</div>
+<div class="section" id="default-capability-registrations">
+<h2>Default capability registrations<a class="headerlink" href="#default-capability-registrations" title="Permalink to this headline">¶</a></h2>
+<p>TODO: find a good way to dynamically include these</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">default_command_handlers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">Switch</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">on</span> <span class="o">=</span> <span class="n">command_handlers</span><span class="p">.</span><span class="n">on</span><span class="p">,</span>
+    <span class="n">off</span> <span class="o">=</span> <span class="n">command_handlers</span><span class="p">.</span><span class="n">off</span>
+  <span class="p">},</span>
+  <span class="n">SwitchLevel</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">setLevel</span> <span class="o">=</span> <span class="n">command_handlers</span><span class="p">.</span><span class="n">set_level</span>
+  <span class="p">},</span>
+  <span class="n">ColorTemperature</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">setColorTemperature</span> <span class="o">=</span> <span class="n">command_handlers</span><span class="p">.</span><span class="n">set_color_temperature</span>
+  <span class="p">},</span>
+  <span class="n">ColorControl</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">setColor</span> <span class="o">=</span> <span class="n">command_handlers</span><span class="p">.</span><span class="n">set_color</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">SmartThings Lua Libraries</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="drivers.html">Zigbee driver sturctures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rx_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Zigbee Driver Capability Command Handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated.html">Generated Zigbee Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastore.html">Datastore</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="zigbee.html">Zigbee related libraries</a><ul>
+      <li>Previous: <a href="rx_handlers.html" title="previous chapter">Zigbee Driver RX message handlers</a></li>
+      <li>Next: <a href="messages.html" title="next chapter">Zigbee Messages</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, SmartThings Developers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/zigbee/tx_handlers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

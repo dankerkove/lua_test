@@ -1,0 +1,65 @@
+WindowCoveringCluster
+=====================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.CoveringType
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.LimitLift
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.LimitTilt
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.CurrentLift
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.CurrentTilt
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.NumberLift
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.NumberTilt
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.ConfigStatus
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.CurrentLiftPercentage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.CurrentTiltPercentage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.OpenLimitLift
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.ClosedLimitLift
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.OpenLimitTilt
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.ClosedLimitTilt
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.VelocityLift
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.AccelerationLift
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.DecelerationLift
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.Mode
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.SetpointsLift
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.SetpointsTilt
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.WindowCoveringUpOpen
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.WindowCoveringDownClose
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.WindowCoveringStop
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.WindowCoveringGoToLiftValue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.WindowCoveringGoToLiftPercentage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.WindowCoveringGoToTiltValue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.WindowCoveringCluster.WindowCoveringGoToTiltPercentage
+

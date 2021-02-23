@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../index.html"/>
+        <link rel="up" title="&lt;no title&gt;" href="index.html"/>
+        <link rel="next" title="Writing your first Lua driver" href="first-driver.html"/>
+        <link rel="prev" title="&lt;no title&gt;" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#about">About</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#intro">Intro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#will-my-existing-dths-run-on-the-hub">Will my existing DTHs run on the Hub?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-the-new-architecture-developed-for-smartthings-edge">What is the new architecture developed for SmartThings Edge?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#support-for-pre-existing-lua-libraries">Support for pre-existing Lua libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#real-network-sockets">Real network sockets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#one-driver-per-integration">One driver per integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#robust-libraries-for-zigbee-and-z-wave">Robust libraries for Zigbee and Z-Wave</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#developer-friendly-tooling">Developer Friendly Tooling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-smartthings-edge-device-driver">The SmartThings Edge Device Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Lua</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libraries">Libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#driver-library">Driver Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#device-library">Device Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#capability-library">Capability Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zigbee-library">Zigbee Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#z-wave-library">Z-Wave Library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-cli">The CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#live-logging">Live Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-hello-world-example">Installing the Hello World Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../buf.html">Buffer Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zigbee/zigbee.html">Zigbee Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/guides/getting-started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="intro">
+<h3>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h3>
+<p>SmartThings Edge Device Drivers are the new method for integrating Hub Connected Devices into the SmartThings Platform. The platform represents all devices through our capability model. The driver then translates to and from this unified model into the device-specific network protocol for each device type. For example, when a driver for a light bulb gets an <cite>on</cite> capability command it, will then build and send a message over the network the bulb it drives is connected to. When the driver receives a notification over the network that the bulb has been turned off via some external means, it will send a capability attribute report to inform the platform that the bulb is now off.</p>
+<p>The Driver also handles messages from
+the device and translates these messages to events (defined in the capabilities model)
+so that the proper device status is available to the Platform.</p>
+<p>This translation was previously handled in the Cloud using a DTH (Device Type Handler).
+With SmartThings Edge Drivers, this translation will now happen locally on the Hub.
+This offers a number of benefits including speed, reliability, cost savings, and
+new functionality. In order to do this safely and securely with 3rd-party
+Integrations, we’ve designed and built an entirely new system.</p>
+</div>
+<div class="section" id="will-my-existing-dths-run-on-the-hub">
+<h3>Will my existing DTHs run on the Hub?<a class="headerlink" href="#will-my-existing-dths-run-on-the-hub" title="Permalink to this headline">¶</a></h3>
+<p>No, not as they are written today.</p>
+<p>At SmartThings, we recognize the importance of running devices locally and
+strive to enable as much local functionality as possible. Years ago, a project
+was undertaken to run Groovy code on the Hub. Unfortunately, we discovered that
+our Hub could not support running Groovy locally for many reasons including
+performance, security, scalability, and cost. We then pivoted how we supported
+local devices to a more efficient architecture that could not support the
+community and DTH support was removed from the Hub.</p>
+<p>SmartThings Edge enables us to realize the vision of running all Hub Connected
+Device Integrations, including community-developed Integrations, locally on
+the Hub. To achieve this, an entirely new architecture was required. Due to the
+new architecture, existing Groovy integrations will not be able to run on the
+Hub. We believe the new system will provide a superior user experience and will
+scale much better to all future SmartThings Hub products.</p>
+</div>
+<div class="section" id="what-is-the-new-architecture-developed-for-smartthings-edge">
+<h3>What is the new architecture developed for SmartThings Edge?<a class="headerlink" href="#what-is-the-new-architecture-developed-for-smartthings-edge" title="Permalink to this headline">¶</a></h3>
+<p>We formulated two key requirements when building our new Device Integration architecture:</p>
+<ol class="arabic simple">
+<li><p>All Hub Connected devices are run locally</p></li>
+<li><p>Community Code must be supported</p></li>
+</ol>
+<p>To best support our existing Hubs (including our v2 + v3 hubs and all WASH partners),
+we had to go back to square one and develop an entirely new architecture.
+We ultimately decided to use <a class="reference external" href="https://www.lua.org/">Lua</a> for our implementation.
+Lua is a language that was designed specially for the type of architecture we are
+building and is used for many plug-in systems in large, well-known software packages.</p>
+<p>Security is our primary concern in IoT. Lua itself is designed to be a secure
+sandbox for running 3rd-party code. In addition, we built a second layer of
+security for added protection.</p>
+<p>In the sections below, we will look at some of the many features our new architecture offers.</p>
+<div class="section" id="support-for-pre-existing-lua-libraries">
+<h4>Support for pre-existing Lua libraries<a class="headerlink" href="#support-for-pre-existing-lua-libraries" title="Permalink to this headline">¶</a></h4>
+<p>Lua is a mature scripting language with many libraries available.
+We’ve built a system that can leverage as many of these libraries as possible.
+To maintain security and ensure compatibility across CPU architectures, SmartThings only supports libraries written in Lua.</p>
+</div>
+<div class="section" id="real-network-sockets">
+<h4>Real network sockets<a class="headerlink" href="#real-network-sockets" title="Permalink to this headline">¶</a></h4>
+<p>DTHs have traditionally only formally supported HTTP Rest APIs. SmartThings Edge
+supports most of the <a class="reference external" href="http://w3.impa.br/~diego/software/luasocket/">LuaSocket</a>API,
+opening entirely new device integrations. This API supports direct TCP, TLS, and UDP
+socket access including UDP Multicast and Broadcast. This enables the use of
+protocols such as Websockets, Protocol Buffers, and more.</p>
+</div>
+<div class="section" id="one-driver-per-integration">
+<h4>One driver per integration<a class="headerlink" href="#one-driver-per-integration" title="Permalink to this headline">¶</a></h4>
+<p>One driver can now be written to support a full Integration including many device types.</p>
+<p>Conversely, DTHs required one driver for each device type. For example, a
+bridge with bulbs, plugs, motion sensors, buttons, etc. required a separate
+driver for each type of device, resulting in message passing complexity and a
+lot of duplicated code. With SmartThings Edge, a single driver can handle various
+device types.</p>
+</div>
+<div class="section" id="robust-libraries-for-zigbee-and-z-wave">
+<h4>Robust libraries for Zigbee and Z-Wave<a class="headerlink" href="#robust-libraries-for-zigbee-and-z-wave" title="Permalink to this headline">¶</a></h4>
+<p>To better support Zigbee and Z-Wave devices, we have created libraries that
+facilitate communication with these devices, including default handling for
+common behavior. Custom handling is also allowed for devices that require it.</p>
+</div>
+<div class="section" id="developer-friendly-tooling">
+<h4>Developer Friendly Tooling<a class="headerlink" href="#developer-friendly-tooling" title="Permalink to this headline">¶</a></h4>
+<p>The primary management tools are now the new SmartThhings CLI and Hub-hosted live logging server.</p>
+</div>
+</div>
+</div>
+<div class="section" id="the-smartthings-edge-device-driver">
+<h2>The SmartThings Edge Device Driver<a class="headerlink" href="#the-smartthings-edge-device-driver" title="Permalink to this headline">¶</a></h2>
+<p>The Driver describes everything necessary to integrate a device into the
+SmartThings Platform.  Once the Driver is created, the CLI can be used to
+upload the package, install to a Hub, uninstall from a Hub and to delete the
+driver from the platform.  For more information on the Driver format
+see <a class="reference internal" href="package.html#package-guide"><span class="std std-ref">Package Guide</span></a>.</p>
+<div class="section" id="id1">
+<h3>Lua<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>At the core of the Driver is one or a set of Lua files.  These files are
+responsible for handling commands from the rest of SmartThings and for
+generating the protocol-specific messages to control devices.  They are also
+responsible for decoding messages from devices and generating SmartThings events.</p>
+</div>
+<div class="section" id="libraries">
+<h3>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="driver-library">
+<h4>Driver Library<a class="headerlink" href="#driver-library" title="Permalink to this headline">¶</a></h4>
+<p>The Driver Library is the foundational library of an Edge Device Driver.
+It coordinates all standard work necessary for a functioning device.
+The two main APIs every driver will use are the new Driver instantiation call
+and the run call.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">example_driver</span> <span class="o">=</span>
+  <span class="n">Driver</span><span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,</span>
+    <span class="p">{</span>
+      <span class="n">device_added</span> <span class="o">=</span> <span class="n">device_added</span><span class="p">,</span>
+      <span class="n">device_removed</span> <span class="o">=</span> <span class="n">device_removed</span><span class="p">,</span>
+      <span class="n">capability_handlers</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="p">[</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span>
+      <span class="p">{</span>
+        <span class="p">[</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">commands</span><span class="p">.</span><span class="n">on</span><span class="p">.</span><span class="n">NAME</span><span class="p">]</span> <span class="o">=</span> <span class="n">handle_on</span><span class="p">,</span>
+        <span class="p">[</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">commands</span><span class="p">.</span><span class="n">off</span><span class="p">.</span><span class="n">NAME</span><span class="p">]</span> <span class="o">=</span> <span class="n">handle_off</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">example_driver</span><span class="p">:</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The Driver library can also create timers and other useful core
+functionality.  See <a class="reference internal" href="../drivers.html#drivers"><span class="std std-ref">Drivers</span></a> for more information.</p>
+</div>
+<div class="section" id="device-library">
+<h4>Device Library<a class="headerlink" href="#device-library" title="Permalink to this headline">¶</a></h4>
+<p>The device library provides APIs for emitting events and storing data
+for a device. Properties of the device are also available such as the
+<code class="docutils literal notranslate"><span class="pre">device.device_network_id</span></code>. See <a class="reference internal" href="../device.html#devices"><span class="std std-ref">Devices</span></a>
+for more information.</p>
+</div>
+<div class="section" id="capability-library">
+<h4>Capability Library<a class="headerlink" href="#capability-library" title="Permalink to this headline">¶</a></h4>
+<p>SmartThings Capabilities are exposed to Edge Device Drivers using the
+capability library. For more information regarding capabilities see:
+<a class="reference external" href="https://smartthings.developer.samsung.com/docs/api-ref/capabilities.html">Capabilities
+Reference</a></p>
+<p>In order to handle commands, capability commands are registered with
+corresponding handlers in the Driver initialization (see above reference).</p>
+<p>To emit events, call <code class="docutils literal notranslate"><span class="pre">emit_event</span></code> on the device the event occurred on.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">device</span><span class="p">:</span><span class="n">emit_event</span><span class="p">(</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">on</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zigbee-library">
+<h4>Zigbee Library<a class="headerlink" href="#zigbee-library" title="Permalink to this headline">¶</a></h4>
+<p>This library provides the necessary APIs to handle communications to and
+from Zigbee devices. See <a class="reference internal" href="../zigbee/driver.html#zigbee-driver-structures"><span class="std std-ref">Zigbee driver structures</span></a> for more information.</p>
+</div>
+<div class="section" id="z-wave-library">
+<h4>Z-Wave Library<a class="headerlink" href="#z-wave-library" title="Permalink to this headline">¶</a></h4>
+<p>This library provides the necessary APIs to handle communications to and
+from Z-Wave devices. TODO: More details</p>
+</div>
+</div>
+</div>
+<div class="section" id="the-cli">
+<h2>The CLI<a class="headerlink" href="#the-cli" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/SmartThingsCommunity/smartthings-cli">SmartThings
+CLI</a> is the
+command line tool used to manage SmartThings Edge Device Drivers. The CLI enables
+you to easily build packages and upload them the SmartThings Cloud to run on Hubs.</p>
+<p>To build and upload a package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>smartthings edge:drivers:package <span class="o">[</span>path_to_dir<span class="o">]</span>
+</pre></div>
+</div>
+<p>To install a package to a hub:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>smartthings edge:drivers:install <span class="o">[</span>ID<span class="o">]</span>
+</pre></div>
+</div>
+<p>To uninstall a package from a hub:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>smartthings edge:drivers:uninstall <span class="o">[</span>ID<span class="o">]</span>
+</pre></div>
+</div>
+<p>To delete a package from SmartThings:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>smartthings edge:drivers:delete <span class="o">[</span>ID<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="live-logging">
+<h2>Live Logging<a class="headerlink" href="#live-logging" title="Permalink to this headline">¶</a></h2>
+<p>The live logging feature that was previously available on
+graph.api.smartthings.com is now hosted directly by the Hub. Device events and
+any print statements made by the driver are included in the live log. Logs may
+be filtered or downloaded. The current path is <code class="docutils literal notranslate"><span class="pre">http://&lt;hubip&gt;:9495</span></code>.</p>
+<a class="reference internal image-reference" href="guides/../../images/livelog.png"><img alt="guides/../../images/livelog.png" src="guides/../../images/livelog.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="installing-the-hello-world-example">
+<h2>Installing the Hello World Example<a class="headerlink" href="#installing-the-hello-world-example" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Clone the repository below to your machine:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:SmartThingsCommunity/SmartThingsEdgeDriversBeta.git
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Change directories into smartthings-edge-docs/examples:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> SmartThingsEdgeDriversBeta/examples/
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Build the package and upload it to the SmartThings Cloud:</p></li>
+</ol>
+<p><strong>Note</strong>: This step assumes you have the <a class="reference external" href="https://github.com/SmartThingsCommunity/smartthings-cli">SmartThings
+CLI</a> working
+and authenticated either with the appropriate scopes, or with a PAT Token.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">smartthings</span> <span class="n">edge</span><span class="p">:</span><span class="n">drivers</span><span class="p">:</span><span class="n">package</span> <span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="o">-</span><span class="n">package</span>
+</pre></div>
+</div>
+<p>Upon success you should see a response like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌────────────────────┬──────────────────────────────────────┐
+│ Type               │ LAN                                  │
+│ Package Key        │ helloworld.example                   │
+│ Driver Id          │ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx │
+│ Default Profile Id │ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx │
+│ Name               │ Hello World                          │
+└────────────────────┴──────────────────────────────────────┘
+</pre></div>
+</div>
+<p>4. Install the device to your Hub. Select the newly created upload
+driver and install it to your Hub:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">smartthings</span> <span class="n">edge</span><span class="p">:</span><span class="n">drivers</span><span class="p">:</span><span class="n">install</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Select the target Hub (in this case <strong>#1</strong>) and press <strong>Enter</strong>:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌───┬──────────────────────────────────────┬─────────────────┬─────────────┬──────┐
+│ # │ Device Id                            │ Name            │ Location    │ Room │
+├───┼──────────────────────────────────────┼─────────────────┼─────────────┼──────┤
+│ 1 │ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx │ SmartThings Hub │ Staging Env │      │
+└───┴──────────────────────────────────────┴─────────────────┴─────────────┴──────┘
+? Enter id or index
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>? Select one or more drivers to install.
+❯◉ Hello World helloworld.example (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+</pre></div>
+</div>
+<p>6. Press <strong>space</strong> to fill the circle for the driver you with to install
+then press <strong>enter</strong>. Upon success you should see response below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">installed</span> <span class="n">to</span> <span class="n">hub</span> <span class="s2">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;</span>
+</pre></div>
+</div>
+<p>#. Add your device within the SmartThings App. Navigate to <strong>Add a
+Device</strong> &gt; <strong>Scan Nearby</strong></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="first-driver.html" class="btn btn-neutral float-right" title="Writing your first Lua driver" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="&lt;no title&gt;" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

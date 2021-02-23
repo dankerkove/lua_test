@@ -1,0 +1,4 @@
+TemperatureSetpointHoldEnum
+===========================
+
+.. lua:autoclass:: TemperatureSetpointHoldEnum

@@ -1,0 +1,4 @@
+AmiUnitOfMeasureEnum
+====================
+
+.. lua:autoclass:: AmiUnitOfMeasureEnum

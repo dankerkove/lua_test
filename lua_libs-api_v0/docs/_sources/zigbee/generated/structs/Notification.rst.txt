@@ -1,0 +1,4 @@
+Notification
+============
+
+.. lua:autoclass:: Notification

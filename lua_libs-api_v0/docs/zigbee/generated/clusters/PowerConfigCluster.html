@@ -1,0 +1,1710 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PowerConfigCluster &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Clusters" href="../clusters.html"/>
+        <link rel="next" title="DeviceTempCluster" href="DeviceTempCluster.html"/>
+        <link rel="prev" title="BasicCluster" href="BasicCluster.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults/defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../clusters.html">Generated Clusters</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BasicCluster.html">BasicCluster</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PowerConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTempCluster.html">DeviceTempCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IdentifyCluster.html">IdentifyCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GroupsCluster.html">GroupsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScenesCluster.html">ScenesCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffCluster.html">OnOffCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffSwitchConfigCluster.html">OnOffSwitchConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LevelControlCluster.html">LevelControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlarmCluster.html">AlarmCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeCluster.html">TimeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RssiLocationCluster.html">RssiLocationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BinaryInputBasicCluster.html">BinaryInputBasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CommissioningCluster.html">CommissioningCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PartitionCluster.html">PartitionCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OtaBootloadCluster.html">OtaBootloadCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerProfileCluster.html">PowerProfileCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceControlCluster.html">ApplianceControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PollControlCluster.html">PollControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ShadeConfigCluster.html">ShadeConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockCluster.html">DoorLockCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindowCoveringCluster.html">WindowCoveringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpConfigControlCluster.html">PumpConfigControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatCluster.html">ThermostatCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanControlCluster.html">FanControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidControlCluster.html">DehumidControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatUiConfigCluster.html">ThermostatUiConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorControlCluster.html">ColorControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastConfigurationCluster.html">BallastConfigurationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumMeasurementCluster.html">IllumMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumLevelSensingCluster.html">IllumLevelSensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TempMeasurementCluster.html">TempMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PressureMeasurementCluster.html">PressureMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FlowMeasurementCluster.html">FlowMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidityMeasurementCluster.html">RelativeHumidityMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensingCluster.html">OccupancySensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasZoneCluster.html">IasZoneCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceCluster.html">IasAceCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasWdCluster.html">IasWdCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericTunnelCluster.html">GenericTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BacnetProtocolTunnelCluster.html">BacnetProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Iso7816ProtocolTunnelCluster.html">Iso7816ProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DemandResponseLoadControlCluster.html">DemandResponseLoadControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SimpleMeteringCluster.html">SimpleMeteringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingCluster.html">MessagingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TunnelingCluster.html">TunnelingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaymentCluster.html">PrepaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnergyManagementCluster.html">EnergyManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CalendarCluster.html">CalendarCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceManagementCluster.html">DeviceManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventsCluster.html">EventsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MduPairingCluster.html">MduPairingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KeyEstablishmentCluster.html">KeyEstablishmentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InformationCluster.html">InformationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataSharingCluster.html">DataSharingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GamingCluster.html">GamingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataRateControlCluster.html">DataRateControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VoiceOverZigbeeCluster.html">VoiceOverZigbeeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChattingCluster.html">ChattingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PaymentCluster.html">PaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillingCluster.html">BillingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceIdentificationCluster.html">ApplianceIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeterIdentificationCluster.html">MeterIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceEventsAndAlertCluster.html">ApplianceEventsAndAlertCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceStatisticsCluster.html">ApplianceStatisticsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalMeasurementCluster.html">ElectricalMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DiagnosticsCluster.html">DiagnosticsCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../enums.html">Generated Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitmaps.html">Generated Bitmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structs.html">Generated Structs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee related libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../clusters.html">Generated Clusters</a> &raquo;</li>
+        
+      <li>PowerConfigCluster</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/clusters/PowerConfigCluster.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="powerconfigcluster">
+<h1>PowerConfigCluster<a class="headerlink" href="#powerconfigcluster" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeCluster" title="ZigbeeCluster">ZigbeeCluster</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attributes for determining more detailed information about a device’s power source(s), and for configuring under/over voltage alarms.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0001 the ID of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Power Configuration” the name of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.attributes">
+<code class="sig-name descname">attributes</code><em class="property">: </em>st.zigbee.zcl.clusters.PowerConfigClusterAttributes<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.commands">
+<code class="sig-name descname">commands</code><em class="property">: </em>st.zigbee.zcl.clusters.PowerConfigClusterCommands<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.get_attribute_by_id">
+<em class="property"> </em><code class="sig-name descname">get_attribute_by_id</code><span class="sig-paren">(</span><em class="sig-param">attr_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.get_attribute_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attr_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.get_server_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_server_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.get_server_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.get_client_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_client_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.get_client_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltage">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltage</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltage.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltage.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0000 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltage.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltage.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MainsVoltage” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltage.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltage.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsFrequency">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.MainsFrequency</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsFrequency" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsFrequency.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsFrequency.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0001 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsFrequency.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsFrequency.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MainsFrequency” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsFrequency.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsFrequency.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsAlarmMask">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.MainsAlarmMask</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsAlarmMask" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsAlarmMask.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsAlarmMask.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0010 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsAlarmMask.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsAlarmMask.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MainsAlarmMask” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsAlarmMask.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>MainsAlarmMaskBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsAlarmMask.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMinThreshold">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMinThreshold</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMinThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMinThreshold.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMinThreshold.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0011 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMinThreshold.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMinThreshold.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MainsVoltageMinThreshold” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMinThreshold.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMinThreshold.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMaxThreshold">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMaxThreshold</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMaxThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMaxThreshold.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMaxThreshold.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0012 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMaxThreshold.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMaxThreshold.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MainsVoltageMaxThreshold” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMaxThreshold.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageMaxThreshold.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageDwellTripPoint">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageDwellTripPoint</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageDwellTripPoint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageDwellTripPoint.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageDwellTripPoint.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0013 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageDwellTripPoint.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageDwellTripPoint.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“MainsVoltageDwellTripPoint” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageDwellTripPoint.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.MainsVoltageDwellTripPoint.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltage">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltage</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltage.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltage.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0020 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltage.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltage.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryVoltage” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltage.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltage.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageRemaining">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageRemaining</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageRemaining" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageRemaining.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageRemaining.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0021 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageRemaining.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageRemaining.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryPercentageRemaining” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageRemaining.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageRemaining.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryManufacturer">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryManufacturer</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryManufacturer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryManufacturer.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryManufacturer.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0030 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryManufacturer.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryManufacturer.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryManufacturer” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryManufacturer.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryManufacturer.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatterySize">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatterySize</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatterySize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatterySize.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatterySize.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0031 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatterySize.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatterySize.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatterySize” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatterySize.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>BatterySizeEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatterySize.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAhrRating">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAhrRating</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAhrRating" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAhrRating.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAhrRating.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0032 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAhrRating.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAhrRating.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryAhrRating” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAhrRating.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAhrRating.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryQuantity">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryQuantity</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryQuantity" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryQuantity.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryQuantity.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0033 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryQuantity.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryQuantity.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryQuantity” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryQuantity.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryQuantity.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryRatedVoltage">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryRatedVoltage</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryRatedVoltage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryRatedVoltage.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryRatedVoltage.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0034 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryRatedVoltage.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryRatedVoltage.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryRatedVoltage” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryRatedVoltage.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryRatedVoltage.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmMask">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmMask</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmMask" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmMask.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmMask.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0035 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmMask.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmMask.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryAlarmMask” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmMask.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>BatteryAlarmMaskBitmap<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmMask.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageMinThreshold">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageMinThreshold</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageMinThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageMinThreshold.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageMinThreshold.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0036 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageMinThreshold.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageMinThreshold.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryVoltageMinThreshold” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageMinThreshold.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageMinThreshold.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold1">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold1</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold1.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold1.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0037 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold1.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold1.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryVoltageThreshold1” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold1.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold1.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold2">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold2</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold2.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold2.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0038 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold2.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold2.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryVoltageThreshold2” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold2.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold2.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold3">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold3</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold3" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold3.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold3.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0039 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold3.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold3.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryVoltageThreshold3” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold3.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryVoltageThreshold3.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageMinThreshold">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageMinThreshold</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageMinThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageMinThreshold.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageMinThreshold.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x003a the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageMinThreshold.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageMinThreshold.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryPercentageMinThreshold” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageMinThreshold.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageMinThreshold.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold1">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold1</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold1.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold1.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x003b the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold1.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold1.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryPercentageThreshold1” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold1.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold1.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold2">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold2</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold2.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold2.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x003c the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold2.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold2.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryPercentageThreshold2” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold2.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold2.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold3">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold3</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold3" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold3.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold3.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x003d the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold3.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold3.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryPercentageThreshold3” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold3.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryPercentageThreshold3.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmState">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmState</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmState.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmState.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x003e the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmState.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmState.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“BatteryAlarmState” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmState.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Bitmap32<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.BatteryAlarmState.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Voltage">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Voltage</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Voltage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Voltage.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Voltage.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0040 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Voltage.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Voltage.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2Voltage” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Voltage.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Voltage.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageRemaining">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageRemaining</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageRemaining" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageRemaining.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageRemaining.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0041 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageRemaining.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageRemaining.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2PercentageRemaining” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageRemaining.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageRemaining.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Manufacturer">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Manufacturer</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Manufacturer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Manufacturer.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Manufacturer.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0050 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Manufacturer.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Manufacturer.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2Manufacturer” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Manufacturer.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Manufacturer.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Size">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Size</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Size" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Size.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Size.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0051 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Size.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Size.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2Size” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Size.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Size.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AhrRating">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AhrRating</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AhrRating" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AhrRating.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AhrRating.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0052 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AhrRating.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AhrRating.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2AhrRating” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AhrRating.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AhrRating.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Quantity">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Quantity</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Quantity" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Quantity.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Quantity.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0053 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Quantity.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Quantity.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2Quantity” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Quantity.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2Quantity.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2RatedVoltage">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2RatedVoltage</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2RatedVoltage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2RatedVoltage.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2RatedVoltage.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0054 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2RatedVoltage.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2RatedVoltage.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2RatedVoltage” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2RatedVoltage.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2RatedVoltage.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmMask">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmMask</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmMask" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmMask.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmMask.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0055 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmMask.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmMask.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2AlarmMask” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmMask.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Bitmap8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmMask.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageMinThreshold">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageMinThreshold</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageMinThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageMinThreshold.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageMinThreshold.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0056 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageMinThreshold.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageMinThreshold.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2VoltageMinThreshold” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageMinThreshold.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageMinThreshold.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold1">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold1</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold1.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold1.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0057 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold1.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold1.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2VoltageThreshold1” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold1.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold1.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold2">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold2</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold2.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold2.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0058 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold2.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold2.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2VoltageThreshold2” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold2.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold2.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold3">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold3</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold3" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold3.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold3.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0059 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold3.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold3.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2VoltageThreshold3” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold3.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2VoltageThreshold3.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageMinThreshold">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageMinThreshold</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageMinThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageMinThreshold.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageMinThreshold.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x005a the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageMinThreshold.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageMinThreshold.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2PercentageMinThreshold” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageMinThreshold.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageMinThreshold.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold1">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold1</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold1.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold1.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x005b the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold1.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold1.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2PercentageThreshold1” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold1.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold1.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold2">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold2</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold2.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold2.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x005c the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold2.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold2.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2PercentageThreshold2” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold2.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold2.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold3">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold3</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold3" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold3.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold3.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x005d the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold3.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold3.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2PercentageThreshold3” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold3.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2PercentageThreshold3.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmState">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmState</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmState.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmState.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x005e the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmState.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmState.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery2AlarmState” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmState.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Bitmap32<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery2AlarmState.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Voltage">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Voltage</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Voltage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Voltage.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Voltage.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0060 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Voltage.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Voltage.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3Voltage” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Voltage.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Voltage.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageRemaining">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageRemaining</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageRemaining" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageRemaining.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageRemaining.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0061 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageRemaining.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageRemaining.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3PercentageRemaining” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageRemaining.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageRemaining.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Manufacturer">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Manufacturer</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Manufacturer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Manufacturer.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Manufacturer.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0070 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Manufacturer.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Manufacturer.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3Manufacturer” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Manufacturer.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Manufacturer.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Size">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Size</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Size" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Size.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Size.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0071 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Size.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Size.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3Size” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Size.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Size.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AhrRating">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AhrRating</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AhrRating" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AhrRating.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AhrRating.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0072 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AhrRating.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AhrRating.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3AhrRating” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AhrRating.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AhrRating.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Quantity">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Quantity</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Quantity" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Quantity.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Quantity.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0073 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Quantity.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Quantity.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3Quantity” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Quantity.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3Quantity.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3RatedVoltage">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3RatedVoltage</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3RatedVoltage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3RatedVoltage.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3RatedVoltage.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0074 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3RatedVoltage.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3RatedVoltage.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3RatedVoltage” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3RatedVoltage.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3RatedVoltage.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmMask">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmMask</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmMask" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmMask.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmMask.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0075 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmMask.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmMask.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3AlarmMask” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmMask.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Bitmap8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmMask.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageMinThreshold">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageMinThreshold</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageMinThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageMinThreshold.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageMinThreshold.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0076 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageMinThreshold.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageMinThreshold.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3VoltageMinThreshold” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageMinThreshold.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageMinThreshold.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold1">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold1</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold1.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold1.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0077 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold1.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold1.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3VoltageThreshold1” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold1.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold1.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold2">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold2</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold2.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold2.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0078 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold2.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold2.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3VoltageThreshold2” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold2.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold2.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold3">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold3</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold3" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold3.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold3.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0079 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold3.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold3.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3VoltageThreshold3” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold3.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3VoltageThreshold3.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageMinThreshold">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageMinThreshold</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageMinThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageMinThreshold.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageMinThreshold.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x007a the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageMinThreshold.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageMinThreshold.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3PercentageMinThreshold” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageMinThreshold.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageMinThreshold.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold1">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold1</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold1.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold1.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x007b the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold1.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold1.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3PercentageThreshold1” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold1.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold1.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold2">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold2</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold2.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold2.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x007c the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold2.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold2.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3PercentageThreshold2” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold2.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold2.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold3">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold3</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold3" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold3.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold3.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x007d the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold3.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold3.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3PercentageThreshold3” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold3.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3PercentageThreshold3.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmState">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmState</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmState.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmState.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x007e the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmState.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmState.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Battery3AlarmState” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmState.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Bitmap32<a class="headerlink" href="#st.zigbee.zcl.clusters.PowerConfigCluster.Battery3AlarmState.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DeviceTempCluster.html" class="btn btn-neutral float-right" title="DeviceTempCluster" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="BasicCluster.html" class="btn btn-neutral" title="BasicCluster" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

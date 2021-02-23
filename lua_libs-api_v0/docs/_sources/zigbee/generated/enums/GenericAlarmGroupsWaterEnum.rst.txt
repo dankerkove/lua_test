@@ -1,0 +1,4 @@
+GenericAlarmGroupsWaterEnum
+===========================
+
+.. lua:autoclass:: GenericAlarmGroupsWaterEnum

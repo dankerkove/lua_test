@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Package Guide &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../index.html"/>
+        <link rel="up" title="&lt;no title&gt;" href="index.html"/>
+        <link rel="next" title="LAN Edge Device Driver Development Guide" href="lan.html"/>
+        <link rel="prev" title="Writing your first Lua driver" href="first-driver.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Package Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-file">Configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fingerprints">Fingerprints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#driver">Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#profiles">Profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../buf.html">Buffer Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zigbee/zigbee.html">Zigbee Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+      <li>Package Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/guides/package.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="package-guide">
+<h1>Package Guide<a class="headerlink" href="#package-guide" title="Permalink to this headline">¶</a></h1>
+<p>The SmartThings Edge Device Drivers consist of 4 main components:</p>
+<ul class="simple">
+<li><p>A configuration file</p></li>
+<li><p>Fingerprint (Optional)</p></li>
+<li><p>The driver code itself</p></li>
+<li><p>Device profiles for the supported devices</p></li>
+</ul>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>package
+├── src
+│   ├── init.lua
+│   ├── file1.lua
+│   ├── file2.lua
+│   └── &lt;folder&gt;
+│       ├── init.lua
+│       └── file3.lua
+├── profiles
+│       ├── { Profile Name }.yaml
+│       └── { Other Profile Name }.yaml
+├── config.yaml
+└── fingerprints.yaml (optional)
+</pre></div>
+</div>
+<p><strong>Note</strong>: <code class="docutils literal notranslate"><span class="pre">fingerprints.yaml</span></code> should not be included in packages for Drivers that don’t define fingerprints (LAN). Fingerprints are currently needed for Zigbee and Z-Wave devices.</p>
+</div>
+<div class="section" id="configuration-file">
+<h2>Configuration file<a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>The configuration file is a manifest and metadata for the driver.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># config.yaml</span>
+<span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Hello</span><span class="nv"> </span><span class="s">World&#39;</span>
+<span class="nt">packageKey</span><span class="p">:</span> <span class="s">&#39;helloworld.example&#39;</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>name</strong>: Name of driver</div>
+<div class="line"><strong>packageKey</strong>: Unique identifier of the package</div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="fingerprints">
+<h2>Fingerprints<a class="headerlink" href="#fingerprints" title="Permalink to this headline">¶</a></h2>
+<p>Some devices, usually mesh, are added to the SmartThings platform
+through the use of a fingerprint. Upon a device being discovered by the
+Hub, some properties of the device are read and a device fingerprint is
+created. The fingerprint is then sent to the SmartThings Cloud to look for a matching fingerprint.
+Upon a successful match, the Edge Driver associated with the fingerprint is then
+installed to the Hub to enable device operation.</p>
+<p>LAN devices are an exception to this process. See here {link to
+lan discovery docs}.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># fingerprints.yaml</span>
+<span class="nt">zigbeeManufacturer</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="s">&quot;SmartThings/motionv4&quot;</span>
+    <span class="nt">manufacturer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SmartThings</span>
+    <span class="nt">model</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">motionv4</span>
+    <span class="nt">deviceProfileName</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="nv">Profile Name</span> <span class="p p-Indicator">}</span>
+    <span class="nt">deviceLabel</span><span class="p">:</span> <span class="p p-Indicator">{</span> <span class="nv">Device Label</span> <span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>id</strong>: Unique identifier for fingerprint, namespaced by the driver</div>
+<div class="line"><strong>manufacturer</strong>: Reported manufacturer of a device’s endpoint</div>
+<div class="line"><strong>model</strong>: Reported model of a device’s endpoint</div>
+<div class="line"><strong>deviceProfileName</strong>: Name of device profile that device should use</div>
+<div class="line"><strong>deviceLabel</strong>: Label to initialize device record with</div>
+</div>
+</div>
+<div class="section" id="driver">
+<h2>Driver<a class="headerlink" href="#driver" title="Permalink to this headline">¶</a></h2>
+<p>The Driver is the Lua code itself. This code will run on the Hub and implement
+code necessary for communications to and from the device.  See <a class="reference internal" href="#structure"><span class="std std-ref">Structure</span></a></p>
+<p>For code contents of a Driver, see <a class="reference internal" href="first-driver.html#writing-your-first-lua-driver"><span class="std std-ref">Writing your first Lua driver</span></a></p>
+</div>
+<div class="section" id="profiles">
+<h2>Profiles<a class="headerlink" href="#profiles" title="Permalink to this headline">¶</a></h2>
+<p>Device profiles describe the type of device and its capabilities to the
+SmartThings platform</p>
+<p><strong>In the example below, ``hello world`` will appear as a light switch to the
+platform</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello-world-profile</span>
+<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hello-world.v1</span>
+<span class="nt">components</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+  <span class="nt">capabilities</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">switch</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">categories</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Light</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">vid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SmartThings-smartthings-c2c-switch</span> <span class="c1">#generic-switch</span>
+  <span class="nt">mnmn</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SmartThings</span>
+  <span class="nt">ocfDeviceType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">oic.d.switch</span>
+</pre></div>
+</div>
+<p><strong>Note</strong>: Package updates that remove a profile name will be rejected. Devices
+already using the removed profile would not reflect newly created devices to clients.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lan.html" class="btn btn-neutral float-right" title="LAN Edge Device Driver Development Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="first-driver.html" class="btn btn-neutral" title="Writing your first Lua driver" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

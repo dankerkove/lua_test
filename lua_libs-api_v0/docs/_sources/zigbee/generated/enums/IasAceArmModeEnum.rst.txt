@@ -1,0 +1,4 @@
+IasAceArmModeEnum
+=================
+
+.. lua:autoclass:: IasAceArmModeEnum

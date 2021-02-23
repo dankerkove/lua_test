@@ -1,0 +1,4 @@
+NotificationSchemeEnum
+======================
+
+.. lua:autoclass:: NotificationSchemeEnum

@@ -1,0 +1,6 @@
+Power Meter
+===========
+
+.. lua:autoclass:: st.zigbee.defaults.powerMeter.ActivePowerConfiguration
+
+.. lua:autoclass:: st.zigbee.defaults.powerMeter

@@ -1,0 +1,1 @@
+return [[{"name": "Odor Sensor", "status": "proposed", "attributes": {"odorLevel": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "PositiveInteger"}}, "required": ["value"]}, "type": "NUMBER"}}, "commands": {}, "public": true, "id": "odorSensor", "ocfResourceType": "x.com.st.gaslevel", "version": 1}]]

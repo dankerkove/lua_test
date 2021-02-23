@@ -1,0 +1,39 @@
+IasZoneCluster
+==============
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.ZoneState
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.ZoneType
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.ZoneStatus
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.IasCieAddress
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.ZoneId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.NumberOfZoneSensitivityLevelsSupported
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.CurrentZoneSensitivityLevel
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.ZoneEnrollResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.InitiateNormalOperationMode
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.InitiateTestMode
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.ZoneStatusChangeNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.ZoneEnrollRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.InitiateNormalOperationModeResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IasZoneCluster.InitiateTestModeResponse
+

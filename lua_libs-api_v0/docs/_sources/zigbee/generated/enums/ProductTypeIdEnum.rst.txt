@@ -1,0 +1,4 @@
+ProductTypeIdEnum
+=================
+
+.. lua:autoclass:: ProductTypeIdEnum

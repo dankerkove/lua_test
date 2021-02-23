@@ -1,0 +1,2255 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ChattingCluster &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Clusters" href="../clusters.html"/>
+        <link rel="next" title="PaymentCluster" href="PaymentCluster.html"/>
+        <link rel="prev" title="VoiceOverZigbeeCluster" href="VoiceOverZigbeeCluster.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults/defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../clusters.html">Generated Clusters</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BasicCluster.html">BasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerConfigCluster.html">PowerConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTempCluster.html">DeviceTempCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IdentifyCluster.html">IdentifyCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GroupsCluster.html">GroupsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScenesCluster.html">ScenesCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffCluster.html">OnOffCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffSwitchConfigCluster.html">OnOffSwitchConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LevelControlCluster.html">LevelControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlarmCluster.html">AlarmCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeCluster.html">TimeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RssiLocationCluster.html">RssiLocationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BinaryInputBasicCluster.html">BinaryInputBasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CommissioningCluster.html">CommissioningCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PartitionCluster.html">PartitionCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OtaBootloadCluster.html">OtaBootloadCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerProfileCluster.html">PowerProfileCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceControlCluster.html">ApplianceControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PollControlCluster.html">PollControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ShadeConfigCluster.html">ShadeConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockCluster.html">DoorLockCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindowCoveringCluster.html">WindowCoveringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpConfigControlCluster.html">PumpConfigControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatCluster.html">ThermostatCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanControlCluster.html">FanControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidControlCluster.html">DehumidControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatUiConfigCluster.html">ThermostatUiConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorControlCluster.html">ColorControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastConfigurationCluster.html">BallastConfigurationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumMeasurementCluster.html">IllumMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumLevelSensingCluster.html">IllumLevelSensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TempMeasurementCluster.html">TempMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PressureMeasurementCluster.html">PressureMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FlowMeasurementCluster.html">FlowMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidityMeasurementCluster.html">RelativeHumidityMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensingCluster.html">OccupancySensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasZoneCluster.html">IasZoneCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceCluster.html">IasAceCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasWdCluster.html">IasWdCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericTunnelCluster.html">GenericTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BacnetProtocolTunnelCluster.html">BacnetProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Iso7816ProtocolTunnelCluster.html">Iso7816ProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DemandResponseLoadControlCluster.html">DemandResponseLoadControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SimpleMeteringCluster.html">SimpleMeteringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingCluster.html">MessagingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TunnelingCluster.html">TunnelingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaymentCluster.html">PrepaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnergyManagementCluster.html">EnergyManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CalendarCluster.html">CalendarCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceManagementCluster.html">DeviceManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventsCluster.html">EventsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MduPairingCluster.html">MduPairingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KeyEstablishmentCluster.html">KeyEstablishmentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InformationCluster.html">InformationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataSharingCluster.html">DataSharingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GamingCluster.html">GamingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataRateControlCluster.html">DataRateControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VoiceOverZigbeeCluster.html">VoiceOverZigbeeCluster</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ChattingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PaymentCluster.html">PaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillingCluster.html">BillingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceIdentificationCluster.html">ApplianceIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeterIdentificationCluster.html">MeterIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceEventsAndAlertCluster.html">ApplianceEventsAndAlertCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceStatisticsCluster.html">ApplianceStatisticsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalMeasurementCluster.html">ElectricalMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DiagnosticsCluster.html">DiagnosticsCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../enums.html">Generated Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitmaps.html">Generated Bitmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structs.html">Generated Structs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee related libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../clusters.html">Generated Clusters</a> &raquo;</li>
+        
+      <li>ChattingCluster</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/clusters/ChattingCluster.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chattingcluster">
+<h1>ChattingCluster<a class="headerlink" href="#chattingcluster" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeCluster" title="ZigbeeCluster">ZigbeeCluster</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commands and attributes for sending chat messages among ZigBee devices.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0905 the ID of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Chatting” the name of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.attributes">
+<code class="sig-name descname">attributes</code><em class="property">: </em>st.zigbee.zcl.clusters.ChattingClusterAttributes<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.commands">
+<code class="sig-name descname">commands</code><em class="property">: </em>st.zigbee.zcl.clusters.ChattingClusterCommands<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.get_attribute_by_id">
+<em class="property"> </em><code class="sig-name descname">get_attribute_by_id</code><span class="sig-paren">(</span><em class="sig-param">attr_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.get_attribute_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attr_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.get_server_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_server_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.get_server_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.get_client_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_client_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.get_client_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UId">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.UId</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UId" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UId.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UId.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0000 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UId.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UId.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“UId” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UId.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UId.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.Nickname">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.Nickname</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.Nickname" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.Nickname.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.Nickname.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0001 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.Nickname.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.Nickname.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Nickname” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.Nickname.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.Nickname.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.CId">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.CId</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.CId" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.CId.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.CId.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0010 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.CId.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.CId.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“CId” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.CId.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.CId.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.Name">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.Name</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.Name" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.Name.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.Name.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0011 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.Name.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.Name.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Name” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.Name.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.Name.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.EnableAddChat">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.EnableAddChat</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.EnableAddChat" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.EnableAddChat.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.EnableAddChat.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0020 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.EnableAddChat.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.EnableAddChat.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“EnableAddChat” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.EnableAddChat.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Boolean<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.EnableAddChat.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for JoinChatRequest</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“JoinChatRequest” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.uid">
+<code class="sig-name descname">uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.nickname">
+<code class="sig-name descname">nickname</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.nickname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>JoinChatRequest</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">uid</em>, <em class="sig-param">nickname</em>, <em class="sig-param">cid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>nickname</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">uid</em>, <em class="sig-param">nickname</em>, <em class="sig-param">cid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the JoinChatRequest command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>JoinChatRequest</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>nickname</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for LeaveChatRequest</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“LeaveChatRequest” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.uid">
+<code class="sig-name descname">uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>LeaveChatRequest</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the LeaveChatRequest command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>LeaveChatRequest</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for SearchChatRequest</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SearchChatRequest” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SearchChatRequest</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SearchChatRequest command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SearchChatRequest</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for SwitchChairmanResponse</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x03 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SwitchChairmanResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.uid">
+<code class="sig-name descname">uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SwitchChairmanResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SwitchChairmanResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SwitchChairmanResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for StartChatRequest</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x04 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“StartChatRequest” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.name_field">
+<code class="sig-name descname">name_field</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.name_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.uid">
+<code class="sig-name descname">uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.nickname">
+<code class="sig-name descname">nickname</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.nickname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>StartChatRequest</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">name_field</em>, <em class="sig-param">uid</em>, <em class="sig-param">nickname</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>name_field</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>nickname</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">name_field</em>, <em class="sig-param">uid</em>, <em class="sig-param">nickname</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the StartChatRequest command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>StartChatRequest</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>name_field</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>nickname</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.ChatMessage</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for ChatMessage</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x05 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“ChatMessage” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.destination_uid">
+<code class="sig-name descname">destination_uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.destination_uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.source_uid">
+<code class="sig-name descname">source_uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.source_uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.nickname">
+<code class="sig-name descname">nickname</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.nickname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.message">
+<code class="sig-name descname">message</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ChatMessage</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">destination_uid</em>, <em class="sig-param">source_uid</em>, <em class="sig-param">cid</em>, <em class="sig-param">nickname</em>, <em class="sig-param">message</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>destination_uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>source_uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>nickname</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+<li><p><strong>message</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">destination_uid</em>, <em class="sig-param">source_uid</em>, <em class="sig-param">cid</em>, <em class="sig-param">nickname</em>, <em class="sig-param">message</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the ChatMessage command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>ChatMessage</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>destination_uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>source_uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>nickname</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+<li><p><strong>message</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.ChatMessage.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for GetNodeInformationRequest</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x06 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetNodeInformationRequest” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.uid">
+<code class="sig-name descname">uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetNodeInformationRequest</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetNodeInformationRequest command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetNodeInformationRequest</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for StartChatResponse</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“StartChatResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.status">
+<code class="sig-name descname">status</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>StartChatResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">status</em>, <em class="sig-param">cid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>status</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">status</em>, <em class="sig-param">cid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the StartChatResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>StartChatResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>status</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for JoinChatResponse</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“JoinChatResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.status">
+<code class="sig-name descname">status</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.chat_participant_list">
+<code class="sig-name descname">chat_participant_list</code><em class="property">: </em>ChatParticipant<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.chat_participant_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>JoinChatResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">status</em>, <em class="sig-param">cid</em>, <em class="sig-param">chat_participant_list</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>status</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>chat_participant_list</strong> (<a class="reference internal" href="../structs/ChatParticipant.html#ChatParticipant" title="ChatParticipant"><em>ChatParticipant</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">status</em>, <em class="sig-param">cid</em>, <em class="sig-param">chat_participant_list</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the JoinChatResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>JoinChatResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>status</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>chat_participant_list</strong> (<a class="reference internal" href="../structs/ChatParticipant.html#ChatParticipant" title="ChatParticipant"><em>ChatParticipant</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.UserLeft</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for UserLeft</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“UserLeft” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.uid">
+<code class="sig-name descname">uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.nickname">
+<code class="sig-name descname">nickname</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.nickname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>UserLeft</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em>, <em class="sig-param">nickname</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>nickname</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em>, <em class="sig-param">nickname</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the UserLeft command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>UserLeft</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>nickname</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserLeft.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserLeft.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.UserJoined</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for UserJoined</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x03 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“UserJoined” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.uid">
+<code class="sig-name descname">uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.nickname">
+<code class="sig-name descname">nickname</code><em class="property">: </em>CharString<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.nickname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>UserJoined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em>, <em class="sig-param">nickname</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>nickname</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em>, <em class="sig-param">nickname</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the UserJoined command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>UserJoined</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>nickname</strong> (<a class="reference internal" href="../../data_types.html#CharString" title="CharString"><em>CharString</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.UserJoined.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.UserJoined.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for SearchChatResponse</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x04 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SearchChatResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.options">
+<code class="sig-name descname">options</code><em class="property">: </em>Bitmap8<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.chat_room_list">
+<code class="sig-name descname">chat_room_list</code><em class="property">: </em>ChatRoom<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.chat_room_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SearchChatResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">options</em>, <em class="sig-param">chat_room_list</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>options</strong> (<a class="reference internal" href="../../data_types.html#Bitmap8" title="Bitmap8"><em>Bitmap8</em></a>) – </p></li>
+<li><p><strong>chat_room_list</strong> (<a class="reference internal" href="../structs/ChatRoom.html#ChatRoom" title="ChatRoom"><em>ChatRoom</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">options</em>, <em class="sig-param">chat_room_list</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SearchChatResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SearchChatResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>options</strong> (<a class="reference internal" href="../../data_types.html#Bitmap8" title="Bitmap8"><em>Bitmap8</em></a>) – </p></li>
+<li><p><strong>chat_room_list</strong> (<a class="reference internal" href="../structs/ChatRoom.html#ChatRoom" title="ChatRoom"><em>ChatRoom</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for SwitchChairmanRequest</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x05 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SwitchChairmanRequest” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SwitchChairmanRequest</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">cid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">cid</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SwitchChairmanRequest command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SwitchChairmanRequest</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for SwitchChairmanConfirm</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x06 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SwitchChairmanConfirm” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.node_information_list">
+<code class="sig-name descname">node_information_list</code><em class="property">: </em>NodeInformation<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.node_information_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SwitchChairmanConfirm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">node_information_list</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>node_information_list</strong> (<a class="reference internal" href="../structs/NodeInformation.html#NodeInformation" title="NodeInformation"><em>NodeInformation</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">node_information_list</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SwitchChairmanConfirm command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SwitchChairmanConfirm</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>node_information_list</strong> (<a class="reference internal" href="../structs/NodeInformation.html#NodeInformation" title="NodeInformation"><em>NodeInformation</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for SwitchChairmanNotification</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x07 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“SwitchChairmanNotification” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.uid">
+<code class="sig-name descname">uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.address">
+<code class="sig-name descname">address</code><em class="property">: </em>Data16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.endpoint">
+<code class="sig-name descname">endpoint</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SwitchChairmanNotification</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em>, <em class="sig-param">address</em>, <em class="sig-param">endpoint</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>address</strong> (<a class="reference internal" href="../../data_types.html#Data16" title="Data16"><em>Data16</em></a>) – </p></li>
+<li><p><strong>endpoint</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em>, <em class="sig-param">address</em>, <em class="sig-param">endpoint</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the SwitchChairmanNotification command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>SwitchChairmanNotification</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>address</strong> (<a class="reference internal" href="../../data_types.html#Data16" title="Data16"><em>Data16</em></a>) – </p></li>
+<li><p><strong>endpoint</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command description for GetNodeInformationResponse</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x08 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetNodeInformationResponse” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.status">
+<code class="sig-name descname">status</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.cid">
+<code class="sig-name descname">cid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.cid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.uid">
+<code class="sig-name descname">uid</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.address_endpoint_and_nickname">
+<code class="sig-name descname">address_endpoint_and_nickname</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.address_endpoint_and_nickname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetNodeInformationResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">status</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em>, <em class="sig-param">address_endpoint_and_nickname</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>status</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>address_endpoint_and_nickname</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">status</em>, <em class="sig-param">cid</em>, <em class="sig-param">uid</em>, <em class="sig-param">address_endpoint_and_nickname</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetNodeInformationResponse command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetNodeInformationResponse</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>status</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+<li><p><strong>cid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>uid</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>address_endpoint_and_nickname</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PaymentCluster.html" class="btn btn-neutral float-right" title="PaymentCluster" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="VoiceOverZigbeeCluster.html" class="btn btn-neutral" title="VoiceOverZigbeeCluster" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

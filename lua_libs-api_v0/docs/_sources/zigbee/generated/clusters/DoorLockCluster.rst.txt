@@ -1,0 +1,205 @@
+DoorLockCluster
+===============
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.LockState
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.LockType
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ActuatorEnabled
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.DoorState
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.DoorOpenEvents
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.DoorClosedEvents
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.OpenPeriod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.NumLockRecordsSupported
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.NumTotalUsersSupported
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.NumPinUsersSupported
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.NumRfidUsersSupported
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.NumWeekdaySchedulesSupportedPerUser
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.NumYeardaySchedulesSupportedPerUser
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.NumHolidaySchedulesSupportedPerUser
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.MaxPinLength
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.MinPinLength
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.MaxRfidCodeLength
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.MinRfidCodeLength
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.EnableLogging
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.Language
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.LedSettings
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.AutoRelockTime
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SoundVolume
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.OperatingMode
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SupportedOperatingModes
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.DefaultConfigurationRegister
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.EnableLocalProgramming
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.EnableOneTouchLocking
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.EnableInsideStatusLed
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.EnablePrivacyModeButton
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.WrongCodeEntryLimit
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.UserCodeTemporaryDisableTime
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SendPinOverTheAir
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.RequirePinForRfOperation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ZigbeeSecurityLevel
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.DoorLockAlarmMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.KeypadOperationEventMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.RfOperationEventMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ManualOperationEventMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.RfidOperationEventMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.KeypadProgrammingEventMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.RfProgrammingEventMask
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.RfidProgrammingEventMask
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.LockDoor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.UnlockDoor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.Toggle
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.UnlockWithTimeout
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetLogRecord
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetPin
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetPin
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearPin
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearAllPins
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetUserStatus
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetUserStatus
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetWeekdaySchedule
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetWeekdaySchedule
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearWeekdaySchedule
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetYeardaySchedule
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetYeardaySchedule
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearYeardaySchedule
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetHolidaySchedule
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetHolidaySchedule
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearHolidaySchedule
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetUserType
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetUserType
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetRfid
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetRfid
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearRfid
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearAllRfids
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.LockDoorResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.UnlockDoorResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ToggleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.UnlockWithTimeoutResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetLogRecordResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetPinResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetPinResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearPinResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearAllPinsResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetUserStatusResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetUserStatusResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetWeekdayScheduleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetWeekdayScheduleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearWeekdayScheduleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetYeardayScheduleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetYeardayScheduleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearYeardayScheduleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetHolidayScheduleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetHolidayScheduleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearHolidayScheduleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetUserTypeResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetUserTypeResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.SetRfidResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.GetRfidResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearRfidResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ClearAllRfidsResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.OperationEventNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.DoorLockCluster.ProgrammingEventNotification
+

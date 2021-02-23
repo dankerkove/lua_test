@@ -1,0 +1,4 @@
+CurrencyChangeControlBitmap
+===========================
+
+.. lua:autoclass:: CurrencyChangeControlBitmap

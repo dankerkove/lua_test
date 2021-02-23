@@ -1,0 +1,4 @@
+PrepaySnapshotPayloadCauseBitmap
+================================
+
+.. lua:autoclass:: PrepaySnapshotPayloadCauseBitmap

@@ -1,0 +1,4 @@
+ShadeClosureStatusBitmap
+========================
+
+.. lua:autoclass:: ShadeClosureStatusBitmap

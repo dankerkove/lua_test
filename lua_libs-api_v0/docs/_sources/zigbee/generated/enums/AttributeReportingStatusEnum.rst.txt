@@ -1,0 +1,4 @@
+AttributeReportingStatusEnum
+============================
+
+.. lua:autoclass:: AttributeReportingStatusEnum

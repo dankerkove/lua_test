@@ -1,0 +1,4 @@
+ThermostatOccupancyBitmap
+=========================
+
+.. lua:autoclass:: ThermostatOccupancyBitmap

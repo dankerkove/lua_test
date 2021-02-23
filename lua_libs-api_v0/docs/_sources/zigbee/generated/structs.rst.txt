@@ -1,0 +1,71 @@
+Generated Structs
+=================
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Contents:
+
+    structs/IasAceZoneStatusResult
+
+    structs/SceneExtensionAttributeInfo
+
+    structs/SceneExtensionFieldSet
+
+    structs/BlockThreshold
+
+    structs/Notification
+
+    structs/NeighborInfo
+
+    structs/ChatParticipant
+
+    structs/ChatRoom
+
+    structs/NodeInformation
+
+    structs/ScheduledPhase
+
+    structs/TransferredPhase
+
+    structs/PowerProfileRecord
+
+    structs/PriceMatrixSubPayload
+
+    structs/BlockThresholdSubPayload
+
+    structs/TierLabelsPayload
+
+    structs/Signature
+
+    structs/SnapshotResponsePayload
+
+    structs/SnapshotSchedulePayload
+
+    structs/Protocol
+
+    structs/TopUpPayload
+
+    structs/DebtPayload
+
+    structs/ScheduleEntry
+
+    structs/ScheduleEntryRateSwitchTimes
+
+    structs/ScheduleEntryFriendlyCreditSwitchTimes
+
+    structs/ScheduleEntryAuxilliaryLoadSwitchTimes
+
+    structs/SeasonEntry
+
+    structs/SpecialDay
+
+    structs/EventConfigurationPayload
+
+    structs/EventLogPayload
+
+    structs/Identity
+
+    structs/EphemeralData
+
+    structs/Smac
+

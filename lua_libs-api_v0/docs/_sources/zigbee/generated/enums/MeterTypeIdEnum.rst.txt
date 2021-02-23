@@ -1,0 +1,4 @@
+MeterTypeIdEnum
+===============
+
+.. lua:autoclass:: MeterTypeIdEnum

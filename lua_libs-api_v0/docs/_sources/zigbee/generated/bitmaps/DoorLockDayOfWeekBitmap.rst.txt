@@ -1,0 +1,4 @@
+DoorLockDayOfWeekBitmap
+=======================
+
+.. lua:autoclass:: DoorLockDayOfWeekBitmap

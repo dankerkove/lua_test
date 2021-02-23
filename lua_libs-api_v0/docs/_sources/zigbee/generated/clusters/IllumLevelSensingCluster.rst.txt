@@ -1,0 +1,17 @@
+IllumLevelSensingCluster
+========================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IllumLevelSensingCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IllumLevelSensingCluster.LevelStatus
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IllumLevelSensingCluster.SensingLightSensorType
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.IllumLevelSensingCluster.IlluminanceTargetLevel
+
+Commands
+++++++++++++
+

@@ -1,0 +1,4 @@
+ManufacturerSpecificAlarmGroupsEnum
+===================================
+
+.. lua:autoclass:: ManufacturerSpecificAlarmGroupsEnum

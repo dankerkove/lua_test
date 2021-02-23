@@ -1,0 +1,1 @@
+return [[{"name": "Battery", "status": "live", "attributes": {"battery": {"schema": {"$ref": "IntegerPercent"}, "type": "NUMBER", "unit": "%"}}, "commands": {}, "public": true, "id": "battery", "ocfResourceType": "oic.r.energy.battery", "version": 1}]]

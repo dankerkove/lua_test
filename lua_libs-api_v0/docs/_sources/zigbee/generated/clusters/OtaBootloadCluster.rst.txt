@@ -1,0 +1,53 @@
+OtaBootloadCluster
+==================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.UpgradeServerId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.FileOffset
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.CurrentFileVersion
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.CurrentZigbeeStackVersion
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.DownloadedFileVersion
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.DownloadedZigbeeStackVersion
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.ImageUpgradeStatus
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.ManufacturerId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.ImageTypeId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.MinimumBlockRequestPeriod
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.ImageStamp
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.QueryNextImageRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.ImageBlockRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.ImagePageRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.UpgradeEndRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.QuerySpecificFileRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.ImageNotify
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.QueryNextImageResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.ImageBlockResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.UpgradeEndResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.OtaBootloadCluster.QuerySpecificFileResponse
+

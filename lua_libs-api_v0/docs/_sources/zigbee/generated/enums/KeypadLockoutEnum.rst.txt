@@ -1,0 +1,4 @@
+KeypadLockoutEnum
+=================
+
+.. lua:autoclass:: KeypadLockoutEnum

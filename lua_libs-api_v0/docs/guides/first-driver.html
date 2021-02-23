@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Writing your first Lua driver &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../index.html"/>
+        <link rel="up" title="&lt;no title&gt;" href="index.html"/>
+        <link rel="next" title="Package Guide" href="package.html"/>
+        <link rel="prev" title="Getting Started" href="getting-started.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Writing your first Lua driver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#startup">Startup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-required-libraries">Adding required libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-driver-initialization">Basic Driver initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capabilities">Capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-driver">Running the driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#putting-it-all-together">Putting it all together</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../buf.html">Buffer Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zigbee/zigbee.html">Zigbee Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+      <li>Writing your first Lua driver</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/guides/first-driver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="writing-your-first-lua-driver">
+<span id="first-driver"></span><h1>Writing your first Lua driver<a class="headerlink" href="#writing-your-first-lua-driver" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="startup">
+<h2>Startup<a class="headerlink" href="#startup" title="Permalink to this headline">¶</a></h2>
+<p>The Lua sandbox will initially start the file <code class="docutils literal notranslate"><span class="pre">init.lua</span></code> from the base
+directory of your <code class="docutils literal notranslate"><span class="pre">src</span></code> folder. All the other folders and files in the
+<code class="docutils literal notranslate"><span class="pre">src</span></code> directory will be collected, added to the package and sent to
+the hub on package install.</p>
+</div>
+<div class="section" id="adding-required-libraries">
+<h2>Adding required libraries<a class="headerlink" href="#adding-required-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Every <code class="docutils literal notranslate"><span class="pre">init.lua</span></code> file should begin with <code class="docutils literal notranslate"><span class="pre">require</span></code> statements to
+import the libraries the driver will use.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">capabilities</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.capabilities&quot;</span>
+<span class="kd">local</span> <span class="n">Driver</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.driver&quot;</span>
+</pre></div>
+</div>
+<p>These two statements will load the SmartThings provided libraries for
+capability support and for driver utility functions. In unison they
+provide the core functionality all drivers will need.</p>
+</div>
+<div class="section" id="basic-driver-initialization">
+<h2>Basic Driver initialization<a class="headerlink" href="#basic-driver-initialization" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">example_driver</span> <span class="o">=</span>
+  <span class="n">Driver</span><span class="p">(</span><span class="s2">&quot;example_driver&quot;</span><span class="p">,</span>
+    <span class="p">{</span>
+      <span class="n">device_added</span> <span class="o">=</span> <span class="n">device_added</span><span class="p">,</span>
+      <span class="n">device_removed</span> <span class="o">=</span> <span class="n">device_removed</span><span class="p">,</span>
+      <span class="n">capability_handlers</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="p">[</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span>
+      <span class="p">{</span>
+        <span class="p">[</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">commands</span><span class="p">.</span><span class="n">on</span><span class="p">.</span><span class="n">NAME</span><span class="p">]</span> <span class="o">=</span> <span class="n">handle_on</span><span class="p">,</span>
+        <span class="p">[</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">commands</span><span class="p">.</span><span class="n">off</span><span class="p">.</span><span class="n">NAME</span><span class="p">]</span> <span class="o">=</span> <span class="n">handle_off</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The code above creates a Driver object called <code class="docutils literal notranslate"><span class="pre">example_driver</span></code>.
+Upon initialization, it passes a name and a template.  See <a class="reference internal" href="../drivers.html#drivers"><span class="std std-ref">Drivers</span></a> for more details.</p>
+</div>
+<div class="section" id="capabilities">
+<h2>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this headline">¶</a></h2>
+<p>As part of Driver initialization, a Lua table is populated with the
+SmartThings capabilities and their corresponding commands and the
+command handlers to call when a command is sent to a device.</p>
+<p>Through properly implemented command handlers, this structure is all that
+is needed to allow SmartThings Commands to be received by a Driver,
+routed to a command handler, and then to the appropriate device
+communication to control a device. The device control will
+differ based upon the type of device being controlled.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">handle_on</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+  <span class="c1">-- Send command to device</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">handle_off</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+  <span class="c1">-- Send command to device</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p>All of this handles how SmartThings can control a device.  Now let’s look at how
+to report a device’s status back to SmartThings.</p>
+<p>A different API is required to generate device statuses (also known as attributes).
+Device attributes use the capability library.</p>
+<p>In the example below an attribute event is generated from the device
+object, resulting in a <code class="docutils literal notranslate"><span class="pre">switch.on</span></code> status for the device.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">device</span><span class="p">:</span><span class="n">emit_event</span><span class="p">(</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">on</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Getting raw data from devices will differ based on the type of
+device. For ZigBee and Z-Wave devices, libraries provided by
+SmartThings will facilitate receiving these messages <strong>TODO: Link</strong>. For
+LAN devices, a socket will be necessary to communicate with the device.
+<strong>TODO: See LAN Docs</strong></p>
+<p>For more information regarding capabilities, see <a class="reference internal" href="../capabilities.html#capabilities"><span class="std std-ref">Capabilities</span></a>.</p>
+</div>
+<div class="section" id="running-the-driver">
+<h2>Running the driver<a class="headerlink" href="#running-the-driver" title="Permalink to this headline">¶</a></h2>
+<p>The driver library has a run function which never returns and runs the
+the driver in a pseudo event-driven model. Where the handlers connected
+in prior lines get called when events are sent to the driver for
+handling. Any code after the run call to the driver library will not be executed
+since run() never returns. Once run() is called, your code is only called when
+events occur.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">example_driver</span><span class="p">:</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="putting-it-all-together">
+<h2>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
+<p>Here’s an example of a completed basic Driver:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- init.lua</span>
+<span class="kd">local</span> <span class="n">capabilities</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.capabilities&quot;</span>
+<span class="kd">local</span> <span class="n">Driver</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">&quot;st.driver&quot;</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">handle_on</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+  <span class="n">log</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Send on command to device&quot;</span><span class="p">)</span>
+
+  <span class="c1">-- in most cases this should not be here, it should be</span>
+  <span class="c1">-- code parsing messages from the device</span>
+  <span class="n">device</span><span class="p">:</span><span class="n">emit_event</span><span class="p">(</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">on</span><span class="p">())</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">handle_off</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+  <span class="n">log</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Send off command to device&quot;</span><span class="p">)</span>
+
+  <span class="c1">-- in most cases this should not be here, it should be</span>
+  <span class="c1">-- code parsing messages from the device</span>
+  <span class="n">device</span><span class="p">:</span><span class="n">emit_event</span><span class="p">(</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">off</span><span class="p">())</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Driver library initialization</span>
+<span class="kd">local</span> <span class="n">example_driver</span> <span class="o">=</span>
+  <span class="n">Driver</span><span class="p">(</span><span class="s2">&quot;example_driver&quot;</span><span class="p">,</span>
+    <span class="p">{</span>
+      <span class="n">capability_handlers</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="p">[</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span>
+      <span class="p">{</span>
+        <span class="p">[</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">commands</span><span class="p">.</span><span class="n">on</span><span class="p">.</span><span class="n">NAME</span><span class="p">]</span> <span class="o">=</span> <span class="n">handle_on</span><span class="p">,</span>
+        <span class="p">[</span><span class="n">capabilities</span><span class="p">.</span><span class="n">switch</span><span class="p">.</span><span class="n">commands</span><span class="p">.</span><span class="n">off</span><span class="p">.</span><span class="n">NAME</span><span class="p">]</span> <span class="o">=</span> <span class="n">handle_off</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1">-- Put other setup code here</span>
+
+<span class="n">example_driver</span><span class="p">:</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="package.html" class="btn btn-neutral float-right" title="Package Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral" title="Getting Started" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

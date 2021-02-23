@@ -1,0 +1,4 @@
+SnapshotCauseBitmap
+===================
+
+.. lua:autoclass:: SnapshotCauseBitmap

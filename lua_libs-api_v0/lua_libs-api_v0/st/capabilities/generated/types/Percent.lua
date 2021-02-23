@@ -1,0 +1,1 @@
+return [[{"title": "Percent", "type": "object", "additionalProperties": false, "properties": {"value": {"type": "number", "minimum": 0, "maximum": 100}, "unit": {"type": "string", "enum": ["%"], "default": "%"}}, "required": ["value"]}]]

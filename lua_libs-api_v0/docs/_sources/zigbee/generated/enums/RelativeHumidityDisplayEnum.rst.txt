@@ -1,0 +1,4 @@
+RelativeHumidityDisplayEnum
+===========================
+
+.. lua:autoclass:: RelativeHumidityDisplayEnum

@@ -1,0 +1,13 @@
+BacnetProtocolTunnelCluster
+===========================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.BacnetProtocolTunnelCluster
+
+Attributes
+++++++++++++
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.BacnetProtocolTunnelCluster.TransferNpdu
+

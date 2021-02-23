@@ -1,0 +1,4 @@
+CalendarTypeEnum
+================
+
+.. lua:autoclass:: CalendarTypeEnum

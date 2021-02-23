@@ -1,0 +1,4 @@
+CalorificValueTrailingDigitBitmap
+=================================
+
+.. lua:autoclass:: CalorificValueTrailingDigitBitmap

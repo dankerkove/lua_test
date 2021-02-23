@@ -1,0 +1,4 @@
+IasAceAudibleNotificationEnum
+=============================
+
+.. lua:autoclass:: IasAceAudibleNotificationEnum

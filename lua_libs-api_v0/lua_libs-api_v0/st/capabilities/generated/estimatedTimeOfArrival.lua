@@ -1,0 +1,1 @@
+return [[{"name": "Estimated Time Of Arrival", "status": "proposed", "attributes": {"eta": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "Iso8601Date"}}, "required": ["value"]}, "type": "DATE"}}, "commands": {}, "public": true, "id": "estimatedTimeOfArrival", "version": 1}]]

@@ -1,0 +1,4 @@
+PhysicalEnvironmentEnum
+=======================
+
+.. lua:autoclass:: PhysicalEnvironmentEnum

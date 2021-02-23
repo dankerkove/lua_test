@@ -1,0 +1,4 @@
+FanModeSequenceEnum
+===================
+
+.. lua:autoclass:: FanModeSequenceEnum

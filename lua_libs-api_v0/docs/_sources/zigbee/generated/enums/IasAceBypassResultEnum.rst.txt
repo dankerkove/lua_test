@@ -1,0 +1,4 @@
+IasAceBypassResultEnum
+======================
+
+.. lua:autoclass:: IasAceBypassResultEnum

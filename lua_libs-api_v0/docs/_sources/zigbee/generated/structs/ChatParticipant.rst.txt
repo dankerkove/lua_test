@@ -1,0 +1,4 @@
+ChatParticipant
+===============
+
+.. lua:autoclass:: ChatParticipant

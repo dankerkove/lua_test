@@ -1,0 +1,3 @@
+local AssociationCommandConfiguration = require "st.zwave.generated.AssociationCommandConfiguration"
+
+return AssociationCommandConfiguration

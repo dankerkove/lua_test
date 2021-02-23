@@ -1,0 +1,4 @@
+CommandIdentificationEnum
+=========================
+
+.. lua:autoclass:: CommandIdentificationEnum

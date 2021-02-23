@@ -1,0 +1,4 @@
+Smac
+====
+
+.. lua:autoclass:: Smac

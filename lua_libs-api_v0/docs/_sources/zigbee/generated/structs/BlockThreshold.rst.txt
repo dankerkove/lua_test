@@ -1,0 +1,4 @@
+BlockThreshold
+==============
+
+.. lua:autoclass:: BlockThreshold

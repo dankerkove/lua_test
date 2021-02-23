@@ -1,0 +1,19 @@
+FlowMeasurementCluster
+======================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.FlowMeasurementCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.FlowMeasurementCluster.FlowMeasuredValue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.FlowMeasurementCluster.FlowMinMeasuredValue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.FlowMeasurementCluster.FlowMaxMeasuredValue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.FlowMeasurementCluster.FlowTolerance
+
+Commands
+++++++++++++
+

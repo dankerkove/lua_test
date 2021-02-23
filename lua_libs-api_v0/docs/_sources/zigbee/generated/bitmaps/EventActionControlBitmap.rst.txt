@@ -1,0 +1,4 @@
+EventActionControlBitmap
+========================
+
+.. lua:autoclass:: EventActionControlBitmap

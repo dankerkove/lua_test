@@ -1,0 +1,4 @@
+AmiRegistrationStateEnum
+========================
+
+.. lua:autoclass:: AmiRegistrationStateEnum

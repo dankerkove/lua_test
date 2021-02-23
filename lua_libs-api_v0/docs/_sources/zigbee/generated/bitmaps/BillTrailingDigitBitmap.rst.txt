@@ -1,0 +1,4 @@
+BillTrailingDigitBitmap
+=======================
+
+.. lua:autoclass:: BillTrailingDigitBitmap

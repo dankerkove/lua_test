@@ -1,0 +1,4 @@
+EventControlLogIdBitmap
+=======================
+
+.. lua:autoclass:: EventControlLogIdBitmap

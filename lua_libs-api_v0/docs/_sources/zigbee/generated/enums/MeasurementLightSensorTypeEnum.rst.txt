@@ -1,0 +1,4 @@
+MeasurementLightSensorTypeEnum
+==============================
+
+.. lua:autoclass:: MeasurementLightSensorTypeEnum

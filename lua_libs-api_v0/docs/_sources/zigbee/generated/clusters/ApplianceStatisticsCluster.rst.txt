@@ -1,0 +1,27 @@
+ApplianceStatisticsCluster
+==========================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceStatisticsCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceStatisticsCluster.LogMaxSize
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceStatisticsCluster.LogQueueMaxSize
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceStatisticsCluster.LogRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceStatisticsCluster.LogQueueRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceStatisticsCluster.LogNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceStatisticsCluster.LogResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceStatisticsCluster.LogQueueResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ApplianceStatisticsCluster.StatisticsAvailable
+

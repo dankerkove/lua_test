@@ -1,0 +1,111 @@
+ColorControlCluster
+===================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlCurrentHue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlCurrentSaturation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlRemainingTime
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlCurrentX
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlCurrentY
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlDriftCompensation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlCompensationText
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorTemperature
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorMode
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlNumberOfPrimaries
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary1X
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary1Y
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary1Intensity
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary2X
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary2Y
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary2Intensity
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary3X
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary3Y
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary3Intensity
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary4X
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary4Y
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary4Intensity
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary5X
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary5Y
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary5Intensity
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary6X
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary6Y
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlPrimary6Intensity
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlWhitePointX
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlWhitePointY
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorPointRX
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorPointRY
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorPointRIntensity
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorPointGX
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorPointGY
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorPointGIntensity
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorPointBX
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorPointBY
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.ColorControlColorPointBIntensity
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.MoveToHue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.MoveHue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.StepHue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.MoveToSaturation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.MoveSaturation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.StepSaturation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.MoveToHueAndSaturation
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.MoveToColor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.MoveColor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.StepColor
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ColorControlCluster.MoveToColorTemperature
+

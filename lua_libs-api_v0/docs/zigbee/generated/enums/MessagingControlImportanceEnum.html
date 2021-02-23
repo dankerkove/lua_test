@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MessagingControlImportanceEnum &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Enums" href="../enums.html"/>
+        <link rel="next" title="MessagingControlEnhancedConfirmationEnum" href="MessagingControlEnhancedConfirmationEnum.html"/>
+        <link rel="prev" title="MessagingControlTransmissionEnum" href="MessagingControlTransmissionEnum.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults/defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../clusters.html">Generated Clusters</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../enums.html">Generated Enums</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="CommissioningStartupControlEnum.html">CommissioningStartupControlEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EzModeCommissioningClusterTypeEnum.html">EzModeCommissioningClusterTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OperatingModeEnum.html">OperatingModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="StatusEnum.html">StatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerSourceEnum.html">PowerSourceEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PhysicalEnvironmentEnum.html">PhysicalEnvironmentEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BatterySizeEnum.html">BatterySizeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SwitchTypeEnum.html">SwitchTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SwitchActionsEnum.html">SwitchActionsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MoveModeEnum.html">MoveModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="StepModeEnum.html">StepModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LocationMethodEnum.html">LocationMethodEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpOperationModeEnum.html">PumpOperationModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpControlModeEnum.html">PumpControlModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatControlSequenceEnum.html">ThermostatControlSequenceEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatSystemModeEnum.html">ThermostatSystemModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SetpointAdjustModeEnum.html">SetpointAdjustModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanModeEnum.html">FanModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanModeSequenceEnum.html">FanModeSequenceEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidityModeEnum.html">RelativeHumidityModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidifcationLockoutEnum.html">DehumidifcationLockoutEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidityDisplayEnum.html">RelativeHumidityDisplayEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TemperatureDisplayModeEnum.html">TemperatureDisplayModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KeypadLockoutEnum.html">KeypadLockoutEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HueDirectionEnum.html">HueDirectionEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HueMoveModeEnum.html">HueMoveModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HueStepModeEnum.html">HueStepModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SaturationMoveModeEnum.html">SaturationMoveModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SaturationStepModeEnum.html">SaturationStepModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorModeEnum.html">ColorModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeasurementLightSensorTypeEnum.html">MeasurementLightSensorTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LevelStatusEnum.html">LevelStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SensingLightSensorTypeEnum.html">SensingLightSensorTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensorTypeEnum.html">OccupancySensorTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasZoneStateEnum.html">IasZoneStateEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasZoneTypeEnum.html">IasZoneTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasEnrollResponseCodeEnum.html">IasEnrollResponseCodeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceArmModeEnum.html">IasAceArmModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceArmNotificationEnum.html">IasAceArmNotificationEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceAudibleNotificationEnum.html">IasAceAudibleNotificationEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceAlarmStatusEnum.html">IasAceAlarmStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAcePanelStatusEnum.html">IasAcePanelStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceBypassResultEnum.html">IasAceBypassResultEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WarningModeEnum.html">WarningModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WarningStobeEnum.html">WarningStobeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WarningSirenLevelEnum.html">WarningSirenLevelEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SquawkModeEnum.html">SquawkModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SquawkStobeEnum.html">SquawkStobeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SquawkLevelEnum.html">SquawkLevelEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiRegistrationStateEnum.html">AmiRegistrationStateEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AnonymousDataStateEnum.html">AnonymousDataStateEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AttributeWritePermissionEnum.html">AttributeWritePermissionEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ReportingDirectionEnum.html">ReportingDirectionEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerProfileStateEnum.html">PowerProfileStateEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceStatusEnum.html">ApplianceStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RemoteEnableFlagsEnum.html">RemoteEnableFlagsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceStatus2StructureEnum.html">DeviceStatus2StructureEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeEncodingEnum.html">TimeEncodingEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CommandIdentificationEnum.html">CommandIdentificationEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WarningEventEnum.html">WarningEventEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockStateEnum.html">DoorLockStateEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockSoundVolumeEnum.html">DoorLockSoundVolumeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockTypeEnum.html">DoorLockTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorStateEnum.html">DoorStateEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockOperatingModeEnum.html">DoorLockOperatingModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockSecurityLevelEnum.html">DoorLockSecurityLevelEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockUserStatusEnum.html">DoorLockUserStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockUserTypeEnum.html">DoorLockUserTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockEventTypeEnum.html">DoorLockEventTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockEventSourceEnum.html">DoorLockEventSourceEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockSetPinOrIdStatusEnum.html">DoorLockSetPinOrIdStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockOperationEventCodeEnum.html">DoorLockOperationEventCodeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockProgrammingEventCodeEnum.html">DoorLockProgrammingEventCodeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatRunningModeEnum.html">ThermostatRunningModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="StartOfWeekEnum.html">StartOfWeekEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TemperatureSetpointHoldEnum.html">TemperatureSetpointHoldEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProductTypeIdEnum.html">ProductTypeIdEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CecedSpecificationVersionEnum.html">CecedSpecificationVersionEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeterTypeIdEnum.html">MeterTypeIdEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataQualityIdEnum.html">DataQualityIdEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlertStructureCategoryEnum.html">AlertStructureCategoryEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlertStructurePresenceRecoveryEnum.html">AlertStructurePresenceRecoveryEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlertCountTypeEnum.html">AlertCountTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventIdentificationEnum.html">EventIdentificationEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlockPeriodDurationTypeTimebaseEnum.html">BlockPeriodDurationTypeTimebaseEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlockPeriodDurationTypeControlEnum.html">BlockPeriodDurationTypeControlEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CommodityTypeEnum.html">CommodityTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CalorificValueUnitEnum.html">CalorificValueUnitEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TierBlockModeEnum.html">TierBlockModeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiUnitOfMeasureEnum.html">AmiUnitOfMeasureEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TariffResolutionPeriodEnum.html">TariffResolutionPeriodEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CO2UnitEnum.html">CO2UnitEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CreditPaymentStatusEnum.html">CreditPaymentStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PaymentDiscountDurationEnum.html">PaymentDiscountDurationEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PriceTierEnum.html">PriceTierEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RegisterTierEnum.html">RegisterTierEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlternateCostUnitEnum.html">AlternateCostUnitEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PriceControlAcknowledgementEnum.html">PriceControlAcknowledgementEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenerationTierEnum.html">GenerationTierEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExtendedNumberOfPriceTiersEnum.html">ExtendedNumberOfPriceTiersEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExtendedPriceTierEnum.html">ExtendedPriceTierEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExtendedRegisterTierEnum.html">ExtendedRegisterTierEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TariffTypeEnum.html">TariffTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TariffChargingSchemeEnum.html">TariffChargingSchemeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillingPeriodDurationUnitsEnum.html">BillingPeriodDurationUnitsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CppPriceTierEnum.html">CppPriceTierEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PublishCppEventCppAuthEnum.html">PublishCppEventCppAuthEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CppEventResponseCppAuthEnum.html">CppEventResponseCppAuthEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiCriticalityLevelEnum.html">AmiCriticalityLevelEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiEventStatusEnum.html">AmiEventStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SignatureTypeEnum.html">SignatureTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringBlockEnumerationsEnum.html">MeteringBlockEnumerationsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlockEnum.html">BlockEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiIntervalPeriodEnum.html">AmiIntervalPeriodEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringSupplyStatusEnum.html">MeteringSupplyStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringTemperatureUnitOfMeasureEnum.html">MeteringTemperatureUnitOfMeasureEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringConsumptionStatusEnum.html">MeteringConsumptionStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringDeviceTypeEnum.html">MeteringDeviceTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeterDeviceTypeEnum.html">MeterDeviceTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SupplyStatusEnum.html">SupplyStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeteringAlarmCodeEnum.html">MeteringAlarmCodeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericAlarmGroupsEnum.html">GenericAlarmGroupsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericAlarmGroupsElectricityEnum.html">GenericAlarmGroupsElectricityEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericAlarmGroupsGasEnum.html">GenericAlarmGroupsGasEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericAlarmGroupsWaterEnum.html">GenericAlarmGroupsWaterEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericAlarmGroupsHeatCoolingEnum.html">GenericAlarmGroupsHeatCoolingEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricityAlarmGroupsEnum.html">ElectricityAlarmGroupsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericFlowPressureAlarmGroupsEnum.html">GenericFlowPressureAlarmGroupsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HeatAndCoolingSpecificAlarmGroupsEnum.html">HeatAndCoolingSpecificAlarmGroupsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GasSpecificAlarmGroupsEnum.html">GasSpecificAlarmGroupsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExtendedGenericAlarmGroupsEnum.html">ExtendedGenericAlarmGroupsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ManufacturerSpecificAlarmGroupsEnum.html">ManufacturerSpecificAlarmGroupsEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PushHistoricalMeteringDataEnum.html">PushHistoricalMeteringDataEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PushHistoricalPaymentDataEnum.html">PushHistoricalPaymentDataEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiGetProfileStatusEnum.html">AmiGetProfileStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SnapshotScheduleConfirmationEnum.html">SnapshotScheduleConfirmationEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SnapshotConfirmationEnum.html">SnapshotConfirmationEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SnapshotPayloadTypeEnum.html">SnapshotPayloadTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SampleTypeEnum.html">SampleTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NotificationSchemeEnum.html">NotificationSchemeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiIntervalChannelEnum.html">AmiIntervalChannelEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProposedSupplyStatusEnum.html">ProposedSupplyStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AttributeReportingStatusEnum.html">AttributeReportingStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingControlTransmissionEnum.html">MessagingControlTransmissionEnum</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">MessagingControlImportanceEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingControlEnhancedConfirmationEnum.html">MessagingControlEnhancedConfirmationEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingControlConfirmationEnum.html">MessagingControlConfirmationEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TunnelingProtocolIdEnum.html">TunnelingProtocolIdEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TunnelingTransferDataStatusEnum.html">TunnelingTransferDataStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TunnelingTunnelStatusEnum.html">TunnelingTunnelStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DebtRecoveryMethodEnum.html">DebtRecoveryMethodEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DebtRecoveryFrequencyEnum.html">DebtRecoveryFrequencyEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrePayGenericAlarmGroupEnum.html">PrePayGenericAlarmGroupEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaySwitchAlarmGroupEnum.html">PrepaySwitchAlarmGroupEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepayEventAlarmGroupEnum.html">PrepayEventAlarmGroupEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OriginatingDeviceEnum.html">OriginatingDeviceEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DebtAmountTypeEnum.html">DebtAmountTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CreditAdjustmentTypeEnum.html">CreditAdjustmentTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RepaymentDebtTypeEnum.html">RepaymentDebtTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaySnapshotPayloadTypeEnum.html">PrepaySnapshotPayloadTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ResultTypeEnum.html">ResultTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CalendarTypeEnum.html">CalendarTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CalendarTimeReferenceEnum.html">CalendarTimeReferenceEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventConfigurationLogActionEnum.html">EventConfigurationLogActionEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PasswordTypeEnum.html">PasswordTypeEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WanStatusEnum.html">WanStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventConfigurationControlEnum.html">EventConfigurationControlEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventControlEnum.html">EventControlEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventLogIdEnum.html">EventLogIdEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventLogPayloadControlEnum.html">EventLogPayloadControlEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AmiKeyEstablishmentStatusEnum.html">AmiKeyEstablishmentStatusEnum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventIdEnum.html">EventIdEnum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../bitmaps.html">Generated Bitmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structs.html">Generated Structs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee related libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../enums.html">Generated Enums</a> &raquo;</li>
+        
+      <li>MessagingControlImportanceEnum</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/enums/MessagingControlImportanceEnum.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="messagingcontrolimportanceenum">
+<h1>MessagingControlImportanceEnum<a class="headerlink" href="#messagingcontrolimportanceenum" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="MessagingControlImportanceEnum">
+<em class="property">class </em><code class="sig-name descname">MessagingControlImportanceEnum</code><em class="property">: </em><a class="reference internal" href="../../data_types.html#EnumABC" title="EnumABC">EnumABC</a><a class="headerlink" href="#MessagingControlImportanceEnum" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="MessagingControlImportanceEnum.byte_length">
+<code class="sig-name descname">byte_length</code><em class="property">: </em>number<a class="headerlink" href="#MessagingControlImportanceEnum.byte_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="MessagingControlImportanceEnum.LOW">
+<code class="sig-name descname">LOW</code><em class="property">: </em>number<a class="headerlink" href="#MessagingControlImportanceEnum.LOW" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="MessagingControlImportanceEnum.MEDIUM">
+<code class="sig-name descname">MEDIUM</code><em class="property">: </em>number<a class="headerlink" href="#MessagingControlImportanceEnum.MEDIUM" title="Permalink to this definition">¶</a></dt>
+<dd><p>4</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="MessagingControlImportanceEnum.HIGH">
+<code class="sig-name descname">HIGH</code><em class="property">: </em>number<a class="headerlink" href="#MessagingControlImportanceEnum.HIGH" title="Permalink to this definition">¶</a></dt>
+<dd><p>8</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="MessagingControlImportanceEnum.CRITICAL">
+<code class="sig-name descname">CRITICAL</code><em class="property">: </em>number<a class="headerlink" href="#MessagingControlImportanceEnum.CRITICAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>12</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MessagingControlEnhancedConfirmationEnum.html" class="btn btn-neutral float-right" title="MessagingControlEnhancedConfirmationEnum" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MessagingControlTransmissionEnum.html" class="btn btn-neutral" title="MessagingControlTransmissionEnum" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

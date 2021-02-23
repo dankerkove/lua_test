@@ -1,0 +1,4 @@
+SampleTypeEnum
+==============
+
+.. lua:autoclass:: SampleTypeEnum

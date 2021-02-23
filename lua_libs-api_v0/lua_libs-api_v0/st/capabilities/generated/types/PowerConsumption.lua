@@ -1,0 +1,1 @@
+return [[{"title": "PowerConsumption", "type": "object", "additionalProperties": false, "properties": {"start": {"$ref": "Iso8601Date"}, "end": {"$ref": "Iso8601Date"}, "energy": {"type": "number"}, "power": {"type": "number"}, "deltaEnergy": {"type": "number"}, "powerEnergy": {"type": "number"}, "energySaved": {"type": "number"}, "persistedEnergy": {"type": "number"}}}]]

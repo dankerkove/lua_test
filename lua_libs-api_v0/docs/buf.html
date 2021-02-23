@@ -1,0 +1,1264 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Buffer Library &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="index.html"/>
+        <link rel="up" title="&lt;no title&gt;" href="reference/index.html"/>
+        <link rel="next" title="Zigbee Libraries" href="zigbee/zigbee.html"/>
+        <link rel="prev" title="Utils Library" href="utils.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Buffer Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zigbee/zigbee.html">Zigbee Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+      <li>Buffer Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/buf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="buffer-library">
+<h1>Buffer Library<a class="headerlink" href="#buffer-library" title="Permalink to this headline">¶</a></h1>
+<p>The buffer library provides safe binary serialization and deserialization with bounds checking and clean error handling.</p>
+<dl class="lua class">
+<dt id="st.buf.Buf">
+<em class="property">class </em><code class="sig-name descname">st.buf.Buf</code><a class="headerlink" href="#st.buf.Buf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua method">
+<dt id="st.buf.Buf.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Buf.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a buffer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer</strong> (<em>str</em>) – initial buffer contents</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Buf.size">
+<em class="property"> </em><code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Buf.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the size of the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>size in bytes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Buf.tell">
+<em class="property"> </em><code class="sig-name descname">tell</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Buf.tell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current 0-based byte position of the buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0-based position in bytes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Buf.bit_tell">
+<em class="property"> </em><code class="sig-name descname">bit_tell</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Buf.bit_tell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current 0-based bit position of the buffer, modulus 8.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0-based bit position in bits, modulus 8.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Buf.remain">
+<em class="property"> </em><code class="sig-name descname">remain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Buf.remain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of bytes remaining in the buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>buffer’s remaining bytes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Buf.bits_remain">
+<em class="property"> </em><code class="sig-name descname">bits_remain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Buf.bits_remain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of bits remaining in the buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>buffer’s remaining bytes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Buf.seek">
+<em class="property"> </em><code class="sig-name descname">seek</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Buf.seek" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seek buffer by n bytes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>number</em>) – number bytes to seek</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Buf.bit_seek">
+<em class="property"> </em><code class="sig-name descname">bit_seek</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Buf.bit_seek" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seek buffer by n bits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>number</em>) – number bytes to seek</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.buf.Writer">
+<em class="property">class </em><code class="sig-name descname">st.buf.Writer</code><em class="property">: </em><a class="reference internal" href="#st.buf.Buf" title="st.buf.Buf">st.buf.Buf</a><a class="headerlink" href="#st.buf.Writer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua method">
+<dt id="st.buf.Writer.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize buf writer instance.</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.pretty_print">
+<em class="property"> </em><code class="sig-name descname">pretty_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.pretty_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a string representation of the Writer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string representation of the Writer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_int">
+<em class="property"> </em><code class="sig-name descname">write_int</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">width</em>, <em class="sig-param">signed</em>, <em class="sig-param">little_endain</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize and write an integer value to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>number</em>) – value to write</p></li>
+<li><p><strong>width</strong> (<em>number</em>) – integer width in bytes</p></li>
+<li><p><strong>signed</strong> (<em>boolean</em>) – true if signed, false if unsigned</p></li>
+<li><p><strong>little_endain</strong> (<em>boolean</em>) – true if little endian, false if big endian</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_u8">
+<em class="property"> </em><code class="sig-name descname">write_u8</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_u8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a Uint8 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_u16">
+<em class="property"> </em><code class="sig-name descname">write_le_u16</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_u16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Uint16 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_u16">
+<em class="property"> </em><code class="sig-name descname">write_be_u16</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_u16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Uint16 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_u24">
+<em class="property"> </em><code class="sig-name descname">write_le_u24</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_u24" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Uint24 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_u24">
+<em class="property"> </em><code class="sig-name descname">write_be_u24</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_u24" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Uint24 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_u32">
+<em class="property"> </em><code class="sig-name descname">write_le_u32</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_u32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Uint32 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_u32">
+<em class="property"> </em><code class="sig-name descname">write_be_u32</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_u32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Uint32 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_u40">
+<em class="property"> </em><code class="sig-name descname">write_le_u40</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_u40" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Uint40 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_u40">
+<em class="property"> </em><code class="sig-name descname">write_be_u40</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_u40" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Uint40 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_u48">
+<em class="property"> </em><code class="sig-name descname">write_le_u48</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_u48" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Uint48 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_u48">
+<em class="property"> </em><code class="sig-name descname">write_be_u48</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_u48" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Uint48 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_u56">
+<em class="property"> </em><code class="sig-name descname">write_le_u56</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_u56" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Uint56 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_u56">
+<em class="property"> </em><code class="sig-name descname">write_be_u56</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_u56" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Uint56 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_i8">
+<em class="property"> </em><code class="sig-name descname">write_i8</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_i8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write an Int8 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_i16">
+<em class="property"> </em><code class="sig-name descname">write_le_i16</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_i16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Int16 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_i16">
+<em class="property"> </em><code class="sig-name descname">write_be_i16</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_i16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Int16 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_i24">
+<em class="property"> </em><code class="sig-name descname">write_le_i24</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_i24" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Int24 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_i24">
+<em class="property"> </em><code class="sig-name descname">write_be_i24</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_i24" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Int24 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_i32">
+<em class="property"> </em><code class="sig-name descname">write_le_i32</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_i32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Int32 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_i32">
+<em class="property"> </em><code class="sig-name descname">write_be_i32</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_i32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Int32 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_i40">
+<em class="property"> </em><code class="sig-name descname">write_le_i40</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_i40" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Int40 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_i40">
+<em class="property"> </em><code class="sig-name descname">write_be_i40</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_i40" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Int40 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_i48">
+<em class="property"> </em><code class="sig-name descname">write_le_i48</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_i48" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Int48 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_i48">
+<em class="property"> </em><code class="sig-name descname">write_be_i48</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_i48" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Int48 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_i56">
+<em class="property"> </em><code class="sig-name descname">write_le_i56</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_i56" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Int56 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_i56">
+<em class="property"> </em><code class="sig-name descname">write_be_i56</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_i56" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Int56 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_le_i64">
+<em class="property"> </em><code class="sig-name descname">write_le_i64</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_le_i64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a little-endian Int64 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_be_i64">
+<em class="property"> </em><code class="sig-name descname">write_be_i64</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_be_i64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a big-endian Int64 to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>number</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_bytes">
+<em class="property"> </em><code class="sig-name descname">write_bytes</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write an arbitrary number of bytes to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>str</em>) – data to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_bool">
+<em class="property"> </em><code class="sig-name descname">write_bool</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_bool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a boolean bit to the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>boolean</em>) – value to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Writer.write_bits">
+<em class="property"> </em><code class="sig-name descname">write_bits</code><span class="sig-paren">(</span><em class="sig-param">width</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Writer.write_bits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a bit field to the internal buffer.</p>
+<p>Bits are extracted from the passed value in little-endian order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>number</em>) – bit field width</p></li>
+<li><p><strong>data</strong> (<em>number</em>) – bit field</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.buf.Reader">
+<em class="property">class </em><code class="sig-name descname">st.buf.Reader</code><em class="property">: </em><a class="reference internal" href="#st.buf.Buf" title="st.buf.Buf">st.buf.Buf</a><a class="headerlink" href="#st.buf.Reader" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua method">
+<dt id="st.buf.Reader.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize buf reader instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer</strong> (<em>str</em>) – buffer contents</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.pretty_print">
+<em class="property"> </em><code class="sig-name descname">pretty_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.pretty_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a string representation of the Reader</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string representation of the Reader</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.store">
+<em class="property"> </em><code class="sig-name descname">store</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">key</em>, <em class="sig-param">out</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store a value at the specified key either in the internal parsed table or,</p>
+<p>if passed, the specified ‘out’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>any</em>) – value to store</p></li>
+<li><p><strong>key</strong> (<em>any</em>) – key at which to store value, or nil if storage is not desired</p></li>
+<li><p><strong>out</strong> (<em>table</em>) – table in which to store value, or nil if storage in the internal ‘parsed’ table is desired.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_int">
+<em class="property"> </em><code class="sig-name descname">read_int</code><span class="sig-paren">(</span><em class="sig-param">width</em>, <em class="sig-param">signed</em>, <em class="sig-param">little_endian</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read and deserialize an integer value from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>number</em>) – integer width in bytes</p></li>
+<li><p><strong>signed</strong> (<em>boolean</em>) – true if signed, false if unsigned</p></li>
+<li><p><strong>little_endian</strong> (<em>boolean</em>) – true if little endian, false if big endian</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>integer parsed from the internal buffer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_u8">
+<em class="property"> </em><code class="sig-name descname">read_u8</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_u8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a Uint8 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_u16">
+<em class="property"> </em><code class="sig-name descname">read_le_u16</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_u16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a litle-endian Uint16 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_u16">
+<em class="property"> </em><code class="sig-name descname">read_be_u16</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_u16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Uint16 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_u24">
+<em class="property"> </em><code class="sig-name descname">read_le_u24</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_u24" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Uint24 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_u24">
+<em class="property"> </em><code class="sig-name descname">read_be_u24</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_u24" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Uint24 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_u32">
+<em class="property"> </em><code class="sig-name descname">read_le_u32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_u32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Uint32 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_u32">
+<em class="property"> </em><code class="sig-name descname">read_be_u32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_u32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Uint32 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_u40">
+<em class="property"> </em><code class="sig-name descname">read_le_u40</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_u40" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Uint40 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_u40">
+<em class="property"> </em><code class="sig-name descname">read_be_u40</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_u40" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Uint40 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_u48">
+<em class="property"> </em><code class="sig-name descname">read_le_u48</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_u48" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Uint48 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_u48">
+<em class="property"> </em><code class="sig-name descname">read_be_u48</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_u48" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Uint48 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_u56">
+<em class="property"> </em><code class="sig-name descname">read_le_u56</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_u56" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Uint56 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_u56">
+<em class="property"> </em><code class="sig-name descname">read_be_u56</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_u56" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Uint56 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_i8">
+<em class="property"> </em><code class="sig-name descname">read_i8</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_i8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read an Int8 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_i16">
+<em class="property"> </em><code class="sig-name descname">read_le_i16</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_i16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a litle-endian Int16 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_i16">
+<em class="property"> </em><code class="sig-name descname">read_be_i16</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_i16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Int16 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_i24">
+<em class="property"> </em><code class="sig-name descname">read_le_i24</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_i24" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Int24 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_i24">
+<em class="property"> </em><code class="sig-name descname">read_be_i24</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_i24" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Int24 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_i32">
+<em class="property"> </em><code class="sig-name descname">read_le_i32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_i32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Int32 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_i32">
+<em class="property"> </em><code class="sig-name descname">read_be_i32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_i32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Int32 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_i40">
+<em class="property"> </em><code class="sig-name descname">read_le_i40</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_i40" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Int40 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_i40">
+<em class="property"> </em><code class="sig-name descname">read_be_i40</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_i40" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Int40 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_i48">
+<em class="property"> </em><code class="sig-name descname">read_le_i48</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_i48" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Int48 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_i48">
+<em class="property"> </em><code class="sig-name descname">read_be_i48</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_i48" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Int40 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_i56">
+<em class="property"> </em><code class="sig-name descname">read_le_i56</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_i56" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Int56 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_i56">
+<em class="property"> </em><code class="sig-name descname">read_be_i56</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_i56" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Int56 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_le_i64">
+<em class="property"> </em><code class="sig-name descname">read_le_i64</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_le_i64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a little-endian Int64 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_be_i64">
+<em class="property"> </em><code class="sig-name descname">read_be_i64</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_be_i64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a big-endian Int64 from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_bytes">
+<em class="property"> </em><code class="sig-name descname">read_bytes</code><span class="sig-paren">(</span><em class="sig-param">len</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read an arbitrary number of bytes from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>len</strong> (<em>number</em>) – of bytes to read</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>data read from the buffer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_bool">
+<em class="property"> </em><code class="sig-name descname">read_bool</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_bool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a boolean bit from the internal buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true if the bit read is set, false if not</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.read_bits">
+<em class="property"> </em><code class="sig-name descname">read_bits</code><span class="sig-paren">(</span><em class="sig-param">len</em><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.read_bits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a bit field from the internal buffer.</p>
+<p>Bit extractions are returned in little-endian order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>len</strong> (<em>number</em>) – of bits to read</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>numerical representation of the bit field.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.buf.Reader.peek_u8">
+<em class="property"> </em><code class="sig-name descname">peek_u8</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.buf.Reader.peek_u8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Peek a Uint8 from the internal buffer, but do not advance internal pointer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>value read from the buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="zigbee/zigbee.html" class="btn btn-neutral float-right" title="Zigbee Libraries" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="utils.html" class="btn btn-neutral" title="Utils Library" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

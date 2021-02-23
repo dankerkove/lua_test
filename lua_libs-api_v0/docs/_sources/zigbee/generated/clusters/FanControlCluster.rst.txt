@@ -1,0 +1,15 @@
+FanControlCluster
+=================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.FanControlCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.FanControlCluster.FanControlFanMode
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.FanControlCluster.FanControlFanModeSequence
+
+Commands
+++++++++++++
+

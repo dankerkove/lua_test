@@ -1,0 +1,4 @@
+GetLocationDataFlagsBitmap
+==========================
+
+.. lua:autoclass:: GetLocationDataFlagsBitmap

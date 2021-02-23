@@ -1,0 +1,4 @@
+MessagingControlConfirmationEnum
+================================
+
+.. lua:autoclass:: MessagingControlConfirmationEnum

@@ -1,0 +1,1 @@
+return [[{"title": "MediaSource", "type": "string", "enum": ["AM", "CD", "FM", "HDMI", "HDMI1", "HDMI2", "HDMI3", "HDMI4", "HDMI5", "HDMI6", "digitalTv", "USB", "YouTube", "aux", "bluetooth", "digital", "melon", "wifi"]}]]

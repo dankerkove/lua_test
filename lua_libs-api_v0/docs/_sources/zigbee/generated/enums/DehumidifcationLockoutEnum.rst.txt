@@ -1,0 +1,4 @@
+DehumidifcationLockoutEnum
+==========================
+
+.. lua:autoclass:: DehumidifcationLockoutEnum

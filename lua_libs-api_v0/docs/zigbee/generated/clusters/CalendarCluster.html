@@ -1,0 +1,2149 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CalendarCluster &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Clusters" href="../clusters.html"/>
+        <link rel="next" title="DeviceManagementCluster" href="DeviceManagementCluster.html"/>
+        <link rel="prev" title="EnergyManagementCluster" href="EnergyManagementCluster.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults/defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../clusters.html">Generated Clusters</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BasicCluster.html">BasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerConfigCluster.html">PowerConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTempCluster.html">DeviceTempCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IdentifyCluster.html">IdentifyCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GroupsCluster.html">GroupsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScenesCluster.html">ScenesCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffCluster.html">OnOffCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OnOffSwitchConfigCluster.html">OnOffSwitchConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LevelControlCluster.html">LevelControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AlarmCluster.html">AlarmCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeCluster.html">TimeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RssiLocationCluster.html">RssiLocationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BinaryInputBasicCluster.html">BinaryInputBasicCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CommissioningCluster.html">CommissioningCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PartitionCluster.html">PartitionCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OtaBootloadCluster.html">OtaBootloadCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerProfileCluster.html">PowerProfileCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceControlCluster.html">ApplianceControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PollControlCluster.html">PollControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ShadeConfigCluster.html">ShadeConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLockCluster.html">DoorLockCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindowCoveringCluster.html">WindowCoveringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpConfigControlCluster.html">PumpConfigControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatCluster.html">ThermostatCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanControlCluster.html">FanControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidControlCluster.html">DehumidControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatUiConfigCluster.html">ThermostatUiConfigCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorControlCluster.html">ColorControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastConfigurationCluster.html">BallastConfigurationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumMeasurementCluster.html">IllumMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IllumLevelSensingCluster.html">IllumLevelSensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TempMeasurementCluster.html">TempMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PressureMeasurementCluster.html">PressureMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FlowMeasurementCluster.html">FlowMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidityMeasurementCluster.html">RelativeHumidityMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensingCluster.html">OccupancySensingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasZoneCluster.html">IasZoneCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasAceCluster.html">IasAceCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IasWdCluster.html">IasWdCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GenericTunnelCluster.html">GenericTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BacnetProtocolTunnelCluster.html">BacnetProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Iso7816ProtocolTunnelCluster.html">Iso7816ProtocolTunnelCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DemandResponseLoadControlCluster.html">DemandResponseLoadControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SimpleMeteringCluster.html">SimpleMeteringCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MessagingCluster.html">MessagingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TunnelingCluster.html">TunnelingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PrepaymentCluster.html">PrepaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnergyManagementCluster.html">EnergyManagementCluster</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CalendarCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceManagementCluster.html">DeviceManagementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventsCluster.html">EventsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MduPairingCluster.html">MduPairingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KeyEstablishmentCluster.html">KeyEstablishmentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InformationCluster.html">InformationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataSharingCluster.html">DataSharingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GamingCluster.html">GamingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataRateControlCluster.html">DataRateControlCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VoiceOverZigbeeCluster.html">VoiceOverZigbeeCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChattingCluster.html">ChattingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PaymentCluster.html">PaymentCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BillingCluster.html">BillingCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceIdentificationCluster.html">ApplianceIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeterIdentificationCluster.html">MeterIdentificationCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceEventsAndAlertCluster.html">ApplianceEventsAndAlertCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ApplianceStatisticsCluster.html">ApplianceStatisticsCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalMeasurementCluster.html">ElectricalMeasurementCluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DiagnosticsCluster.html">DiagnosticsCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../enums.html">Generated Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitmaps.html">Generated Bitmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structs.html">Generated Structs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee related libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../clusters.html">Generated Clusters</a> &raquo;</li>
+        
+      <li>CalendarCluster</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/clusters/CalendarCluster.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="calendarcluster">
+<h1>CalendarCluster<a class="headerlink" href="#calendarcluster" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeCluster" title="ZigbeeCluster">ZigbeeCluster</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>This cluster provides attributes and commands to assist applications in developing time and date based protocol.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0707 the ID of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Calendar” the name of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.attributes">
+<code class="sig-name descname">attributes</code><em class="property">: </em>st.zigbee.zcl.clusters.CalendarClusterAttributes<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.commands">
+<code class="sig-name descname">commands</code><em class="property">: </em>st.zigbee.zcl.clusters.CalendarClusterCommands<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.get_attribute_by_id">
+<em class="property"> </em><code class="sig-name descname">get_attribute_by_id</code><span class="sig-paren">(</span><em class="sig-param">attr_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.get_attribute_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attr_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.get_server_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_server_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.get_server_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.get_client_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_client_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.get_client_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch1Label">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch1Label</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch1Label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch1Label.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch1Label.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0000 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch1Label.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch1Label.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AuxiliarySwitch1Label” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch1Label.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>OctetString<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch1Label.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch2Label">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch2Label</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch2Label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch2Label.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch2Label.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0001 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch2Label.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch2Label.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AuxiliarySwitch2Label” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch2Label.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>OctetString<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch2Label.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch3Label">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch3Label</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch3Label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch3Label.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch3Label.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0002 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch3Label.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch3Label.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AuxiliarySwitch3Label” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch3Label.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>OctetString<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch3Label.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch4Label">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch4Label</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch4Label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch4Label.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch4Label.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0003 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch4Label.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch4Label.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AuxiliarySwitch4Label” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch4Label.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>OctetString<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch4Label.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch5Label">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch5Label</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch5Label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch5Label.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch5Label.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0004 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch5Label.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch5Label.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AuxiliarySwitch5Label” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch5Label.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>OctetString<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch5Label.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch6Label">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch6Label</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch6Label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch6Label.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch6Label.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0005 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch6Label.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch6Label.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AuxiliarySwitch6Label” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch6Label.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>OctetString<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch6Label.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch7Label">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch7Label</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch7Label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch7Label.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch7Label.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0006 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch7Label.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch7Label.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AuxiliarySwitch7Label” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch7Label.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>OctetString<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch7Label.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch8Label">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch8Label</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterAttribute" title="ZigbeeClusterAttribute">ZigbeeClusterAttribute</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch8Label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch8Label.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch8Label.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0007 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch8Label.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch8Label.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“AuxiliarySwitch8Label” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch8Label.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>OctetString<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.AuxiliarySwitch8Label.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.GetCalendar</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command initiates PublishCalendar command(s) for scheduled Calendar updates.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetCalendar” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.earliest_start_time">
+<code class="sig-name descname">earliest_start_time</code><em class="property">: </em>UtcTime<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.earliest_start_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.min_issuer_event_id">
+<code class="sig-name descname">min_issuer_event_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.min_issuer_event_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.number_of_calendars">
+<code class="sig-name descname">number_of_calendars</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.number_of_calendars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.calendar_type">
+<code class="sig-name descname">calendar_type</code><em class="property">: </em>CalendarTypeEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.calendar_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetCalendar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">earliest_start_time</em>, <em class="sig-param">min_issuer_event_id</em>, <em class="sig-param">number_of_calendars</em>, <em class="sig-param">calendar_type</em>, <em class="sig-param">provider_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>earliest_start_time</strong> (<em>UtcTime</em>) – </p></li>
+<li><p><strong>min_issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>number_of_calendars</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">earliest_start_time</em>, <em class="sig-param">min_issuer_event_id</em>, <em class="sig-param">number_of_calendars</em>, <em class="sig-param">calendar_type</em>, <em class="sig-param">provider_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetCalendar command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetCalendar</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>earliest_start_time</strong> (<em>UtcTime</em>) – </p></li>
+<li><p><strong>min_issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>number_of_calendars</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendar.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command initiates one or more PublishDayProfile commands for the referenced Calendar.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetDayProfiles” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.issuer_calendar_id">
+<code class="sig-name descname">issuer_calendar_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.issuer_calendar_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.start_day_id">
+<code class="sig-name descname">start_day_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.start_day_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.number_of_days">
+<code class="sig-name descname">number_of_days</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.number_of_days" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetDayProfiles</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">start_day_id</em>, <em class="sig-param">number_of_days</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>start_day_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>number_of_days</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">start_day_id</em>, <em class="sig-param">number_of_days</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetDayProfiles command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetDayProfiles</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>start_day_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>number_of_days</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetDayProfiles.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command initiates one or more PublishWeekProfile commands for the referenced Calendar.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetWeekProfiles” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.issuer_calendar_id">
+<code class="sig-name descname">issuer_calendar_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.issuer_calendar_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.start_week_id">
+<code class="sig-name descname">start_week_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.start_week_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.number_of_weeks">
+<code class="sig-name descname">number_of_weeks</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.number_of_weeks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetWeekProfiles</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">start_week_id</em>, <em class="sig-param">number_of_weeks</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>start_week_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>number_of_weeks</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">start_week_id</em>, <em class="sig-param">number_of_weeks</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetWeekProfiles command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetWeekProfiles</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>start_week_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>number_of_weeks</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetWeekProfiles.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.GetSeasons</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command initiates one or more PublishSeasons commands for the referenced Calendar.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x03 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetSeasons” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.issuer_calendar_id">
+<code class="sig-name descname">issuer_calendar_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.issuer_calendar_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetSeasons</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_calendar_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_calendar_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetSeasons command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetSeasons</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSeasons.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command initiates one or more PublishSpecialDays commands for the scheduled Special Day Table updates.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x04 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetSpecialDays” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.start_time">
+<code class="sig-name descname">start_time</code><em class="property">: </em>UtcTime<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.start_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.number_of_events">
+<code class="sig-name descname">number_of_events</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.number_of_events" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.calendar_type">
+<code class="sig-name descname">calendar_type</code><em class="property">: </em>CalendarTypeEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.calendar_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.issuer_calendar_id">
+<code class="sig-name descname">issuer_calendar_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.issuer_calendar_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetSpecialDays</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">start_time</em>, <em class="sig-param">number_of_events</em>, <em class="sig-param">calendar_type</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_calendar_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>start_time</strong> (<em>UtcTime</em>) – </p></li>
+<li><p><strong>number_of_events</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">start_time</em>, <em class="sig-param">number_of_events</em>, <em class="sig-param">calendar_type</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_calendar_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetSpecialDays command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetSpecialDays</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>start_time</strong> (<em>UtcTime</em>) – </p></li>
+<li><p><strong>number_of_events</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetSpecialDays.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command initiates the return of the last CancelCalendar command held on the associated server.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x05 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GetCalendarCancellation” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GetCalendarCancellation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the GetCalendarCancellation command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>GetCalendarCancellation</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.GetCalendarCancellation.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar" title="Permalink to this definition">¶</a></dt>
+<dd><p>The PublishCalendar command is published in response to a GetCalendar command or if new calendar information is available.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PublishCalendar” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.issuer_event_id">
+<code class="sig-name descname">issuer_event_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.issuer_event_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.issuer_calendar_id">
+<code class="sig-name descname">issuer_calendar_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.issuer_calendar_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.start_time">
+<code class="sig-name descname">start_time</code><em class="property">: </em>UtcTime<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.start_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.calendar_type">
+<code class="sig-name descname">calendar_type</code><em class="property">: </em>CalendarTypeEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.calendar_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.calendar_time_reference">
+<code class="sig-name descname">calendar_time_reference</code><em class="property">: </em>CalendarTimeReferenceEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.calendar_time_reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.calendar_name">
+<code class="sig-name descname">calendar_name</code><em class="property">: </em>OctetString<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.calendar_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.number_of_seasons">
+<code class="sig-name descname">number_of_seasons</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.number_of_seasons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.number_of_week_profiles">
+<code class="sig-name descname">number_of_week_profiles</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.number_of_week_profiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.number_of_day_profiles">
+<code class="sig-name descname">number_of_day_profiles</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.number_of_day_profiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>PublishCalendar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_event_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">start_time</em>, <em class="sig-param">calendar_type</em>, <em class="sig-param">calendar_time_reference</em>, <em class="sig-param">calendar_name</em>, <em class="sig-param">number_of_seasons</em>, <em class="sig-param">number_of_week_profiles</em>, <em class="sig-param">number_of_day_profiles</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>start_time</strong> (<em>UtcTime</em>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+<li><p><strong>calendar_time_reference</strong> (<em>CalendarTimeReference</em>) – </p></li>
+<li><p><strong>calendar_name</strong> (<a class="reference internal" href="../../data_types.html#OctetString" title="OctetString"><em>OctetString</em></a>) – </p></li>
+<li><p><strong>number_of_seasons</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>number_of_week_profiles</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>number_of_day_profiles</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_event_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">start_time</em>, <em class="sig-param">calendar_type</em>, <em class="sig-param">calendar_time_reference</em>, <em class="sig-param">calendar_name</em>, <em class="sig-param">number_of_seasons</em>, <em class="sig-param">number_of_week_profiles</em>, <em class="sig-param">number_of_day_profiles</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the PublishCalendar command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>PublishCalendar</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>start_time</strong> (<em>UtcTime</em>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+<li><p><strong>calendar_time_reference</strong> (<em>CalendarTimeReference</em>) – </p></li>
+<li><p><strong>calendar_name</strong> (<a class="reference internal" href="../../data_types.html#OctetString" title="OctetString"><em>OctetString</em></a>) – </p></li>
+<li><p><strong>number_of_seasons</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>number_of_week_profiles</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>number_of_day_profiles</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishCalendar.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>The PublishDayProfile command is published in response to a GetDayProfile command.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PublishDayProfile” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.issuer_event_id">
+<code class="sig-name descname">issuer_event_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.issuer_event_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.issuer_calendar_id">
+<code class="sig-name descname">issuer_calendar_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.issuer_calendar_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.day_id">
+<code class="sig-name descname">day_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.day_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.total_number_of_schedule_entries">
+<code class="sig-name descname">total_number_of_schedule_entries</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.total_number_of_schedule_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.command_index">
+<code class="sig-name descname">command_index</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.command_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.total_number_of_commands">
+<code class="sig-name descname">total_number_of_commands</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.total_number_of_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.calendar_type">
+<code class="sig-name descname">calendar_type</code><em class="property">: </em>CalendarTypeEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.calendar_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.day_schedule_entries">
+<code class="sig-name descname">day_schedule_entries</code><em class="property">: </em>ScheduleEntry<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.day_schedule_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>PublishDayProfile</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_event_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">day_id</em>, <em class="sig-param">total_number_of_schedule_entries</em>, <em class="sig-param">command_index</em>, <em class="sig-param">total_number_of_commands</em>, <em class="sig-param">calendar_type</em>, <em class="sig-param">day_schedule_entries</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>day_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>total_number_of_schedule_entries</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>command_index</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>total_number_of_commands</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+<li><p><strong>day_schedule_entries</strong> (<a class="reference internal" href="../structs/ScheduleEntry.html#ScheduleEntry" title="ScheduleEntry"><em>ScheduleEntry</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_event_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">day_id</em>, <em class="sig-param">total_number_of_schedule_entries</em>, <em class="sig-param">command_index</em>, <em class="sig-param">total_number_of_commands</em>, <em class="sig-param">calendar_type</em>, <em class="sig-param">day_schedule_entries</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the PublishDayProfile command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>PublishDayProfile</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>day_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>total_number_of_schedule_entries</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>command_index</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>total_number_of_commands</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+<li><p><strong>day_schedule_entries</strong> (<a class="reference internal" href="../structs/ScheduleEntry.html#ScheduleEntry" title="ScheduleEntry"><em>ScheduleEntry</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishDayProfile.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>The PublishWeekProfile command is published in response to a GetWeekProfile command.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PublishWeekProfile” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.issuer_event_id">
+<code class="sig-name descname">issuer_event_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.issuer_event_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.issuer_calendar_id">
+<code class="sig-name descname">issuer_calendar_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.issuer_calendar_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.week_id">
+<code class="sig-name descname">week_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.week_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_monday">
+<code class="sig-name descname">day_id_ref_monday</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_monday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_tuesday">
+<code class="sig-name descname">day_id_ref_tuesday</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_tuesday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_wednesday">
+<code class="sig-name descname">day_id_ref_wednesday</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_wednesday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_thursday">
+<code class="sig-name descname">day_id_ref_thursday</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_thursday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_friday">
+<code class="sig-name descname">day_id_ref_friday</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_friday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_saturday">
+<code class="sig-name descname">day_id_ref_saturday</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_saturday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_sunday">
+<code class="sig-name descname">day_id_ref_sunday</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.day_id_ref_sunday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>PublishWeekProfile</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_event_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">week_id</em>, <em class="sig-param">day_id_ref_monday</em>, <em class="sig-param">day_id_ref_tuesday</em>, <em class="sig-param">day_id_ref_wednesday</em>, <em class="sig-param">day_id_ref_thursday</em>, <em class="sig-param">day_id_ref_friday</em>, <em class="sig-param">day_id_ref_saturday</em>, <em class="sig-param">day_id_ref_sunday</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>week_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_monday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_tuesday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_wednesday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_thursday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_friday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_saturday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_sunday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_event_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">week_id</em>, <em class="sig-param">day_id_ref_monday</em>, <em class="sig-param">day_id_ref_tuesday</em>, <em class="sig-param">day_id_ref_wednesday</em>, <em class="sig-param">day_id_ref_thursday</em>, <em class="sig-param">day_id_ref_friday</em>, <em class="sig-param">day_id_ref_saturday</em>, <em class="sig-param">day_id_ref_sunday</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the PublishWeekProfile command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>PublishWeekProfile</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>week_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_monday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_tuesday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_wednesday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_thursday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_friday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_saturday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>day_id_ref_sunday</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishWeekProfile.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons" title="Permalink to this definition">¶</a></dt>
+<dd><p>The PublishSeasons command is published in response to a GetSeason command.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x03 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PublishSeasons” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.issuer_event_id">
+<code class="sig-name descname">issuer_event_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.issuer_event_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.issuer_calendar_id">
+<code class="sig-name descname">issuer_calendar_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.issuer_calendar_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.command_index">
+<code class="sig-name descname">command_index</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.command_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.total_number_of_commands">
+<code class="sig-name descname">total_number_of_commands</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.total_number_of_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.season_entries">
+<code class="sig-name descname">season_entries</code><em class="property">: </em>SeasonEntry<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.season_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>PublishSeasons</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_event_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">command_index</em>, <em class="sig-param">total_number_of_commands</em>, <em class="sig-param">season_entries</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>command_index</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>total_number_of_commands</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>season_entries</strong> (<a class="reference internal" href="../structs/SeasonEntry.html#SeasonEntry" title="SeasonEntry"><em>SeasonEntry</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_event_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">command_index</em>, <em class="sig-param">total_number_of_commands</em>, <em class="sig-param">season_entries</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the PublishSeasons command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>PublishSeasons</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>command_index</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>total_number_of_commands</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>season_entries</strong> (<a class="reference internal" href="../structs/SeasonEntry.html#SeasonEntry" title="SeasonEntry"><em>SeasonEntry</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSeasons.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays" title="Permalink to this definition">¶</a></dt>
+<dd><p>The PublishSpecialDays command is published in response to a GetSpecialDays command or if a calendar update is available.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x04 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“PublishSpecialDays” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.issuer_event_id">
+<code class="sig-name descname">issuer_event_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.issuer_event_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.issuer_calendar_id">
+<code class="sig-name descname">issuer_calendar_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.issuer_calendar_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.start_time">
+<code class="sig-name descname">start_time</code><em class="property">: </em>UtcTime<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.start_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.calendar_type">
+<code class="sig-name descname">calendar_type</code><em class="property">: </em>CalendarTypeEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.calendar_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.total_number_of_special_days">
+<code class="sig-name descname">total_number_of_special_days</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.total_number_of_special_days" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.command_index">
+<code class="sig-name descname">command_index</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.command_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.total_number_of_commands">
+<code class="sig-name descname">total_number_of_commands</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.total_number_of_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.special_day_entries">
+<code class="sig-name descname">special_day_entries</code><em class="property">: </em>SpecialDay<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.special_day_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>PublishSpecialDays</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_event_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">start_time</em>, <em class="sig-param">calendar_type</em>, <em class="sig-param">total_number_of_special_days</em>, <em class="sig-param">command_index</em>, <em class="sig-param">total_number_of_commands</em>, <em class="sig-param">special_day_entries</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>start_time</strong> (<em>UtcTime</em>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+<li><p><strong>total_number_of_special_days</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>command_index</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>total_number_of_commands</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>special_day_entries</strong> (<a class="reference internal" href="../structs/SpecialDay.html#SpecialDay" title="SpecialDay"><em>SpecialDay</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_event_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">start_time</em>, <em class="sig-param">calendar_type</em>, <em class="sig-param">total_number_of_special_days</em>, <em class="sig-param">command_index</em>, <em class="sig-param">total_number_of_commands</em>, <em class="sig-param">special_day_entries</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the PublishSpecialDays command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>PublishSpecialDays</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_event_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>start_time</strong> (<em>UtcTime</em>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+<li><p><strong>total_number_of_special_days</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>command_index</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>total_number_of_commands</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>special_day_entries</strong> (<a class="reference internal" href="../structs/SpecialDay.html#SpecialDay" title="SpecialDay"><em>SpecialDay</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.PublishSpecialDays.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar</code><em class="property">: </em><a class="reference internal" href="../../zcl/zcl_clusters.html#ZigbeeClusterCommand" title="ZigbeeClusterCommand">ZigbeeClusterCommand</a><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CancelCalendar command indicates that all data associated with a particular calendar instance should be discarded.</p>
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x05 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“CancelCalendar” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.provider_id">
+<code class="sig-name descname">provider_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.provider_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.issuer_calendar_id">
+<code class="sig-name descname">issuer_calendar_id</code><em class="property">: </em>Uint32<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.issuer_calendar_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.calendar_type">
+<code class="sig-name descname">calendar_type</code><em class="property">: </em>CalendarTypeEnum<a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.calendar_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>CancelCalendar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">calendar_type</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageRx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">provider_id</em>, <em class="sig-param">issuer_calendar_id</em>, <em class="sig-param">calendar_type</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the CancelCalendar command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>CancelCalendar</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>provider_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>issuer_calendar_id</strong> (<a class="reference internal" href="../../data_types.html#Uint32" title="Uint32"><em>Uint32</em></a>) – </p></li>
+<li><p><strong>calendar_type</strong> (<em>CalendarType</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ZigbeeMessageTx</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.CalendarCluster.CancelCalendar.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DeviceManagementCluster.html" class="btn btn-neutral float-right" title="DeviceManagementCluster" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="EnergyManagementCluster.html" class="btn btn-neutral" title="EnergyManagementCluster" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

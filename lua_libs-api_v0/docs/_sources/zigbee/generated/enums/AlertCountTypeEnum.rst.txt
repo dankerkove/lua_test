@@ -1,0 +1,4 @@
+AlertCountTypeEnum
+==================
+
+.. lua:autoclass:: AlertCountTypeEnum

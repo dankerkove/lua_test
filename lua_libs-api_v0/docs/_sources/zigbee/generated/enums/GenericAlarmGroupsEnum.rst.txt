@@ -1,0 +1,4 @@
+GenericAlarmGroupsEnum
+======================
+
+.. lua:autoclass:: GenericAlarmGroupsEnum

@@ -1,0 +1,1 @@
+return [[{"name": "Stateless Set Channel Button", "status": "proposed", "attributes": {}, "commands": {"setChannel": {"arguments": [{"name": "channel", "required": true, "schema": {"type": "string"}, "type": "STRING"}]}}, "public": true, "id": "statelessSetChannelButton", "version": 1}]]

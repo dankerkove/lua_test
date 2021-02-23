@@ -1,0 +1,32 @@
+SmartThings Edge Device Drivers
+=====================================================
+**The following documentation is confidential, do not distribute.**
+
+This documentation is separated into two distinct areas.  Guides and Lua reference.
+
+Versions
+---------------
+Version 0.1 [Alpha] **(10/05/2020)**
+++++++++++++++++++++++++++++++++++++
+Initial release
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Guides:
+
+   guides/index.rst
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: References:
+
+   reference/index.rst
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

@@ -1,0 +1,4 @@
+OccupancyBitmap
+===============
+
+.. lua:autoclass:: OccupancyBitmap

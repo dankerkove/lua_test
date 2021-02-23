@@ -1,0 +1,4 @@
+HueMoveModeEnum
+===============
+
+.. lua:autoclass:: HueMoveModeEnum

@@ -1,0 +1,4 @@
+SignatureTypeEnum
+=================
+
+.. lua:autoclass:: SignatureTypeEnum

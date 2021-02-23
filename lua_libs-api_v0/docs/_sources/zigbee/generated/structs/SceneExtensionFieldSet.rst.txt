@@ -1,0 +1,4 @@
+SceneExtensionFieldSet
+======================
+
+.. lua:autoclass:: SceneExtensionFieldSet

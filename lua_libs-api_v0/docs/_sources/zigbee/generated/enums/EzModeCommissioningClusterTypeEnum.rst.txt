@@ -1,0 +1,4 @@
+EzModeCommissioningClusterTypeEnum
+==================================
+
+.. lua:autoclass:: EzModeCommissioningClusterTypeEnum

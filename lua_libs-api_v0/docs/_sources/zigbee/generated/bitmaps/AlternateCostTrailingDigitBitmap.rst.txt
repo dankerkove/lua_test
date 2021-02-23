@@ -1,0 +1,4 @@
+AlternateCostTrailingDigitBitmap
+================================
+
+.. lua:autoclass:: AlternateCostTrailingDigitBitmap

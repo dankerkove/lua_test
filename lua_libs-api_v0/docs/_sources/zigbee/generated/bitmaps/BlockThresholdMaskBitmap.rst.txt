@@ -1,0 +1,4 @@
+BlockThresholdMaskBitmap
+========================
+
+.. lua:autoclass:: BlockThresholdMaskBitmap

@@ -1,0 +1,4 @@
+WarningModeEnum
+===============
+
+.. lua:autoclass:: WarningModeEnum

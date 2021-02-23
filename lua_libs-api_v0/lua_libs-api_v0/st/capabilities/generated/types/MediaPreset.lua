@@ -1,0 +1,1 @@
+return [[{"title": "MediaPreset", "type": "object", "additionalProperties": false, "properties": {"id": {"type": "string"}, "name": {"type": "string"}, "mediaSource": {"type": "string"}, "imageUrl": {"type": "string"}}, "required": ["id", "name"]}]]

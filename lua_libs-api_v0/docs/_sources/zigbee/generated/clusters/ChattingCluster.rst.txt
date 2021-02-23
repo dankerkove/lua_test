@@ -1,0 +1,53 @@
+ChattingCluster
+===============
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.UId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.Nickname
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.CId
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.Name
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.EnableAddChat
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.JoinChatRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.LeaveChatRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.SearchChatRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.StartChatRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.ChatMessage
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.StartChatResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.JoinChatResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.UserLeft
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.UserJoined
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.SearchChatResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanConfirm
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.SwitchChairmanNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.ChattingCluster.GetNodeInformationResponse
+

@@ -1,0 +1,19 @@
+TempMeasurementCluster
+======================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.TempMeasurementCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.TempMeasurementCluster.TempMeasuredValue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.TempMeasurementCluster.TempMinMeasuredValue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.TempMeasurementCluster.TempMaxMeasuredValue
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.TempMeasurementCluster.TempTolerance
+
+Commands
+++++++++++++
+

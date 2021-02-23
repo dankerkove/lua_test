@@ -1,0 +1,1 @@
+return [[{"name": "Notification", "status": "live", "attributes": {}, "commands": {"deviceNotification": {"arguments": [{"name": "notification", "required": true, "schema": {"$ref": "String"}, "type": "STRING"}]}}, "public": true, "id": "notification", "version": 1}]]

@@ -1,0 +1,1 @@
+return [[{"title": "DemandResponseLoadControlStatus", "type": "object", "additionalProperties": false, "properties": {"drlcType": {"$ref": "DrlcType"}, "drlcLevel": {"$ref": "DrlcLevel"}, "start": {"$ref": "Iso8601Date"}, "duration": {"$ref": "PositiveInteger"}, "override": {"type": "boolean"}}}]]

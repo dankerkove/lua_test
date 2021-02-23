@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PowerProfileRecord &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Structs" href="../structs.html"/>
+        <link rel="next" title="PriceMatrixSubPayload" href="PriceMatrixSubPayload.html"/>
+        <link rel="prev" title="TransferredPhase" href="TransferredPhase.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee related libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults/defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../clusters.html">Generated Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../enums.html">Generated Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bitmaps.html">Generated Bitmaps</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../structs.html">Generated Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="IasAceZoneStatusResult.html">IasAceZoneStatusResult</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SceneExtensionAttributeInfo.html">SceneExtensionAttributeInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SceneExtensionFieldSet.html">SceneExtensionFieldSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlockThreshold.html">BlockThreshold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Notification.html">Notification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NeighborInfo.html">NeighborInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChatParticipant.html">ChatParticipant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChatRoom.html">ChatRoom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NodeInformation.html">NodeInformation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScheduledPhase.html">ScheduledPhase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TransferredPhase.html">TransferredPhase</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PowerProfileRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PriceMatrixSubPayload.html">PriceMatrixSubPayload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BlockThresholdSubPayload.html">BlockThresholdSubPayload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TierLabelsPayload.html">TierLabelsPayload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Signature.html">Signature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SnapshotResponsePayload.html">SnapshotResponsePayload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SnapshotSchedulePayload.html">SnapshotSchedulePayload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Protocol.html">Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TopUpPayload.html">TopUpPayload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DebtPayload.html">DebtPayload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScheduleEntry.html">ScheduleEntry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScheduleEntryRateSwitchTimes.html">ScheduleEntryRateSwitchTimes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScheduleEntryFriendlyCreditSwitchTimes.html">ScheduleEntryFriendlyCreditSwitchTimes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScheduleEntryAuxilliaryLoadSwitchTimes.html">ScheduleEntryAuxilliaryLoadSwitchTimes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SeasonEntry.html">SeasonEntry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialDay.html">SpecialDay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventConfigurationPayload.html">EventConfigurationPayload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventLogPayload.html">EventLogPayload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Identity.html">Identity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EphemeralData.html">EphemeralData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Smac.html">Smac</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee related libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../structs.html">Generated Structs</a> &raquo;</li>
+        
+      <li>PowerProfileRecord</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/structs/PowerProfileRecord.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="powerprofilerecord">
+<h1>PowerProfileRecord<a class="headerlink" href="#powerprofilerecord" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="PowerProfileRecord">
+<em class="property">class </em><code class="sig-name descname">PowerProfileRecord</code><a class="headerlink" href="#PowerProfileRecord" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="PowerProfileRecord.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>PowerProfileRecord<a class="headerlink" href="#PowerProfileRecord.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="PowerProfileRecord.power_profile_id">
+<code class="sig-name descname">power_profile_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#PowerProfileRecord.power_profile_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="PowerProfileRecord.energy_phase_id">
+<code class="sig-name descname">energy_phase_id</code><em class="property">: </em>Uint8<a class="headerlink" href="#PowerProfileRecord.energy_phase_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="PowerProfileRecord.power_profile_remote_control">
+<code class="sig-name descname">power_profile_remote_control</code><em class="property">: </em>Boolean<a class="headerlink" href="#PowerProfileRecord.power_profile_remote_control" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="PowerProfileRecord.power_profile_state">
+<code class="sig-name descname">power_profile_state</code><em class="property">: </em>Enum8<a class="headerlink" href="#PowerProfileRecord.power_profile_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="PowerProfileRecord.get_length">
+<em class="property"> </em><code class="sig-name descname">get_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PowerProfileRecord.get_length" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the length in bytes of this frame</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="PowerProfileRecord.serialize">
+<em class="property"> </em><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PowerProfileRecord.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>this class serialized to bytes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="PowerProfileRecord.pretty_print">
+<em class="property"> </em><code class="sig-name descname">pretty_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PowerProfileRecord.pretty_print" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>this class in a human readable format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="PowerProfileRecord.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#PowerProfileRecord.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>Reader</em>) – the buf to parse this class from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the length in bytes of this frame</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="PowerProfileRecord.from_values">
+<em class="property">static </em><code class="sig-name descname">from_values</code><span class="sig-paren">(</span><em class="sig-param">power_profile_id</em>, <em class="sig-param">energy_phase_id</em>, <em class="sig-param">power_profile_remote_control</em>, <em class="sig-param">power_profile_state</em><span class="sig-paren">)</span><a class="headerlink" href="#PowerProfileRecord.from_values" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>power_profile_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>energy_phase_id</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+<li><p><strong>power_profile_remote_control</strong> (<a class="reference internal" href="../../data_types.html#Boolean" title="Boolean"><em>Boolean</em></a>) – </p></li>
+<li><p><strong>power_profile_state</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PriceMatrixSubPayload.html" class="btn btn-neutral float-right" title="PriceMatrixSubPayload" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="TransferredPhase.html" class="btn btn-neutral" title="TransferredPhase" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

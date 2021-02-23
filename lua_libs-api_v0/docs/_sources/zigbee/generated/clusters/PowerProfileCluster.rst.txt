@@ -1,0 +1,63 @@
+PowerProfileCluster
+===================
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster
+
+Attributes
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.TotalProfileNum
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.MultipleScheduling
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.EnergyFormatting
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.EnergyRemote
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.ScheduleMode
+
+Commands
+++++++++++++
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.PowerProfileRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.PowerProfileStateRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.GetPowerProfilePriceResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.GetOverallSchedulePriceResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.EnergyPhasesScheduleNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.EnergyPhasesScheduleResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.PowerProfileScheduleConstraintsRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.EnergyPhasesScheduleStateRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.GetPowerProfilePriceExtendedResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.PowerProfileNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.PowerProfileResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.PowerProfileStateResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.GetPowerProfilePrice
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.PowerProfilesStateNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.GetOverallSchedulePrice
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.EnergyPhasesScheduleRequest
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.EnergyPhasesScheduleStateResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.EnergyPhasesScheduleStateNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.PowerProfileScheduleConstraintsNotification
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.PowerProfileScheduleConstraintsResponse
+
+.. lua:autoclass:: st.zigbee.zcl.clusters.PowerProfileCluster.GetPowerProfilePriceExtended
+

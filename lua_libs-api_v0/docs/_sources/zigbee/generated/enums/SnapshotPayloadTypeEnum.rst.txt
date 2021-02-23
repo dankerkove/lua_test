@@ -1,0 +1,4 @@
+SnapshotPayloadTypeEnum
+=======================
+
+.. lua:autoclass:: SnapshotPayloadTypeEnum

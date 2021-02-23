@@ -1,0 +1,4 @@
+PriceTrailingDigitAndPriceTierBitmap
+====================================
+
+.. lua:autoclass:: PriceTrailingDigitAndPriceTierBitmap

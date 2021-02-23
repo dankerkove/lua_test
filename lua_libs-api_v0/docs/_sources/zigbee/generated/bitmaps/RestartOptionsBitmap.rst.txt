@@ -1,0 +1,4 @@
+RestartOptionsBitmap
+====================
+
+.. lua:autoclass:: RestartOptionsBitmap

@@ -1,0 +1,4 @@
+AmiCancelControlBitmap
+======================
+
+.. lua:autoclass:: AmiCancelControlBitmap

@@ -1,0 +1,4 @@
+IasZoneTypeEnum
+===============
+
+.. lua:autoclass:: IasZoneTypeEnum

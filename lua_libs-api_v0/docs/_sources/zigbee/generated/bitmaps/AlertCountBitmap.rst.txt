@@ -1,0 +1,4 @@
+AlertCountBitmap
+================
+
+.. lua:autoclass:: AlertCountBitmap

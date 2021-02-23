@@ -1,0 +1,4 @@
+SquawkStobeEnum
+===============
+
+.. lua:autoclass:: SquawkStobeEnum

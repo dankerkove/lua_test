@@ -1,0 +1,1 @@
+return [[{"name": "Filter State", "status": "live", "attributes": {"filterLifeRemaining": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"$ref": "PositiveInteger"}}, "required": ["value"]}, "type": "NUMBER"}}, "commands": {}, "public": false, "id": "filterState", "version": 1}]]

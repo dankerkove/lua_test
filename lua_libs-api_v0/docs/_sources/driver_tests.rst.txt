@@ -1,0 +1,542 @@
+Driver Tests
+============
+
+In order to facilitate making changes to drivers while feeling confident that things don't break an integration test
+framework for drivers is provided.  Because of the nature of the drivers execution environment, the simplest way to test
+is through checking that a given input message(s) produces the expected output message(s).  There are two
+ways these can be set up.  A "message" driver test is one where the test can be boiled down to a simple series of
+"receive" messages (external source -> driver) that produce "send" messages (driver -> external source).  These can be
+then listed in the expected sequence as a part of a "message_test" and it will verify that the sequence of messages is
+produced.  Typically this type of test will be sufficient for most cases that don't involve timers, or validating values
+stored to the drivers datastore (i.e. persistent storage). If you do need to check those additional things, or want to
+include more complex logic in how you determine what messages are expected, it can be done using a `coroutine_test`
+which allows you define a function that will be run as a coroutine that will have a chance to execute whenever your
+driver would normally make a call to `select` to wait for a "receive" message.  You can then intersperse calls to
+`integration_test.wait_for_events()` to return control to the driver to let it process "receive" messages and generate
+expected "send" messages before it naturally returns to the `select` call to wait for more input, where your test
+function will resume execution for its next block.  As a note, a "message" driver test is converted to a coroutine test
+for actual execution, it is just provided as a potentially simpler interface if it is preferred.
+
+
+Setting up a driver test
+++++++++++++++++++++++++
+
+The first thing that needs to be done is to require the unit test framework.  This will provide some global functions
+that can be used for running the tests as well as mock out and override the input/output message streams that are
+normally used for driver communication.  This can be done simply by requiring the test file
+
+.. code-block:: lua
+
+    -- Import the integration test module to override input/output streams
+    require "integration_test"
+
+Test devices
+~~~~~~~~~~~~
+
+The next thing that will be necessary for most tests is to define the devices that will be running in your driver.
+Unless you have a lot of unique behavior, the primary thing you will need to define is the devices "profile" which
+consists of the components that the device has as well as the capabilities that each of those components support. It
+is also common to use a protocol specific helper for creating these devices such as
+``integration_test.build_test_zigbee_device(device_template)``.  The final thing you will need to do with these devices are to add them to your driver under test.  This can be done
+simply using ``integration_test.add_test_device(device)``.  However, because these devices will be reset inbetween each
+test, you will want to use a ``test_init`` function (see next section).  Following is an example that will set up a test
+Zigbee device for a single test
+
+.. code-block:: lua
+
+    local test = require "integration_test"
+    local capabilities = require "st.capabilities"
+
+    local zigbee_bulb_no_color_profile = {
+      components = {
+        main = {
+          capabilities = {
+            [capabilities.switch.ID] = { id = capabilities.switch.ID },
+            [capabilities.switchLevel.ID] = { id = capabilities.switchLevel.ID },
+          },
+          id = "main"
+        }
+      }
+    }
+    local mock_simple_device = test.mock_device.build_test_zigbee_device({ profile = zigbee_bulb_no_color_profile })
+    test.mock_device.add_test_device(mock_simple_device)
+
+.. _test_init:
+
+test_init
+~~~~~~~~~
+
+If is quite common to want to do some repeated work at the start of every test (e.g. add a test device to your test
+driver).  This can be done by setting up a ``test_init`` funciton.  There are 2 ways you can do this.  The first, and
+most common, way you will want to do this is using a shared function within your test file.  This can be done by calling
+``integration_test.set_test_init_function(your_init_function)``.  The function you provide here will be called before
+every test.  So continuing our earlier example of wanting to add a test device before every test following is how you
+would set that up:
+
+.. code-block:: lua
+
+    local test = require "integration_test"
+    local capabilities = require "st.capabilities"
+
+    local zigbee_bulb_no_color_profile = {
+      components = {
+        main = {
+          capabilities = {
+            [capabilities.switch.ID] = { id = capabilities.switch.ID },
+            [capabilities.switchLevel.ID] = { id = capabilities.switchLevel.ID },
+          },
+          id = "main"
+        }
+      }
+    }
+    local mock_simple_device = test.mock_device.build_test_zigbee_device({ profile = zigbee_bulb_no_color_profile })
+
+    local function test_init()
+      test.mock_device.add_test_device(mock_simple_device)
+    end
+
+    test.set_test_init_function(test_init)
+
+
+And now every test you register will have that device available.
+
+The second way you can provide this initialization is via the ``opts`` table within the test registration to override
+the global init just described, and provide a specific init for just one test.  This will be described in more detail
+below in the section on the test ``opts``.
+
+
+Message Driver Tests
+++++++++++++++++++++
+
+A message driver test verifies that given a set of inputs ("receive" messages) the driver produces the correct set of
+outputs ("send" messages) in the correct order. A very common example of this is the driver receiving a protocol message
+(e.g. a Zigbee message from the radio) for a device, and the driver sends out a capability attribute event for the
+device. Or conversely, the driver receives a capability command for a device, and the driver sends out a protocol
+message.  Following are an example of each for a Zigbee bulb
+
+Zigbee radio message -> capability attribute event
+
+.. code-block:: lua
+
+    local test = require "integration_test"
+    local clusters = require "st.zigbee.zcl.clusters"
+    local OnOffCluster = clusters.OnOffCluster
+    local capabilities = require "st.capabilities"
+    local zigbee_test_utils = require "integration_test.zigbee_test_utils"
+
+    local zigbee_bulb_no_color_profile = {
+      components = {
+        main = {
+          capabilities = {
+            [capabilities.switch.ID] = { id = capabilities.switch.ID },
+            [capabilities.switchLevel.ID] = { id = capabilities.switchLevel.ID },
+          },
+          id = "main"
+        }
+      }
+    }
+
+    local mock_simple_device = test.mock_device.build_test_zigbee_device({ profile = zigbee_bulb_no_color_profile })
+    test.mock_device.add_test_device(mock_simple_device)
+
+    test.register_message_test(
+        "Reported on off status should be handled: on",
+        {
+          {
+            channel = "zigbee",
+            direction = "receive",
+            message = { mock_simple_device.id, OnOffCluster.attributes.OnOff:build_test_attr_report(mock_simple_device,
+                                                                                                    true) }
+          },
+          {
+            channel = "capability",
+            direction = "send",
+            message = mock_simple_device.generate_test_message(capabilities.switch.switch.on())
+          }
+        }
+    )
+
+    run_registered_tests()
+
+
+Capability command -> Zigbee radio message
+
+.. code-block:: lua
+
+    local test = require "integration_test"
+    local clusters = require "st.zigbee.zcl.clusters"
+    local LevelControlCluster = clusters.LevelControlCluster
+    local capabilities = require "st.capabilities"
+    local zigbee_test_utils = require "integration_test.zigbee_test_utils"
+
+    local zigbee_bulb_no_color_profile = {
+      components = {
+        main = {
+          capabilities = {
+            [capabilities.switch.ID] = { id = capabilities.switch.ID },
+            [capabilities.switchLevel.ID] = { id = capabilities.switchLevel.ID },
+          },
+          id = "main"
+        }
+      }
+    }
+
+    local mock_simple_device = test.mock_device.build_test_zigbee_device({ profile = zigbee_bulb_no_color_profile })
+    test.mock_device.add_test_device(mock_simple_device)
+
+    test.register_message_test(
+        "Capability command setLevel should be handled",
+        {
+          {
+            channel = "capability",
+            direction = "receive",
+            message = { mock_simple_device.id, { capability = "switchLevel", command = "setLevel", args = { 57, 0 } } }
+          },
+          {
+            channel = "zigbee",
+            direction = "send",
+            message = { mock_simple_device.id, LevelControlCluster.commands.client.MoveToLevelWithOnOff(mock_simple_device,
+                                                                                                        math.floor(57 * 0xFE / 100),
+                                                                                                        0) }
+          }
+        }
+    )
+
+    run_registered_tests()
+
+opts
+~~~~
+
+The message test also takes an optional third argument `opts` which can be used to set additional controls for the test.
+
+inner_block_ordering
+####################
+
+The ``inner_block_ordering`` argument defaults to `"strict"` but can be set to
+`"relaxed"`.  To understand this argument, first we can define what a "block" of messages is.  In general the message
+tests will be broken into a series of "blocks" each of which is 1 "receive" message (i.e. external stimulus) followed by
+any number (0 included) of "send" messages (output).  So the `inner_block_ordering` set to relax specifically means that
+within a given block, the "send" messages must all be sent, but can be sent in any order.  This is primarily needed in
+tests where a single "receive" message results in many "send" messages, but those "send" messages are created within the
+driver by iterating over a table.  Because iterating over a table does not have a guaranteed order, we relax our test
+expectations to require all messages be sent, but not the order.  Important to note is that the order of the blocks
+themselves will still be strictly in the order they are presented.  Following is an example of a test using this option
+
+.. code-block:: lua
+
+    local test = require "integration_test"
+    local clusters = require "st.zigbee.zcl.clusters"
+    local LevelControlCluster = clusters.LevelControlCluster
+    local OnOffCluster = clusters.OnOffCluster
+    local capabilities = require "st.capabilities"
+    local zigbee_test_utils = require "integration_test.zigbee_test_utils"
+
+    local zigbee_bulb_no_color_profile = {
+      components = {
+        main = {
+          capabilities = {
+            [capabilities.switch.ID] = { id = capabilities.switch.ID },
+            [capabilities.switchLevel.ID] = { id = capabilities.switchLevel.ID },
+          },
+          id = "main"
+        }
+      }
+    }
+
+    local mock_simple_device = test.mock_device.build_test_zigbee_device({ profile = zigbee_bulb_no_color_profile })
+    test.mock_device.add_test_device(mock_simple_device)
+
+    test.register_message_test(
+        "Configuration Capability Command should configure device",
+        {
+          {
+            channel = "environment_update",
+            direction = "receive",
+            message = { "zigbee", { hub_zigbee_id = base64.encode(zigbee_test_utils.mock_hub_eui) } },
+          },
+          {
+            channel = "device_lifecycle",
+            direction = "receive",
+            message = { mock_simple_device.id, "added" },
+          },
+          {
+            channel = "capability",
+            direction = "receive",
+            message = {
+              mock_simple_device.id,
+              { capability = "configuration", command = "configure", args = {} }
+            }
+          },
+          {
+            channel = "zigbee",
+            direction = "send",
+            message = {
+              mock_simple_device.id,
+              zigbee_test_utils.build_bind_request(mock_simple_device,
+                                                   zigbee_test_utils.mock_hub_eui,
+                                                   OnOffCluster.ID)
+            }
+          },
+          {
+            channel = "zigbee",
+            direction = "send",
+            message = {
+              mock_simple_device.id,
+              OnOffCluster.attributes.OnOff:configure_reporting(mock_simple_device, 0, 300)
+            }
+          },
+          {
+            channel = "zigbee",
+            direction = "send",
+            message = {
+              mock_simple_device.id,
+              zigbee_test_utils.build_bind_request(mock_simple_device,
+                                                   zigbee_test_utils.mock_hub_eui,
+                                                   LevelControlCluster.ID)
+            }
+          },
+          {
+            channel = "zigbee",
+            direction = "send",
+            message = {
+              mock_simple_device.id,
+              LevelControlCluster.attributes.CurrentLevel:configure_reporting(mock_simple_device, 1, 3600, 1)
+            }
+          },
+        },
+        {
+          inner_block_ordering = "relaxed"
+        }
+    )
+
+    run_registered_tests()
+
+
+test_init
+#########
+
+Additionally, you can set the field ``test_init`` in the opts to a function.  This function will replace the global
+:ref:`test init <test_init>` function for just this test.  This would allow you to set up a different device for an
+individual test, or otherwise manage test specific setup.
+
+
+Coroutine Tests
++++++++++++++++
+
+If you prefer the syntax of writing a function as a test, or you need to interact with datastores or timers, you can
+use a "coroutine" test.  All "message" tests can be described as a coroutine test, but you have some additional control
+in this test format.  This will still work largely in the format of, set up input (often a "receive" message, but could
+also be a timer expiring), expect output, then return control to the driver.  The primary way to set up input would be
+queueing a message to be received on a certain "channel" that your driver is subscribed to.  The syntax for this is:
+
+.. code-block:: lua
+
+    integration_test.socket.<socket_name>:__queue_receive(<socket_specific_message>)
+
+
+or for a concrete example:
+
+.. code-block:: lua
+
+      test.socket.zigbee:__queue_receive(
+        {
+          mock_device.id,
+          OccupancySensingCluster.attributes.Occupancy:build_test_attr_report(
+              mock_device,
+              0x01
+          )
+        }
+      )
+
+
+And similarly you can set up the expected output from your driver:
+
+.. code-block:: lua
+
+    integration_test.socket.<socket_name>:__expect_send(<socket_specific_message>)
+
+or
+
+.. code-block:: lua
+
+     test.socket.zigbee:__expect_send(
+       {
+         mock_simple_device.id,
+         OnOffCluster.attributes.OnOff:read(mock_simple_device)
+       }
+     )
+
+
+Putting these together into a simple test:
+
+.. code-block:: lua
+
+    integration_test.register_coroutine_test(
+        "my test",
+        function()
+          integration_test.socket.zigbee:__queue_receive(
+            {
+              mock_simple_device.id,
+              OnOffCluster.attributes.OnOff:build_test_attr_report(
+                  mock_simple_device,
+                  true
+              )
+            }
+          integration_test.socket.capability:__expect_send(
+              mock_simple_device.generate_test_message(capabilities.switch.switch.on())
+          )
+
+          integration_test.wait_for_events()
+
+          integration_test.socket.capability:__queue_receive(
+              {
+                mock_device.id,
+                { capability = "switch", command = "on", args = {} }
+              }
+          )
+          integration_test.socket.zigbee:__expect_send(
+            {
+              mock_simple_device.id,
+              OnOffCluster.commands.client.On(mock_simple_device)
+            }
+          )
+        end
+    )
+
+
+This is a simple test that will verify first that given a Zigbee "On" report, a capability event for `switch.switch = on`
+is generated, then, will verify that a capability command of `switch.switch.on` will result in the expected Zigbee
+command. This example could be expressed as a "message" test, but shows the equivalent in a "coroutine" test.
+
+opts
+~~~~
+
+The coroutine test also takes an optional third argument `opts` which can be used to set additional controls for the
+test.
+
+test_init
+#########
+
+You can set the field ``test_init`` in the opts to a function.  This function will replace the global
+:ref:`test init <test_init>` function for just this test.  This would allow you to set up a different device for an
+individual test, or otherwise manage test specific setup.
+
+
+Test Completion
+---------------
+Because the standard libraries default implementation will set up some periodic timers for drivers, and because drivers
+are "long running" (i.e. they behave as if the code is always running), we need to know when a test is done so that we
+can stop the driver under test from running forever and move on to the next test.  This is determined by having "no more
+work" to do.  Practically what this means is if the driver under test checks to see if it has any more input to process
+(typically either a received/input message to process or an expired timer, or the test function coroutine has not
+completed), and there is none, the test will be considered complete and we will verify that all expectations were
+fulfilled and return control to the test code to run the next test.
+
+
+Timers
+-------
+
+Timers are a common use case for driver execution.  Whether they be timer that gets set up automatically on startup
+to run every X seconds, or upon receiving some input you want to delay 2 seconds before doing the next action, we
+need a way to handle these within driver tests.  Because there may be timers created automatically by the standard
+libraries, but we don't want those to interfere with tests, the default behavior for a driver creating a timer (either
+`call_on_schedule` or `call_with_delay`) from the test environment is to return a timer that will never fire.  In
+addition, because of the way timer handling works, if you want behavior other than the above, you must define the timer
+before the driver requests it so that it can be returned to the driver as the correct "timer" object.
+
+The timer object can be completely customized if it is necessary, however, in most cases using the helper functions to
+create some standard template timers.  The most common of these will be the "time advance timer" which is a mock timer
+that will automatically "fire" after mock time is advanced by a certain amount. Following is a trivial example:
+
+.. code-block:: lua
+
+    test.register_coroutine_test(
+        "timer test",
+        function()
+          -- create a mock timer that will automatically fire after mock time moves forward 100 seconds
+          test.timer.__create_and_queue_test_time_advance_timer(100, "oneshot")
+
+          -- Add whatever queue'd input will result in a call to `call_with_delay` which will be returned the
+          -- above timer
+
+          -- let the driver run
+          test.wait_for_events()
+
+          -- Advance mock time by 100 seconds
+          test.mock_time.advance_time(100)
+
+          -- Add whatever expects for the results of the timer firing here
+        end
+    )
+
+
+In this case we create a "oneshot" timer (used with call_with_delay) that will be returned the next time the driver
+requests a timer of that type.  Once that timer is created and prepped, the test should set up the driver to be in the
+necessary state to request that timer.  The test yields to let the driver run and request the test.  Then because the
+timer we created was a time advance timer, it will automatically "fire" from the drivers perspective once test time is
+advanced by 100 seconds, so we make the call to advance time, and then we would set up whatever expectations we have
+of the driver given that the timer will fire.
+
+Here is a real example of a timer test:
+
+.. code-block:: lua
+
+    test.register_coroutine_test(
+        "set color command test",
+        function()
+          test.timer.__create_and_queue_test_time_advance_timer(2, "oneshot")
+          test.socket.capability:__queue_receive({
+              mock_device.id,
+              { capability = "colorControl", command = "setColor", args = { { hue = 50, saturation = 50 } } } })
+          }
+          test.socket.zigbee:__expect_send(
+              {
+                mock_device.id,
+                OnOffCluster.commands.client.On(mock_device)
+              }
+          )
+          local hue = math.floor((50 * 0xFE) / 100.0 + 0.5)
+          local sat = math.floor((50 * 0xFE) / 100.0 + 0.5)
+          test.socket.zigbee:__expect_send(
+              {
+                mock_device.id,
+                ColorControlCluster.commands.client.MoveToHueAndSaturation(
+                    mock_device,
+                    hue,
+                    sat,
+                    0x0000
+                )
+              }
+          )
+
+          test.wait_for_events()
+
+          test.mock_time.advance_time(2)
+          test.socket.zigbee:__expect_send(
+              {
+                  mock_device.id,
+                  ColorControlCluster.attributes.ColorControlCurrentHue:read(mock_device)
+              }
+          )
+          test.socket.zigbee:__expect_send(
+              {
+                  mock_device.id,
+                  ColorControlCluster.attributes.ColorControlCurrentSaturation:read(mock_device)
+              }
+          )
+        end
+    )
+
+
+In this example we test receiving a `colorControl.setColor` command from the cloud for a Zigbee bulb.  In this case we
+will immediately send an on command and a command to move the bulb to the correct hue and saturation, however, we also
+want to send a read to get the updated device values.  But because the bulb will go through a transition phase, that
+read is delayed by 2 seconds.
+
+If a more generic timer is needed the function
+`timer_api.__create_and_queue_generic_timer = function(ready_check_func, timer_class)` is available. Here you simply
+provide a function that will be called repeatedly to determine if a timer is ready to fire and should return true/false.
+Important to note that this check may be called multiple times before the timer itself is actually handled, and as such
+it is recommended that your check function use the `self.__handled` value which will not be true until the timer has
+actually been returned to the driver to be handled.
+`

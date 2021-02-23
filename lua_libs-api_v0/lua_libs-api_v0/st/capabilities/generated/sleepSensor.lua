@@ -1,0 +1,1 @@
+return [[{"name": "Sleep Sensor", "status": "live", "attributes": {"sleeping": {"schema": {"type": "object", "additionalProperties": false, "properties": {"value": {"type": "string", "enum": ["not sleeping", "sleeping"]}}, "required": ["value"]}, "type": "ENUM", "values": ["not sleeping", "sleeping"]}}, "commands": {}, "public": true, "id": "sleepSensor", "version": 1}]]

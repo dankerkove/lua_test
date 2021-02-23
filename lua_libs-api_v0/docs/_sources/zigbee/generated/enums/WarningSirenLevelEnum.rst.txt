@@ -1,0 +1,4 @@
+WarningSirenLevelEnum
+=====================
+
+.. lua:autoclass:: WarningSirenLevelEnum

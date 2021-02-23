@@ -1,0 +1,4 @@
+EventIdEnum
+===========
+
+.. lua:autoclass:: EventIdEnum

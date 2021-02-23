@@ -1,0 +1,4 @@
+LoadControlStateBitmap
+======================
+
+.. lua:autoclass:: LoadControlStateBitmap

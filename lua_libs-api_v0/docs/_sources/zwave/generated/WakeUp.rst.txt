@@ -1,0 +1,15 @@
+Wake Up
+=======
+
+.. toctree::
+   :maxdepth: 2
+
+   WakeUp/IntervalSet
+   WakeUp/IntervalGet
+   WakeUp/IntervalReport
+   WakeUp/Notification
+   WakeUp/NoMoreInformation
+   WakeUp/IntervalCapabilitiesGet
+   WakeUp/IntervalCapabilitiesReport
+
+.. lua:autoclass:: st.zwave.CommandClass.WakeUp

@@ -1,0 +1,11 @@
+Clock
+=====
+
+.. toctree::
+   :maxdepth: 2
+
+   Clock/Set
+   Clock/Get
+   Clock/Report
+
+.. lua:autoclass:: st.zwave.CommandClass.Clock

@@ -1,0 +1,4 @@
+DayOfWeekBitmap
+===============
+
+.. lua:autoclass:: DayOfWeekBitmap

@@ -1,0 +1,1 @@
+return require("st.zigbee.generated.zcl_clusters")

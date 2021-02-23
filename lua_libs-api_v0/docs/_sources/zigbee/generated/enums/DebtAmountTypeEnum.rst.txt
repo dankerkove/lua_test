@@ -1,0 +1,4 @@
+DebtAmountTypeEnum
+==================
+
+.. lua:autoclass:: DebtAmountTypeEnum

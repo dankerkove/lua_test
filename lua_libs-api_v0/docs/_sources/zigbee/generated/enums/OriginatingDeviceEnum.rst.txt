@@ -1,0 +1,4 @@
+OriginatingDeviceEnum
+=====================
+
+.. lua:autoclass:: OriginatingDeviceEnum

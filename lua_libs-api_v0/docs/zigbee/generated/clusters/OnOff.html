@@ -1,0 +1,1768 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OnOff &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="../../../index.html"/>
+        <link rel="up" title="Generated Clusters" href="../clusters.html"/>
+        <link rel="next" title="Level" href="Level.html"/>
+        <link rel="prev" title="Scenes" href="Scenes.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../buf.html">Buffer Library</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../zigbee.html">Zigbee Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../driver.html">Zigbee driver structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../device.html">ZigbeeDevice Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zigbee_message_handlers.html">Zigbee Driver RX message handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../defaults.html">Zigbee Driver Capability Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../messages.html">Zigbee Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_types.html">Zigbee Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_commands.html">ZCL Global Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zcl/zcl_clusters.html">ZCL Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zdo/zdo_commands.html">ZDO Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../generated.html">Generated Zigbee Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../clusters.html">Generated Clusters</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Basic.html">Basic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PowerConfiguration.html">PowerConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DeviceTemperatureConfiguration.html">DeviceTemperatureConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Identify.html">Identify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Groups.html">Groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Scenes.html">Scenes</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">OnOff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Level.html">Level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Alarms.html">Alarms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Time.html">Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Commissioning.html">Commissioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OTAUpgrade.html">OTAUpgrade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PollControl.html">PollControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ShadeConfiguration.html">ShadeConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoorLock.html">DoorLock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindowCovering.html">WindowCovering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BarrierControl.html">BarrierControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PumpConfigurationAndControl.html">PumpConfigurationAndControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Thermostat.html">Thermostat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FanControl.html">FanControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DehumidificationControl.html">DehumidificationControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ThermostatUserInterfaceConfiguration.html">ThermostatUserInterfaceConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorControl.html">ColorControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BallastConfiguration.html">BallastConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IlluminanceMeasurement.html">IlluminanceMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IlluminanceLevelSensing.html">IlluminanceLevelSensing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TemperatureMeasurement.html">TemperatureMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PressureMeasurement.html">PressureMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FlowMeasurement.html">FlowMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RelativeHumidity.html">RelativeHumidity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OccupancySensing.html">OccupancySensing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PhMeasurement.html">PhMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalConductivityMeasurement.html">ElectricalConductivityMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WindSpeedMeasurement.html">WindSpeedMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CarbonMonoxide.html">CarbonMonoxide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IASZone.html">IASZone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IASACE.html">IASACE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IASWD.html">IASWD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SimpleMetering.html">SimpleMetering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElectricalMeasurement.html">ElectricalMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Diagnostics.html">Diagnostics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TouchlinkCommissioning.html">TouchlinkCommissioning</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../types.html">Generated Shared Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../device.html">Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../../zigbee.html">Zigbee Libraries</a> &raquo;</li>
+        
+          <li><a href="../../generated.html">Generated Zigbee Code</a> &raquo;</li>
+        
+          <li><a href="../clusters.html">Generated Clusters</a> &raquo;</li>
+        
+      <li>OnOff</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/zigbee/generated/clusters/OnOff.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="onoff">
+<h1>OnOff<a class="headerlink" href="#onoff" title="Permalink to this headline">¶</a></h1>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0006 the ID of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OnOff” the name of this cluster</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.attributes">
+<code class="sig-name descname">attributes</code><em class="property">: </em>st.zigbee.zcl.clusters.OnOffServerAttributes or st.zigbee.zcl.clusters.OnOffClientAttributes<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.commands">
+<code class="sig-name descname">commands</code><em class="property">: </em>st.zigbee.zcl.clusters.OnOffServerCommands or st.zigbee.zcl.clusters.OnOffClientCommands<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.types">
+<code class="sig-name descname">types</code><em class="property">: </em>st.zigbee.zcl.clusters.OnOffTypes<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.get_attribute_by_id">
+<em class="property"> </em><code class="sig-name descname">get_attribute_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.get_attribute_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find an attribute by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>number</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.get_server_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_server_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.get_server_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a server command by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>number</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.get_client_command_by_id">
+<em class="property"> </em><code class="sig-name descname">get_client_command_by_id</code><span class="sig-paren">(</span><em class="sig-param">command_id</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.get_client_command_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a client command by id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command_id</strong> (<em>number</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="onoff-attributes">
+<h2>OnOff Attributes<a class="headerlink" href="#onoff-attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.OnOff</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x0000 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OnOff” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Boolean<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Boolean" title="Boolean"><em>Boolean</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Boolean" title="Boolean"><em>Boolean</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Boolean object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the OnOff(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Boolean</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Boolean" title="Boolean">Boolean</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnOff.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnOff.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.GlobalSceneControl</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x4000 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“GlobalSceneControl” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Boolean<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Boolean" title="Boolean"><em>Boolean</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Boolean" title="Boolean"><em>Boolean</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Boolean object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the GlobalSceneControl(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Boolean</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Boolean" title="Boolean">Boolean</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.GlobalSceneControl.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.OnTime</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x4001 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OnTime” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Uint16 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the OnTime(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Uint16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Uint16" title="Uint16">Uint16</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.write">
+<em class="property"> </em><code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a value to this attribute on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>value</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – the value to write</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnTime.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnTime.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.OffWaitTime</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x4002 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OffWaitTime” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Uint16 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the OffWaitTime(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Uint16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Uint16" title="Uint16">Uint16</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em>, <em class="sig-param">rep_change</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+<li><p><strong>rep_change</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – The amount of change of the attribute to trigger a report</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.write">
+<em class="property"> </em><code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a value to this attribute on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>value</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – the value to write</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWaitTime.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWaitTime.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.StartUpOnOff</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x4003 the ID of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“StartUpOnOff” the name of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.data_type">
+<code class="sig-name descname">data_type</code><em class="property">: </em>Enum8<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data type of this attribute</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.SET_ON_OFF_TO0">
+<code class="sig-name descname">SET_ON_OFF_TO0</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.SET_ON_OFF_TO0" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.SET_ON_OFF_TO1">
+<code class="sig-name descname">SET_ON_OFF_TO1</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.SET_ON_OFF_TO1" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.TOGGLE_PREVIOUS_ON_OFF">
+<code class="sig-name descname">TOGGLE_PREVIOUS_ON_OFF</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.TOGGLE_PREVIOUS_ON_OFF" title="Permalink to this definition">¶</a></dt>
+<dd><p>2</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.SET_PREVIOUS_ON_OFF">
+<code class="sig-name descname">SET_PREVIOUS_ON_OFF</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.SET_PREVIOUS_ON_OFF" title="Permalink to this definition">¶</a></dt>
+<dd><p>255</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.augment_type">
+<em class="property"> </em><code class="sig-name descname">augment_type</code><span class="sig-paren">(</span><em class="sig-param">base_type_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.augment_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add additional functionality to the base type object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>base_type_obj</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – the base data type object to add functionality to</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.build_test_attr_report">
+<em class="property"> </em><code class="sig-name descname">build_test_attr_report</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.build_test_attr_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device reported this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an AttributeReport body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.build_test_read_attr_response">
+<em class="property"> </em><code class="sig-name descname">build_test_read_attr_response</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.build_test_read_attr_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Rx Zigbee message as if a device sent a read response for this attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – the attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing an ReadAttributeResponse body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.new_value">
+<em class="property"> </em><code class="sig-name descname">new_value</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.new_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Enum8 object of this attribute with any additional features provided for the attribute</p>
+<p>This is also usable with the StartUpOnOff(…) syntax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vararg</strong> (<em>vararg</em>) – the values needed to construct a Enum8</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_types.html#Enum8" title="Enum8">Enum8</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.read">
+<em class="property"> </em><code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to read this attribute from a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ReadAttribute body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.configure_reporting">
+<em class="property"> </em><code class="sig-name descname">configure_reporting</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">min_rep_int</em>, <em class="sig-param">max_rep_int</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.configure_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ZigbeeMessageTx to configure this attribute for reporting on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>min_rep_int</strong> (<em>number or Uint16</em>) – the minimum interval allowed between reports of this attribute</p></li>
+<li><p><strong>max_rep_int</strong> (<em>number or Uint16</em>) – the maximum interval allowed between reports of this attribute</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>containing a ConfigureReporting body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.write">
+<em class="property"> </em><code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a value to this attribute on a device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – </p></li>
+<li><p><strong>value</strong> (<a class="reference internal" href="../../data_types.html#Enum8" title="Enum8"><em>Enum8</em></a>) – the value to write</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.StartUpOnOff.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.StartUpOnOff.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="onoff-commands">
+<h2>OnOff Commands<a class="headerlink" href="#onoff-commands" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.Off">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.Off</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Off" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.Off.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Off.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x00 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.Off.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Off.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Off” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.Off.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Off.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.Off.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Off.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Off</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.Off.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Off.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.Off.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Off.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.Off.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Off.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the Off command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>Off</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.Off.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Off.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.On">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.On</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.On" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.On.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.On.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x01 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.On.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.On.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“On” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.On.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.On.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.On.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.On.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>On</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.On.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.On.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.On.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.On.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.On.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.On.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the On command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>On</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.On.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.On.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.Toggle">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.Toggle</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Toggle" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.Toggle.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Toggle.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x02 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.Toggle.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Toggle.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Toggle” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.Toggle.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Toggle.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.Toggle.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Toggle.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Toggle</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.Toggle.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Toggle.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.Toggle.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Toggle.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.Toggle.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Toggle.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the Toggle command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>Toggle</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.Toggle.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.Toggle.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.OffWithEffect</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x40 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OffWithEffect” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect.effect_identifier">
+<code class="sig-name descname">effect_identifier</code><em class="property">: </em>st.zigbee.zcl.clusters.OnOff.EffectIdentifier<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect.effect_identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect.effect_variant">
+<code class="sig-name descname">effect_variant</code><em class="property">: </em>Uint8<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect.effect_variant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>OffWithEffect</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">effect_identifier</em>, <em class="sig-param">effect_variant</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>effect_identifier</strong> (<em>st.zigbee.zcl.clusters.OnOff.EffectIdentifier</em>) – </p></li>
+<li><p><strong>effect_variant</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">effect_identifier</em>, <em class="sig-param">effect_variant</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the OffWithEffect command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>OffWithEffect</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>effect_identifier</strong> (<em>st.zigbee.zcl.clusters.OnOff.EffectIdentifier</em>) – </p></li>
+<li><p><strong>effect_variant</strong> (<a class="reference internal" href="../../data_types.html#Uint8" title="Uint8"><em>Uint8</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OffWithEffect.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OffWithEffect.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x41 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OnWithRecallGlobalScene” the name of this command</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>OnWithRecallGlobalScene</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the OnWithRecallGlobalScene command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>OnWithRecallGlobalScene</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithRecallGlobalScene.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.OnWithTimedOff</code><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.ID">
+<code class="sig-name descname">ID</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>0x42 the ID of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.NAME">
+<code class="sig-name descname">NAME</code><em class="property">: </em>str<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>“OnWithTimedOff” the name of this command</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.on_off_control">
+<code class="sig-name descname">on_off_control</code><em class="property">: </em>st.zigbee.zcl.clusters.OnOff.OnOffControl<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.on_off_control" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.on_time">
+<code class="sig-name descname">on_time</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.on_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.off_wait_time">
+<code class="sig-name descname">off_wait_time</code><em class="property">: </em>Uint16<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.off_wait_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.get_fields">
+<em class="property"> </em><code class="sig-name descname">get_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.get_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.deserialize">
+<em class="property">static </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">buf</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize this command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buf</strong> (<em>buf</em>) – the bytes of the command body</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>OnWithTimedOff</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.set_field_names">
+<em class="property"> </em><code class="sig-name descname">set_field_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.set_field_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="lua staticmethod">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.build_test_rx">
+<em class="property">static </em><code class="sig-name descname">build_test_rx</code><span class="sig-paren">(</span><em class="sig-param">device</em>, <em class="sig-param">on_off_control</em>, <em class="sig-param">on_time</em>, <em class="sig-param">off_wait_time</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.build_test_rx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a version of this message as if it came from the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build the message from</p></li>
+<li><p><strong>on_off_control</strong> (<em>st.zigbee.zcl.clusters.OnOff.OnOffControl</em>) – </p></li>
+<li><p><strong>on_time</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>off_wait_time</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The full Zigbee message containing this command body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageRx" title="ZigbeeMessageRx">ZigbeeMessageRx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.init">
+<em class="property"> </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">device</em>, <em class="sig-param">on_off_control</em>, <em class="sig-param">on_time</em>, <em class="sig-param">off_wait_time</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the OnWithTimedOff command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>OnWithTimedOff</em>) – the template class for this command</p></li>
+<li><p><strong>device</strong> (<a class="reference internal" href="../../device.html#ZigbeeDevice" title="ZigbeeDevice"><em>ZigbeeDevice</em></a>) – the device to build this message to</p></li>
+<li><p><strong>on_off_control</strong> (<em>st.zigbee.zcl.clusters.OnOff.OnOffControl</em>) – </p></li>
+<li><p><strong>on_time</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+<li><p><strong>off_wait_time</strong> (<a class="reference internal" href="../../data_types.html#Uint16" title="Uint16"><em>Uint16</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the full command addressed to the device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../messages.html#ZigbeeMessageTx" title="ZigbeeMessageTx">ZigbeeMessageTx</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.set_parent_cluster">
+<em class="property"> </em><code class="sig-name descname">set_parent_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.OnWithTimedOff.set_parent_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> (<em>any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="onoff-types">
+<h2>OnOff Types<a class="headerlink" href="#onoff-types" title="Permalink to this headline">¶</a></h2>
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.types.EffectIdentifier">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.types.EffectIdentifier</code><em class="property">: </em><a class="reference internal" href="../../data_types.html#UintABC" title="UintABC">UintABC</a><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types.EffectIdentifier" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.types.EffectIdentifier.byte_length">
+<code class="sig-name descname">byte_length</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types.EffectIdentifier.byte_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.types.EffectIdentifier.DELAYED_ALL_OFF">
+<code class="sig-name descname">DELAYED_ALL_OFF</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types.EffectIdentifier.DELAYED_ALL_OFF" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.types.EffectIdentifier.DYING_LIGHT">
+<code class="sig-name descname">DYING_LIGHT</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types.EffectIdentifier.DYING_LIGHT" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="lua class">
+<dt id="st.zigbee.zcl.clusters.OnOff.types.OnOffControl">
+<em class="property">class </em><code class="sig-name descname">st.zigbee.zcl.clusters.OnOff.types.OnOffControl</code><em class="property">: </em><a class="reference internal" href="../../data_types.html#Uint8" title="Uint8">Uint8</a><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types.OnOffControl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.types.OnOffControl.byte_length">
+<code class="sig-name descname">byte_length</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types.OnOffControl.byte_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt id="st.zigbee.zcl.clusters.OnOff.types.OnOffControl.ACCEPT_ONLY_WHEN_ON">
+<code class="sig-name descname">ACCEPT_ONLY_WHEN_ON</code><em class="property">: </em>number<a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types.OnOffControl.ACCEPT_ONLY_WHEN_ON" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.types.OnOffControl.is_accept_only_when_on_set">
+<em class="property"> </em><code class="sig-name descname">is_accept_only_when_on_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types.OnOffControl.is_accept_only_when_on_set" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the value of ACCEPT_ONLY_WHEN_ON is non-zero</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.types.OnOffControl.set_accept_only_when_on">
+<em class="property"> </em><code class="sig-name descname">set_accept_only_when_on</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types.OnOffControl.set_accept_only_when_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bit in the ACCEPT_ONLY_WHEN_ON field to 1</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt id="st.zigbee.zcl.clusters.OnOff.types.OnOffControl.unset_accept_only_when_on">
+<em class="property"> </em><code class="sig-name descname">unset_accept_only_when_on</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#st.zigbee.zcl.clusters.OnOff.types.OnOffControl.unset_accept_only_when_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the bits in the ACCEPT_ONLY_WHEN_ON field to 0</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Level.html" class="btn btn-neutral float-right" title="Level" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Scenes.html" class="btn btn-neutral" title="Scenes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

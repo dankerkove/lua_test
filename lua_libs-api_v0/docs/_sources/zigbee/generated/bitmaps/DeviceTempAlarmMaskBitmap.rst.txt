@@ -1,0 +1,4 @@
+DeviceTempAlarmMaskBitmap
+=========================
+
+.. lua:autoclass:: DeviceTempAlarmMaskBitmap

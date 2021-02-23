@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Devices &mdash; SmartThings Edge Device Drivers  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="SmartThings Edge Device Drivers  documentation" href="index.html"/>
+        <link rel="up" title="&lt;no title&gt;" href="reference/index.html"/>
+        <link rel="next" title="Dispatchers" href="dispatchers.html"/>
+        <link rel="prev" title="Capabilities" href="capabilities.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SmartThings Edge Device Drivers
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guides/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/first-driver.html">Writing your first Lua driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/package.html">Package Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/lan.html">LAN Edge Device Driver Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/rpc-client.html">Writing an RPC Client Driver</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lua_environment.html">Lua Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Logging Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buf.html">Buffer Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zigbee/zigbee.html">Zigbee Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zwave/zwave.html">Z-Wave Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capabilities.html">Capabilities</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Devices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#device-class">Device Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dispatchers.html">Dispatchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driver_tests.html">Driver Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datastore.html">Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Socket Library</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SmartThings Edge Device Drivers</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="reference/index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+      <li>Devices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/device.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="devices">
+<h1>Devices<a class="headerlink" href="#devices" title="Permalink to this headline">¶</a></h1>
+<p>In order for a driver to do its job it will need to know information about the devices that it is responsible for.
+Information about these devices is done through the “device_api” object that is provided in the environment.  There
+are a few main ways to interact with this, but the most common will be the <code class="docutils literal notranslate"><span class="pre">get_device_list()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">get_device_info(&lt;device_uuid&gt;)</span></code> functions.  <code class="docutils literal notranslate"><span class="pre">get_device_list()</span></code> will return a list of UUIDs for all the devices that
+are managed by the current driver. <code class="docutils literal notranslate"><span class="pre">get_device_info(&lt;device_uuid&gt;)</span></code> can be used directly, but it is recommended to use
+the helper function <code class="docutils literal notranslate"><span class="pre">driver:get_device_info()</span></code>.  The primary reason for that is because this method will build a
+<code class="docutils literal notranslate"><span class="pre">Device</span></code> object in lua that provides many utility functions and abstractions that will simplify many normal use cases
+instead of providing a raw json string, .  It will also provide relevant caching and updating on changes
+that originate outside the driver.  In addition a driver can provide a <code class="docutils literal notranslate"><span class="pre">post_device_info_handler</span></code> function that can do
+additional processing after the provided processing.</p>
+<p>Below is an example of what is returned using the <code class="docutils literal notranslate"><span class="pre">device_api.get_device_info(&lt;device_uuid&gt;)</span></code> function</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">driver</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;9fbc3680-b9a9-4bd8-a574-9b03517032b2&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;smartthings/Lua Zigbee Water&quot;</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;DATAMGMT&quot;</span> <span class="p">},</span>
+  <span class="n">components</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">main</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">capabilities</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;temperatureMeasurement&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;battery&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;waterSensor&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;configuration&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;sensor&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;healthCheck&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="n">emit_event</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">capability_event</span><span class="p">,</span> <span class="n">event_metadata</span><span class="p">)</span> <span class="kr">end</span><span class="p">,</span>
+      <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;main&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="n">preferences</span> <span class="o">=</span> <span class="p">{},</span>
+  <span class="n">zigbee_endpoints</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="mi">1</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">client_clusters</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">25</span> <span class="p">},</span>
+      <span class="n">device_id</span> <span class="o">=</span> <span class="mi">1026</span><span class="p">,</span>
+      <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="n">manufacturer</span> <span class="o">=</span> <span class="s2">&quot;CentraLite&quot;</span><span class="p">,</span>
+      <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;3315-S&quot;</span><span class="p">,</span>
+      <span class="n">profile_id</span> <span class="o">=</span> <span class="mi">260</span><span class="p">,</span>
+      <span class="n">server_clusters</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">1026</span><span class="p">,</span> <span class="mi">1280</span><span class="p">,</span> <span class="mi">2821</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;02703834-4ab9-46e0-80ed-789fbd481f63&quot;</span><span class="p">,</span>
+  <span class="n">fingerprinted_endpoint_id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="n">zigbee_eui</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\x00\x0D\x6F\x00\x03\x26\x8A\x5C</span><span class="s2">&quot;</span><span class="p">,</span>
+  <span class="n">network_type</span> <span class="o">=</span> <span class="s2">&quot;DEVICE_ZIGBEE&quot;</span><span class="p">,</span>
+  <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Water Leak Sensor&quot;</span><span class="p">,</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">deviceEUI</span> <span class="o">=</span> <span class="s2">&quot;000D6F0003268A5C&quot;</span><span class="p">,</span>
+    <span class="n">firmwareChecked</span> <span class="o">=</span> <span class="s2">&quot;2020-01-15T00:41:46.213Z&quot;</span><span class="p">,</span>
+    <span class="n">initialJoinTime</span> <span class="o">=</span> <span class="s2">&quot;2019-12-05T15:54:31.563Z&quot;</span><span class="p">,</span>
+    <span class="n">initialJoinType</span> <span class="o">=</span> <span class="s2">&quot;Unsecure Join&quot;</span><span class="p">,</span>
+    <span class="n">lastJoinTime</span> <span class="o">=</span> <span class="s2">&quot;2020-01-08T18:33:57.480Z&quot;</span><span class="p">,</span>
+    <span class="n">lastJoinType</span> <span class="o">=</span> <span class="s2">&quot;Secure Rejoin&quot;</span><span class="p">,</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="s2">&quot;0000&quot;</span><span class="p">,</span>
+    <span class="n">targetFirmwareVersion</span> <span class="o">=</span> <span class="s2">&quot;520573712&quot;</span><span class="p">,</span>
+    <span class="n">zigbeeNodeType</span> <span class="o">=</span> <span class="s2">&quot;SLEEPY_END_DEVICE&quot;</span>
+  <span class="p">},</span>
+  <span class="n">execution_environment</span> <span class="o">=</span> <span class="s2">&quot;HUBCORE&quot;</span><span class="p">,</span>
+  <span class="n">profile</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">components</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="p">{</span>
+        <span class="n">capabilities</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;temperatureMeasurement&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;battery&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;waterSensor&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;configuration&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;sensor&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;healthCheck&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;main&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;b648f97a-ab00-4a92-a1f5-2d10bf9a5c7d&quot;</span>
+  <span class="p">},</span>
+  <span class="n">device_network_id</span> <span class="o">=</span> <span class="s2">&quot;D836&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="device-class">
+<h2>Device Class<a class="headerlink" href="#device-class" title="Permalink to this headline">¶</a></h2>
+<p>The device class is the wrapper on top of the raw data provided by the <code class="docutils literal notranslate"><span class="pre">device_api</span></code>.
+The device class table will store information in a variety of different locations, and
+these locations will be protected with metatables.  Following are the main pieces to the
+device object.</p>
+<dl class="simple">
+<dt>st_store:</dt><dd><p>This is used to store the above shown representation of the SmartThings device
+model.  It is read only, and will be updated automatically if there are changes in the
+model from an external source (e.g. a change in the cloud).  The top level values of this
+table are also “mirrored” onto the device object itself.  That is <code class="docutils literal notranslate"><span class="pre">device.st_store.id</span></code>
+will give you the device’s UUID to refer to the device in the SmartThings platform, but you
+can also access this value simply through <code class="docutils literal notranslate"><span class="pre">device.id</span></code>.  This is done for simplicity of
+access.</p>
+</dd>
+<dt>transient_store:</dt><dd><p>The transient_store is used for storing driver/device specific information.
+This information however, will only exist as long as the driver is running, and will need
+to be re-populated where necessary on restart of the hub.  A good example of this would be
+storing the timestamp of the last time you read a given attribute.  It’s something that is
+only useful within the context of the specific driver, but is easily re-constructed after
+a restart.  It is suggested that most of your data can/should be stored this way.  It is
+also recommended that most user/driver stored data be accessed/set using the
+<code class="docutils literal notranslate"><span class="pre">device:set_field</span></code> and <code class="docutils literal notranslate"><span class="pre">device:get_field</span></code> methods documented below.</p>
+</dd>
+<dt>persistent_store:</dt><dd><p>Similar to the transient_store, this is for use for driver specific
+information, however, unlike the transient_store, information written here will be stored
+and persisted through restarts.  This carries with it a cost in wear, as well as time delays
+associated with the writing and reading.  This should also be accessed through the
+<code class="docutils literal notranslate"><span class="pre">device:set_field</span></code> and <code class="docutils literal notranslate"><span class="pre">device:get_field</span></code> methods.  A good example of a target for the
+persistent store would be something like the number of lock codes a lock can support.  This
+is something that only needs to be read once when the device is first joined, and won’t
+change for the lifetime of the device.  This could be read every time the driver restarts, but
+it is reasonable to read once and store for the lifetime of the device.  In order to protect the
+longevity of your hub device, we limit how frequently values are actually written to flash. This
+does, however, come with a potential loss of information.  When the persistent store for your
+driver is “written” it is cached in memory and will actually be written to flash on a schedule
+and on graceful shutdown.  This means there is potential information loss in the case of a power
+loss.</p>
+</dd>
+<dt>state_cache:</dt><dd><p>The state cache is a transient data cache that will keep track for each component,
+capability, attribute, what the most recent generated state was.  So
+<code class="docutils literal notranslate"><span class="pre">device.state_cache.main.switch</span></code> would contain <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">value</span> <span class="pre">=</span> <span class="pre">&quot;on&quot;</span> <span class="pre">}</span></code>.</p>
+</dd>
+</dl>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_field</span></code> and <code class="docutils literal notranslate"><span class="pre">get_field</span></code> functions can be used to write and read from the persistent
+and transient stores.  It is enforced that top level keys cannot be repeated between the two
+stores, as such <code class="docutils literal notranslate"><span class="pre">get_field</span></code> will always return the single value with the matching key.
+Consequently <code class="docutils literal notranslate"><span class="pre">set_field</span></code> will delete the value in the other store if it is written to the
+other.</p>
+<p>There are also a variety of other utility methods documented below.</p>
+<div class="section" id="class-documentation">
+<h3>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h3>
+<dl class="lua class">
+<dt id="Device">
+<em class="property">class </em><code class="sig-name descname">Device</code><a class="headerlink" href="#Device" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="lua method">
+<dt id="Device.pretty_print">
+<em class="property"> </em><code class="sig-name descname">pretty_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Device.pretty_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a string with the ID and label of the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a short string representation of the device</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dispatchers.html" class="btn btn-neutral float-right" title="Dispatchers" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="capabilities.html" class="btn btn-neutral" title="Capabilities" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, SmartThings Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
